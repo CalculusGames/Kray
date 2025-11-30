@@ -11,6 +11,60 @@ import raylib.internal.*
  */
 object Window {
 
+	/**
+	 * The width of the current screen.
+	 */
+	val screenWidth: Int
+		get() = GetScreenWidth()
+
+	/**
+	 * The height of the current screen.
+	 */
+	val screenHeight: Int
+		get() = GetScreenHeight()
+
+	/**
+	 * The width of the render area.
+	 */
+	val renderWidth: Int
+		get() = GetRenderWidth()
+
+	/**
+	 * The height of the render area.
+	 */
+	val renderHeight: Int
+		get() = GetRenderHeight()
+
+	/**
+	 * Indicates whether the system is running in headless mode (no monitors connected).
+	 */
+	val isHeadless: Boolean
+		get() = _isHeadless
+
+	/**
+	 * The number of monitors connected to the system.
+	 */
+	val monitorCount: Int
+		get() = GetMonitorCount()
+
+	/**
+	 * The current monitor ID.
+	 */
+	val monitorId: Int
+		get() = GetCurrentMonitor()
+
+	/**
+	 * The width of the current monitor.
+	 */
+	val monitorWidth: Int
+		get() = GetMonitorWidth(monitorId)
+
+	/**
+	 * The height of the current monitor.
+	 */
+	val monitorHeight: Int
+		get() = GetMonitorHeight(monitorId)
+
     /**
      * Initializes the window with the specified width, height, and title.
      * @param width The width of the window.
@@ -238,3 +292,7 @@ object Cursor {
         }
 
 }
+
+// Expect
+
+internal expect val _isHeadless: Boolean
