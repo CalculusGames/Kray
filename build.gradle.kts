@@ -7,7 +7,7 @@ import org.jetbrains.kotlin.konan.target.Family
 
 plugins {
     kotlin("multiplatform") version "2.2.21"
-    id("org.jetbrains.dokka") version "2.0.0"
+    id("org.jetbrains.dokka") version "2.1.0"
 
     `maven-publish`
     signing
