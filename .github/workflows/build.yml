@@ -154,7 +154,7 @@ jobs:
         run: ./gradlew check
       - name: Archive Test Artifacts
         id: archive
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: test-artifacts-${{ matrix.name }}-${{ github.run_id }}
           path: |
