@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>State</title>
     <link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">
-    <script>var pathToRoot = "../../../../";</script>
-    <script>document.documentElement.classList.replace("no-js","js");</script>
+        <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
     <script>const storage = localStorage.getItem("dokka-dark-mode")
-    if (storage == null) {
+      if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         if (osDarkSchemePreferred === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    } else {
+      } else {
         const savedDarkMode = JSON.parse(storage)
-        if(savedDarkMode === true) {
-            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
         }
-    }
+      }
     </script>
 <script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
 <script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async="async"></script>
@@ -25,20 +25,18 @@
 <link href="../../../../styles/main.css" rel="Stylesheet">
 <link href="../../../../styles/prism.css" rel="Stylesheet">
 <link href="../../../../styles/logo-styles.css" rel="Stylesheet">
-<link href="../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
 <link href="../../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
-<script type="text/javascript" src="../../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../../scripts/safe-local-storage_blocking.js"></script>
 <script type="text/javascript" src="../../../../scripts/navigation-loader.js" async="async"></script>
 <script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async="async"></script>
 <script type="text/javascript" src="../../../../scripts/main.js" defer="defer"></script>
 <script type="text/javascript" src="../../../../scripts/prism.js" async="async"></script>
 <script type="text/javascript" src="../../../../ui-kit/ui-kit.min.js" defer="defer"></script>
-<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
 </head>
 <body>
-    <div class="root">
-    <nav class="navigation theme-dark" id="navigation-wrapper">
-            <a class="library-name--link" href="../../../../index.html">
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="../../../../index.html" tabindex="1">
                     raylibkt
             </a>
         <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
@@ -48,8 +46,8 @@
         <div class="library-version" id="library-version">
 1.0.0        </div>
         <div class="navigation-controls">
-        <div class="filter-section filter-section_loading" id="filter-section">
-                <button class="platform-tag platform-selector common-like" data-active=""
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector native-like" data-active="" aria-pressed="true"
                         data-filter=":/commonMain">common</button>
             <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
                 <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
@@ -59,13 +57,13 @@
                         aria-expanded="false"
                         aria-label="Toggle source sets"
                 ></button>
-                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
-                    <div class="dropdown--header"><span>Platform filter</span>
-                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
                             <i class="ui-kit-icon ui-kit-icon_cross"></i>
                         </button>
                     </div>
-                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                        <li role="option" class="dropdown--option platform-selector-option native-like" tabindex="0">
                             <label class="checkbox">
                                 <input type="checkbox" class="checkbox--input" id=":/commonMain"
                                        data-filter=":/commonMain"/>
@@ -76,7 +74,7 @@
                 </ul>
                 <div class="dropdown--overlay"></div>
             </div>
-        </div>
+        </ul>
             <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
                     type="button">Switch theme
             </button>
@@ -84,27 +82,29 @@
                 API
             </div>
         </div>
-    </nav>
-        <div id="container">
-            <div class="sidebar" id="leftColumn">
-                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
-                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
-                        data-role="dropdown-listbox">
-                        <div class="dropdown--header">
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
                             <span>
                                     raylibkt
                             </span>
-                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
-                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
-                            </button>
-                        </div>
-                        <div class="sidebar--inner" id="sideMenu"></div>
-                    </ul>
-                    <div class="dropdown--overlay"></div>
-                </div>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
             </div>
-            <div id="main">
-<div class="main-content" data-page-type="classlike" id="content" pageIds="raylibkt::raylib/Window.State///PointingToDeclaration//1558683979">
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="raylibkt::raylib/Window.State///PointingToDeclaration//-1958133601">
   <div class="breadcrumbs"><a href="../../../../index.html">raylibkt</a><span class="delimiter">/</span><a href="../../index.html">raylib</a><span class="delimiter">/</span><a href="../index.html">Window</a><span class="delimiter">/</span><span class="current">State</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>State</span></span></h1>
@@ -114,13 +114,13 @@
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button><button class="section-tab" data-togglable="ENTRY">Entries</button></div>
     <div class="tabs-section-body">
       <div data-togglable="ENTRY">
-        <h2 class="">Entries</h2>
-        <div class="table"><a data-name="-748908432%2FClasslikes%2F1558683979" anchor-label="VSYNC_HINT" id="-748908432%2FClasslikes%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+        <h2 class="tableheader">Entries</h2>
+        <div class="table"><a data-name="-748908432%2FClasslikes%2F-1958133601" anchor-label="VSYNC_HINT" id="-748908432%2FClasslikes%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-v-s-y-n-c_-h-i-n-t/index.html">VSYNC_HINT</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-748908432%2FClasslikes%2F1558683979"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-748908432%2FClasslikes%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -130,12 +130,12 @@
               </div>
             </div>
           </div>
-<a data-name="223367124%2FClasslikes%2F1558683979" anchor-label="FULLSCREEN_MODE" id="223367124%2FClasslikes%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+<a data-name="223367124%2FClasslikes%2F-1958133601" anchor-label="FULLSCREEN_MODE" id="223367124%2FClasslikes%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-f-u-l-l-s-c-r-e-e-n_-m-o-d-e/index.html">FULLSCREEN_MODE</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="223367124%2FClasslikes%2F1558683979"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="223367124%2FClasslikes%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -145,12 +145,12 @@
               </div>
             </div>
           </div>
-<a data-name="344741847%2FClasslikes%2F1558683979" anchor-label="WINDOW_RESIZABLE" id="344741847%2FClasslikes%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+<a data-name="344741847%2FClasslikes%2F-1958133601" anchor-label="WINDOW_RESIZABLE" id="344741847%2FClasslikes%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-w-i-n-d-o-w_-r-e-s-i-z-a-b-l-e/index.html">WINDOW_RESIZABLE</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="344741847%2FClasslikes%2F1558683979"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="344741847%2FClasslikes%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -160,12 +160,12 @@
               </div>
             </div>
           </div>
-<a data-name="2113947754%2FClasslikes%2F1558683979" anchor-label="WINDOW_UNDECORATED" id="2113947754%2FClasslikes%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+<a data-name="2113947754%2FClasslikes%2F-1958133601" anchor-label="WINDOW_UNDECORATED" id="2113947754%2FClasslikes%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-w-i-n-d-o-w_-u-n-d-e-c-o-r-a-t-e-d/index.html">WINDOW_UNDECORATED</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2113947754%2FClasslikes%2F1558683979"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2113947754%2FClasslikes%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -175,12 +175,12 @@
               </div>
             </div>
           </div>
-<a data-name="1053067206%2FClasslikes%2F1558683979" anchor-label="WINDOW_HIDDEN" id="1053067206%2FClasslikes%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+<a data-name="1053067206%2FClasslikes%2F-1958133601" anchor-label="WINDOW_HIDDEN" id="1053067206%2FClasslikes%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-w-i-n-d-o-w_-h-i-d-d-e-n/index.html">WINDOW_HIDDEN</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1053067206%2FClasslikes%2F1558683979"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1053067206%2FClasslikes%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -190,12 +190,12 @@
               </div>
             </div>
           </div>
-<a data-name="-1576612494%2FClasslikes%2F1558683979" anchor-label="WINDOW_MINIMIZED" id="-1576612494%2FClasslikes%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+<a data-name="-1576612494%2FClasslikes%2F-1958133601" anchor-label="WINDOW_MINIMIZED" id="-1576612494%2FClasslikes%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-w-i-n-d-o-w_-m-i-n-i-m-i-z-e-d/index.html">WINDOW_MINIMIZED</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1576612494%2FClasslikes%2F1558683979"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1576612494%2FClasslikes%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -205,12 +205,12 @@
               </div>
             </div>
           </div>
-<a data-name="-1879452796%2FClasslikes%2F1558683979" anchor-label="WINDOW_MAXIMIZED" id="-1879452796%2FClasslikes%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+<a data-name="-1879452796%2FClasslikes%2F-1958133601" anchor-label="WINDOW_MAXIMIZED" id="-1879452796%2FClasslikes%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-w-i-n-d-o-w_-m-a-x-i-m-i-z-e-d/index.html">WINDOW_MAXIMIZED</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1879452796%2FClasslikes%2F1558683979"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1879452796%2FClasslikes%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -220,12 +220,12 @@
               </div>
             </div>
           </div>
-<a data-name="-1255719766%2FClasslikes%2F1558683979" anchor-label="WINDOW_UNFOCUSED" id="-1255719766%2FClasslikes%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+<a data-name="-1255719766%2FClasslikes%2F-1958133601" anchor-label="WINDOW_UNFOCUSED" id="-1255719766%2FClasslikes%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-w-i-n-d-o-w_-u-n-f-o-c-u-s-e-d/index.html">WINDOW_UNFOCUSED</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1255719766%2FClasslikes%2F1558683979"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1255719766%2FClasslikes%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -235,12 +235,12 @@
               </div>
             </div>
           </div>
-<a data-name="-363966268%2FClasslikes%2F1558683979" anchor-label="WINDOW_TOPMOST" id="-363966268%2FClasslikes%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+<a data-name="-363966268%2FClasslikes%2F-1958133601" anchor-label="WINDOW_TOPMOST" id="-363966268%2FClasslikes%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-w-i-n-d-o-w_-t-o-p-m-o-s-t/index.html">WINDOW_TOPMOST</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-363966268%2FClasslikes%2F1558683979"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-363966268%2FClasslikes%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -250,12 +250,12 @@
               </div>
             </div>
           </div>
-<a data-name="2011981463%2FClasslikes%2F1558683979" anchor-label="WINDOW_ALWAYS_RUN" id="2011981463%2FClasslikes%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+<a data-name="2011981463%2FClasslikes%2F-1958133601" anchor-label="WINDOW_ALWAYS_RUN" id="2011981463%2FClasslikes%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-w-i-n-d-o-w_-a-l-w-a-y-s_-r-u-n/index.html">WINDOW_ALWAYS_RUN</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2011981463%2FClasslikes%2F1558683979"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2011981463%2FClasslikes%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -265,12 +265,12 @@
               </div>
             </div>
           </div>
-<a data-name="1520830014%2FClasslikes%2F1558683979" anchor-label="WINDOW_TRANSPARENT" id="1520830014%2FClasslikes%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+<a data-name="1520830014%2FClasslikes%2F-1958133601" anchor-label="WINDOW_TRANSPARENT" id="1520830014%2FClasslikes%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-w-i-n-d-o-w_-t-r-a-n-s-p-a-r-e-n-t/index.html">WINDOW_TRANSPARENT</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1520830014%2FClasslikes%2F1558683979"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1520830014%2FClasslikes%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -280,12 +280,12 @@
               </div>
             </div>
           </div>
-<a data-name="1539059623%2FClasslikes%2F1558683979" anchor-label="WINDOW_HIGHDPI" id="1539059623%2FClasslikes%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+<a data-name="1539059623%2FClasslikes%2F-1958133601" anchor-label="WINDOW_HIGHDPI" id="1539059623%2FClasslikes%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-w-i-n-d-o-w_-h-i-g-h-d-p-i/index.html">WINDOW_HIGHDPI</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1539059623%2FClasslikes%2F1558683979"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1539059623%2FClasslikes%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -295,12 +295,12 @@
               </div>
             </div>
           </div>
-<a data-name="1641706950%2FClasslikes%2F1558683979" anchor-label="WINDOW_MOUSE_PASSTHROUGH" id="1641706950%2FClasslikes%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+<a data-name="1641706950%2FClasslikes%2F-1958133601" anchor-label="WINDOW_MOUSE_PASSTHROUGH" id="1641706950%2FClasslikes%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-w-i-n-d-o-w_-m-o-u-s-e_-p-a-s-s-t-h-r-o-u-g-h/index.html">WINDOW_MOUSE_PASSTHROUGH</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1641706950%2FClasslikes%2F1558683979"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1641706950%2FClasslikes%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -310,12 +310,12 @@
               </div>
             </div>
           </div>
-<a data-name="-1500994700%2FClasslikes%2F1558683979" anchor-label="BORDERLESS_WINDOWED_MODE" id="-1500994700%2FClasslikes%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+<a data-name="-1500994700%2FClasslikes%2F-1958133601" anchor-label="BORDERLESS_WINDOWED_MODE" id="-1500994700%2FClasslikes%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-b-o-r-d-e-r-l-e-s-s_-w-i-n-d-o-w-e-d_-m-o-d-e/index.html">BORDERLESS_WINDOWED_MODE</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1500994700%2FClasslikes%2F1558683979"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1500994700%2FClasslikes%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -325,12 +325,12 @@
               </div>
             </div>
           </div>
-<a data-name="-528256540%2FClasslikes%2F1558683979" anchor-label="MSAA_4X_HINT" id="-528256540%2FClasslikes%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+<a data-name="-528256540%2FClasslikes%2F-1958133601" anchor-label="MSAA_4X_HINT" id="-528256540%2FClasslikes%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-m-s-a-a_4-x_-h-i-n-t/index.html">MSAA_4X_HINT</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-528256540%2FClasslikes%2F1558683979"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-528256540%2FClasslikes%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -340,12 +340,12 @@
               </div>
             </div>
           </div>
-<a data-name="1157759586%2FClasslikes%2F1558683979" anchor-label="INTERLACED_HINT" id="1157759586%2FClasslikes%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+<a data-name="1157759586%2FClasslikes%2F-1958133601" anchor-label="INTERLACED_HINT" id="1157759586%2FClasslikes%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-i-n-t-e-r-l-a-c-e-d_-h-i-n-t/index.html">INTERLACED_HINT</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1157759586%2FClasslikes%2F1558683979"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1157759586%2FClasslikes%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -358,48 +358,33 @@
         </div>
       </div>
       <div data-togglable="PROPERTY">
-        <h2 class="">Properties</h2>
-        <div class="table"><a data-name="-1757978187%2FProperties%2F1558683979" anchor-label="entries" id="-1757978187%2FProperties%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="-372974862%2FProperties%2F-1958133601" anchor-label="name" id="-372974862%2FProperties%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="entries.html"><span><span>entries</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1757978187%2FProperties%2F1558683979"></span>
+                  <div><a href="-i-n-t-e-r-l-a-c-e-d_-h-i-n-t/index.html#-372974862%2FProperties%2F-1958133601"><span><span>name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-372974862%2FProperties%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="entries.html">entries</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.enums/-enum-entries/index.html">EnumEntries</a><span class="token operator">&lt;</span><a href="index.html">Window.State</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns a representation of an immutable list of all enum entries, in the order they're declared.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-i-n-t-e-r-l-a-c-e-d_-h-i-n-t/index.html#-372974862%2FProperties%2F-1958133601">name</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="-372974862%2FProperties%2F1558683979" anchor-label="name" id="-372974862%2FProperties%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+<a data-name="-739389684%2FProperties%2F-1958133601" anchor-label="ordinal" id="-739389684%2FProperties%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="-i-n-t-e-r-l-a-c-e-d_-h-i-n-t/index.html#-372974862%2FProperties%2F1558683979"><span><span>name</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-372974862%2FProperties%2F1558683979"></span>
+                  <div><a href="-i-n-t-e-r-l-a-c-e-d_-h-i-n-t/index.html#-739389684%2FProperties%2F-1958133601"><span><span>ordinal</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-739389684%2FProperties%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-i-n-t-e-r-l-a-c-e-d_-h-i-n-t/index.html#-372974862%2FProperties%2F1558683979">name</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="-739389684%2FProperties%2F1558683979" anchor-label="ordinal" id="-739389684%2FProperties%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="-i-n-t-e-r-l-a-c-e-d_-h-i-n-t/index.html#-739389684%2FProperties%2F1558683979"><span><span>ordinal</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-739389684%2FProperties%2F1558683979"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-i-n-t-e-r-l-a-c-e-d_-h-i-n-t/index.html#-739389684%2FProperties%2F1558683979">ordinal</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-i-n-t-e-r-l-a-c-e-d_-h-i-n-t/index.html#-739389684%2FProperties%2F-1958133601">ordinal</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
                 </div>
               </div>
             </div>
@@ -407,13 +392,13 @@
         </div>
       </div>
       <div data-togglable="FUNCTION">
-        <h2 class="">Functions</h2>
-        <div class="table"><a data-name="-752244217%2FFunctions%2F1558683979" anchor-label="valueOf" id="-752244217%2FFunctions%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="-752244217%2FFunctions%2F-1958133601" anchor-label="valueOf" id="-752244217%2FFunctions%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="value-of.html"><span>value</span><wbr></wbr><span><span>Of</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-752244217%2FFunctions%2F1558683979"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-752244217%2FFunctions%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -423,12 +408,12 @@
               </div>
             </div>
           </div>
-<a data-name="144473939%2FFunctions%2F1558683979" anchor-label="values" id="144473939%2FFunctions%2F1558683979" data-filterable-set=":/commonMain"></a>
-          <div class="table-row" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
+<a data-name="144473939%2FFunctions%2F-1958133601" anchor-label="values" id="144473939%2FFunctions%2F-1958133601" data-filterable-set=":/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":/commonMain" data-filterable-set=":/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="values.html"><span><span>values</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="144473939%2FFunctions%2F1558683979"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="144473939%2FFunctions%2F-1958133601"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
@@ -444,17 +429,21 @@
   </div>
 </div>
     <div class="footer">
-        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
-        <span>© 2025 Copyright</span>
-        <span class="pull-right">
-            <span>Generated by </span>
-            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
-                <span>dokka</span>
-            </a>
-        </span>
-    </div>
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2025 Copyright</div>
+                </div>
             </div>
         </div>
     </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

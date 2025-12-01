@@ -1,1 +1,1 @@
-sourceset_dependencies='{":/appleMain":[":/nativeMain"],":/commonMain":[],":/linuxMain":[":/nativeMain"],":/linuxX64Main":[":/linuxMain"],":/macosArm64Main":[":/macosMain"],":/macosMain":[":/appleMain"],":/macosX64Main":[":/macosMain"],":/mingwMain":[":/nativeMain"],":/mingwX64Main":[":/mingwMain"],":/nativeMain":[":/commonMain"]}'
+sourceset_dependencies='{":/commonMain":[],":/linuxMain":[":/nativeMain"],":/linuxX64Main":[":/linuxMain"],":/nativeMain":[":/commonMain"]}'
