@@ -79,7 +79,7 @@ object Window {
      * Closes the window.
      */
     fun close() {
-        RL_CloseWindow()
+        CloseWindow()
     }
 
     /**

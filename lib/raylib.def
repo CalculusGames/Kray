@@ -11,9 +11,3 @@ staticLibraries = libraylib.a
 libraryPaths.mingw = lib/mingw
 libraryPaths.linux = lib/linux
 libraryPaths.osx = lib/osx
----
-#include "raylib.h"
-
-void RL_CloseWindow() {
-    CloseWindow();
-}
