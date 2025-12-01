@@ -13,24 +13,30 @@ on:
 jobs:
   publish:
     runs-on: ${{ matrix.os }}
+    if: ${{ github.event_name != 'pull_request' }}
     timeout-minutes: 30
+    name: publish (${{ matrix.os }})
 
     permissions:
-      contents: read
+      contents: write
       packages: write
 
     strategy:
       fail-fast: false
       matrix:
         include:
-          - name: linux-x64
-            os: ubuntu-24.04
-          - name: macos-arm64
-            os: macos-15
-          - name: macos-x64
-            os: macos-15-intel
-          - name: windows
-            os: windows-2025
+          - os: ubuntu-24.04
+            publication: LinuxX64
+            is_main: true
+          - os: macos-15
+            publication: MacosX64
+            is_main: false
+          - os: macos-15-intel
+            publication: MacosArm64
+            is_main: false
+          - os: windows-2025
+            publication: MingwX64
+            is_main: false
 
     steps:
       - uses: actions/checkout@v6
@@ -56,15 +62,37 @@ jobs:
             ${{ runner.os }}-${{ runner.arch }}-konan
       - name: Change Permissions
         run: chmod +x ./gradlew
-      - name: Publish to Repositories
+      - name: Publish Kotlin Multiplatform to Calculus Games
+        if: ${{ matrix.is_main }}
         env:
           NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
           NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
+          ORG_GRADLE_PROJECT_signingKey: ${{ secrets.SIGNING_PRIVATE_KEY }}
+          ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.SIGNING_PASSWORD }}
+        run: ./gradlew publishKotlinMultiplatformPublicationToCalculusGamesRepository
+      - name: Publish Kotlin Multiplatform to GitHub Packages
+        if: ${{ matrix.is_main && github.ref_name == 'master' }}
+        env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ORG_GRADLE_PROJECT_signingKey: ${{ secrets.SIGNING_PRIVATE_KEY }}
           ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.SIGNING_PASSWORD }}
-        run: ./gradlew publish
+        run: ./gradlew publishKotlinMultiplatformPublicationToGitHubPackagesRepository
+      - name: Publish Native Publication to Calculus Games
+        env:
+          NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
+          NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
+          ORG_GRADLE_PROJECT_signingKey: ${{ secrets.SIGNING_PRIVATE_KEY }}
+          ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.SIGNING_PASSWORD }}
+        run: ./gradlew publish${{ matrix.publication }}PublicationToCalculusGamesRepository
+      - name: Publish Native Publication to GitHub Packages
+        if: ${{ github.ref_name == 'master' }}
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ORG_GRADLE_PROJECT_signingKey: ${{ secrets.SIGNING_PRIVATE_KEY }}
+          ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.SIGNING_PASSWORD }}
+        run: ./gradlew publish${{ matrix.publication }}PublicationToGitHubPackagesRepository
 
   release:
     runs-on: ubuntu-latest
