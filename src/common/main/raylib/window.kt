@@ -4,12 +4,19 @@ package raylib
 
 import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.toKString
+import platform.posix.getenv
 import raylib.internal.*
 
 /**
  * The window management object.
  */
 object Window {
+
+	/**
+	 * The current window title.
+	 */
+	var currentTitle: String? = null
+		internal set
 
 	/**
 	 * The width of the current screen.
@@ -37,9 +44,11 @@ object Window {
 
 	/**
 	 * Indicates whether the system is running in headless mode (no monitors connected).
+	 *
+	 * Note: macOS headless detection is not 100% reliable.
 	 */
 	val isHeadless: Boolean
-		get() = _isHeadless
+		get() = _isHeadless || getenv("CI") != null || getenv("HEADLESS") != null
 
 	/**
 	 * The number of monitors connected to the system.
@@ -73,13 +82,14 @@ object Window {
      */
     fun open(width: Int, height: Int, title: String = "Raylib Window") {
         InitWindow(width, height, title)
+		currentTitle = title
     }
 
     /**
      * Closes the window.
      */
     fun close() {
-        CloseWindow()
+		_close0()
     }
 
     /**
@@ -296,3 +306,5 @@ object Cursor {
 // Expect
 
 internal expect val _isHeadless: Boolean
+
+internal expect fun _close0()

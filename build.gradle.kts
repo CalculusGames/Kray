@@ -64,10 +64,6 @@ kotlin {
 
 					linkerOpts(frameworks.flatMap { listOf("-framework", it) })
 				}
-
-				if (target.konanTarget.family == Family.MINGW) {
-					linkerOpts("-Llib/mingw", "-lraylib", "-Wl,--exclude-libs,user32")
-				}
 			}
 		}
 

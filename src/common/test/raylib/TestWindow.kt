@@ -1,5 +1,6 @@
 package raylib
 
+import platform.posix.getenv
 import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
