@@ -218,9 +218,10 @@ jobs:
             ~/.konan/caches
             ~/.konan/dependencies
             ~/.konan/kotlin-native-prebuilt-*
-          key: ${{ runner.os }}-konan
+          key: ${{ runner.os }}-${{ runner.arch }}-konan
           restore-keys: |
             ${{ runner.os }}-konan
+            ${{ runner.os }}-${{ runner.arch }}-konan
       - name: Change Permissions
         run: chmod +x ./gradlew
       - name: Publish to Calculus Games
