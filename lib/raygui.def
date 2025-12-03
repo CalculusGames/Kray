@@ -1,0 +1,5 @@
+headers = raygui.h
+headerFilter = raygui.h
+package = raygui.internal
+
+compilerOpts = -Ilib/raygui/src -Ilib/raylib/src
