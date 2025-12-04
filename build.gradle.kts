@@ -159,6 +159,8 @@ signing {
 
     if (signingKey != null && signingPassword != null)
         useInMemoryPgpKeys(signingKey, signingPassword)
+	else
+		useGpgCmd()
 
     sign(publishing.publications)
 }
