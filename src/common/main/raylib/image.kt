@@ -15,6 +15,7 @@ import kotlinx.cinterop.ptr
 import kotlinx.cinterop.readValue
 import kotlinx.cinterop.useContents
 import kray.toByteArray
+import kray.toVector2
 import raylib.internal.*
 
 /**
@@ -4898,6 +4899,68 @@ class Texture2D(
 		format = this@Texture2D.format.value.toInt()
 	}
 
+}
+
+/**
+ * Represents a render texture in raylib, which includes a color texture and a depth texture.
+ *
+ * This is typically used for off-screen rendering.
+ * @property id The unique identifier for the render texture.
+ * @property texture The color texture of the render texture.
+ * @property depth The depth texture of the render texture.
+ */
+data class RenderTexture2D(
+	val id: UInt,
+	val texture: Texture2D,
+	val depth: Texture2D
+) {
+
+	internal fun raw(): CValue<raylib.internal.RenderTexture2D> = cValue {
+		id = this@RenderTexture2D.id
+		texture.id = this@RenderTexture2D.texture.id
+		texture.width = this@RenderTexture2D.texture.width
+		texture.height = this@RenderTexture2D.texture.height
+		texture.mipmaps = this@RenderTexture2D.texture.mipmaps
+		texture.format = this@RenderTexture2D.texture.format.value.toInt()
+		depth.id = this@RenderTexture2D.depth.id
+		depth.width = this@RenderTexture2D.depth.width
+		depth.height = this@RenderTexture2D.depth.height
+		depth.mipmaps = this@RenderTexture2D.depth.mipmaps
+		depth.format = this@RenderTexture2D.depth.format.value.toInt()
+	}
+
+}
+
+/**
+ * Starts rendering to the specified [RenderTexture2D].
+ *
+ * When using this function, all subsequent drawing operations will be directed to the provided render texture
+ * @param renderTexture The render texture to start rendering to.
+ */
+fun Window.startTextureMode(renderTexture: RenderTexture2D) {
+	BeginTextureMode(renderTexture.raw())
+}
+
+/**
+ * Ends rendering to the current [RenderTexture2D] and returns to the default framebuffer.
+ */
+fun Window.endTextureMode() {
+	EndTextureMode()
+}
+
+/**
+ * Executes a block of code while rendering to the specified [RenderTexture2D].
+ *
+ * This function starts rendering to the provided render texture, executes the given block of code,
+ * and then ends rendering to the render texture.
+ *
+ * @param renderTexture The render texture to render to.
+ * @param block The block of code to execute while rendering to the render texture.
+ */
+suspend fun Window.textureMode(renderTexture: RenderTexture2D, block: suspend Window.() -> Unit) {
+	startTextureMode(renderTexture)
+	this.block()
+	endTextureMode()
 }
 
 /**

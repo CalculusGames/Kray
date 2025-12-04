@@ -2,12 +2,20 @@
 
 package raylib
 
+import kotlinx.cinterop.CPointer
 import kotlinx.cinterop.CValue
 import kotlinx.cinterop.ExperimentalForeignApi
+import kotlinx.cinterop.NativePlacement
+import kotlinx.cinterop.alloc
+import kotlinx.cinterop.cValue
+import kotlinx.cinterop.memScoped
+import kotlinx.cinterop.ptr
 import kotlinx.cinterop.toKString
 import kotlinx.cinterop.useContents
 import platform.posix.getenv
 import raylib.internal.*
+import kray.to
+import kray.toVector3
 
 /**
  * The window management object.
@@ -471,6 +479,389 @@ object Canvas {
 		if (inDrawingState) end()
 	}
 
+}
+
+/**
+ * Represents a 2D Camera in raylib.
+ * @property delta Displacement from the target position
+ * @property target The camera's target and the origin of the rotation and zoom
+ * @property rotation Camera rotation in degrees
+ * @property zoom Camera zoom scale
+ */
+class Camera2D(
+	var delta: Pair<Float, Float> = 0F to 0F,
+	var target: Pair<Float, Float> = 0F to 0F,
+	var rotation: Float = 0F,
+	var zoom: Float = 1.0F
+) {
+
+	/**
+	 * Creates a new 2D Camera.
+	 * @param dx The X coordinate of the displacement from the target
+	 * @param dy The Y coordinate of the displacement from the target
+	 * @param targetX The X coordinate of the camera's target
+	 * @param targetY The Y coordinate of the camera's target
+	 * @param rotation Camera rotation in degrees
+	 * @param zoom Camera zoom scale
+	 */
+	constructor(
+		dx: Float = 0F, dy: Float = 0F,
+		targetX: Float = 0F, targetY: Float = 0F,
+		rotation: Float = 0F, zoom: Float = 1F
+	) : this(
+		dx to dy,
+		targetX to targetY,
+		rotation, zoom
+	)
+
+	/**
+	 * The X coordinate of the displacement from the target.
+	 */
+	var dx: Float
+		get() = delta.first
+		set(value) {
+			delta = value to delta.second
+		}
+
+	/**
+	 * The Y coordinate of the displacement from the target.
+	 */
+	var dy: Float
+		get() = delta.second
+		set(value) {
+			delta = delta.first to value
+		}
+
+	/**
+	 * The X coordinate of the camera's target.
+	 */
+	var targetX: Float
+		get() = target.first
+		set(value) {
+			target = value to target.second
+		}
+
+	/**
+	 * The Y coordinate of the camera's target.
+	 */
+	var targetY: Float
+		get() = target.second
+		set(value) {
+			target = target.first to value
+		}
+
+	internal fun raw(): CValue<raylib.internal.Camera2D> = cValue {
+		offset.x = dx
+		offset.y = dy
+		target.x = targetX
+		target.y = targetY
+		this.rotation = rotation
+		this.zoom = zoom
+	}
+
+}
+
+/**
+ * Starts a 2D camera on the current window.
+ * @param camera The camera to use
+ */
+fun Window.start2D(camera: Camera2D) {
+	BeginMode2D(camera.raw())
+}
+
+/**
+ * Ends the 2D camera on the current window.
+ */
+fun Window.end2D() {
+	EndMode2D()
+}
+
+/**
+ * Draws within a 2D camera context.
+ * @param camera The camera to use
+ * @param block The drawing operations to perform
+ */
+fun Window.camera2D(camera: Camera2D, block: Window.() -> Unit) {
+	start2D(camera)
+	this.block()
+	end2D()
+}
+
+/**
+ * Represents the projection of the current camera.
+ */
+enum class CameraProjection3D(internal val value: CameraProjection) {
+
+	/**
+	 * Perspective projection.
+	 *
+	 * Corresponds to a frustum projection where objects further away appear smaller.
+	 */
+	PERSPECTIVE(CAMERA_PERSPECTIVE),
+
+	/**
+	 * Orthographic projection
+	 *
+	 * Corresponds to a parallel projection where objects maintain the same size regardless of distance.
+	 */
+	ORTHOGRAPHIC(CAMERA_ORTHOGRAPHIC)
+
+}
+
+enum class CameraMode3D(internal val value: CameraMode) {
+	/**
+	 * Camera is controlled manually and [Camera3D.update] doesn't do anything
+	 */
+	CUSTOM(CAMERA_CUSTOM),
+	/**
+	 * Camera is freely movable in 3D space
+	 */
+	FREE(CAMERA_FREE),
+	/**
+	 * Camera orbits around the target with zoom supported
+	 */
+	ORBITAL(CAMERA_ORBITAL),
+	/**
+	 * Camera mimicks a first person view
+	 */
+	FIRST_PERSON(CAMERA_FIRST_PERSON),
+	/**
+	 * Camera mimicks a third person view
+	 */
+	THIRD_PERSON(CAMERA_THIRD_PERSON)
+}
+
+/**
+ * Represents a 3D Camera representing what the user is seeing.
+ * @property position The current position of the camera in 3D space.
+ * @property target The coordinates of where the camera is looking.
+ * @property rotation The rotational vector applied to the camera
+ * @property fovy Camera FOV apperture in Y (degrees) in perspective, or near plane width in orthographic.
+ * In perspective, when increased, it zooms out; when decreased, it zooms in.
+ * In orthographic, when increased, it zooms in; when decreased, it zooms out.
+ * @property projection The type of camera projection
+ */
+class Camera3D(
+	var position: Triple<Float, Float, Float>,
+	var target: Triple<Float, Float, Float>,
+	var rotation: Triple<Float, Float, Float> = 0f to 0f to 0f,
+	var fovy: Float = 0F,
+	var projection: CameraProjection3D = CameraProjection3D.PERSPECTIVE
+) {
+
+	/**
+	 * Creates a new Camera3D.
+	 * @param x The X position of the camera
+	 * @param y The Y position of the camera
+	 * @param z The Z position of the camera
+	 * @param targetX The X position of the camera's target
+	 * @param targetY The Y position of the camera's target
+	 * @param targetZ The Z position of the camera's target
+	 * @param rotX The X rotational value of the camera in degrees
+	 * @param rotY The X rotational value of the camera in degrees
+	 * @param rotZ The X rotational value of the camera in degrees
+	 * @param fovy Camera FOV apperture in Y (degrees) in perspective, or near plane width in orthographic
+	 * @param projection The type of camera projection
+	 */
+	constructor(
+		x: Float = 0f, y: Float = 0f, z: Float = 0f,
+		targetX: Float = 0f, targetY: Float = 0f, targetZ: Float = 0f,
+		rotX: Float = 0f, rotY: Float = 0f, rotZ: Float = 0f,
+		fovy: Float = 0f, projection: CameraProjection3D = CameraProjection3D.PERSPECTIVE
+	) : this(
+		x to y to z,
+		targetX to targetY to targetZ,
+		rotX to rotY to rotZ,
+		fovy, projection
+	)
+
+	/**
+	 * The X coordinate of the camera's position.
+	 */
+	var x: Float
+		get() = position.first
+		set(value) {
+			position = value to position.second to position.third
+		}
+
+	/**
+	 * The Y coordinate of the camera's position.
+	 */
+	var y: Float
+		get() = position.second
+		set(value) {
+			position = position.first to value to position.third
+		}
+
+	/**
+	 * The Z coordinate of the camera's position.
+	 */
+	var z: Float
+		get() = position.third
+		set(value) {
+			position = position.first to position.second to value
+		}
+
+	/**
+	 * The X coordinate of the camera's current target to look at.
+	 */
+	var targetX: Float
+		get() = target.first
+		set(value) {
+			target = value to target.second to target.third
+		}
+
+	/**
+	 * The Y coordinate of the camera's current target to look at.
+	 */
+	var targetY: Float
+		get() = target.second
+		set(value) {
+			target = target.first to value to target.third
+		}
+
+	/**
+	 * The Z coordinate of the camera's current target to look at.
+	 */
+	var targetZ: Float
+		get() = target.third
+		set(value) {
+			target = target.first to target.second to value
+		}
+
+	/**
+	 * The X rotational value of the camera.
+	 */
+	var rotX: Float
+		get() = rotation.first
+		set(value) {
+			rotation = value to rotation.second to rotation.third
+		}
+
+	/**
+	 * The Y rotational value of the camera.
+	 */
+	var rotY: Float
+		get() = rotation.second
+		set(value) {
+			rotation = rotation.first to value to rotation.third
+		}
+
+	/**
+	 * The Z rotational value of the camera.
+	 */
+	var rotZ: Float
+		get() = rotation.third
+		set(value) {
+			rotation = rotation.first to rotation.second to value
+		}
+
+	@Suppress("DuplicatedCode")
+	internal fun NativePlacement.raw(): CPointer<raylib.internal.Camera3D>
+		= alloc<raylib.internal.Camera3D> {
+			position.x = x
+			position.y = y
+			position.z = z
+			target.x = targetX
+			target.y = targetY
+			target.z = targetZ
+			up.x = rotX
+			up.y = rotY
+			up.z = rotZ
+			this.fovy = this@Camera3D.fovy
+			this.projection = this@Camera3D.projection.value.toInt()
+		}.ptr
+
+	@Suppress("DuplicatedCode")
+	internal fun raw(): CValue<raylib.internal.Camera3D> = cValue {
+		position.x = x
+		position.y = y
+		position.z = z
+		target.x = targetX
+		target.y = targetY
+		target.z = targetZ
+		up.x = rotX
+		up.y = rotY
+		up.z = rotZ
+		this.fovy = this@Camera3D.fovy
+		this.projection = this@Camera3D.projection.value.toInt()
+	}
+
+	/**
+	 * Updates the camera's current mode.
+	 * @param mode The new camera mode to set
+	 */
+	fun update(mode: CameraMode3D) = memScoped {
+		UpdateCamera(raw(), mode.value.toInt())
+	}
+
+	/**
+	 * Updates the camera's movement, rotation, and speed.
+	 * @param dx The delta in X position.
+	 * @param dy The delta in Y position.
+	 * @param dz The delta in Z position.
+	 * @param drotX The delta in X rotation in degrees.
+	 * @param drotY The delta in Y rotation in degrees.
+	 * @param drotZ The delta in Z rotation in degrees.
+	 * @param zoom The new zoom value.
+	 */
+	fun update(
+		dx: Float = 0F, dy: Float = 0F, dz: Float = 0F,
+		drotX: Float = 0F, drotY: Float = 0F, drotZ: Float = 0F,
+		zoom: Float = 1F
+	) = memScoped {
+		UpdateCameraPro(
+			raw(),
+			(dx to dy to dz).toVector3(),
+			(drotX to drotY to drotZ).toVector3(),
+			zoom
+		)
+	}
+
+	/**
+	 * Updates the camera's movement, rotation, and speed.
+	 * @param delta The delta for the camera position in degrees.
+	 * @param deltaRot The delta for the camera rotation in degrees.
+	 * @param zoom The new zoom value.
+	 */
+	fun update(
+		delta: Triple<Float, Float, Float> = 0F to 0F to 0F,
+		deltaRot: Triple<Float, Float, Float> = 0F to 0F to 0F,
+		zoom: Float = 1F
+	) = memScoped {
+		UpdateCameraPro(
+			raw(),
+			delta.toVector3(),
+			deltaRot.toVector3(),
+			zoom
+		)
+	}
+}
+
+/**
+ * Starts a 3D camera on the current window.
+ * @param camera The camera to use
+ */
+fun Window.start3D(camera: Camera3D) {
+	BeginMode3D(camera.raw())
+}
+
+/**
+ * Ends the 3D camera on the current window.
+ */
+fun Window.end3D() {
+	EndMode3D()
+}
+
+/**
+ * Draws within a 3D camera context.
+ * @param camera The camera to use
+ * @param block The drawing operations to perform
+ */
+fun Window.camera3D(camera: Camera3D, block: Window.() -> Unit) {
+	start3D(camera)
+	this.block()
+	end3D()
 }
 
 // Expect

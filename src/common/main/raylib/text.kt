@@ -5,6 +5,7 @@ package raylib
 import kotlinx.cinterop.CValue
 import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.useContents
+import kray.toVector2
 import raylib.internal.*
 
 /**

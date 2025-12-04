@@ -2,29 +2,16 @@
 
 package raylib
 
-import kotlinx.cinterop.CValue
 import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.allocArray
 import kotlinx.cinterop.cValue
 import kotlinx.cinterop.memScoped
+import kray.to
+import kray.toVector2
 import raylib.internal.*
 
 internal fun Canvas.ensureDrawing() {
 	if (!inDrawingState) throw IllegalStateException("Cannot draw if not in drawing state. Use start() or draw() first")
-}
-
-internal fun Pair<Int, Int>.toVector2(): CValue<Vector2> {
-	return cValue<Vector2>{
-		x = first.toFloat()
-		y = second.toFloat()
-	}
-}
-
-internal fun Pair<Float, Float>.toVector2(): CValue<Vector2> {
-	return cValue<Vector2>{
-		x = first
-		y = second
-	}
 }
 
 // Draw Functions
@@ -169,8 +156,8 @@ fun Canvas.fillCircleGradient(cx: Int, cy: Int, radius: Float, inner: Color, out
  * @param cx The X coordinate of the arc center
  * @param cy The Y coordinate of the arc center
  * @param radius The radius of the arc
- * @param startAngle The starting angle of the arc in radians
- * @param endAngle The ending angle of the arc in radians
+ * @param startAngle The starting angle of the arc in degrees
+ * @param endAngle The ending angle of the arc in degrees
  * @param segments The number of segments to use for drawing the arc (more segments = smoother arc, typically >= 6)
  * @param color The color of the arc
  */
@@ -191,8 +178,8 @@ fun Canvas.arc(cx: Int, cy: Int, radius: Float, startAngle: Float, endAngle: Flo
  * @param cx The X coordinate of the arc center
  * @param cy The Y coordinate of the arc center
  * @param radius The radius of the arc
- * @param startAngle The starting angle of the arc in radians
- * @param endAngle The ending angle of the arc in radians
+ * @param startAngle The starting angle of the arc in degrees
+ * @param endAngle The ending angle of the arc in degrees
  * @param segments The number of segments to use for drawing the arc (more segments = smoother arc, typically >= 6)
  * @param color The color of the arc
  */
@@ -239,8 +226,8 @@ fun Canvas.fillEllipse(cx: Int, cy: Int, hradius: Float, vradius: Float, color: 
  * @param cy The Y coordinate of the ring center
  * @param iradius The inner radius of the ring
  * @param oradius The outer radius of the ring
- * @param startAngle The starting angle of the ring in radians
- * @param endAngle The ending angle of the ring in radians
+ * @param startAngle The starting angle of the ring in degrees
+ * @param endAngle The ending angle of the ring in degrees
  * @param segments The number of segments to use for drawing the ring (more segments = smoother ring, typically >= 6)
  * @param color The color of the ring
  */
@@ -270,8 +257,8 @@ fun Canvas.ring(
  * @param cy The Y coordinate of the ring center
  * @param iradius The inner radius of the ring
  * @param oradius The outer radius of the ring
- * @param startAngle The starting angle of the ring in radians
- * @param endAngle The ending angle of the ring in radians
+ * @param startAngle The starting angle of the ring in degrees
+ * @param endAngle The ending angle of the ring in degrees
  * @param segments The number of segments to use for drawing the ring (more segments = smoother ring, typically >= 6)
  * @param color The color of the ring
  */
@@ -350,7 +337,7 @@ fun Canvas.fillRect(x: Int, y: Int, width: Int, height: Int, color: Color = Colo
  * @param y The Y coordinate of the rectangle top-left corner
  * @param width The width of the rectangle
  * @param height The height of the rectangle
- * @param rotation The rotation of the rectangle in radians
+ * @param rotation The rotation of the rectangle in degrees
  * @param color The color of the rectangle
  */
 fun Canvas.fillRect(x: Int, y: Int, width: Int, height: Int, rotation: Float, color: Color = Color.BLACK) {
@@ -661,7 +648,7 @@ fun Canvas.triangleStrip(color: Color = Color.BLACK, vararg points: Pair<Int, In
  * @param cy The Y coordinate of the polygon center
  * @param sides The number of sides of the polygon (minimum 3)
  * @param radius The radius of the polygon
- * @param rotation The rotation of the polygon in radians
+ * @param rotation The rotation of the polygon in degrees
  * @param color The color of the polygon
  */
 fun Canvas.polygon(
@@ -689,7 +676,7 @@ fun Canvas.polygon(
  * @param cy The Y coordinate of the polygon center
  * @param sides The number of sides of the polygon (minimum 3)
  * @param radius The radius of the polygon
- * @param rotation The rotation of the polygon in radians
+ * @param rotation The rotation of the polygon in degrees
  * @param lineThick The thickness of the polygon lines
  * @param color The color of the polygon
  */
@@ -719,7 +706,7 @@ fun Canvas.polygon(
  * @param cy The Y coordinate of the polygon center
  * @param sides The number of sides of the polygon (minimum 3)
  * @param radius The radius of the polygon
- * @param rotation The rotation of the polygon in radians
+ * @param rotation The rotation of the polygon in degrees
  * @param color The color of the polygon
  */
 fun Canvas.fillPolygon(
