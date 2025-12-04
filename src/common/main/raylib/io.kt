@@ -3,17 +3,20 @@
 package raylib
 
 import kotlinx.cinterop.ExperimentalForeignApi
+import kotlinx.cinterop.UByteVar
 import kotlinx.cinterop.addressOf
 import kotlinx.cinterop.alloc
 import kotlinx.cinterop.get
 import kotlinx.cinterop.memScoped
 import kotlinx.cinterop.ptr
+import kotlinx.cinterop.reinterpret
 import kotlinx.cinterop.toKString
 import kotlinx.cinterop.useContents
 import kotlinx.cinterop.usePinned
 import kray.toByteArray
 import platform.posix.remove
 import raylib.internal.DirectoryExists
+import raylib.internal.ExportDataAsCode
 import raylib.internal.ExportImage
 import raylib.internal.FileExists
 import raylib.internal.GetApplicationDirectory
@@ -225,6 +228,21 @@ class File(path: String) {
 		return bytes.usePinned { pinned ->
 			val ptr = pinned.addressOf(0)
 			SaveFileData(absolutePath, ptr, bytes.size)
+		}
+	}
+
+	/**
+	 * Writes this file's data to another file as a code source (`*.h`) file.
+	 * @param output The output file to write to.
+	 * @return true if successful, false otherwise
+	 */
+	fun writeCode(output: File): Boolean {
+		val bytes = readBytes()
+		if (bytes.isEmpty()) return false
+
+		return bytes.usePinned { pinned ->
+			val ptr = pinned.addressOf(0).reinterpret<UByteVar>()
+			ExportDataAsCode(ptr, bytes.size, output.absolutePath)
 		}
 	}
 

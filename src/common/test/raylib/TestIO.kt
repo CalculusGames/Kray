@@ -3,6 +3,7 @@ package raylib
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
+import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 
 class TestIO {
@@ -30,9 +31,7 @@ class TestIO {
 		assertTrue { file2.delete() }
 		assertFalse { file2.exists() }
 
-		val file3 = File("testdir2").apply {
-			mkdir()
-		}
+		val file3 = File("testdir2").apply { mkdir() }
 		assertTrue { file3.exists() }
 		assertTrue { file3.isDirectory }
 		File(file3, "a.txt").apply {
@@ -50,6 +49,17 @@ class TestIO {
 		assertEquals(2, file3.files().size)
 		assertTrue { file3.deleteRecursively() }
 		assertFalse { file3.exists() }
+
+		val file4 = File("calcugames.png")
+		assertTrue { file4.exists() }
+		assertTrue { file4.isFile }
+		assertFalse { file4.readBytes().isEmpty() }
+		File("calcugames.h").apply {
+			assertTrue { file4.writeCode(this) }
+			assertTrue { exists() }
+			assertNotNull(readText())
+			assertTrue { delete() }
+		}
 	}
 
 }
