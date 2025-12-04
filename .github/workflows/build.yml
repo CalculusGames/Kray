@@ -91,6 +91,7 @@ jobs:
           subject-name: build-artifacts-${{ matrix.name }}-${{ github.run_id }}
           subject-digest: sha256:${{ steps.archive.outputs.artifact-digest }}
       - name: Stop Gradle
+        if: success() || failure()
         run: ./gradlew --stop
 
   test:
@@ -143,6 +144,7 @@ jobs:
       - name: Test Project
         run: ./gradlew check
       - name: Archive Test Artifacts
+        if: success() || failure()
         id: archive
         uses: actions/upload-artifact@v5
         with:
@@ -151,11 +153,13 @@ jobs:
             build/reports/
             build/test-results/
       - name: Attest Test Artifacts
+        if: success() || failure()
         uses: actions/attest-build-provenance@v3
         with:
           subject-name: test-artifacts-${{ matrix.name }}-${{ github.run_id }}
           subject-digest: sha256:${{ steps.archive.outputs.artifact-digest }}
       - name: Stop Gradle
+        if: success() || failure()
         run: ./gradlew --stop
 
   deploy:
@@ -272,3 +276,6 @@ jobs:
           ORG_GRADLE_PROJECT_signingKey: ${{ secrets.SIGNING_PRIVATE_KEY }}
           ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.SIGNING_PASSWORD }}
         run: ./gradlew publish${{ matrix.publication }}PublicationToGitHubPackagesRepository -Psuffix=${GITHUB_SHA::7}
+      - name: Stop Gradle
+        if: success() || failure()
+        run: ./gradlew --stop
