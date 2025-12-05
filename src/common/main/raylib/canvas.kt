@@ -6,7 +6,6 @@ import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.allocArray
 import kotlinx.cinterop.cValue
 import kotlinx.cinterop.memScoped
-import kray.to
 import kray.toVector2
 import raylib.internal.*
 
@@ -51,17 +50,7 @@ fun Canvas.line(x1: Int, y1: Int, x2: Int, y2: Int, color: Color = Color.BLACK) 
  */
 fun Canvas.line(x1: Int, y1: Int, x2: Int, y2: Int, thick: Float, color: Color = Color.BLACK) {
 	ensureDrawing()
-	DrawLineEx(
-		cValue {
-			x = x1.toFloat()
-			y = y1.toFloat()
-		},
-		cValue {
-			x = x2.toFloat()
-			y = y2.toFloat()
-		},
-		thick, color.raw()
-	)
+	DrawLineEx((x1 to y1).toVector2(), (x2 to y2).toVector2(), thick, color.raw())
 }
 
 /**
@@ -100,18 +89,7 @@ fun Canvas.lineStrip(color: Color = Color.BLACK, vararg points: Pair<Int, Int>) 
  */
 fun Canvas.lineBezier(x1: Int, y1: Int, x2: Int, y2: Int, thick: Float, color: Color = Color.BLACK) {
 	ensureDrawing()
-
-	DrawLineBezier(
-		cValue {
-			x = x1.toFloat()
-			y = y1.toFloat()
-		},
-		cValue {
-			x = x2.toFloat()
-			y = y2.toFloat()
-		},
-		thick, color.raw()
-	)
+	DrawLineBezier((x1 to y1).toVector2(), (x2 to y2).toVector2(), thick, color.raw())
 }
 
 /**
@@ -165,11 +143,7 @@ fun Canvas.arc(cx: Int, cy: Int, radius: Float, startAngle: Float, endAngle: Flo
 	ensureDrawing()
 
 	DrawCircleSectorLines(
-		cValue {
-			x = cx.toFloat()
-			y = cy.toFloat()
-		},
-		radius, startAngle, endAngle, segments, color.raw()
+		(cx to cy).toVector2(), radius, startAngle, endAngle, segments, color.raw()
 	)
 }
 
@@ -186,11 +160,7 @@ fun Canvas.arc(cx: Int, cy: Int, radius: Float, startAngle: Float, endAngle: Flo
 fun Canvas.fillArc(cx: Int, cy: Int, radius: Float, startAngle: Float, endAngle: Float, segments: Int = 6, color: Color = Color.BLACK) {
 	ensureDrawing()
 	DrawCircleSector(
-		cValue {
-			x = cx.toFloat()
-			y = cy.toFloat()
-		},
-		radius, startAngle, endAngle, segments, color.raw()
+		(cx to cy).toVector2(), radius, startAngle, endAngle, segments, color.raw()
 	)
 }
 
@@ -243,11 +213,7 @@ fun Canvas.ring(
 ) {
 	ensureDrawing()
 	DrawRingLines(
-		cValue {
-			x = cx.toFloat()
-			y = cy.toFloat()
-		},
-		iradius, oradius, startAngle, endAngle, segments, color.raw()
+		(cx to cy).toVector2(), iradius, oradius, startAngle, endAngle, segments, color.raw()
 	)
 }
 
@@ -274,11 +240,7 @@ fun Canvas.fillRing(
 ) {
 	ensureDrawing()
 	DrawRing(
-		cValue {
-			x = cx.toFloat()
-			y = cy.toFloat()
-		},
-		iradius, oradius, startAngle, endAngle, segments, color.raw()
+		(cx to cy).toVector2(), iradius, oradius, startAngle, endAngle, segments, color.raw()
 	)
 }
 
@@ -349,10 +311,7 @@ fun Canvas.fillRect(x: Int, y: Int, width: Int, height: Int, rotation: Float, co
 			this.width = width.toFloat()
 			this.height = height.toFloat()
 		},
-		cValue {
-			this.x = (width / 2).toFloat()
-			this.y = (height / 2).toFloat()
-		},
+		((width / 2F) to (height / 2F)).toVector2(),
 		rotation,
 		color.raw()
 	)
@@ -539,18 +498,9 @@ fun Canvas.triangle(
 ) {
 	ensureDrawing()
 	DrawTriangleLines(
-		cValue {
-			this.x = x1.toFloat()
-			this.y = y1.toFloat()
-		},
-		cValue {
-			this.x = x2.toFloat()
-			this.y = y2.toFloat()
-		},
-		cValue {
-			this.x = x3.toFloat()
-			this.y = y3.toFloat()
-		},
+		(x1 to y1).toVector2(),
+		(x2 to y2).toVector2(),
+		(x3 to y3).toVector2(),
 		color.raw()
 	)
 }
@@ -576,18 +526,9 @@ fun Canvas.fillTriangle(
 ) {
 	ensureDrawing()
 	DrawTriangle(
-		cValue {
-			this.x = x1.toFloat()
-			this.y = y1.toFloat()
-		},
-		cValue {
-			this.x = x2.toFloat()
-			this.y = y2.toFloat()
-		},
-		cValue {
-			this.x = x3.toFloat()
-			this.y = y3.toFloat()
-		},
+		(x1 to y1).toVector2(),
+		(x2 to y2).toVector2(),
+		(x3 to y3).toVector2(),
 		color.raw()
 	)
 }
@@ -662,11 +603,7 @@ fun Canvas.polygon(
 	if (sides < 3) return
 	ensureDrawing()
 	DrawPolyLines(
-		cValue {
-			x = cx.toFloat()
-			y = cy.toFloat()
-		},
-		sides, radius, rotation, color.raw()
+		(cx to cy).toVector2(), sides, radius, rotation, color.raw()
 	)
 }
 
@@ -692,11 +629,7 @@ fun Canvas.polygon(
 	if (sides < 3) return
 	ensureDrawing()
 	DrawPolyLines(
-		cValue {
-			x = cx.toFloat()
-			y = cy.toFloat()
-		},
-		sides, radius, rotation, color.raw()
+		(cx to cy).toVector2(), sides, radius, rotation, color.raw()
 	)
 }
 
@@ -720,11 +653,7 @@ fun Canvas.fillPolygon(
 	if (sides < 3) return
 	ensureDrawing()
 	DrawPoly(
-		cValue {
-			x = cx.toFloat()
-			y = cy.toFloat()
-		},
-		sides, radius, rotation, color.raw()
+		(cx to cy).toVector2(), sides, radius, rotation, color.raw()
 	)
 }
 
