@@ -232,6 +232,8 @@ data class Color(val r: UByte, val g: UByte, val b: UByte, val a: UByte = 255.to
      * Predefined color constants.
      */
     companion object {
+		//<editor-fold desc="Color Constants" defaultState="collapsed">
+
         /**
          * Air Force blue (#5D8AA8)
          */
@@ -3961,6 +3963,8 @@ data class Color(val r: UByte, val g: UByte, val b: UByte, val a: UByte = 255.to
          * Zinnwaldite brown (#2C1608)
          */
         val ZINNWALDITE_BROWN = Color(44, 22, 8)
+
+		//</editor-fold>
     }
 
 	override fun hashCode(): Int {

@@ -2,33 +2,10 @@
 
 package raylib
 
-import kotlinx.cinterop.CValue
-import kotlinx.cinterop.CValuesRef
-import kotlinx.cinterop.ExperimentalForeignApi
-import kotlinx.cinterop.FloatVar
-import kotlinx.cinterop.FloatVarOf
-import kotlinx.cinterop.IntVar
-import kotlinx.cinterop.IntVarOf
-import kotlinx.cinterop.NativePlacement
-import kotlinx.cinterop.UByteVarOf
-import kotlinx.cinterop.UIntVar
-import kotlinx.cinterop.alloc
-import kotlinx.cinterop.allocArray
-import kotlinx.cinterop.allocArrayOf
-import kotlinx.cinterop.cValue
-import kotlinx.cinterop.get
-import kotlinx.cinterop.memScoped
-import kotlinx.cinterop.nativeHeap
-import kotlinx.cinterop.ptr
-import kotlinx.cinterop.set
-import kotlinx.cinterop.useContents
-import kotlinx.cinterop.value
-import kray.Quadruple
-import kray.allocArrayOf
-import kray.to
-import kray.toDynamicArray
-import kray.toVector2
-import kray.toVector3
+import kotlinx.cinterop.*
+import kray.*
+import raylib.Mesh.Companion.cubicMap
+import raylib.Mesh.Companion.heightMap
 import raylib.internal.*
 import kotlin.math.cos
 import kotlin.math.sin
