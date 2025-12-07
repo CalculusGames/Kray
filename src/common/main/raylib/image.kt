@@ -4480,15 +4480,9 @@ class Image internal constructor(internal val raw: CValue<raylib.internal.Image>
 	 */
 	fun line(x1: Int, y1: Int, x2: Int, y2: Int, thick: Int, color: Color): Image = memScoped {
 		val copy = copyPtr()
-		ImageDrawLineEx(copy,
-			cValue {
-				x = x1.toFloat()
-				y = y1.toFloat()
-			},
-			cValue {
-				x = x2.toFloat()
-				y = y2.toFloat()
-			}, thick, color.raw())
+		ImageDrawLineEx(
+			copy, (x1 to y1).toVector2(), (x2 to y2).toVector2(), thick, color.raw()
+		)
 		return Image(copy.pointed.readValue())
 	}
 
@@ -4539,7 +4533,8 @@ class Image internal constructor(internal val raw: CValue<raylib.internal.Image>
 				this.y = y.toFloat()
 				this.width = width.toFloat()
 				this.height = height.toFloat()
-			}, thick, color.raw())
+			}, thick, color.raw()
+		)
 		return Image(copy.pointed.readValue())
 	}
 
@@ -4580,18 +4575,10 @@ class Image internal constructor(internal val raw: CValue<raylib.internal.Image>
 	): Image = memScoped {
 		val copy = copyPtr()
 		ImageDrawTriangleLines(copy,
-			cValue {
-				x = x1.toFloat()
-				y = y1.toFloat()
-			},
-			cValue {
-				x = x2.toFloat()
-				y = y2.toFloat()
-			},
-			cValue {
-				x = x3.toFloat()
-				y = y3.toFloat()
-			}, color.raw()
+			(x1 to y1).toVector2(),
+			(x2 to y2).toVector2(),
+			(x3 to y3).toVector2(),
+			color.raw()
 		)
 		return Image(copy.pointed.readValue())
 	}
@@ -4617,19 +4604,12 @@ class Image internal constructor(internal val raw: CValue<raylib.internal.Image>
 		color: Color
 	): Image = memScoped {
 		val copy = copyPtr()
-		ImageDrawTriangle(copy,
-			cValue {
-				x = x1.toFloat()
-				y = y1.toFloat()
-			},
-			cValue {
-				x = x2.toFloat()
-				y = y2.toFloat()
-			},
-			cValue {
-				x = x3.toFloat()
-				y = y3.toFloat()
-			}, color.raw()
+		ImageDrawTriangle(
+			copy,
+			(x1 to y1).toVector2(),
+			(x2 to y2).toVector2(),
+			(x3 to y3).toVector2(),
+			color.raw()
 		)
 		return Image(copy.pointed.readValue())
 	}
@@ -4660,18 +4640,9 @@ class Image internal constructor(internal val raw: CValue<raylib.internal.Image>
 	): Image = memScoped {
 		val copy = copyPtr()
 		ImageDrawTriangleEx(copy,
-			cValue {
-				x = x1.toFloat()
-				y = y1.toFloat()
-			},
-			cValue {
-				x = x2.toFloat()
-				y = y2.toFloat()
-			},
-			cValue {
-				x = x3.toFloat()
-				y = y3.toFloat()
-			},
+			(x1 to y1).toVector2(),
+			(x2 to y2).toVector2(),
+			(x3 to y3).toVector2(),
 			color1.raw(), color2.raw(), color3.raw()
 		)
 		return Image(copy.pointed.readValue())
@@ -4686,7 +4657,10 @@ class Image internal constructor(internal val raw: CValue<raylib.internal.Image>
 	fun triangleFan(color: Color, points: List<Pair<Int, Int>>): Image = memScoped {
 		if (points.size < 3) return@memScoped this@Image
 		val copy = copyPtr()
-		val array = allocArray<Vector2>(points.size) { i -> points[i].toVector2() }
+		val array = allocArray<Vector2>(points.size) { i ->
+			x = points[i].first.toFloat()
+			y = points[i].second.toFloat()
+		}
 
 		ImageDrawTriangleFan(copy, array, points.size, color.raw())
 		return Image(copy.pointed.readValue())
@@ -4711,7 +4685,10 @@ class Image internal constructor(internal val raw: CValue<raylib.internal.Image>
 		if (points.size < 3) return@memScoped this@Image
 
 		val copy = copyPtr()
-		val array = allocArray<Vector2>(points.size) { i -> points[i].toVector2() }
+		val array = allocArray<Vector2>(points.size) { i ->
+			x = points[i].first.toFloat()
+			y = points[i].second.toFloat()
+		}
 		ImageDrawTriangleStrip(copy, array, points.size, color.raw())
 
 		return Image(copy.pointed.readValue())

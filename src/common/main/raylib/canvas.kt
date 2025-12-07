@@ -63,7 +63,10 @@ fun Canvas.lineStrip(color: Color = Color.BLACK, points: List<Pair<Int, Int>>) {
 	ensureDrawing()
 
 	val array = memScoped {
-		allocArray<Vector2>(points.size) { i -> points[i].toVector2() }
+		allocArray<Vector2>(points.size) { i ->
+			x = points[i].first.toFloat()
+			y = points[i].second.toFloat()
+		}
 	}
 
 	DrawLineStrip(array, points.size, color.raw())
@@ -543,7 +546,10 @@ fun Canvas.triangleFan(color: Color = Color.BLACK, points: List<Pair<Int, Int>>)
 	ensureDrawing()
 
 	val array = memScoped {
-		allocArray<Vector2>(points.size) { i -> points[i].toVector2() }
+		allocArray<Vector2>(points.size) { i ->
+			x = points[i].first.toFloat()
+			y = points[i].second.toFloat()
+		}
 	}
 
 	DrawTriangleFan(array, points.size, color.raw())
@@ -568,7 +574,10 @@ fun Canvas.triangleStrip(color: Color = Color.BLACK, points: List<Pair<Int, Int>
 	ensureDrawing()
 
 	val array = memScoped {
-		allocArray<Vector2>(points.size) { i -> points[i].toVector2() }
+		allocArray<Vector2>(points.size) { i ->
+			x = points[i].first.toFloat()
+			y = points[i].second.toFloat()
+		}
 	}
 
 	DrawTriangleStrip(array, points.size, color.raw())
@@ -668,7 +677,10 @@ fun Canvas.linearSpline(color: Color = Color.BLACK, thick: Float, points: List<P
 	ensureDrawing()
 
 	val array = memScoped {
-		allocArray<Vector2>(points.size) { i -> points[i].toVector2() }
+		allocArray<Vector2>(points.size) { i ->
+			x = points[i].first.toFloat()
+			y = points[i].second.toFloat()
+		}
 	}
 
 	DrawSplineLinear(array, points.size, thick, color.raw())
@@ -695,7 +707,10 @@ fun Canvas.basisSpline(color: Color = Color.BLACK, thick: Float, points: List<Pa
 	ensureDrawing()
 
 	val array = memScoped {
-		allocArray<Vector2>(points.size) { i -> points[i].toVector2() }
+		allocArray<Vector2>(points.size) { i ->
+			x = points[i].first.toFloat()
+			y = points[i].second.toFloat()
+		}
 	}
 
 	DrawSplineBasis(array, points.size, thick, color.raw())
@@ -722,7 +737,10 @@ fun Canvas.catmullRomSpline(color: Color = Color.BLACK, thick: Float, points: Li
 	ensureDrawing()
 
 	val array = memScoped {
-		allocArray<Vector2>(points.size) { i -> points[i].toVector2() }
+		allocArray<Vector2>(points.size) { i ->
+			x = points[i].first.toFloat()
+			y = points[i].second.toFloat()
+		}
 	}
 
 	DrawSplineCatmullRom(array, points.size, thick, color.raw())
@@ -753,7 +771,10 @@ fun Canvas.quadraticBezierSpline(
 	ensureDrawing()
 
 	val array = memScoped {
-		allocArray<Vector2>(points.size) { i -> points[i].toVector2() }
+		allocArray<Vector2>(points.size) { i ->
+			x = points[i].first.toFloat()
+			y = points[i].second.toFloat()
+		}
 	}
 
 	DrawSplineBezierQuadratic(array, points.size, thick, color.raw())
@@ -788,7 +809,10 @@ fun Canvas.cubicBezierSpline(
 	ensureDrawing()
 
 	val array = memScoped {
-		allocArray<Vector2>(points.size) { i -> points[i].toVector2() }
+		allocArray<Vector2>(points.size) { i ->
+			x = points[i].first.toFloat()
+			y = points[i].second.toFloat()
+		}
 	}
 
 	DrawSplineBezierCubic(array, points.size, thick, color.raw())

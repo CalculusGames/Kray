@@ -9,6 +9,7 @@ import kotlinx.cinterop.NativePlacement
 import kotlinx.cinterop.alloc
 import kotlinx.cinterop.cValue
 import kotlinx.cinterop.memScoped
+import kotlinx.cinterop.pointed
 import kotlinx.cinterop.ptr
 import kotlinx.cinterop.toKString
 import kotlinx.cinterop.useContents
@@ -16,6 +17,8 @@ import platform.posix.getenv
 import raylib.internal.*
 import kray.to
 import kray.toVector3
+import platform.posix.sleep
+import platform.posix.usleep
 
 /**
  * The window management object.
@@ -426,6 +429,28 @@ object Window {
 		get() = GetFPS()
 		set(value) = SetTargetFPS(value)
 
+	/**
+	 * Delays execution for the specified number of milliseconds.
+	 * @param ms The number of milliseconds to delay.
+	 */
+	fun delay(ms: Int) {
+		usleep(ms.toUInt() * 1000u)
+	}
+
+	/**
+	 * Gets the color of the pixel at the specified screen coordinates.
+	 * @param x The X coordinate of the pixel.
+	 * @param y The Y coordinate of the pixel.
+	 * @return The color of the pixel at the specified coordinates.
+	 */
+	fun getColor(x: Int, y: Int): Color {
+		val img = LoadImageFromScreen()
+		val color = GetImageColor(img, x, y)
+		UnloadImage(img)
+
+		return Color(color)
+	}
+
 }
 
 /**
@@ -501,7 +526,7 @@ class Camera2D(
 	 * @param dy The Y coordinate of the displacement from the target
 	 * @param targetX The X coordinate of the camera's target
 	 * @param targetY The Y coordinate of the camera's target
-	 * @param rotation Camera rotation in degrees
+	 * @param rotation Camera rotation in radians
 	 * @param zoom Camera zoom scale
 	 */
 	constructor(
@@ -565,14 +590,14 @@ class Camera2D(
  * Starts a 2D camera on the current window.
  * @param camera The camera to use
  */
-fun Window.start2D(camera: Camera2D) {
+fun Canvas.start2D(camera: Camera2D) {
 	BeginMode2D(camera.raw())
 }
 
 /**
  * Ends the 2D camera on the current window.
  */
-fun Window.end2D() {
+fun Canvas.end2D() {
 	EndMode2D()
 }
 
@@ -581,7 +606,7 @@ fun Window.end2D() {
  * @param camera The camera to use
  * @param block The drawing operations to perform
  */
-fun Window.camera2D(camera: Camera2D, block: Window.() -> Unit) {
+fun Canvas.camera2D(camera: Camera2D, block: Canvas.() -> Unit) {
 	start2D(camera)
 	this.block()
 	end2D()
@@ -657,7 +682,7 @@ class Camera3D(
 	 * @param targetX The X position of the camera's target
 	 * @param targetY The Y position of the camera's target
 	 * @param targetZ The Z position of the camera's target
-	 * @param rotX The X rotational value of the camera in degrees
+	 * @param rotX The X rotational value of the camera in degress
 	 * @param rotY The X rotational value of the camera in degrees
 	 * @param rotZ The X rotational value of the camera in degrees
 	 * @param fovy Camera FOV apperture in Y (degrees) in perspective, or near plane width in orthographic
@@ -791,8 +816,22 @@ class Camera3D(
 	 * Updates the camera's current mode.
 	 * @param mode The new camera mode to set
 	 */
-	fun update(mode: CameraMode3D) = memScoped {
-		UpdateCamera(raw(), mode.value.toInt())
+	@Suppress("DuplicatedCode")
+	fun update(mode: CameraMode3D): Unit = memScoped {
+		val cameraPtr = raw()
+		UpdateCamera(cameraPtr, mode.value.toInt())
+
+		// read back values
+		val camera = cameraPtr.pointed
+		x = camera.position.x
+		y = camera.position.y
+		z = camera.position.z
+		targetX = camera.target.x
+		targetY = camera.target.y
+		targetZ = camera.target.z
+		rotX = camera.up.x
+		rotY = camera.up.y
+		rotZ = camera.up.z
 	}
 
 	/**
@@ -809,18 +848,29 @@ class Camera3D(
 		dx: Float = 0F, dy: Float = 0F, dz: Float = 0F,
 		drotX: Float = 0F, drotY: Float = 0F, drotZ: Float = 0F,
 		zoom: Float = 1F
-	) = memScoped {
+	): Unit = memScoped {
+		val cameraPtr = raw()
 		UpdateCameraPro(
-			raw(),
+			cameraPtr,
 			(dx to dy to dz).toVector3(),
 			(drotX to drotY to drotZ).toVector3(),
 			zoom
 		)
+		// read back modified values
+		x = cameraPtr.pointed.position.x
+		y = cameraPtr.pointed.position.y
+		z = cameraPtr.pointed.position.z
+		targetX = cameraPtr.pointed.target.x
+		targetY = cameraPtr.pointed.target.y
+		targetZ = cameraPtr.pointed.target.z
+		rotX = cameraPtr.pointed.up.x
+		rotY = cameraPtr.pointed.up.y
+		rotZ = cameraPtr.pointed.up.z
 	}
 
 	/**
 	 * Updates the camera's movement, rotation, and speed.
-	 * @param delta The delta for the camera position in degrees.
+	 * @param delta The delta for the camera position.
 	 * @param deltaRot The delta for the camera rotation in degrees.
 	 * @param zoom The new zoom value.
 	 */
@@ -828,13 +878,24 @@ class Camera3D(
 		delta: Triple<Float, Float, Float> = 0F to 0F to 0F,
 		deltaRot: Triple<Float, Float, Float> = 0F to 0F to 0F,
 		zoom: Float = 1F
-	) = memScoped {
+	): Unit = memScoped {
+		val cameraPtr = raw()
 		UpdateCameraPro(
-			raw(),
+			cameraPtr,
 			delta.toVector3(),
 			deltaRot.toVector3(),
 			zoom
 		)
+		// read back modified values
+		x = cameraPtr.pointed.position.x
+		y = cameraPtr.pointed.position.y
+		z = cameraPtr.pointed.position.z
+		targetX = cameraPtr.pointed.target.x
+		targetY = cameraPtr.pointed.target.y
+		targetZ = cameraPtr.pointed.target.z
+		rotX = cameraPtr.pointed.up.x
+		rotY = cameraPtr.pointed.up.y
+		rotZ = cameraPtr.pointed.up.z
 	}
 }
 
@@ -842,14 +903,14 @@ class Camera3D(
  * Starts a 3D camera on the current window.
  * @param camera The camera to use
  */
-fun Window.start3D(camera: Camera3D) {
+fun Canvas.start3D(camera: Camera3D) {
 	BeginMode3D(camera.raw())
 }
 
 /**
  * Ends the 3D camera on the current window.
  */
-fun Window.end3D() {
+fun Canvas.end3D() {
 	EndMode3D()
 }
 
@@ -858,7 +919,7 @@ fun Window.end3D() {
  * @param camera The camera to use
  * @param block The drawing operations to perform
  */
-fun Window.camera3D(camera: Camera3D, block: Window.() -> Unit) {
+fun Canvas.camera3D(camera: Camera3D, block: Canvas.() -> Unit) {
 	start3D(camera)
 	this.block()
 	end3D()
