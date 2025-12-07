@@ -2,23 +2,17 @@
 
 package raylib
 
-import kotlinx.cinterop.CPointer
-import kotlinx.cinterop.CValue
-import kotlinx.cinterop.ExperimentalForeignApi
-import kotlinx.cinterop.NativePlacement
-import kotlinx.cinterop.alloc
-import kotlinx.cinterop.cValue
-import kotlinx.cinterop.memScoped
-import kotlinx.cinterop.pointed
-import kotlinx.cinterop.ptr
-import kotlinx.cinterop.toKString
-import kotlinx.cinterop.useContents
-import platform.posix.getenv
-import raylib.internal.*
+import kotlinx.cinterop.*
 import kray.to
 import kray.toVector3
-import platform.posix.sleep
+import platform.posix.getenv
 import platform.posix.usleep
+import raylib.Canvas.end
+import raylib.Canvas.start
+import raylib.Window.lifecycle
+import raylib.Window.open
+import raylib.Window.shouldClose
+import raylib.internal.*
 
 /**
  * The window management object.

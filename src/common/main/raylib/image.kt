@@ -1,19 +1,7 @@
 @file:OptIn(ExperimentalForeignApi::class)
 package raylib
 
-import kotlinx.cinterop.CPointer
-import kotlinx.cinterop.CValue
-import kotlinx.cinterop.ExperimentalForeignApi
-import kotlinx.cinterop.NativePlacement
-import kotlinx.cinterop.cValue
-import kotlinx.cinterop.alloc
-import kotlinx.cinterop.allocArray
-import kotlinx.cinterop.get
-import kotlinx.cinterop.memScoped
-import kotlinx.cinterop.pointed
-import kotlinx.cinterop.ptr
-import kotlinx.cinterop.readValue
-import kotlinx.cinterop.useContents
+import kotlinx.cinterop.*
 import kray.toByteArray
 import kray.toVector2
 import raylib.internal.*

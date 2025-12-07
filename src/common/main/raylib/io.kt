@@ -2,41 +2,10 @@
 
 package raylib
 
-import kotlinx.cinterop.ExperimentalForeignApi
-import kotlinx.cinterop.UByteVar
-import kotlinx.cinterop.addressOf
-import kotlinx.cinterop.alloc
-import kotlinx.cinterop.get
-import kotlinx.cinterop.memScoped
-import kotlinx.cinterop.ptr
-import kotlinx.cinterop.reinterpret
-import kotlinx.cinterop.toKString
-import kotlinx.cinterop.useContents
-import kotlinx.cinterop.usePinned
+import kotlinx.cinterop.*
 import kray.toByteArray
 import platform.posix.remove
-import raylib.internal.DirectoryExists
-import raylib.internal.ExportDataAsCode
-import raylib.internal.ExportImage
-import raylib.internal.FileExists
-import raylib.internal.GetApplicationDirectory
-import raylib.internal.GetDirectoryPath
-import raylib.internal.GetFileExtension
-import raylib.internal.GetFileLength
-import raylib.internal.GetFileName
-import raylib.internal.GetFileNameWithoutExt
-import raylib.internal.GetWorkingDirectory
-import raylib.internal.IsPathFile
-import raylib.internal.LoadDirectoryFilesEx
-import raylib.internal.LoadFileData
-import raylib.internal.LoadFileText
-import raylib.internal.MakeDirectory
-import raylib.internal.OpenURL
-import raylib.internal.SaveFileData
-import raylib.internal.SaveFileText
-import raylib.internal.TakeScreenshot
-import raylib.internal.UnloadDirectoryFiles
-import raylib.internal.UnloadFileText
+import raylib.internal.*
 
 /**
  * Takes and saves a screenshot.
