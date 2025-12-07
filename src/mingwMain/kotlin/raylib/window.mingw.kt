@@ -2,24 +2,8 @@
 
 package raylib
 
-import kotlinx.cinterop.ExperimentalForeignApi
-import kotlinx.cinterop.UIntVar
-import kotlinx.cinterop.alloc
-import kotlinx.cinterop.memScoped
-import kotlinx.cinterop.ptr
-import kotlinx.cinterop.value
-import platform.windows.DestroyWindow
-import platform.windows.FindWindowA
-import platform.windows.GetCurrentProcessId
-import platform.windows.GetDC
-import platform.windows.GetForegroundWindow
-import platform.windows.GetSystemMetrics
-import platform.windows.GetWindowThreadProcessId
-import platform.windows.ReleaseDC
-import platform.windows.SM_CMONITORS
-import platform.windows.wglDeleteContext
-import platform.windows.wglGetCurrentContext
-import platform.windows.wglMakeCurrent
+import kotlinx.cinterop.*
+import platform.windows.*
 import raylib.internal.rlglClose
 
 internal actual val _isHeadless: Boolean
