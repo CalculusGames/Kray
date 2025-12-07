@@ -1,4 +1,4 @@
-headers = raylib.h raymath.h rcamera.h rgestures.h rlgl.h utils.h
+headers = raylib.h raymath.h rcamera.h rgestures.h rlgl.h utils.h config.h
 package = raylib.internal
 
 compilerOpts = -Ilib/raylib/src
