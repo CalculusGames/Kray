@@ -1,9 +1,8 @@
 headers = raylib.h raymath.h rcamera.h rgestures.h rlgl.h utils.h config.h
-headers.mingw = GLFW/glfw3.h
-headers.linux = GLFW/glfw3.h
 package = raylib.internal
 
 compilerOpts = -Ilib/raylib/src -Ilib/raylib/src/external -Ilib/raylib/src/external/glfw/include
+compilerOpts.linux = -I/usr/include -I/usr/include/GL
 linkerOpts = -lraylib
 linkerOpts.mingw = -Llib/mingw
 linkerOpts.linux = -Llib/linux
