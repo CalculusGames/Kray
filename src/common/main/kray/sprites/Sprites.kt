@@ -20,13 +20,13 @@ fun Canvas.drawSprite(sprite: Sprite2D, x: Int = sprite.x, y: Int = sprite.y) {
 
 // Kray
 
-private val registeredSprites = mutableSetOf<Sprite>()
+private val registeredSprites = mutableSetOf<Sprite<*>>()
 
 /**
  * Gets an immutable copy of all sprites drawn to the canvas so far.
  * @return A set of all drawn sprites.
  */
-val Kray.drawnSprites: Set<Sprite>
+val Kray.drawnSprites: Set<Sprite<*>>
 	get() = registeredSprites.toSet()
 
 /**
@@ -45,7 +45,7 @@ fun Kray.addSprite(sprite: Sprite2D, x: Int = sprite.x, y: Int = sprite.y) {
  * Removes the given [sprite] from the Kray canvas.
  * @param sprite The sprite to remove.
  */
-fun Kray.removeSprite(sprite: Sprite) {
+fun Kray.removeSprite(sprite: Sprite<*>) {
 	if (registeredSprites.remove(sprite)) {
 		if (sprite is Sprite2D)
 			sprite.isDrawn = false
