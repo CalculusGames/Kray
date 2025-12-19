@@ -5,6 +5,8 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBuildType
 import org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeHostTest
+import org.jetbrains.kotlin.gradle.tasks.CInteropProcess
+import org.jetbrains.kotlin.gradle.tasks.KotlinNativeCompile
 import org.jetbrains.kotlin.konan.target.Family
 
 plugins {
@@ -46,9 +48,23 @@ tasks {
 		else -> throw GradleException("Host OS '$hostOs' with architecture '$hostArch' is not supported for native compilation.")
 	}
 
+	register("copyRaylibResources", Copy::class) {
+		from("lib/raylib/examples/shaders/resources/shaders/glsl330")
+		into("src/common/generated-resources/shaders")
+	}
+
 	register("copyTestResources", Copy::class) {
-		from("src/common/test-resources")
+		dependsOn("copyRaylibResources")
+		from("src/common/test-resources", "src/common/generated-resources")
 		into(layout.buildDirectory.file("bin/$testName/debugTest"))
+	}
+
+	withType<CInteropProcess> {
+		dependsOn("copyRaylibResources")
+	}
+
+	withType<ProcessResources> {
+		dependsOn("copyRaylibResources")
 	}
 
 	withType<KotlinNativeHostTest> {
@@ -132,6 +148,7 @@ kotlin {
 
 		commonTest.dependencies {
 			implementation(kotlin("test"))
+			implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2")
 		}
 	}
 }
@@ -149,6 +166,7 @@ fun KotlinMultiplatformExtension.configureSourceSets() {
 
             kotlin.srcDir("src/$platform/$srcDir")
             resources.srcDir("src/$platform/${resourcesPrefix}resources")
+			resources.srcDir("src/$platform/generated-resources")
 
             languageSettings.apply {
                 progressiveMode = true

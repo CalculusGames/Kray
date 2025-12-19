@@ -5,3 +5,4 @@ build/
 *.iml
 out/
 .DS_Store
+generated-resources/
