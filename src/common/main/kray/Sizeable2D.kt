@@ -16,10 +16,16 @@ interface Sizeable2D {
 	val height: Int
 
 	/**
-	 * The area of the object.
+	 * The area of the object's bounding box, based on its size parameters.
 	 */
 	val area: Int
 		get() = width * height
+
+	/**
+	 * The perimeter of the object's bounding box, based on its size parameters.
+	 */
+	val perimeter: Int
+		get() = 2 * (width + height)
 
 	/**
 	 * Resizes the object to the specified [newWidth] and [newHeight] in place.

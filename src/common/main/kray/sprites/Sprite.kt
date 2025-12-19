@@ -1,8 +1,5 @@
 package kray.sprites
 
-import raylib.Image
-import kotlin.collections.set
-
 /**
  * Represents a sprite in the Kray game engine. Either 2D or 3D.
  * @param T The type of the sprite (e.g., Image for 2D sprites).
@@ -33,6 +30,12 @@ interface Sprite<T> {
 	 * A list of all costumes associated with this sprite.
 	 */
 	val costumes: MutableList<T>
+
+	/**
+	 * The current costume that the sprite is wearing.
+	 */
+	val currentCostume: T
+		get() = costumes[currentCostumeIndex]
 
 	/**
 	 * Adds a costume to this sprite.

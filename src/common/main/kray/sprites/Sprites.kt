@@ -3,6 +3,7 @@ package kray.sprites
 import kray.Kray
 import raylib.Canvas
 import raylib.drawImage
+import raylib.drawModel
 import raylib.ensureDrawing
 
 // Canvas
@@ -16,6 +17,18 @@ import raylib.ensureDrawing
 fun Canvas.drawSprite(sprite: Sprite2D, x: Int = sprite.x, y: Int = sprite.y) {
 	ensureDrawing()
 	drawImage(sprite.raw, x, y)
+}
+
+/**
+ * Draws the given [sprite] to the canvas at its current position or at the specified [x], [y], and [z] coordinates.
+ * @param sprite The sprite to draw.
+ * @param x The x-coordinate to draw the sprite at. Defaults to the sprite's current x position.
+ * @param y The y-coordinate to draw the sprite at. Defaults to the sprite's current y position.
+ * @param z The z-coordinate to draw the sprite at. Defaults to the sprite's current z position.
+ */
+fun Canvas.drawSprite(sprite : Sprite3D, x: Int = sprite.x, y: Int = sprite.y, z: Int = sprite.z) {
+	ensureDrawing()
+	drawModel(sprite.raw, x, y, z)
 }
 
 // Kray
