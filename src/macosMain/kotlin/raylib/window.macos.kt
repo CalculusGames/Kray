@@ -12,7 +12,7 @@ internal actual val _isHeadless: Boolean
 	get() = CGMainDisplayID() == kCGNullDirectDisplay || CGSessionCopyCurrentDictionary() == null
 
 internal actual fun _close0() {
-	CloseWindow()
 	_closed0 = true
+	CloseWindow()
 }
 internal actual var _closed0: Boolean = false

@@ -18,9 +18,9 @@ internal actual val _isHeadless: Boolean
 internal actual fun _close0() {
 	if (Window.currentTitle == null) return
 
+	_closed0 = true
 	rlglClose()
 	ClosePlatform()
-	_closed0 = true
 	TraceLog(LOG_INFO.toInt(), "Window closed successfully")
 }
 
