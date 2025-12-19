@@ -65,52 +65,61 @@ object Mouse {
 	/**
 	 * Represents a mouse button that can be pressed.
 	 */
-	enum class Button(internal val value: UInt) {
-		/**
-		 * The left mouse button.
-		 */
-		LEFT(MOUSE_BUTTON_LEFT),
+	value class Button private constructor(internal val value: UInt) {
+		companion object {
+			/**
+			 * The left mouse button.
+			 */
+			val LEFT: Button by lazy { Button(MOUSE_BUTTON_LEFT) }
 
-		/**
-		 * The right mouse button.
-		 */
-		RIGHT(MOUSE_BUTTON_RIGHT),
+			/**
+			 * The right mouse button.
+			 */
+			val RIGHT: Button by lazy { Button(MOUSE_BUTTON_RIGHT) }
 
-		/**
-		 * The middle mouse button.
-		 *
-		 * Called when the wheel is pressed.
-		 */
-		MIDDLE(MOUSE_BUTTON_MIDDLE),
+			/**
+			 * The middle mouse button.
+			 *
+			 * Called when the wheel is pressed.
+			 */
+			val MIDDLE: Button by lazy { Button(MOUSE_BUTTON_MIDDLE) }
 
-		/**
-		 * The side mouse button.
-		 *
-		 * Usually only available on advanced mice.
-		 */
-		SIDE(MOUSE_BUTTON_SIDE),
+			/**
+			 * The side mouse button.
+			 *
+			 * Usually only available on advanced mice.
+			 */
+			val SIDE: Button by lazy { Button(MOUSE_BUTTON_SIDE) }
 
-		/**
-		 * The extra mouse button.
-		 *
-		 * Usually only available on advanced mice.
-		 */
-		EXTRA(MOUSE_BUTTON_EXTRA),
+			/**
+			 * The extra mouse button.
+			 *
+			 * Usually only available on advanced mice.
+			 */
+			val EXTRA: Button by lazy { Button(MOUSE_BUTTON_EXTRA) }
 
-		/**
-		 * The forward mouse button.
-		 *
-		 * Usually only available on advanced mice.
-		 */
-		FORWARD(MOUSE_BUTTON_FORWARD),
+			/**
+			 * The forward mouse button.
+			 *
+			 * Usually only available on advanced mice.
+			 */
+			val FORWARD: Button by lazy { Button(MOUSE_BUTTON_FORWARD) }
 
-		/**
-		 * The back mouse button.
-		 *
-		 * Usually only available on advanced mice.
-		 */
-		BACK(MOUSE_BUTTON_BACK),
+			/**
+			 * The back mouse button.
+			 *
+			 * Usually only available on advanced mice.
+			 */
+			val BACK: Button by lazy { Button(MOUSE_BUTTON_BACK) }
 
+			private val allButtons by lazy {
+				listOf(LEFT, RIGHT, MIDDLE, SIDE, EXTRA, FORWARD, BACK)
+			}
+
+			internal fun fromValue(value: Int): Button? {
+				return allButtons.find { it.value.toInt() == value }
+			}
+		}
 	}
 
 	/**
@@ -160,62 +169,63 @@ object Mouse {
 	/**
 	 * The currently displayed icon over the cursor.
 	 */
-	enum class Cursor(internal val value: UInt) {
+	value class Cursor private constructor(internal val value: UInt) {
+		companion object {
+			/**
+			 * The default mouse cursor for the computer.
+			 */
+			val DEFAULT: Cursor by lazy { Cursor(MOUSE_CURSOR_DEFAULT) }
 
-		/**
-		 * The default mouse cursor for the computer.
-		 */
-		DEFAULT(MOUSE_CURSOR_DEFAULT),
+			/**
+			 * The mouse is shaped like an arrow.
+			 */
+			val ARROW: Cursor by lazy { Cursor(MOUSE_CURSOR_ARROW) }
 
-		/**
-		 * The mouse is shaped like an arrow.
-		 */
-		ARROW(MOUSE_CURSOR_ARROW),
+			/**
+			 * The mouse is writing text.
+			 */
+			val IBEAM: Cursor by lazy { Cursor(MOUSE_CURSOR_IBEAM) }
 
-		/**
-		 * The mouse is writing text.
-		 */
-		IBEAM(MOUSE_CURSOR_IBEAM),
+			/**
+			 * The mouse has a crosshair on it.
+			 */
+			val CROSSHAIR: Cursor by lazy { Cursor(MOUSE_CURSOR_CROSSHAIR) }
 
-		/**
-		 * The mouse has a crosshair on it.
-		 */
-		CROSSHAIR(MOUSE_CURSOR_CROSSHAIR),
+			/**
+			 * The mouse is shaped like a pointing hand.
+			 */
+			val POINTING_HAND: Cursor by lazy { Cursor(MOUSE_CURSOR_POINTING_HAND) }
 
-		/**
-		 * The mouse is shaped like a pointing hand.
-		 */
-		POINTING_HAND(MOUSE_CURSOR_POINTING_HAND),
+			/**
+			 * The mouse is resizing an element horizontally.
+			 */
+			val HORIZONTAL_RESIZE: Cursor by lazy { Cursor(MOUSE_CURSOR_RESIZE_EW) }
 
-		/**
-		 * The mouse is resizing an element horizontally.
-		 */
-		HORIZONAL_RESIZE(MOUSE_CURSOR_RESIZE_EW),
+			/**
+			 * The mouse is resizing an element vertically.
+			 */
+			val VERTICAL_RESIZE: Cursor by lazy { Cursor(MOUSE_CURSOR_RESIZE_NS) }
 
-		/**
-		 * The mouse is resizing an element vertically.
-		 */
-		VERTICAL_RESIZE(MOUSE_CURSOR_RESIZE_NS),
+			/**
+			 * The mouse is resizing an element diagonally, starting from top-left.
+			 */
+			val DIAGONAL_RESIZE_LEFT: Cursor by lazy { Cursor(MOUSE_CURSOR_RESIZE_NWSE) }
 
-		/**
-		 * The mouse is resizing an element diagonally, starting from top-left.
-		 */
-		DIAGONAL_RESIZE_LEFT(MOUSE_CURSOR_RESIZE_NWSE),
+			/**
+			 * The mouse is resizing an element diagonally, starting from top-right.
+			 */
+			val DIAGONAL_RESIZE_RIGHT: Cursor by lazy { Cursor(MOUSE_CURSOR_RESIZE_NESW) }
 
-		/**
-		 * The mouse is resizing an element diagonally, starting from top-right.
-		 */
-		DIAGONAL_RESIZE_RIGHT(MOUSE_CURSOR_RESIZE_NESW),
+			/**
+			 * The mouse is using the omnidirectional resize icon.
+			 */
+			val RESIZE_ALL: Cursor by lazy { Cursor(MOUSE_CURSOR_RESIZE_ALL) }
 
-		/**
-		 * The mouse is using the omnidirectional resize icon.
-		 */
-		RESIZE_ALL(MOUSE_CURSOR_RESIZE_ALL),
-
-		/**
-		 * The mouse action is not allowed.
-		 */
-		BLOCKED(MOUSE_CURSOR_NOT_ALLOWED),
+			/**
+			 * The mouse action is not allowed.
+			 */
+			val BLOCKED: Cursor by lazy { Cursor(MOUSE_CURSOR_NOT_ALLOWED) }
+		}
 	}
 
 	/**
@@ -933,100 +943,115 @@ object GamePad {
 	/**
 	 * A specific gamepad button.
 	 */
-	enum class Button(internal val value: UInt) {
-		/**
-		 * An unknown button was pressed.
-		 */
-		UNKNOWN(GAMEPAD_BUTTON_UNKNOWN),
+	value class Button private constructor(internal val value: UInt) {
+		companion object {
+			/**
+			 * An unknown button was pressed.
+			 */
+			val UNKNOWN: Button by lazy { Button(GAMEPAD_BUTTON_UNKNOWN) }
 
-		/**
-		 * The up botton on the directional pad or left face.
-		 */
-		DPAD_UP(GAMEPAD_BUTTON_LEFT_FACE_UP),
+			/**
+			 * The up botton on the directional pad or left face.
+			 */
+			val DPAD_UP: Button by lazy { Button(GAMEPAD_BUTTON_LEFT_FACE_UP) }
 
-		/**
-		 * The down button on the directional pad or left face.
-		 */
-		DPAD_DOWN(GAMEPAD_BUTTON_LEFT_FACE_DOWN),
+			/**
+			 * The down button on the directional pad or left face.
+			 */
+			val DPAD_DOWN: Button by lazy { Button(GAMEPAD_BUTTON_LEFT_FACE_DOWN) }
 
-		/**
-		 * The left button on the directional pad or left face.
-		 */
-		DPAD_LEFT(GAMEPAD_BUTTON_LEFT_FACE_LEFT),
+			/**
+			 * The left button on the directional pad or left face.
+			 */
+			val DPAD_LEFT: Button by lazy { Button(GAMEPAD_BUTTON_LEFT_FACE_LEFT) }
 
-		/**
-		 * The right button on the directional pad or left face.
-		 */
-		DPAD_RIGHT(GAMEPAD_BUTTON_RIGHT_FACE_LEFT),
+			/**
+			 * The right button on the directional pad or left face.
+			 */
+			val DPAD_RIGHT: Button by lazy { Button(GAMEPAD_BUTTON_RIGHT_FACE_LEFT) }
 
-		/**
-		 * The up button on the right face.
-		 *
-		 * `△` on PlayStation / `Y` for Xbox / `X` for Switch
-		 */
-		UP(GAMEPAD_BUTTON_RIGHT_FACE_UP),
+			/**
+			 * The up button on the right face.
+			 *
+			 * `△` on PlayStation / `Y` for Xbox / `X` for Switch
+			 */
+			val UP: Button by lazy { Button(GAMEPAD_BUTTON_RIGHT_FACE_UP) }
 
-		/**
-		 * The down button on the right face.
-		 *
-		 * `✕` on PlayStation / `A` for Xbox / `B` for Switch
-		 */
-		DOWN(GAMEPAD_BUTTON_RIGHT_FACE_DOWN),
+			/**
+			 * The down button on the right face.
+			 *
+			 * `✕` on PlayStation / `A` for Xbox / `B` for Switch
+			 */
+			val DOWN: Button by lazy { Button(GAMEPAD_BUTTON_RIGHT_FACE_DOWN) }
 
-		/**
-		 * The left button on the right face.
-		 *
-		 * `□` on PlayStation / `X` for Xbox / `Y` for Switch
-		 */
-		LEFT(GAMEPAD_BUTTON_LEFT_FACE_LEFT),
+			/**
+			 * The left button on the right face.
+			 *
+			 * `□` on PlayStation / `X` for Xbox / `Y` for Switch
+			 */
+			val LEFT: Button by lazy { Button(GAMEPAD_BUTTON_LEFT_FACE_LEFT) }
 
-		/**
-		 * The right button on the right face.
-		 *
-		 * `○` on PlayStation / `B` for Xbox / `A` for Switch
-		 */
-		RIGHT(GAMEPAD_BUTTON_RIGHT_FACE_LEFT),
+			/**
+			 * The right button on the right face.
+			 *
+			 * `○` on PlayStation / `B` for Xbox / `A` for Switch
+			 */
+			val RIGHT: Button by lazy { Button(GAMEPAD_BUTTON_RIGHT_FACE_LEFT) }
 
-		/**
-		 * The left button.
-		 */
-		LB(GAMEPAD_BUTTON_LEFT_TRIGGER_1),
+			/**
+			 * The left button.
+			 */
+			val LB: Button by lazy { Button(GAMEPAD_BUTTON_LEFT_TRIGGER_1) }
 
-		/**
-		 * The left trigger.
-		 */
-		LT(GAMEPAD_BUTTON_LEFT_TRIGGER_2),
+			/**
+			 * The left trigger.
+			 */
+			val LT: Button by lazy { Button(GAMEPAD_BUTTON_LEFT_TRIGGER_2) }
 
-		/**
-		 * The right button.
-		 */
-		RB(GAMEPAD_BUTTON_RIGHT_TRIGGER_1),
+			/**
+			 * The right button.
+			 */
+			val RB: Button by lazy { Button(GAMEPAD_BUTTON_RIGHT_TRIGGER_1) }
 
-		/**
-		 * The right trigger.
-		 */
-		RT(GAMEPAD_BUTTON_RIGHT_TRIGGER_2),
+			/**
+			 * The right trigger.
+			 */
+			val RT: Button by lazy { Button(GAMEPAD_BUTTON_RIGHT_TRIGGER_2) }
 
-		/**
-		 * The middle button.
-		 *
-		 * PS on PlayStation / Xbox Logo on Xbox / Home on Switch
-		 */
-		MIDDLE(GAMEPAD_BUTTON_MIDDLE),
+			/**
+			 * The middle button.
+			 *
+			 * PS on PlayStation / Xbox Logo on Xbox / Home on Switch
+			 */
+			val MIDDLE: Button by lazy { Button(GAMEPAD_BUTTON_MIDDLE) }
 
-		/**
-		 * The middle left button.
-		 *
-		 * Select or Share on PlayStation / Back or Share on Xbox / View on Switch
-		 */
-		MIDDLE_LEFT(GAMEPAD_BUTTON_MIDDLE_LEFT),
+			/**
+			 * The middle left button.
+			 *
+			 * Select or Share on PlayStation / Back or Share on Xbox / View on Switch
+			 */
+			val MIDDLE_LEFT: Button by lazy { Button(GAMEPAD_BUTTON_MIDDLE_LEFT) }
 
-		/**
-		 * The middle right button.
-		 *
-		 * Start on PlayStation / Options on Xbox
-		 */
-		MIDDLE_RIGHT(GAMEPAD_BUTTON_MIDDLE_RIGHT),
+			/**
+			 * The middle right button.
+			 *
+			 * Start on PlayStation / Options on Xbox
+			 */
+			val MIDDLE_RIGHT: Button by lazy { Button(GAMEPAD_BUTTON_MIDDLE_RIGHT) }
+
+			private val allButtons by lazy {
+				listOf(
+					UNKNOWN, DPAD_UP, DPAD_DOWN, DPAD_LEFT, DPAD_RIGHT,
+					UP, DOWN, LEFT, RIGHT,
+					LB, LT, RB, RT,
+					MIDDLE, MIDDLE_LEFT, MIDDLE_RIGHT
+				)
+			}
+
+			internal fun fromValue(value: Int): Button? {
+				return allButtons.find { it.value.toInt() == value }
+			}
+		}
 	}
 
 	/**
@@ -1071,47 +1096,48 @@ object GamePad {
 	val lastPressed: Button?
 		get() {
 			val last = GetGamepadButtonPressed()
-			return Button.entries.find { b -> b.value.toInt() == last }
+			return Button.fromValue(last)
 		}
 
 	/**
 	 * A specific gamepad axis movement.
 	 */
-	enum class Axis(internal val value: UInt) {
+	value class Axis private constructor(internal val value: UInt) {
+		companion object {
+			/**
+			 * The left joystick's X axis.
+			 */
+			val LEFT_X: Axis by lazy { Axis(GAMEPAD_AXIS_LEFT_X) }
 
-		/**
-		 * The left joystick's X axis.
-		 */
-		LEFT_X(GAMEPAD_AXIS_LEFT_X),
+			/**
+			 * The left joystick's Y axis.
+			 */
+			val LEFT_Y: Axis by lazy { Axis(GAMEPAD_AXIS_LEFT_Y) }
 
-		/**
-		 * The left joystick's Y axis.
-		 */
-		LEFT_Y(GAMEPAD_AXIS_LEFT_Y),
+			/**
+			 * The right joystick's X axis.
+			 */
+			val RIGHT_X: Axis by lazy { Axis(GAMEPAD_AXIS_RIGHT_X) }
 
-		/**
-		 * The right joystick's X axis.
-		 */
-		RIGHT_X(GAMEPAD_AXIS_RIGHT_X),
+			/**
+			 * The right joystick's Y axis.
+			 */
+			val RIGHT_Y: Axis by lazy { Axis(GAMEPAD_AXIS_RIGHT_Y) }
 
-		/**
-		 * The right joystick's Y axis.
-		 */
-		RIGHT_Y(GAMEPAD_AXIS_RIGHT_Y),
+			/**
+			 * The left trigger's axis.
+			 *
+			 * This is useful to determine how much the trigger is pressed down.
+			 */
+			val LT: Axis by lazy { Axis(GAMEPAD_AXIS_LEFT_TRIGGER) }
 
-		/**
-		 * The left trigger's axis.
-		 *
-		 * This is useful to determine how much the trigger is pressed down.
-		 */
-		LT(GAMEPAD_AXIS_LEFT_TRIGGER),
-
-		/**
-		 * The right trigger's axis.
-		 *
-		 * This is useful to determine how much the trigger is pressed down.
-		 */
-		RT(GAMEPAD_AXIS_RIGHT_TRIGGER),
+			/**
+			 * The right trigger's axis.
+			 *
+			 * This is useful to determine how much the trigger is pressed down.
+			 */
+			val RT: Axis by lazy { Axis(GAMEPAD_AXIS_RIGHT_TRIGGER) }
+		}
 	}
 
 	/**

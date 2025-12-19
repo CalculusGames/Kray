@@ -3972,133 +3972,151 @@ data class Color(val r: UByte, val g: UByte, val b: UByte, val a: UByte = 255.to
  * The format of the image or texture.
  * @property bpp Bytes per pixel in uncompressed format. If the format is compressed, this is `0`, as it needs a different calculation.
  */
-enum class PictureFormat(internal val value: PixelFormat, val bpp: Int = 0) {
-	/**
-	 * 8 bit per pixel (no alpha)
-	 *
-	 * Commonly used for grayscale images
-	 */
-	UNCOMPRESSED_GRAYSCALE(PIXELFORMAT_UNCOMPRESSED_GRAYSCALE, 1),
-	/**
-	 * 8*2 bpp (2 channels) for gray + alpha
-	 *
-	 * Commonly used for grayscale images with transparency
-	 */
-	UNCOMPRESSED_GRAY_ALPHA(PIXELFORMAT_UNCOMPRESSED_GRAY_ALPHA, 2),
-	/**
-	 * 16 bpp for R5G5B5
-	 *
-	 * Commonly used in older graphics systems
-	 */
-	UNCOMPRESSED_R5G6B5(PIXELFORMAT_UNCOMPRESSED_R5G6B5, 2),
-	/**
-	 * 24 bpp for R8G8B8
-	 *
-	 * Commonly used for standard RGB images
-	 */
-	UNCOMPRESSED_R8G8B8(PIXELFORMAT_UNCOMPRESSED_R8G8B8, 3),
-	/**
-	 * 16 bpp for R5G5B5A1
-	 *
-	 * Commonly used for images with 1-bit alpha transparency
-	 */
-	UNCOMPRESSED_R5G5B5A1(PIXELFORMAT_UNCOMPRESSED_R5G5B5A1, 2),
-	/**
-	 * 16 bpp for R4G4B4A4
-	 *
-	 * Commonly used for images with 4-bit alpha transparency
-	 */
-	UNCOMPRESSED_R4G4B4A4(PIXELFORMAT_UNCOMPRESSED_R4G4B4A4, 2),
-	/**
-	 * 32 bpp for R8G8B8A8
-	 *
-	 * Commonly used for standard RGBA images
-	 */
-	UNCOMPRESSED_R8G8B8A8(PIXELFORMAT_UNCOMPRESSED_R8G8B8A8, 4),
-	/**
-	 * 32 bpp for R32
-	 *
-	 * High precision single channel (red) images
-	 */
-	UNCOMPRESSED_R32(PIXELFORMAT_UNCOMPRESSED_R32, 4),
-	/**
-	 * 32*3 bpp for R32G32
-	 *
-	 * High precision two channel (red, green) images
-	 */
-	UNCOMPRESSED_R32G32B32(PIXELFORMAT_UNCOMPRESSED_R32G32B32, 12),
-	/**
-	 * 32*3 bpp for R32G32B32
-	 *
-	 * High precision three channel (red, green, blue) images
-	 */
-	UNCOMPRESSED_R32G32B32A32(PIXELFORMAT_UNCOMPRESSED_R32G32B32A32, 16),
-	/**
-	 * 4 bpp (no alpha) for RGB data in DXT1 format
-	 *
-	 * Commonly used for images without transparency
-	 */
-	COMPRESSED_DXT1_RGB(PIXELFORMAT_COMPRESSED_DXT1_RGB),
-	/**
-	 * 4 bpp (1 bit alpha) for RGBA data in DXT1 format
-	 *
-	 * Commonly used for images with 1-bit alpha transparency
-	 */
-	COMPRESSED_DXT1_RGBA(PIXELFORMAT_COMPRESSED_DXT1_RGBA),
-	/**
-	 * 8 bpp for RGBA data in DXT3 format
-	 *
-	 * Commonly used for images with sharp alpha transitions
-	 */
-	COMPRESSED_DXT3_RGBA(PIXELFORMAT_COMPRESSED_DXT3_RGBA),
-	/**
-	 * 8 bpp for RGBA data in DXT5 format
-	 *
-	 * Commonly used for images with smooth alpha transitions
-	 */
-	COMPRESSED_DXT5_RGBA(PIXELFORMAT_COMPRESSED_DXT5_RGBA),
-	/**
-	 * 4 bpp for RGB data in ETC1 format
-	 *
-	 * Commonly used in OpenGL ES 2.0+
-	 */
-	COMPRESSED_ETC1_RGB(PIXELFORMAT_COMPRESSED_ETC1_RGB),
-	/**
-	 * 8 bpp for RGBA data in ETC2/EAC format
-	 *
-	 * Commonly used in OpenGL ES 3.0+
-	 */
-	COMPRESSED_ETC2_RGB(PIXELFORMAT_COMPRESSED_ETC2_RGB),
-	/**
-	 * 8 bpp for RGBA data in ETC2/EAC format with 1-bit alpha
-	 *
-	 * Commonly used in OpenGL ES 3.0+
-	 */
-	COMPRESSED_ETC2_EAC_RGBA(PIXELFORMAT_COMPRESSED_ETC2_EAC_RGBA),
-	/**
-	 * 4 bpp for RGB data in PVRT format
-	 *
-	 * Commonly used in PowerVR GPUs
-	 */
-	COMPRESSED_PVRT_RGB(PIXELFORMAT_COMPRESSED_PVRT_RGB),
-	/**
-	 * 4 bpp for RGBA data in PVRT format
-	 *
-	 * Commonly used in PowerVR GPUs
-	 */
-	COMPRESSED_PVRT_RGBA(PIXELFORMAT_COMPRESSED_PVRT_RGBA),
-	/**
-	 * 8 bpp for RGBA data in ASTC 4x4 format
-	 *
-	 * High quality compression for mobile and desktop
-	 */
-	COMPRESSED_ASTC_4X4_RGBA(PIXELFORMAT_COMPRESSED_ASTC_4x4_RGBA),
-	/**
-	 * 2 bpp for RGBA data in ASTC 8x8 format
-	 *
-	 * High compression ratio for mobile and desktop
-	 */
-	COMPRESSED_ASTC_8X8_RGBA(PIXELFORMAT_COMPRESSED_ASTC_8x8_RGBA)
+class PictureFormat private constructor(internal val value: PixelFormat, val bpp: Int = 0) {
+	companion object {
+		/**
+		 * 8 bit per pixel (no alpha)
+		 *
+		 * Commonly used for grayscale images
+		 */
+		val UNCOMPRESSED_GRAYSCALE: PictureFormat by lazy { PictureFormat(PIXELFORMAT_UNCOMPRESSED_GRAYSCALE, 1) }
+		/**
+		 * 8*2 bpp (2 channels) for gray + alpha
+		 *
+		 * Commonly used for grayscale images with transparency
+		 */
+		val UNCOMPRESSED_GRAY_ALPHA: PictureFormat by lazy { PictureFormat(PIXELFORMAT_UNCOMPRESSED_GRAY_ALPHA, 2) }
+		/**
+		 * 16 bpp for R5G5B5
+		 *
+		 * Commonly used in older graphics systems
+		 */
+		val UNCOMPRESSED_R5G6B5: PictureFormat by lazy { PictureFormat(PIXELFORMAT_UNCOMPRESSED_R5G6B5, 2) }
+		/**
+		 * 24 bpp for R8G8B8
+		 *
+		 * Commonly used for standard RGB images
+		 */
+		val UNCOMPRESSED_R8G8B8: PictureFormat by lazy { PictureFormat(PIXELFORMAT_UNCOMPRESSED_R8G8B8, 3) }
+		/**
+		 * 16 bpp for R5G5B5A1
+		 *
+		 * Commonly used for images with 1-bit alpha transparency
+		 */
+		val UNCOMPRESSED_R5G5B5A1: PictureFormat by lazy { PictureFormat(PIXELFORMAT_UNCOMPRESSED_R5G5B5A1, 2) }
+		/**
+		 * 16 bpp for R4G4B4A4
+		 *
+		 * Commonly used for images with 4-bit alpha transparency
+		 */
+		val UNCOMPRESSED_R4G4B4A4: PictureFormat by lazy { PictureFormat(PIXELFORMAT_UNCOMPRESSED_R4G4B4A4, 2) }
+		/**
+		 * 32 bpp for R8G8B8A8
+		 *
+		 * Commonly used for standard RGBA images
+		 */
+		val UNCOMPRESSED_R8G8B8A8: PictureFormat by lazy { PictureFormat(PIXELFORMAT_UNCOMPRESSED_R8G8B8A8, 4) }
+		/**
+		 * 32 bpp for R32
+		 *
+		 * High precision single channel (red) images
+		 */
+		val UNCOMPRESSED_R32: PictureFormat by lazy { PictureFormat(PIXELFORMAT_UNCOMPRESSED_R32, 4) }
+		/**
+		 * 32*3 bpp for R32G32
+		 *
+		 * High precision two channel (red, green) images
+		 */
+		val UNCOMPRESSED_R32G32B32: PictureFormat by lazy { PictureFormat(PIXELFORMAT_UNCOMPRESSED_R32G32B32, 12) }
+		/**
+		 * 32*3 bpp for R32G32B32
+		 *
+		 * High precision three channel (red, green, blue) images
+		 */
+		val UNCOMPRESSED_R32G32B32A32: PictureFormat by lazy { PictureFormat(PIXELFORMAT_UNCOMPRESSED_R32G32B32A32, 16) }
+		/**
+		 * 4 bpp (no alpha) for RGB data in DXT1 format
+		 *
+		 * Commonly used for images without transparency
+		 */
+		val COMPRESSED_DXT1_RGB: PictureFormat by lazy { PictureFormat(PIXELFORMAT_COMPRESSED_DXT1_RGB) }
+		/**
+		 * 4 bpp (1 bit alpha) for RGBA data in DXT1 format
+		 *
+		 * Commonly used for images with 1-bit alpha transparency
+		 */
+		val COMPRESSED_DXT1_RGBA: PictureFormat by lazy { PictureFormat(PIXELFORMAT_COMPRESSED_DXT1_RGBA) }
+		/**
+		 * 8 bpp for RGBA data in DXT3 format
+		 *
+		 * Commonly used for images with sharp alpha transitions
+		 */
+		val COMPRESSED_DXT3_RGBA: PictureFormat by lazy { PictureFormat(PIXELFORMAT_COMPRESSED_DXT3_RGBA) }
+		/**
+		 * 8 bpp for RGBA data in DXT5 format
+		 *
+		 * Commonly used for images with smooth alpha transitions
+		 */
+		val COMPRESSED_DXT5_RGBA: PictureFormat by lazy { PictureFormat(PIXELFORMAT_COMPRESSED_DXT5_RGBA) }
+		/**
+		 * 4 bpp for RGB data in ETC1 format
+		 *
+		 * Commonly used in OpenGL ES 2.0+
+		 */
+		val COMPRESSED_ETC1_RGB: PictureFormat by lazy { PictureFormat(PIXELFORMAT_COMPRESSED_ETC1_RGB) }
+		/**
+		 * 8 bpp for RGBA data in ETC2/EAC format
+		 *
+		 * Commonly used in OpenGL ES 3.0+
+		 */
+		val COMPRESSED_ETC2_RGB: PictureFormat by lazy { PictureFormat(PIXELFORMAT_COMPRESSED_ETC2_RGB) }
+		/**
+		 * 8 bpp for RGBA data in ETC2/EAC format with 1-bit alpha
+		 *
+		 * Commonly used in OpenGL ES 3.0+
+		 */
+		val COMPRESSED_ETC2_EAC_RGBA: PictureFormat by lazy { PictureFormat(PIXELFORMAT_COMPRESSED_ETC2_EAC_RGBA) }
+		/**
+		 * 4 bpp for RGB data in PVRT format
+		 *
+		 * Commonly used in PowerVR GPUs
+		 */
+		val COMPRESSED_PVRT_RGB: PictureFormat by lazy { PictureFormat(PIXELFORMAT_COMPRESSED_PVRT_RGB) }
+		/**
+		 * 4 bpp for RGBA data in PVRT format
+		 *
+		 * Commonly used in PowerVR GPUs
+		 */
+		val COMPRESSED_PVRT_RGBA: PictureFormat by lazy { PictureFormat(PIXELFORMAT_COMPRESSED_PVRT_RGBA) }
+		/**
+		 * 8 bpp for RGBA data in ASTC 4x4 format
+		 *
+		 * High quality compression for mobile and desktop
+		 */
+		val COMPRESSED_ASTC_4X4_RGBA: PictureFormat by lazy { PictureFormat(PIXELFORMAT_COMPRESSED_ASTC_4x4_RGBA) }
+		/**
+		 * 2 bpp for RGBA data in ASTC 8x8 format
+		 *
+		 * High compression ratio for mobile and desktop
+		 */
+		val COMPRESSED_ASTC_8X8_RGBA: PictureFormat by lazy { PictureFormat(PIXELFORMAT_COMPRESSED_ASTC_8x8_RGBA) }
+
+		private val allFormats by lazy {
+			listOf(
+				UNCOMPRESSED_GRAYSCALE, UNCOMPRESSED_GRAY_ALPHA, UNCOMPRESSED_R5G6B5, UNCOMPRESSED_R8G8B8,
+				UNCOMPRESSED_R5G5B5A1, UNCOMPRESSED_R4G4B4A4, UNCOMPRESSED_R8G8B8A8, UNCOMPRESSED_R32,
+				UNCOMPRESSED_R32G32B32, UNCOMPRESSED_R32G32B32A32,
+				COMPRESSED_DXT1_RGB, COMPRESSED_DXT1_RGBA, COMPRESSED_DXT3_RGBA, COMPRESSED_DXT5_RGBA,
+				COMPRESSED_ETC1_RGB, COMPRESSED_ETC2_RGB, COMPRESSED_ETC2_EAC_RGBA,
+				COMPRESSED_PVRT_RGB, COMPRESSED_PVRT_RGBA,
+				COMPRESSED_ASTC_4X4_RGBA, COMPRESSED_ASTC_8X8_RGBA
+			)
+		}
+
+		internal fun fromValue(value: Int): PictureFormat? {
+			return allFormats.find { it.value.toInt() == value }
+		}
+	}
 }
 
 /**
@@ -4322,7 +4340,7 @@ class Image internal constructor(internal val raw: CValue<raylib.internal.Image>
     val format: PictureFormat
         get() {
             val rawFormat = raw.useContents { format }
-            return PictureFormat.entries.find { it.value.toInt() == rawFormat }
+            return PictureFormat.fromValue(rawFormat)
                 ?: throw IllegalStateException("Unknown image format: $rawFormat")
         }
 
@@ -5040,7 +5058,7 @@ class Texture2D(
 		width = raw.width,
 		height = raw.height,
 		mipmaps = raw.mipmaps,
-		format = PictureFormat.entries.find { it.value.toInt() == raw.format }
+		format = PictureFormat.fromValue(raw.format)
 			?: throw IllegalStateException("Unknown texture format: ${raw.format}")
 	)
 

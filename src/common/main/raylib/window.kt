@@ -160,7 +160,36 @@ object Window {
 	 * @param loop The game loop to call until the window should be closed
 	 */
 	fun lifecycle(loop: Window.() -> Unit) {
-		while (!shouldClose) {
+		while (!shouldClose && ready) {
+			loop()
+		}
+	}
+
+	/**
+	 * Runs a game loop for a specific number of frames.
+	 *
+	 * This is useful for testing or scenarios where you want to limit the number of iterations.
+	 * @param frames The number of frames to run the loop for
+	 * @param loop The game loop to call for the specified number of frames
+	 */
+	fun lifecycleForFrames(frames: Int, loop: Window.() -> Unit) {
+		var count = 0
+		while (!shouldClose && ready && count < frames) {
+			loop()
+			count++
+		}
+	}
+
+	/**
+	 * Runs a game loop for a specific duration in seconds.
+	 *
+	 * This is useful for testing or scenarios where you want to limit the execution time.
+	 * @param seconds The number of seconds to run the loop for
+	 * @param loop The game loop to call for the specified duration
+	 */
+	fun lifecycleForTime(seconds: Double, loop: Window.() -> Unit) {
+		val endTime = time + seconds
+		while (!shouldClose && ready && time < endTime) {
 			loop()
 		}
 	}
@@ -191,6 +220,9 @@ object Window {
 
     /**
      * Closes the window.
+	 *
+	 * Note: This method is not thread safe. It needs to be called on the same thread
+	 * as the one that opened the window.
      */
     fun close() {
 		_close0()
@@ -209,7 +241,7 @@ object Window {
 	 * or other triggers that would cause the window to close.
 	 */
 	val shouldClose: Boolean
-		get() = WindowShouldClose()
+		get() = WindowShouldClose() || _closed0
 
     /**
      * Indicates whether the window is hidden from view.
@@ -244,77 +276,84 @@ object Window {
     /**
      * The various windows state flags available.
      */
-    enum class State(internal val value: UInt) {
-        /**
-         * Set to try enabling V-Sync on GPU
-         */
-        VSYNC_HINT(0x00000040u),
-        /**
-         * Set to run program in fullscreen
-         */
-        FULLSCREEN_MODE(0x00000002u),
-        /**
-         * Set to allow resizable window
-         */
-        WINDOW_RESIZABLE(0x00000004u),
-        /**
-         * Set to disable window decoration (frame and buttons)
-         */
-        WINDOW_UNDECORATED(0x00000008u),
-        /**
-         * Set to hide window
-         */
-        WINDOW_HIDDEN(0x00000080u),
-        /**
-         * Set to minimize window (iconify)
-         */
-        WINDOW_MINIMIZED(0x00000200u),
-        /**
-         * Set to maximize window (expanded to monitor)
-         */
-        WINDOW_MAXIMIZED(0x00000400u),
-        /**
-         * Set the window to be non-focused
-         */
-        WINDOW_UNFOCUSED(0x00000800u),
-        /**
-         * Set the window to be always on top
-         */
-        WINDOW_TOPMOST(0x00001000u),
-        /**
-         * Set to allow windows running while minimized
-         */
-        WINDOW_ALWAYS_RUN(0x00000100u),
-        /**
-         * Set to allow transparent framebuffer
-         */
-        WINDOW_TRANSPARENT(0x00000010u),
-        /**
-         * Set to support HighDPI
-         */
-        WINDOW_HIGHDPI(0x00002000u),
-        /**
-         * Set to support mouse passthrough, only supported when WINDOW_UNDECORATED
-         */
-        WINDOW_MOUSE_PASSTHROUGH(0x00004000u),
-        /**
-         * Set to run program in borderless windowed mode
-         */
-        BORDERLESS_WINDOWED_MODE(0x00008000u),
-        /**
-         * Set to try enabling MSAA 4X
-         */
-        MSAA_4X_HINT(0x00000020u),
-        /**
-         * Set to try enabling interlaced video format (for V3D)
-         */
-        INTERLACED_HINT(0x00010000u)
+    value class State private constructor(internal val value: UInt) {
+        companion object {
+            /**
+             * Set to try enabling V-Sync on GPU
+             */
+            val VSYNC_HINT: State by lazy { State(0x00000040u) }
+            /**
+             * Set to run program in fullscreen
+             */
+            val FULLSCREEN_MODE: State by lazy { State(0x00000002u) }
+            /**
+             * Set to allow resizable window
+             */
+            val WINDOW_RESIZABLE: State by lazy { State(0x00000004u) }
+            /**
+             * Set to disable window decoration (frame and buttons)
+             */
+            val WINDOW_UNDECORATED: State by lazy { State(0x00000008u) }
+            /**
+             * Set to hide window
+             */
+            val WINDOW_HIDDEN: State by lazy { State(0x00000080u) }
+            /**
+             * Set to minimize window (iconify)
+             */
+            val WINDOW_MINIMIZED: State by lazy { State(0x00000200u) }
+            /**
+             * Set to maximize window (expanded to monitor)
+             */
+            val WINDOW_MAXIMIZED: State by lazy { State(0x00000400u) }
+            /**
+             * Set the window to be non-focused
+             */
+            val WINDOW_UNFOCUSED: State by lazy { State(0x00000800u) }
+            /**
+             * Set the window to be always on top
+             */
+            val WINDOW_TOPMOST: State by lazy { State(0x00001000u) }
+            /**
+             * Set to allow windows running while minimized
+             */
+            val WINDOW_ALWAYS_RUN: State by lazy { State(0x00000100u) }
+            /**
+             * Set to allow transparent framebuffer
+             */
+            val WINDOW_TRANSPARENT: State by lazy { State(0x00000010u) }
+            /**
+             * Set to support HighDPI
+             */
+            val WINDOW_HIGHDPI: State by lazy { State(0x00002000u) }
+            /**
+             * Set to support mouse passthrough, only supported when WINDOW_UNDECORATED
+             */
+            val WINDOW_MOUSE_PASSTHROUGH: State by lazy { State(0x00004000u) }
+            /**
+             * Set to run program in borderless windowed mode
+             */
+            val BORDERLESS_WINDOWED_MODE: State by lazy { State(0x00008000u) }
+            /**
+             * Set to try enabling MSAA 4X
+             */
+            val MSAA_4X_HINT: State by lazy { State(0x00000020u) }
+            /**
+             * Set to try enabling interlaced video format (for V3D)
+             */
+            val INTERLACED_HINT: State by lazy { State(0x00010000u) }
 
-        ;
+            private val allStates by lazy {
+                listOf(
+                    VSYNC_HINT, FULLSCREEN_MODE, WINDOW_RESIZABLE, WINDOW_UNDECORATED,
+                    WINDOW_HIDDEN, WINDOW_MINIMIZED, WINDOW_MAXIMIZED, WINDOW_UNFOCUSED,
+                    WINDOW_TOPMOST, WINDOW_ALWAYS_RUN, WINDOW_TRANSPARENT, WINDOW_HIGHDPI,
+                    WINDOW_MOUSE_PASSTHROUGH, BORDERLESS_WINDOWED_MODE, MSAA_4X_HINT, INTERLACED_HINT
+                )
+            }
 
-        internal companion object {
             fun from(values: UInt): Set<State> {
-                return entries.filter { (it.value and values) != 0u }.toSet()
+                return allStates.filter { (it.value and values) != 0u }.toSet()
             }
         }
     }
@@ -416,6 +455,12 @@ object Window {
 		get() = GetTime()
 
 	/**
+	 * The number of seconds since the last frame was drawn.
+	 */
+	val frameTime: Float
+		get() = GetFrameTime()
+
+	/**
 	 * The target frames per second in the window.
 	 *
 	 * The getter will return the current FPS; setter will set the target FPS.
@@ -426,9 +471,10 @@ object Window {
 
 	/**
 	 * Delays execution for the specified number of milliseconds.
+	 * This operation is not thread safe.
 	 * @param ms The number of milliseconds to delay.
 	 */
-	fun delay(ms: Int) {
+	fun delaySync(ms: Int) {
 		usleep(ms.toUInt() * 1000u)
 	}
 
@@ -610,45 +656,52 @@ fun Canvas.camera2D(camera: Camera2D, block: Canvas.() -> Unit) {
 /**
  * Represents the projection of the current camera.
  */
-enum class CameraProjection3D(internal val value: CameraProjection) {
+value class CameraProjection3D private constructor(internal val value: UInt) {
 
-	/**
-	 * Perspective projection.
-	 *
-	 * Corresponds to a frustum projection where objects further away appear smaller.
-	 */
-	PERSPECTIVE(CAMERA_PERSPECTIVE),
+	companion object {
+		/**
+		 * Perspective projection.
+		 *
+		 * Corresponds to a frustum projection where objects further away appear smaller.
+		 */
+		val PERSPECTIVE: CameraProjection3D by lazy { CameraProjection3D(CAMERA_PERSPECTIVE) }
 
-	/**
-	 * Orthographic projection
-	 *
-	 * Corresponds to a parallel projection where objects maintain the same size regardless of distance.
-	 */
-	ORTHOGRAPHIC(CAMERA_ORTHOGRAPHIC)
+		/**
+		 * Orthographic projection
+		 *
+		 * Corresponds to a parallel projection where objects maintain the same size regardless of distance.
+		 */
+		val ORTHOGRAPHIC: CameraProjection3D by lazy { CameraProjection3D(CAMERA_ORTHOGRAPHIC) }
+	}
 
 }
 
-enum class CameraMode3D(internal val value: CameraMode) {
-	/**
-	 * Camera is controlled manually and [Camera3D.update] doesn't do anything
-	 */
-	CUSTOM(CAMERA_CUSTOM),
-	/**
-	 * Camera is freely movable in 3D space
-	 */
-	FREE(CAMERA_FREE),
-	/**
-	 * Camera orbits around the target with zoom supported
-	 */
-	ORBITAL(CAMERA_ORBITAL),
-	/**
-	 * Camera mimicks a first person view
-	 */
-	FIRST_PERSON(CAMERA_FIRST_PERSON),
-	/**
-	 * Camera mimicks a third person view
-	 */
-	THIRD_PERSON(CAMERA_THIRD_PERSON)
+/**
+ * Represents the mode of the 3D camera.
+ */
+value class CameraMode3D private constructor(internal val value: CameraMode) {
+	companion object {
+		/**
+		 * Camera is controlled manually and [Camera3D.update] doesn't do anything
+		 */
+		val CUSTOM: CameraMode3D by lazy { CameraMode3D(CAMERA_CUSTOM) }
+		/**
+		 * Camera is freely movable in 3D space
+		 */
+		val FREE: CameraMode3D by lazy { CameraMode3D(CAMERA_FREE) }
+		/**
+		 * Camera orbits around the target with zoom supported
+		 */
+		val ORBITAL: CameraMode3D by lazy { CameraMode3D(CAMERA_ORBITAL) }
+		/**
+		 * Camera mimicks a first person view
+		 */
+		val FIRST_PERSON: CameraMode3D by lazy { CameraMode3D(CAMERA_FIRST_PERSON) }
+		/**
+		 * Camera mimicks a third person view
+		 */
+		val THIRD_PERSON: CameraMode3D by lazy { CameraMode3D(CAMERA_THIRD_PERSON) }
+	}
 }
 
 /**
