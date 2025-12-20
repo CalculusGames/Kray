@@ -34,6 +34,10 @@ java {
 }
 
 tasks {
+	named("clean") {
+		delete("src/common/generated-resources")
+	}
+
 	val hostOs = System.getProperty("os.name").lowercase()
 	val hostArch = System.getProperty("os.arch").lowercase()
 	val isMac = hostOs.contains("mac") || hostOs.contains("darwin")
@@ -50,13 +54,15 @@ tasks {
 
 	register("copyRaylibResources", Copy::class) {
 		from("lib/raylib/examples/shaders/resources/shaders/glsl330")
-		into("src/common/generated-resources/shaders")
+		into("src/common/generated-resources/shaders/raylib")
 	}
 
 	register("copyTestResources", Copy::class) {
 		dependsOn("copyRaylibResources")
 		from("src/common/test-resources", "src/common/generated-resources")
 		into(layout.buildDirectory.file("bin/$testName/debugTest"))
+
+		duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 	}
 
 	withType<CInteropProcess> {

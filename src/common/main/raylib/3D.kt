@@ -312,7 +312,9 @@ fun Canvas.drawBoundingBox(box: BoundingBox, color: Color = Color.RED) {
  * Shaders are used to program the GPU's graphics pipeline. They allow for custom
  * rendering effects and can manipulate how objects are drawn on the screen.
  */
-class Shader(internal val raw: CValue<raylib.internal.Shader>) {
+open class Shader internal constructor(
+	internal val raw: CValue<raylib.internal.Shader>
+) {
 
 	/**
 	 * The ID of the shader program.
@@ -486,7 +488,8 @@ class Shader(internal val raw: CValue<raylib.internal.Shader>) {
 			 * The `sampler2d` type, used for 2D textures.
 			 *
 			 * This is represented as a [UInt] in raylib and corresponds to
-			 * the texture unit index.
+			 * the texture unit index. You can pass the value of [Texture2D.id]
+			 * from a [Texture2D] to this uniform type.
 			 */
 			val SAMPLER2D: DataType by lazy {
 				DataType(SHADER_UNIFORM_SAMPLER2D) {
@@ -811,6 +814,16 @@ class Shader(internal val raw: CValue<raylib.internal.Shader>) {
 		setLocation(uniformLocation.value.toInt(), location)
 	}
 
+	/**
+	 * Sets the location of a shader uniform variable by name.
+	 * @param index The index of the uniform variable.
+	 * @param uniformName The name of the uniform variable.
+	 * You can find the uniform names in the shader code.
+	 */
+	fun setLocation(index: Int, uniformName: String) {
+		val location = getLocation(uniformName)
+		setLocation(index, location)
+	}
 
 	/**
 	 * Sets the location of a shader uniform variable by name.
@@ -847,7 +860,9 @@ class Shader(internal val raw: CValue<raylib.internal.Shader>) {
 	 * @param uniformLocation The [UniformLocation] of the uniform variable.
 	 */
 	fun setDefaultLocation(uniformLocation: UniformLocation) {
-		setLocation(uniformLocation, uniformLocation.shaderName)
+		val location = getDefaultLocation(uniformLocation)
+		if (location != -1)
+			setLocation(uniformLocation.value.toInt(), uniformLocation.shaderName)
 	}
 
 	/**
@@ -911,6 +926,23 @@ class Shader(internal val raw: CValue<raylib.internal.Shader>) {
 	 */
 	fun hasValue(uniformName: String): Boolean {
 		return getLocation(uniformName) != -1
+	}
+
+	/**
+	 * Removes a value for a shader uniform variable.
+	 * @param location The location of the uniform variable.
+	 * You can get the location using [getLocation].
+	 */
+	fun removeValue(location: Int) {
+		SetShaderValue(raw, location, null, 0)
+	}
+	/**
+	 * Removes a value for a shader uniform variable by name.
+	 * @param uniformName The name of the uniform variable.
+	 * You can find the uniform names in the shader code.
+	 */
+	fun removeValue(uniformName: String) {
+		removeValue(getLocation(uniformName))
 	}
 
 	/**
@@ -1172,6 +1204,74 @@ class Shader(internal val raw: CValue<raylib.internal.Shader>) {
 		setValue(location, value)
 	}
 
+	/// any type
+
+	/**
+	 * Sets a value for a shader uniform variable.
+	 * The type of the value is inferred at runtime.
+	 * Supported types are: [Boolean], [Float], [Double], [Int], [UInt],
+	 * [Pair<Float, Float>], [Triple<Float, Float, Float>],
+	 * [Quadruple<Float, Float, Float, Float>], [Matrix4], [Texture2D], and [Color].
+	 * @param location The location of the uniform variable.
+	 * You can get the location using [getLocation].
+	 * @param value The value to set.
+	 */
+	fun setValue(location: Int, value: Any?) {
+		if (value == null) return removeValue(location)
+
+		when (value) {
+			is Boolean -> setValue(location, value)
+			is Float -> setValue(location, value)
+			is Double -> setValue(location, value)
+			is Int -> setValue(location, value)
+			is UInt -> setValue(location, value)
+			is FloatArray -> setValue(location, value)
+			is IntArray -> setValue(location, value)
+			is Pair<*, *> -> {
+				if (value.first is Float && value.second is Float) {
+					@Suppress("UNCHECKED_CAST")
+					setValue(location, value as Pair<Float, Float>)
+				} else {
+					error("Unsupported Pair type for shader uniform value")
+				}
+			}
+			is Triple<*, *, *> -> {
+				if (value.first is Float && value.second is Float && value.third is Float) {
+					@Suppress("UNCHECKED_CAST")
+					setValue(location, value as Triple<Float, Float, Float>)
+				} else {
+					error("Unsupported Triple type for shader uniform value")
+				}
+			}
+			is Quadruple<*, *, *, *> -> {
+				if (value.first is Float && value.second is Float && value.third is Float && value.fourth is Float) {
+					@Suppress("UNCHECKED_CAST")
+					setValue(location, value as Quadruple<Float, Float, Float, Float>)
+				} else {
+					error("Unsupported Quadruple type for shader uniform value")
+				}
+			}
+			is Matrix4 -> setValue(location, value)
+			is Texture2D -> setValue(location, value)
+			is Color -> setValue(location, value)
+			else -> error("Unsupported type for shader uniform value: ${value::class}")
+		}
+	}
+
+	/**
+	 * Sets a value for a shader uniform variable by name.
+	 * The type of the value is inferred at runtime.
+	 * Supported types are: [Boolean], [Float], [Double], [Int], [UInt],
+	 * [Pair<Float, Float>], [Triple<Float, Float, Float>],
+	 * [Quadruple<Float, Float, Float, Float>], [Matrix4], [Texture2D], and [Color].
+	 * @param uniformName The name of the uniform variable.
+	 * You can find the uniform names in the shader code.
+	 * @param value The value to set.
+	 */
+	fun setValue(uniformName: String, value: Any) {
+		setValue(getLocation(uniformName), value)
+	}
+
 	companion object {
 		/**
 		 * The maximum number of shader locations.
@@ -1188,6 +1288,16 @@ class Shader(internal val raw: CValue<raylib.internal.Shader>) {
 		 */
 		fun load(vsFileName: String, fsFileName: String): Shader {
 			val rawShader = LoadShader(vsFileName.inAppDir(), fsFileName.inAppDir())
+			return Shader(rawShader)
+		}
+
+		/**
+		 * Loads a shader from the given single file containing both vertex and fragment shaders.
+		 * @param fileName The shader file name.
+		 * @return The loaded [Shader].
+		 */
+		fun load(fileName: String): Shader {
+			val rawShader = LoadShader(null, fileName.inAppDir())
 			return Shader(rawShader)
 		}
 
@@ -1592,135 +1702,123 @@ class Mesh(internal val raw: CValue<raylib.internal.Mesh>) {
 	val triangleCount: Int
 		get() = raw.useContents { triangleCount }
 
+	private var verticesCache: List<Vertex>? = null
+
 	/**
 	 * The vertices of the mesh.
 	 */
-	@Suppress("DuplicatedCode")
 	var vertices: List<Vertex>
 		get() {
-			val list = mutableListOf<Vertex>()
+			if (verticesCache != null) return verticesCache!!
+
+			val count = vertexCount
+			val out = ArrayList<Vertex>(count)
 
 			raw.useContents {
-				var vi = 0
-				var ti = 0
-				var ti2 = 0
-				var ni = 0
-				var tai = 0
-				var ci = 0
+				for (i in 0 until count) {
+					val vi = i * 3
+					val ti = i * 2
+					val tai = i * 4
+					val ci = i * 4
 
-				for (i in 0 until vertexCount) {
-					list.add(
+					out.add(
 						Vertex(
-							vertices?.get(vi++) ?: 0F, // x
-							vertices?.get(vi++) ?: 0F, // y
-							vertices?.get(vi++) ?: 0F, // z
-							texcoords?.get(ti++) ?: 0F, // tx
-							texcoords?.get(ti++) ?: 0F, // ty
-							texcoords2?.get(ti2++) ?: 0F, // tx2
-							texcoords2?.get(ti2++) ?: 0F, // ty2
-							normals?.get(ni++) ?: 0F, // nx
-							normals?.get(ni++) ?: 0F, // ny
-							normals?.get(ni++) ?: 0F, // nz
-							tangents?.get(tai++) ?: 0F, // tax
-							tangents?.get(tai++) ?: 0F, // tay
-							tangents?.get(tai++) ?: 0F, // taz
-							tangents?.get(tai++) ?: 0F, // taw
+							vertices?.get(vi) ?: 0f,
+							vertices?.get(vi + 1) ?: 0f,
+							vertices?.get(vi + 2) ?: 0f,
+							texcoords?.get(ti) ?: 0f,
+							texcoords?.get(ti + 1) ?: 0f,
+							texcoords2?.get(ti) ?: 0f,
+							texcoords2?.get(ti + 1) ?: 0f,
+							normals?.get(vi) ?: 0f,
+							normals?.get(vi + 1) ?: 0f,
+							normals?.get(vi + 2) ?: 0f,
+							tangents?.get(tai) ?: 0f,
+							tangents?.get(tai + 1) ?: 0f,
+							tangents?.get(tai + 2) ?: 0f,
+							tangents?.get(tai + 3) ?: 0f,
 							Color(
-								colors?.get(ci++) ?: 0.toUByte(), // r
-								colors?.get(ci++) ?: 0.toUByte(), // g
-								colors?.get(ci++) ?: 0.toUByte(), // b
-								colors?.get(ci++) ?: 0.toUByte(), // a
+								colors?.get(ci) ?: 0u,
+								colors?.get(ci + 1) ?: 0u,
+								colors?.get(ci + 2) ?: 0u,
+								colors?.get(ci + 3) ?: 255u
 							)
 						)
 					)
 				}
 			}
 
-			return list
+			verticesCache = out
+			return out
 		}
 		set(value) {
+			verticesCache = value
+
 			raw.useContents {
-				// free old arrays if they exist
-				vertices?.let { nativeHeap.free(it.rawValue) }
-				texcoords?.let { nativeHeap.free(it.rawValue) }
-				texcoords2?.let { nativeHeap.free(it.rawValue) }
-				normals?.let { nativeHeap.free(it.rawValue) }
-				tangents?.let { nativeHeap.free(it.rawValue) }
-				colors?.let { nativeHeap.free(it.rawValue) }
+				val count = value.size
 
-				vertexCount = value.size
+				// free old arrays before allocating new ones
+				vertices?.let { nativeHeap.free(it) }
+				texcoords?.let { nativeHeap.free(it) }
+				texcoords2?.let { nativeHeap.free(it) }
+				normals?.let { nativeHeap.free(it) }
+				tangents?.let { nativeHeap.free(it) }
+				colors?.let { nativeHeap.free(it) }
 
-				// vertices
-				val vArray = nativeHeap.allocArray<FloatVarOf<Float>>(value.size * 3) { i ->
-					val vertex = value[i / 3]
-					this.value = when (i % 3) {
-						0 -> vertex.x
-						1 -> vertex.y
-						2 -> vertex.z
-						else -> 0F
-					}
+				vertexCount = count
+				triangleCount = count / 3
+
+				// allocate new arrays
+				vertices = nativeHeap.allocArray(count * 3)
+				texcoords = nativeHeap.allocArray(count * 2)
+				texcoords2 = nativeHeap.allocArray(count * 2)
+				normals = nativeHeap.allocArray(count * 3)
+				tangents = nativeHeap.allocArray(count * 4)
+				colors = nativeHeap.allocArray(count * 4)
+
+				val verts = vertices!!
+				val texc = texcoords!!
+				val texc2 = texcoords2!!
+				val norms = normals!!
+				val tangs = tangents!!
+				val cols = colors!!
+
+				value.forEachIndexed { i, v ->
+					val vi = i * 3
+					val ti = i * 2
+					val tai = i * 4
+					val ci = i * 4
+
+					// pos
+					verts[vi] = v.x
+					verts[vi + 1] = v.y
+					verts[vi + 2] = v.z
+
+					// texcoord1
+					texc[ti] = v.tx
+					texc[ti + 1] = v.ty
+
+					// texcoord2
+					texc2[ti] = v.tx2
+					texc2[ti + 1] = v.ty2
+
+					// normal
+					norms[vi] = v.nx
+					norms[vi + 1] = v.ny
+					norms[vi + 2] = v.nz
+
+					// tangent
+					tangs[tai] = v.tax
+					tangs[tai + 1] = v.tay
+					tangs[tai + 2] = v.taz
+					tangs[tai + 3] = v.taw
+
+					// color
+					cols[ci] = v.color.r
+					cols[ci + 1] = v.color.g
+					cols[ci + 2] = v.color.b
+					cols[ci + 3] = v.color.a
 				}
-				vertices = vArray
-
-				// texcoords
-				val tArray = nativeHeap.allocArray<FloatVarOf<Float>>(value.size * 2) { i ->
-					val vertex = value[i / 2]
-					this.value = when (i % 2) {
-						0 -> vertex.tx
-						1 -> vertex.ty
-						else -> 0F
-					}
-				}
-				texcoords = tArray
-
-				// texcoords2
-				val t2Array = nativeHeap.allocArray<FloatVarOf<Float>>(value.size * 2) { i ->
-					val vertex = value[i / 2]
-					this.value = when (i % 2) {
-						0 -> vertex.tx2
-						1 -> vertex.ty2
-						else -> 0F
-					}
-				}
-				texcoords2 = t2Array
-
-				// normals
-				val nArray = nativeHeap.allocArray<FloatVarOf<Float>>(value.size * 3) { i ->
-					val vertex = value[i / 3]
-					this.value = when (i % 3) {
-						0 -> vertex.nx
-						1 -> vertex.ny
-						2 -> vertex.nz
-						else -> 0F
-					}
-				}
-				normals = nArray
-
-				// tangents
-				val taArray = nativeHeap.allocArray<FloatVarOf<Float>>(value.size * 4) { i ->
-					val vertex = value[i / 4]
-					this.value = when (i % 4) {
-						0 -> vertex.tax
-						1 -> vertex.tay
-						2 -> vertex.taz
-						3 -> vertex.taw
-						else -> 0F
-					}
-				}
-				tangents = taArray
-
-				// colors
-				val cArray = nativeHeap.allocArray<UByteVarOf<UByte>>(value.size * 4) { i ->
-					val vertex = value[i / 4]
-					this.value = when (i % 4) {
-						0 -> vertex.color.r
-						1 -> vertex.color.g
-						2 -> vertex.color.b
-						3 -> vertex.color.a
-						else -> 0.toUByte()
-					}
-				}
-				colors = cArray
 			}
 		}
 
@@ -2058,6 +2156,44 @@ class Mesh(internal val raw: CValue<raylib.internal.Mesh>) {
 	}
 
 	/**
+	 * Applies a transformation matrix to the mesh.
+	 *
+	 * This matrix can include translation, rotation, and scaling transformations.
+	 * The transformation is applied to both the vertices and normals of the mesh.
+	 * Note that normals are transformed without translation to maintain their direction.
+	 *
+	 * @param matrix The transformation matrix to apply.
+	 */
+	fun transform(matrix: Matrix4) {
+		raw.useContents {
+			val v = vertices ?: return
+			val n = normals
+
+			for (i in 0 until vertexCount) {
+				val o = i * 3
+
+				val x = v[o]
+				val y = v[o + 1]
+				val z = v[o + 2]
+
+				v[o] = matrix.m0 * x + matrix.m4 * y + matrix.m8 * z + matrix.m12
+				v[o + 1] = matrix.m1 * x + matrix.m5 * y + matrix.m9 * z + matrix.m13
+				v[o + 2] = matrix.m2 * x + matrix.m6 * y + matrix.m10 * z + matrix.m14
+
+				if (n != null) {
+					val nx = n[o]
+					val ny = n[o + 1]
+					val nz = n[o + 2]
+
+					n[o] = matrix.m0 * nx + matrix.m4 * ny + matrix.m8 * nz
+					n[o + 1] = matrix.m1 * nx + matrix.m5 * ny + matrix.m9 * nz
+					n[o + 2] = matrix.m2 * nx + matrix.m6 * ny + matrix.m10 * nz
+				}
+			}
+		}
+	}
+
+	/**
 	 * Generates various standard 3D meshes.
 	 *
 	 * When generating a mesh using these functions, the mesh data is automatically
@@ -2276,6 +2412,33 @@ class Mesh(internal val raw: CValue<raylib.internal.Mesh>) {
 			val raw = GenMeshCubicmap(cubicMap.raw, cubeSize.toVector3())
 			return Mesh(raw)
 		}
+
+		// mesh utility functions
+
+		/**
+		 * Concatenates two meshes into a single mesh.
+		 * @param a The first mesh.
+		 * @param b The second mesh.
+		 * @return The concatenated mesh.
+		 */
+		fun add(a: Mesh, b: Mesh): Mesh {
+			val combined = ArrayList<Vertex>(a.vertexCount + b.vertexCount)
+			combined.addAll(a.vertices)
+			combined.addAll(b.vertices)
+
+			val mesh = Mesh(
+				cValue {
+					vertexCount = combined.size
+					triangleCount = combined.size / 3
+				}
+			)
+
+			mesh.vertices = combined
+			mesh.upload(dynamic = false)
+
+			return mesh
+		}
+
 	}
 }
 
@@ -2716,8 +2879,8 @@ class Model(internal val raw: CValue<raylib.internal.Model>) {
 	 * @param meshId The ID of the mesh to set the material for.
 	 * @param materialId The ID of the material to set.
 	 */
-	fun setMeshMaterial(meshId: Int, materialId: Int) = memScoped {
-		SetModelMeshMaterial(raw.ptr, meshId, materialId)
+	fun setMeshMaterial(meshId: Int, materialId: Int) {
+		SetModelMeshMaterial(raw, meshId, materialId)
 	}
 
 	/**
