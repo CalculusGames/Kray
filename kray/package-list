@@ -1,8 +1,120 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
 $dokka.location:kray.shaders////PointingToDeclaration/kray/kray.shaders/index.html
+$dokka.location:kray.shaders//ASCII_SHADER/#/PointingToDeclaration/kray/kray.shaders/-a-s-c-i-i_-s-h-a-d-e-r.html
+$dokka.location:kray.shaders//BASE_SHADER/#/PointingToDeclaration/kray/kray.shaders/-b-a-s-e_-s-h-a-d-e-r.html
+$dokka.location:kray.shaders//BLOOM_SHADER/#/PointingToDeclaration/kray/kray.shaders/-b-l-o-o-m_-s-h-a-d-e-r.html
+$dokka.location:kray.shaders//BLUR_SHADER/#/PointingToDeclaration/kray/kray.shaders/-b-l-u-r_-s-h-a-d-e-r.html
+$dokka.location:kray.shaders//COLOR_CORRECTION_SHADER/#/PointingToDeclaration/kray/kray.shaders/-c-o-l-o-r_-c-o-r-r-e-c-t-i-o-n_-s-h-a-d-e-r.html
+$dokka.location:kray.shaders//COLOR_MIX_SHADER/#/PointingToDeclaration/kray/kray.shaders/-c-o-l-o-r_-m-i-x_-s-h-a-d-e-r.html
+$dokka.location:kray.shaders//CROSS_HATCHING_SHADER/#/PointingToDeclaration/kray/kray.shaders/-c-r-o-s-s_-h-a-t-c-h-i-n-g_-s-h-a-d-e-r.html
+$dokka.location:kray.shaders//CROSS_STITCHING_SHADER/#/PointingToDeclaration/kray/kray.shaders/-c-r-o-s-s_-s-t-i-t-c-h-i-n-g_-s-h-a-d-e-r.html
+$dokka.location:kray.shaders//CUBES_PANNING_SHADER/#/PointingToDeclaration/kray/kray.shaders/-c-u-b-e-s_-p-a-n-n-i-n-g_-s-h-a-d-e-r.html
+$dokka.location:kray.shaders//DEPTH_SHADER/#/PointingToDeclaration/kray/kray.shaders/-d-e-p-t-h_-s-h-a-d-e-r.html
+$dokka.location:kray.shaders//FISHEYE_SHADER/#/PointingToDeclaration/kray/kray.shaders/-f-i-s-h-e-y-e_-s-h-a-d-e-r.html
+$dokka.location:kray.shaders//GBUFFER_SHADER/#/PointingToDeclaration/kray/kray.shaders/-g-b-u-f-f-e-r_-s-h-a-d-e-r.html
+$dokka.location:kray.shaders//GRAYSCALE_SHADER/#/PointingToDeclaration/kray/kray.shaders/-g-r-a-y-s-c-a-l-e_-s-h-a-d-e-r.html
+$dokka.location:kray.shaders//JULIA_SET_SHADER/#/PointingToDeclaration/kray/kray.shaders/-j-u-l-i-a_-s-e-t_-s-h-a-d-e-r.html
 $dokka.location:kray.shaders//LIGHTING_SHADER/#/PointingToDeclaration/kray/kray.shaders/-l-i-g-h-t-i-n-g_-s-h-a-d-e-r.html
 $dokka.location:kray.shaders//LIGHTING_SHADER_INSTANCED/#/PointingToDeclaration/kray/kray.shaders/-l-i-g-h-t-i-n-g_-s-h-a-d-e-r_-i-n-s-t-a-n-c-e-d.html
+$dokka.location:kray.shaders//OUTLINE_SHADER/#/PointingToDeclaration/kray/kray.shaders/-o-u-t-l-i-n-e_-s-h-a-d-e-r.html
+$dokka.location:kray.shaders//OVERDRAW_SHADER/#/PointingToDeclaration/kray/kray.shaders/-o-v-e-r-d-r-a-w_-s-h-a-d-e-r.html
+$dokka.location:kray.shaders//RAYMARCHING_SHADER/#/PointingToDeclaration/kray/kray.shaders/-r-a-y-m-a-r-c-h-i-n-g_-s-h-a-d-e-r.html
+$dokka.location:kray.shaders//SWIRL_SHADER/#/PointingToDeclaration/kray/kray.shaders/-s-w-i-r-l_-s-h-a-d-e-r.html
+$dokka.location:kray.shaders//WAVE_SHADER/#/PointingToDeclaration/kray/kray.shaders/-w-a-v-e_-s-h-a-d-e-r.html
+$dokka.location:kray.shaders/AsciiShader///PointingToDeclaration/kray/kray.shaders/-ascii-shader/index.html
+$dokka.location:kray.shaders/AsciiShader/fontSize/#/PointingToDeclaration/kray/kray.shaders/-ascii-shader/font-size.html
+$dokka.location:kray.shaders/AsciiShader/resolution/#/PointingToDeclaration/kray/kray.shaders/-ascii-shader/resolution.html
+$dokka.location:kray.shaders/AsciiShader/texture/#/PointingToDeclaration/kray/kray.shaders/-ascii-shader/texture.html
+$dokka.location:kray.shaders/BaseShader///PointingToDeclaration/kray/kray.shaders/-base-shader/index.html
+$dokka.location:kray.shaders/BaseShader/texture/#/PointingToDeclaration/kray/kray.shaders/-base-shader/texture.html
+$dokka.location:kray.shaders/BloomShader///PointingToDeclaration/kray/kray.shaders/-bloom-shader/index.html
+$dokka.location:kray.shaders/BloomShader/quality/#/PointingToDeclaration/kray/kray.shaders/-bloom-shader/quality.html
+$dokka.location:kray.shaders/BloomShader/samples/#/PointingToDeclaration/kray/kray.shaders/-bloom-shader/samples.html
+$dokka.location:kray.shaders/BloomShader/size/#/PointingToDeclaration/kray/kray.shaders/-bloom-shader/size.html
+$dokka.location:kray.shaders/BlurShader///PointingToDeclaration/kray/kray.shaders/-blur-shader/index.html
+$dokka.location:kray.shaders/BlurShader/renderHeight/#/PointingToDeclaration/kray/kray.shaders/-blur-shader/render-height.html
+$dokka.location:kray.shaders/BlurShader/renderWidth/#/PointingToDeclaration/kray/kray.shaders/-blur-shader/render-width.html
+$dokka.location:kray.shaders/BuiltInShader///PointingToDeclaration/kray/kray.shaders/-built-in-shader/index.html
+$dokka.location:kray.shaders/ColorCorrectionShader///PointingToDeclaration/kray/kray.shaders/-color-correction-shader/index.html
+$dokka.location:kray.shaders/ColorCorrectionShader/brightness/#/PointingToDeclaration/kray/kray.shaders/-color-correction-shader/brightness.html
+$dokka.location:kray.shaders/ColorCorrectionShader/contrast/#/PointingToDeclaration/kray/kray.shaders/-color-correction-shader/contrast.html
+$dokka.location:kray.shaders/ColorCorrectionShader/saturation/#/PointingToDeclaration/kray/kray.shaders/-color-correction-shader/saturation.html
+$dokka.location:kray.shaders/ColorMixShader///PointingToDeclaration/kray/kray.shaders/-color-mix-shader/index.html
+$dokka.location:kray.shaders/ColorMixShader/divider/#/PointingToDeclaration/kray/kray.shaders/-color-mix-shader/divider.html
+$dokka.location:kray.shaders/ColorMixShader/texture2/#/PointingToDeclaration/kray/kray.shaders/-color-mix-shader/texture2.html
+$dokka.location:kray.shaders/CrossHatchingShader///PointingToDeclaration/kray/kray.shaders/-cross-hatching-shader/index.html
+$dokka.location:kray.shaders/CrossHatchingShader/lumThreshold1/#/PointingToDeclaration/kray/kray.shaders/-cross-hatching-shader/lum-threshold1.html
+$dokka.location:kray.shaders/CrossHatchingShader/lumThreshold2/#/PointingToDeclaration/kray/kray.shaders/-cross-hatching-shader/lum-threshold2.html
+$dokka.location:kray.shaders/CrossHatchingShader/lumThreshold3/#/PointingToDeclaration/kray/kray.shaders/-cross-hatching-shader/lum-threshold3.html
+$dokka.location:kray.shaders/CrossHatchingShader/lumThreshold4/#/PointingToDeclaration/kray/kray.shaders/-cross-hatching-shader/lum-threshold4.html
+$dokka.location:kray.shaders/CrossHatchingShader/offsetY/#/PointingToDeclaration/kray/kray.shaders/-cross-hatching-shader/offset-y.html
+$dokka.location:kray.shaders/CrossStitchingShader///PointingToDeclaration/kray/kray.shaders/-cross-stitching-shader/index.html
+$dokka.location:kray.shaders/CrossStitchingShader/inverted/#/PointingToDeclaration/kray/kray.shaders/-cross-stitching-shader/inverted.html
+$dokka.location:kray.shaders/CrossStitchingShader/renderHeight/#/PointingToDeclaration/kray/kray.shaders/-cross-stitching-shader/render-height.html
+$dokka.location:kray.shaders/CrossStitchingShader/renderWidth/#/PointingToDeclaration/kray/kray.shaders/-cross-stitching-shader/render-width.html
+$dokka.location:kray.shaders/CrossStitchingShader/size/#/PointingToDeclaration/kray/kray.shaders/-cross-stitching-shader/size.html
+$dokka.location:kray.shaders/CubesPanningShader///PointingToDeclaration/kray/kray.shaders/-cubes-panning-shader/index.html
+$dokka.location:kray.shaders/CubesPanningShader/angle/#/PointingToDeclaration/kray/kray.shaders/-cubes-panning-shader/angle.html
+$dokka.location:kray.shaders/CubesPanningShader/divisions/#/PointingToDeclaration/kray/kray.shaders/-cubes-panning-shader/divisions.html
+$dokka.location:kray.shaders/CubesPanningShader/time/#/PointingToDeclaration/kray/kray.shaders/-cubes-panning-shader/time.html
+$dokka.location:kray.shaders/DepthShader///PointingToDeclaration/kray/kray.shaders/-depth-shader/index.html
+$dokka.location:kray.shaders/DepthShader/depthTexture/#/PointingToDeclaration/kray/kray.shaders/-depth-shader/depth-texture.html
+$dokka.location:kray.shaders/DepthShader/farPlane/#/PointingToDeclaration/kray/kray.shaders/-depth-shader/far-plane.html
+$dokka.location:kray.shaders/DepthShader/flipY/#/PointingToDeclaration/kray/kray.shaders/-depth-shader/flip-y.html
+$dokka.location:kray.shaders/DepthShader/nearPlane/#/PointingToDeclaration/kray/kray.shaders/-depth-shader/near-plane.html
+$dokka.location:kray.shaders/EffectShader///PointingToDeclaration/kray/kray.shaders/-effect-shader/index.html
+$dokka.location:kray.shaders/EffectShader/diffuse/#/PointingToDeclaration/kray/kray.shaders/-effect-shader/diffuse.html
+$dokka.location:kray.shaders/EffectShader/texture/#/PointingToDeclaration/kray/kray.shaders/-effect-shader/texture.html
+$dokka.location:kray.shaders/FisheyeShader///PointingToDeclaration/kray/kray.shaders/-fisheye-shader/index.html
+$dokka.location:kray.shaders/FogShader///PointingToDeclaration/kray/kray.shaders/-fog-shader/index.html
+$dokka.location:kray.shaders/FogShader/diffuse/#/PointingToDeclaration/kray/kray.shaders/-fog-shader/diffuse.html
+$dokka.location:kray.shaders/FogShader/fogColor/#/PointingToDeclaration/kray/kray.shaders/-fog-shader/fog-color.html
+$dokka.location:kray.shaders/FogShader/fogDensity/#/PointingToDeclaration/kray/kray.shaders/-fog-shader/fog-density.html
+$dokka.location:kray.shaders/FogShader/texture/#/PointingToDeclaration/kray/kray.shaders/-fog-shader/texture.html
+$dokka.location:kray.shaders/GBufferShader///PointingToDeclaration/kray/kray.shaders/-g-buffer-shader/index.html
+$dokka.location:kray.shaders/GBufferShader/diffuseTexture/#/PointingToDeclaration/kray/kray.shaders/-g-buffer-shader/diffuse-texture.html
+$dokka.location:kray.shaders/GBufferShader/specularTexture/#/PointingToDeclaration/kray/kray.shaders/-g-buffer-shader/specular-texture.html
+$dokka.location:kray.shaders/GrayscaleShader///PointingToDeclaration/kray/kray.shaders/-grayscale-shader/index.html
+$dokka.location:kray.shaders/JuliaSetShader///PointingToDeclaration/kray/kray.shaders/-julia-set-shader/index.html
+$dokka.location:kray.shaders/JuliaSetShader/c/#/PointingToDeclaration/kray/kray.shaders/-julia-set-shader/c.html
+$dokka.location:kray.shaders/JuliaSetShader/colorCycles/#/PointingToDeclaration/kray/kray.shaders/-julia-set-shader/color-cycles.html
+$dokka.location:kray.shaders/JuliaSetShader/maxIterations/#/PointingToDeclaration/kray/kray.shaders/-julia-set-shader/max-iterations.html
+$dokka.location:kray.shaders/JuliaSetShader/offset/#/PointingToDeclaration/kray/kray.shaders/-julia-set-shader/offset.html
+$dokka.location:kray.shaders/JuliaSetShader/zoom/#/PointingToDeclaration/kray/kray.shaders/-julia-set-shader/zoom.html
+$dokka.location:kray.shaders/LightingShader.Companion///PointingToDeclaration/kray/kray.shaders/-lighting-shader/-companion/index.html
+$dokka.location:kray.shaders/LightingShader.Companion/DEFAULT_AMBIENT_LIGHT/#/PointingToDeclaration/kray/kray.shaders/-lighting-shader/-companion/-d-e-f-a-u-l-t_-a-m-b-i-e-n-t_-l-i-g-h-t.html
+$dokka.location:kray.shaders/LightingShader.Companion/MAX_LIGHTS/#/PointingToDeclaration/kray/kray.shaders/-lighting-shader/-companion/-m-a-x_-l-i-g-h-t-s.html
+$dokka.location:kray.shaders/LightingShader///PointingToDeclaration/kray/kray.shaders/-lighting-shader/index.html
+$dokka.location:kray.shaders/LightingShader/addLight/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#raylib.Color#kotlin.Boolean/PointingToDeclaration/kray/kray.shaders/-lighting-shader/add-light.html
+$dokka.location:kray.shaders/LightingShader/addLight/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color#kotlin.Boolean/PointingToDeclaration/kray/kray.shaders/-lighting-shader/add-light.html
+$dokka.location:kray.shaders/LightingShader/ambient/#/PointingToDeclaration/kray/kray.shaders/-lighting-shader/ambient.html
+$dokka.location:kray.shaders/LightingShader/currentLightsCount/#/PointingToDeclaration/kray/kray.shaders/-lighting-shader/current-lights-count.html
+$dokka.location:kray.shaders/OutlineShader///PointingToDeclaration/kray/kray.shaders/-outline-shader/index.html
+$dokka.location:kray.shaders/OutlineShader/outlineColor/#/PointingToDeclaration/kray/kray.shaders/-outline-shader/outline-color.html
+$dokka.location:kray.shaders/OutlineShader/outlineSize/#/PointingToDeclaration/kray/kray.shaders/-outline-shader/outline-size.html
+$dokka.location:kray.shaders/OutlineShader/size/#/PointingToDeclaration/kray/kray.shaders/-outline-shader/size.html
+$dokka.location:kray.shaders/OverdrawShader///PointingToDeclaration/kray/kray.shaders/-overdraw-shader/index.html
+$dokka.location:kray.shaders/RaymarchingShader///PointingToDeclaration/kray/kray.shaders/-raymarching-shader/index.html
+$dokka.location:kray.shaders/RaymarchingShader/frameTime/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/frame-time.html
+$dokka.location:kray.shaders/RaymarchingShader/resolution/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/resolution.html
+$dokka.location:kray.shaders/RaymarchingShader/viewEye/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/view-eye.html
+$dokka.location:kray.shaders/RaymarchingShader/viewTarget/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/view-target.html
+$dokka.location:kray.shaders/SwirlShader///PointingToDeclaration/kray/kray.shaders/-swirl-shader/index.html
+$dokka.location:kray.shaders/SwirlShader/angle/#/PointingToDeclaration/kray/kray.shaders/-swirl-shader/angle.html
+$dokka.location:kray.shaders/SwirlShader/center/#/PointingToDeclaration/kray/kray.shaders/-swirl-shader/center.html
+$dokka.location:kray.shaders/SwirlShader/radius/#/PointingToDeclaration/kray/kray.shaders/-swirl-shader/radius.html
+$dokka.location:kray.shaders/SwirlShader/renderHeight/#/PointingToDeclaration/kray/kray.shaders/-swirl-shader/render-height.html
+$dokka.location:kray.shaders/SwirlShader/renderWidth/#/PointingToDeclaration/kray/kray.shaders/-swirl-shader/render-width.html
+$dokka.location:kray.shaders/WaveShader///PointingToDeclaration/kray/kray.shaders/-wave-shader/index.html
+$dokka.location:kray.shaders/WaveShader/ampX/#/PointingToDeclaration/kray/kray.shaders/-wave-shader/amp-x.html
+$dokka.location:kray.shaders/WaveShader/ampY/#/PointingToDeclaration/kray/kray.shaders/-wave-shader/amp-y.html
+$dokka.location:kray.shaders/WaveShader/freqX/#/PointingToDeclaration/kray/kray.shaders/-wave-shader/freq-x.html
+$dokka.location:kray.shaders/WaveShader/freqY/#/PointingToDeclaration/kray/kray.shaders/-wave-shader/freq-y.html
+$dokka.location:kray.shaders/WaveShader/seconds/#/PointingToDeclaration/kray/kray.shaders/-wave-shader/seconds.html
+$dokka.location:kray.shaders/WaveShader/size/#/PointingToDeclaration/kray/kray.shaders/-wave-shader/size.html
+$dokka.location:kray.shaders/WaveShader/speedX/#/PointingToDeclaration/kray/kray.shaders/-wave-shader/speed-x.html
+$dokka.location:kray.shaders/WaveShader/speedY/#/PointingToDeclaration/kray/kray.shaders/-wave-shader/speed-y.html
 $dokka.location:kray.sprites////PointingToDeclaration/kray/kray.sprites/index.html
 $dokka.location:kray.sprites//addSprite/kray.Kray#kray.sprites.Sprite2D#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/kray.sprites/add-sprite.html
 $dokka.location:kray.sprites//drawSprite/raylib.Canvas#kray.sprites.Sprite2D#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/kray.sprites/draw-sprite.html
@@ -1410,6 +1522,7 @@ $dokka.location:raylib/Matrix4/m9/#/PointingToDeclaration/kray/raylib/-matrix4/
 $dokka.location:raylib/Matrix4/multiply/#raylib.Matrix4/PointingToDeclaration/kray/raylib/-matrix4/multiply.html
 $dokka.location:raylib/Matrix4/toFloatArray/#/PointingToDeclaration/kray/raylib/-matrix4/to-float-array.html
 $dokka.location:raylib/Mesh.Companion///PointingToDeclaration/kray/raylib/-mesh/-companion/index.html
+$dokka.location:raylib/Mesh.Companion/add/#raylib.Mesh#raylib.Mesh/PointingToDeclaration/kray/raylib/-mesh/-companion/add.html
 $dokka.location:raylib/Mesh.Companion/cone/#kotlin.Float#kotlin.Float#kotlin.Int/PointingToDeclaration/kray/raylib/-mesh/-companion/cone.html
 $dokka.location:raylib/Mesh.Companion/cube/#kotlin.Float/PointingToDeclaration/kray/raylib/-mesh/-companion/cube.html
 $dokka.location:raylib/Mesh.Companion/cubicMap/#raylib.Image#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/-mesh/-companion/cubic-map.html
@@ -1463,6 +1576,7 @@ $dokka.location:raylib/Mesh/getTransform/#raylib.Mesh.Vertex#kotlin.Int/Pointing
 $dokka.location:raylib/Mesh/getTransformForBone/#kotlin.Int/PointingToDeclaration/kray/raylib/-mesh/get-transform-for-bone.html
 $dokka.location:raylib/Mesh/removeVertex/#kotlin.Int/PointingToDeclaration/kray/raylib/-mesh/remove-vertex.html
 $dokka.location:raylib/Mesh/tangents/#/PointingToDeclaration/kray/raylib/-mesh/tangents.html
+$dokka.location:raylib/Mesh/transform/#raylib.Matrix4/PointingToDeclaration/kray/raylib/-mesh/transform.html
 $dokka.location:raylib/Mesh/transformations/#/PointingToDeclaration/kray/raylib/-mesh/transformations.html
 $dokka.location:raylib/Mesh/triangleCount/#/PointingToDeclaration/kray/raylib/-mesh/triangle-count.html
 $dokka.location:raylib/Mesh/upload/#kotlin.Boolean/PointingToDeclaration/kray/raylib/-mesh/upload.html
@@ -1558,9 +1672,11 @@ $dokka.location:raylib/RenderTexture2D/RenderTexture2D/#<ERROR CLASS> ERROR CLAS
 $dokka.location:raylib/RenderTexture2D/depth/#/PointingToDeclaration/kray/raylib/-render-texture2-d/depth.html
 $dokka.location:raylib/RenderTexture2D/id/#/PointingToDeclaration/kray/raylib/-render-texture2-d/id.html
 $dokka.location:raylib/RenderTexture2D/texture/#/PointingToDeclaration/kray/raylib/-render-texture2-d/texture.html
+$dokka.location:raylib/Sampler2D///PointingToDeclaration/kray/raylib/-sampler2-d/index.html
 $dokka.location:raylib/Shader.Companion///PointingToDeclaration/kray/raylib/-shader/-companion/index.html
 $dokka.location:raylib/Shader.Companion/MAX_SHADER_LOCATIONS/#/PointingToDeclaration/kray/raylib/-shader/-companion/-m-a-x_-s-h-a-d-e-r_-l-o-c-a-t-i-o-n-s.html
 $dokka.location:raylib/Shader.Companion/load/#kotlin.String#kotlin.String/PointingToDeclaration/kray/raylib/-shader/-companion/load.html
+$dokka.location:raylib/Shader.Companion/load/#kotlin.String/PointingToDeclaration/kray/raylib/-shader/-companion/load.html
 $dokka.location:raylib/Shader.Companion/loadInMemory/#kotlin.String#kotlin.String/PointingToDeclaration/kray/raylib/-shader/-companion/load-in-memory.html
 $dokka.location:raylib/Shader.DataType.Companion///PointingToDeclaration/kray/raylib/-shader/-data-type/-companion/index.html
 $dokka.location:raylib/Shader.DataType.Companion/FLOAT/#/PointingToDeclaration/kray/raylib/-shader/-data-type/-companion/-f-l-o-a-t.html
@@ -1611,7 +1727,6 @@ $dokka.location:raylib/Shader.UniformLocation.Companion/VERTEX_TEXCOORD2/#/Point
 $dokka.location:raylib/Shader.UniformLocation///PointingToDeclaration/kray/raylib/-shader/-uniform-location/index.html
 $dokka.location:raylib/Shader.UniformLocation/shaderName/#/PointingToDeclaration/kray/raylib/-shader/-uniform-location/shader-name.html
 $dokka.location:raylib/Shader///PointingToDeclaration/kray/raylib/-shader/index.html
-$dokka.location:raylib/Shader/Shader/#<ERROR CLASS> ERROR CLASS: Symbol not found for CValue<ERROR CLASS: Symbol not found for raylib.internal.Shader>/PointingToDeclaration/kray/raylib/-shader/-shader.html
 $dokka.location:raylib/Shader/equals/#kotlin.Any?/PointingToDeclaration/kray/raylib/-shader/equals.html
 $dokka.location:raylib/Shader/getAttributeLocation/#kotlin.String/PointingToDeclaration/kray/raylib/-shader/get-attribute-location.html
 $dokka.location:raylib/Shader/getDefaultLocation/#raylib.Shader.UniformLocation/PointingToDeclaration/kray/raylib/-shader/get-default-location.html
@@ -1623,10 +1738,13 @@ $dokka.location:raylib/Shader/hashCode/#/PointingToDeclaration/kray/raylib/-sha
 $dokka.location:raylib/Shader/id/#/PointingToDeclaration/kray/raylib/-shader/id.html
 $dokka.location:raylib/Shader/isValid/#/PointingToDeclaration/kray/raylib/-shader/is-valid.html
 $dokka.location:raylib/Shader/locs/#/PointingToDeclaration/kray/raylib/-shader/locs.html
+$dokka.location:raylib/Shader/removeValue/#kotlin.Int/PointingToDeclaration/kray/raylib/-shader/remove-value.html
+$dokka.location:raylib/Shader/removeValue/#kotlin.String/PointingToDeclaration/kray/raylib/-shader/remove-value.html
 $dokka.location:raylib/Shader/setDefaultLocation/#raylib.Shader.UniformLocation/PointingToDeclaration/kray/raylib/-shader/set-default-location.html
 $dokka.location:raylib/Shader/setDefaultLocations/#kotlin.collections.Iterable[raylib.Shader.UniformLocation]/PointingToDeclaration/kray/raylib/-shader/set-default-locations.html
 $dokka.location:raylib/Shader/setDefaultLocations/#raylib.Shader.UniformLocation/PointingToDeclaration/kray/raylib/-shader/set-default-locations.html
 $dokka.location:raylib/Shader/setLocation/#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/raylib/-shader/set-location.html
+$dokka.location:raylib/Shader/setLocation/#kotlin.Int#kotlin.String/PointingToDeclaration/kray/raylib/-shader/set-location.html
 $dokka.location:raylib/Shader/setLocation/#raylib.Shader.UniformLocation#kotlin.Int/PointingToDeclaration/kray/raylib/-shader/set-location.html
 $dokka.location:raylib/Shader/setLocation/#raylib.Shader.UniformLocation#kotlin.String/PointingToDeclaration/kray/raylib/-shader/set-location.html
 $dokka.location:raylib/Shader/setLocations/#kotlin.collections.Map[raylib.Shader.UniformLocation,kotlin.String]/PointingToDeclaration/kray/raylib/-shader/set-locations.html
@@ -1634,6 +1752,7 @@ $dokka.location:raylib/Shader/setValue/#kotlin.Int#<ERROR CLASS> ERROR CLASS: Sy
 $dokka.location:raylib/Shader/setValue/#kotlin.Int#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/-shader/set-value.html
 $dokka.location:raylib/Shader/setValue/#kotlin.Int#<ERROR CLASS> ERROR CLASS: Symbol not found for UInt/PointingToDeclaration/kray/raylib/-shader/set-value.html
 $dokka.location:raylib/Shader/setValue/#kotlin.Int#kotlin.Any#raylib.Shader.DataType/PointingToDeclaration/kray/raylib/-shader/set-value.html
+$dokka.location:raylib/Shader/setValue/#kotlin.Int#kotlin.Any?/PointingToDeclaration/kray/raylib/-shader/set-value.html
 $dokka.location:raylib/Shader/setValue/#kotlin.Int#kotlin.Boolean/PointingToDeclaration/kray/raylib/-shader/set-value.html
 $dokka.location:raylib/Shader/setValue/#kotlin.Int#kotlin.Double/PointingToDeclaration/kray/raylib/-shader/set-value.html
 $dokka.location:raylib/Shader/setValue/#kotlin.Int#kotlin.Float/PointingToDeclaration/kray/raylib/-shader/set-value.html
@@ -1648,6 +1767,7 @@ $dokka.location:raylib/Shader/setValue/#kotlin.String#<ERROR CLASS> ERROR CLASS:
 $dokka.location:raylib/Shader/setValue/#kotlin.String#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/-shader/set-value.html
 $dokka.location:raylib/Shader/setValue/#kotlin.String#<ERROR CLASS> ERROR CLASS: Symbol not found for UInt/PointingToDeclaration/kray/raylib/-shader/set-value.html
 $dokka.location:raylib/Shader/setValue/#kotlin.String#kotlin.Any#raylib.Shader.DataType/PointingToDeclaration/kray/raylib/-shader/set-value.html
+$dokka.location:raylib/Shader/setValue/#kotlin.String#kotlin.Any/PointingToDeclaration/kray/raylib/-shader/set-value.html
 $dokka.location:raylib/Shader/setValue/#kotlin.String#kotlin.Boolean/PointingToDeclaration/kray/raylib/-shader/set-value.html
 $dokka.location:raylib/Shader/setValue/#kotlin.String#kotlin.Float/PointingToDeclaration/kray/raylib/-shader/set-value.html
 $dokka.location:raylib/Shader/setValue/#kotlin.String#kotlin.FloatArray/PointingToDeclaration/kray/raylib/-shader/set-value.html
@@ -1663,8 +1783,8 @@ $dokka.location:raylib/Texture2D.Companion/load/#kotlin.String/PointingToDeclara
 $dokka.location:raylib/Texture2D.Companion/load/#raylib.File/PointingToDeclaration/kray/raylib/-texture2-d/-companion/load.html
 $dokka.location:raylib/Texture2D///PointingToDeclaration/kray/raylib/-texture2-d/index.html
 $dokka.location:raylib/Texture2D/Texture2D/#<ERROR CLASS> ERROR CLASS: Symbol not found for CValue<ERROR CLASS: Symbol not found for raylib.internal.Texture2D>/PointingToDeclaration/kray/raylib/-texture2-d/-texture2-d.html
-$dokka.location:raylib/Texture2D/Texture2D/#<ERROR CLASS> ERROR CLASS: Symbol not found for UInt#kotlin.Int#kotlin.Int#kotlin.Int#raylib.PictureFormat/PointingToDeclaration/kray/raylib/-texture2-d/-texture2-d.html
 $dokka.location:raylib/Texture2D/Texture2D/#<ERROR CLASS> ERROR CLASS: Symbol not found for raylib.internal.Texture2D/PointingToDeclaration/kray/raylib/-texture2-d/-texture2-d.html
+$dokka.location:raylib/Texture2D/Texture2D/#<ERROR CLASS> {raylib/Sampler2D=} ERROR CLASS: Symbol not found for UInt#kotlin.Int#kotlin.Int#kotlin.Int#raylib.PictureFormat/PointingToDeclaration/kray/raylib/-texture2-d/-texture2-d.html
 $dokka.location:raylib/Texture2D/format/#/PointingToDeclaration/kray/raylib/-texture2-d/format.html
 $dokka.location:raylib/Texture2D/height/#/PointingToDeclaration/kray/raylib/-texture2-d/height.html
 $dokka.location:raylib/Texture2D/id/#/PointingToDeclaration/kray/raylib/-texture2-d/id.html
