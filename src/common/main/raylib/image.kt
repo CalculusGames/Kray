@@ -5003,6 +5003,12 @@ fun Canvas.drawImage(
 }
 
 /**
+ * The type alias for a 2D texture sampler in raylib. Corresponds to the
+ * [Texture2D.id] property.
+ */
+typealias Sampler2D = UInt
+
+/**
  * Represents a two-dimensional texture in raylib.
  * @property id The unique identifier for the texture.
  * @property width The width of the texture in pixels.
@@ -5012,7 +5018,7 @@ fun Canvas.drawImage(
  * @property format The pixel format of the texture.
  */
 class Texture2D(
-	val id: UInt,
+	val id: Sampler2D,
 	val width: Int,
 	val height: Int,
 	val mipmaps: Int = 1,
