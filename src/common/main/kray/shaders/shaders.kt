@@ -8,6 +8,7 @@ import raylib.Color
 import raylib.Sampler2D
 import raylib.Shader
 import raylib.Window
+import kotlin.math.cos
 
 /**
  * Represents a built-in shader loaded from the application's resources.
@@ -113,6 +114,8 @@ val BASE_SHADER: BaseShader
 open class EffectShader internal constructor(fileName: String) : BuiltInShader(fileName) {
 	/**
 	 * The texture uniform property.
+	 *
+	 * This value is set to the first texture unit (texture0) by default.
 	 */
 	var texture: Sampler2D? by ShaderPropertyDelegate("texture0", isSampler2D = true)
 
@@ -626,7 +629,8 @@ open class LightingShader internal constructor(
 ) : BuiltInShader(vsFileName, fsFileName) {
 	companion object {
 		/**
-		 * The maximum number of lights supported in [LIGHTING_SHADER].
+		 * The maximum number of lights supported in [LIGHTING_SHADER]. This may be different
+		 * for other lighting shader implementations.
 		 */
 		const val MAX_LIGHTS = 4
 
@@ -652,7 +656,7 @@ open class LightingShader internal constructor(
 	 * The current number of lights added to the shader.
 	 */
 	var currentLightsCount = 0
-		private set
+		internal set
 
 	/**
 	 * Adds a light to the shader.
@@ -663,7 +667,7 @@ open class LightingShader internal constructor(
 	 * If the light is directional, the position is treated as a direction vector.
 	 * If the light is a point, the light will attenuate with distance.
 	 */
-	fun addLight(
+	open fun addLight(
 		position: Triple<Float, Float, Float>,
 		target: Triple<Float, Float, Float> = 0F to 0F to 0F,
 		color: Color = Color.WHITE,
@@ -695,7 +699,7 @@ open class LightingShader internal constructor(
 	 * If the light is directional, the position is treated as a direction vector.
 	 * If the light is a point, the light will attenuate with distance.
 	 */
-	fun addLight(
+	open fun addLight(
 		x: Float,
 		y: Float,
 		z: Float,
@@ -731,7 +735,10 @@ val LIGHTING_SHADER_INSTANCED: LightingShader
 /**
  * The [RAYMARCHING_SHADER] implementation.
  */
-class RaymarchingShader internal constructor() : BuiltInShader("shaders/raylib/raymarching.fs") {
+class RaymarchingShader internal constructor() : BuiltInShader(
+	"shaders/raymarching.vs",
+	"shaders/raymarching.fs"
+) {
 
 	/**
 	 * The viewing eye uniform property.
@@ -742,29 +749,123 @@ class RaymarchingShader internal constructor() : BuiltInShader("shaders/raylib/r
 	var viewEye: Triple<Float, Float, Float>? by ShaderPropertyDelegate()
 
 	/**
-	 * The viewing center uniform property.
+	 * The light direction uniform property.
 	 *
-	 * This should correspond to [raylib.Camera3D.target] on every window
-	 * lifecycle frame.
+	 * This represents the direction of the light source in the scene.
 	 */
-	var viewTarget: Triple<Float, Float, Float>? by ShaderPropertyDelegate("viewCenter")
+	var lightDirection: Triple<Float, Float, Float>? by ShaderPropertyDelegate("lightDir")
 
 	/**
-	 * The run time uniform property.
+	 * The light color uniform property.
 	 *
-	 * This should correspond to [Window.frameTime] on every window
-	 * lifecycle frame.
+	 * This represents the color of the light source in the scene.
 	 */
-	var frameTime: Float? by ShaderPropertyDelegate("runTime")
+	var lightColor: Color? by ShaderPropertyDelegate()
 
 	/**
-	 * The resolution uniform property.
+	 * The light intensity uniform property.
 	 *
-	 * This represents the bounds resolution for the shader. For best quality,
-	 * set the bounds to the values [Window.screenWidth] and [Window.screenHeight]
-	 * respectively.
+	 * This represents the intensity of the light source in the scene.
 	 */
-	var resolution: Pair<Float, Float>? by ShaderPropertyDelegate()
+	var lightIntensity: Float? by ShaderPropertyDelegate()
+
+	/**
+	 * The fog enabled uniform property.
+	 *
+	 * This represents whether fog effect is enabled in the scene.
+	 */
+	var fogEnabled: Boolean? by ShaderPropertyDelegate()
+
+	/**
+	 * The fog color uniform property.
+	 *
+	 * This represents the color of the fog effect in the scene.
+	 */
+	var fogColor: Color? by ShaderPropertyDelegate()
+
+	/**
+	 * The fog density uniform property.
+	 *
+	 * This represents the density of the fog effect in the scene.
+	 * Higher values result in denser fog.
+	 */
+	var fogDensity: Float? by ShaderPropertyDelegate()
+
+	/**
+	 * The ambient occlusion enabled uniform property.
+	 *
+	 * This represents whether ambient occlusion effect is enabled in the scene.
+	 * When enabled, it enhances the realism of the rendering by simulating
+	 * the way light interacts with surfaces in enclosed spaces.
+	 *
+	 * Disabled by default.
+	 */
+	var ambientOcclusionEnabled: Boolean? by ShaderPropertyDelegate("aoEnabled")
+
+	/**
+	 * The ambient occlusion strength uniform property.
+	 *
+	 * This represents the strength of the ambient occlusion effect in the scene.
+	 * Higher values result in a more pronounced ambient occlusion effect.
+	 */
+	var ambientOcclusionStrength: Float? by ShaderPropertyDelegate("aoStrength")
+
+	/**
+	 * The shadows enabled uniform property.
+	 *
+	 * This represents whether shadow rendering is enabled in the scene.
+	 * When enabled, it adds depth and realism to the rendering by simulating
+	 * the way light interacts with objects and casts shadows.
+	 *
+	 * Disabled by default.
+	 */
+	var shadowsEnabled: Boolean? by ShaderPropertyDelegate()
+
+	/**
+	 * The texture uniform property.
+	 *
+	 * This value is set to the first texture unit (texture0) by default.
+	 */
+	var texture: Sampler2D? by ShaderPropertyDelegate("texture0", isSampler2D = true)
+
+	/**
+	 * The diffuse color uniform property.
+	 *
+	 * This color is multiplied with the texture color. Set to white by default.
+	 */
+	var diffuse: Color? by ShaderPropertyDelegate("colDiffuse")
+
+	/**
+	 * The tint color uniform property.
+	 *
+	 * This color is added to the final color of the fragment. Set to white
+	 * by default.
+	 */
+	var tintColor: Color? by ShaderPropertyDelegate()
+
+	init {
+		setDefaultLocations(
+			UniformLocation.MATRIX_MVP,
+			UniformLocation.MATRIX_MODEL,
+			UniformLocation.MATRIX_NORMAL
+		)
+
+		lightDirection = 0.6F to 0.7F to -0.5F
+		lightColor = Color(1.0, 0.8, 0.55, 1.0)
+		lightIntensity = 1.3F
+
+		fogEnabled = true
+		fogColor = Color(0.7, 0.9, 1.0, 1.0)
+		fogDensity = 0.0002F
+
+		ambientOcclusionEnabled = false
+		ambientOcclusionStrength = 0.3F
+
+		shadowsEnabled = false
+
+		diffuse = Color.WHITE
+		tintColor = Color.WHITE
+	}
 
 }
 
@@ -779,6 +880,418 @@ class RaymarchingShader internal constructor() : BuiltInShader("shaders/raylib/r
  */
 val RAYMARCHING_SHADER: RaymarchingShader
 	get() = RaymarchingShader()
+
+/**
+ * The [RAYTRACING_SHADER] implementation.
+ */
+class RaytracingShader internal constructor() : LightingShader(
+	"shaders/raytracing.vs",
+	"shaders/raytracing.fs"
+) {
+	companion object {
+		/**
+		 * The maximum number of lights supported in [RAYTRACING_SHADER].
+		 */
+		const val MAX_LIGHTS = 16
+	}
+
+	/**
+	 * The diffuse color uniform property.
+	 *
+	 * This color is multiplied with the texture color. Set to white by default.
+	 */
+	var diffuse: Color? by ShaderPropertyDelegate("colDiffuse")
+
+	/**
+	 * The viewing eye uniform property.
+	 *
+	 * This should correspond to [raylib.Camera3D.position] on every window
+	 * lifecycle frame.
+	 */
+	var viewPos: Triple<Float, Float, Float>? by ShaderPropertyDelegate()
+
+	/**
+	 * The maximum bounces uniform property.
+	 *
+	 * This represents the maximum number of light bounces for reflections
+	 * and refractions in the raytracing calculations.
+	 */
+	var maxBounces: Int? by ShaderPropertyDelegate()
+
+	/**
+	 * The reflectivity uniform property.
+	 *
+	 * This represents the reflectivity factor of surfaces in the scene.
+	 * Higher values result in more reflective surfaces. Should be on a
+	 * scale of 0.0 to 1.0.
+	 */
+	var reflectivity: Float? by ShaderPropertyDelegate()
+
+	/**
+	 * The roughness uniform property.
+	 *
+	 * This represents the roughness factor of surfaces in the scene.
+	 * Higher values result in rougher surfaces that scatter light more.
+	 * Should be on a scale of 0.0 to 1.0.
+	 *
+	 * Default is 0.5. This property is ignored if [roughnessMapEnabled]
+	 * is true.
+	 */
+	var roughness: Float? by ShaderPropertyDelegate()
+
+	/**
+	 * The metalness uniform property.
+	 *
+	 * This represents the metalness factor of surfaces in the scene.
+	 * Higher values result in more metallic surfaces. Should be on a
+	 * scale of 0.0 to 1.0.
+	 *
+	 * Default is 0.0 (non-metallic). This property is ignored if [metalMapEnabled]
+	 * is true.
+	 */
+	var metalness: Float? by ShaderPropertyDelegate()
+
+	/**
+	 * The reflections enabled uniform property.
+	 *
+	 * This represents whether reflections are enabled in the raytracing
+	 * calculations.
+	 */
+	var reflectionsEnabled: Boolean? by ShaderPropertyDelegate("enableReflections")
+
+	/**
+	 * The shadows enabled uniform property.
+	 *
+	 * This represents whether shadow rendering is enabled in the raytracing
+	 * calculations.
+	 */
+	var shadowsEnabled: Boolean? by ShaderPropertyDelegate("enableShadows")
+
+	// manage texture maps
+
+	/**
+	 * The albedo map enabled uniform property.
+	 *
+	 * This represents whether the albedo texture map is used in the
+	 * raytracing calculations. Albedo maps define the base color of surfaces.
+	 *
+	 * Default is true.
+	 */
+	var albedoMapEnabled: Boolean? by ShaderPropertyDelegate("useAlbedoMap")
+
+	/**
+	 * The metalness map enabled uniform property.
+	 *
+	 * This represents whether the metalness texture map is used in the
+	 * raytracing calculations. Metalness maps define the metallic properties
+	 * of surfaces.
+	 *
+	 * Default is false. When false, [metalness] property is used instead.
+	 */
+	var metalMapEnabled: Boolean? by ShaderPropertyDelegate("useMetalnessMap")
+
+	/**
+	 * The normal map enabled uniform property.
+	 *
+	 * This represents whether the normal texture map is used in the
+	 * raytracing calculations. Normal maps add surface detail by perturbing
+	 * the surface normals, enhancing the realism of lighting effects.
+	 *
+	 * Default is false.
+	 */
+	var normalMapEnabled: Boolean? by ShaderPropertyDelegate("useNormalMap")
+
+	/**
+	 * The roughness map enabled uniform property.
+	 *
+	 * This represents whether the roughness texture map is used in the
+	 * raytracing calculations. Roughness maps define the surface roughness,
+	 * affecting how light scatters on the surface.
+	 *
+	 * Default is false. When false, [roughness] property is used instead.
+	 */
+	var roughnessMapEnabled: Boolean? by ShaderPropertyDelegate("useRoughnessMap")
+
+	/**
+	 * The ambient occlusion map enabled uniform property.
+	 *
+	 * This represents whether the ambient occlusion texture map is used in the
+	 * raytracing calculations. Ambient occlusion maps enhance realism by simulating
+	 * how exposed each point in a scene is to ambient lighting.
+	 *
+	 * Default is false.
+	 */
+	var ambientOcclusionMapEnabled: Boolean? by ShaderPropertyDelegate("useAOMap")
+
+	/**
+	 * The emission map enabled uniform property.
+	 *
+	 * This represents whether the emissions texture map is used in the
+	 * raytracing calculations. Emissions maps define areas of surfaces that
+	 * emit light, contributing to the overall illumination of the scene.
+	 *
+	 * Default is false.
+	 */
+	var emissionMapEnabled: Boolean? by ShaderPropertyDelegate("useEmissionMap")
+
+	init {
+		setDefaultLocations(
+			UniformLocation.MATRIX_MVP,
+			UniformLocation.MATRIX_MODEL,
+			UniformLocation.MATRIX_NORMAL
+		)
+
+		diffuse = Color.WHITE
+
+		maxBounces = 3
+		reflectivity = 0.3F
+		roughness = 0.5F
+		metalness = 0.0F
+
+		reflectionsEnabled = true
+		shadowsEnabled = true
+
+		albedoMapEnabled = true
+		metalMapEnabled = false
+		normalMapEnabled = false
+		roughnessMapEnabled = false
+		ambientOcclusionMapEnabled = false
+		emissionMapEnabled = false
+	}
+
+	/**
+	 * Adds a directional light to the shader.
+	 *
+	 * Directional lights simulate light coming from a specific direction,
+	 * similar to sunlight, where the light rays are parallel and affect
+	 * all objects in the scene uniformly.
+	 *
+	 * @param position The position of the light in 3D space.
+	 * @param target The target point the light is pointing to.
+	 * @param color The color of the light. Defaults to white.
+	 * @param intensity The intensity of the light. Defaults to 1.0.
+	 */
+	fun addDirectionalLight(
+		position: Triple<Float, Float, Float>,
+		target: Triple<Float, Float, Float>,
+		color: Color = Color.WHITE,
+		intensity: Float = 1F
+	) {
+		if (currentLightsCount >= MAX_LIGHTS) {
+			error("Cannot add more than $MAX_LIGHTS lights to the shader.")
+		}
+
+		setValue("lights[$currentLightsCount].enabled", true)
+		setValue("lights[$currentLightsCount].type", 0)
+		setValue("lights[$currentLightsCount].position", position)
+		setValue("lights[$currentLightsCount].target", target)
+		setValue("lights[$currentLightsCount].color", color)
+		setValue("lights[$currentLightsCount].intensity", intensity)
+
+		currentLightsCount++
+	}
+
+	/**
+	 * Adds a directional light to the shader using individual float parameters for position and target.
+	 *
+	 * Directional lights simulate light coming from a specific direction,
+	 * similar to sunlight, where the light rays are parallel and affect
+	 * all objects in the scene uniformly.
+	 *
+	 * @param x The x-coordinate of the light's position.
+	 * @param y The y-coordinate of the light's position.
+	 * @param z The z-coordinate of the light's position.
+	 * @param targetX The x-coordinate of the light's target point.
+	 * @param targetY The y-coordinate of the light's target point.
+	 * @param targetZ The z-coordinate of the light's target point.
+	 * @param color The color of the light. Defaults to white.
+	 * @param intensity The intensity of the light. Defaults to 1.0.
+	 */
+	fun addDirectionalLight(
+		x: Float,
+		y: Float,
+		z: Float,
+		targetX: Float = 0F,
+		targetY: Float = 0F,
+		targetZ: Float = 0F,
+		color: Color = Color.WHITE,
+		intensity: Float = 1F
+	) = addDirectionalLight(
+		x to y to z,
+		targetX to targetY to targetZ,
+		color,
+		intensity
+	)
+
+	/**
+	 * Adds a point light to the shader.
+	 *
+	 * Point lights emit light in all directions from a single point,
+	 * similar to a light bulb, illuminating nearby objects based on
+	 * distance and attenuation.
+	 *
+	 * @param position The position of the light in 3D space.
+	 * @param color The color of the light. Defaults to white.
+	 * @param intensity The intensity of the light. Defaults to 1.0.
+	 * @param radius The radius of the light's influence. Defaults to 1.0.
+	 */
+	fun addPointLight(
+		position: Triple<Float, Float, Float>,
+		color: Color = Color.WHITE,
+		intensity: Float = 1F,
+		radius: Float = 1F,
+	) {
+		if (currentLightsCount >= MAX_LIGHTS) {
+			error("Cannot add more than $MAX_LIGHTS lights to the shader.")
+		}
+
+		setValue("lights[$currentLightsCount].enabled", true)
+		setValue("lights[$currentLightsCount].type", 1)
+		setValue("lights[$currentLightsCount].position", position)
+		setValue("lights[$currentLightsCount].color", color)
+		setValue("lights[$currentLightsCount].intensity", intensity)
+		setValue("lights[$currentLightsCount].radius", radius)
+
+		currentLightsCount++
+	}
+
+	/**
+	 * Adds a point light to the shader using individual float parameters for position.
+	 *
+	 * Point lights emit light in all directions from a single point,
+	 * similar to a light bulb, illuminating nearby objects based on
+	 * distance and attenuation.
+	 *
+	 * @param x The x-coordinate of the light's position.
+	 * @param y The y-coordinate of the light's position.
+	 * @param z The z-coordinate of the light's position.
+	 * @param color The color of the light. Defaults to white.
+	 * @param intensity The intensity of the light. Defaults to 1.0.
+	 * @param radius The radius of the light's influence. Defaults to 1.0.
+	 */
+	fun addPointLight(
+		x: Float,
+		y: Float,
+		z: Float,
+		color: Color = Color.WHITE,
+		intensity: Float = 1F,
+		radius: Float = 1F,
+	) = addPointLight(
+		x to y to z,
+		color,
+		intensity,
+		radius
+	)
+
+	/**
+	 * Adds a spot light to the shader.
+	 *
+	 * Spot lights emit a cone of light from a specific point,
+	 * similar to a flashlight, illuminating objects within the
+	 * cone based on distance and angle.
+	 *
+	 * @param position The position of the light in 3D space.
+	 * @param target The target point the light is pointing to.
+	 * @param color The color of the light. Defaults to white.
+	 * @param intensity The intensity of the light. Defaults to 1.0.
+	 * @param radius The radius of the light's influence. Defaults to 1.0.
+	 * @param cutoff The cutoff angle for the spotlight cone in radians. Defaults to 0.7853982 (45 degrees).
+	 */
+	fun addSpotLight(
+		position: Triple<Float, Float, Float>,
+		target: Triple<Float, Float, Float>,
+		color: Color = Color.WHITE,
+		intensity: Float = 1F,
+		radius: Float = 1F,
+		cutoff: Float = 0.7853982F, // 45 degrees in radians
+	) {
+		if (currentLightsCount >= MAX_LIGHTS) {
+			error("Cannot add more than $MAX_LIGHTS lights to the shader.")
+		}
+
+		setValue("lights[$currentLightsCount].enabled", true)
+		setValue("lights[$currentLightsCount].type", 2)
+		setValue("lights[$currentLightsCount].position", position)
+		setValue("lights[$currentLightsCount].target", target)
+		setValue("lights[$currentLightsCount].color", color)
+		setValue("lights[$currentLightsCount].intensity", intensity)
+		setValue("lights[$currentLightsCount].radius", radius)
+		setValue("lights[$currentLightsCount].cutoff", cos(cutoff))
+
+		currentLightsCount++
+	}
+
+	/**
+	 * Adds a spot light to the shader using individual float parameters for position and target.
+	 *
+	 * Spot lights emit a cone of light from a specific point,
+	 * similar to a flashlight, illuminating objects within the
+	 * cone based on distance and angle.
+	 *
+	 * @param x The x-coordinate of the light's position.
+	 * @param y The y-coordinate of the light's position.
+	 * @param z The z-coordinate of the light's position.
+	 * @param targetX The x-coordinate of the light's target point.
+	 * @param targetY The y-coordinate of the light's target point.
+	 * @param targetZ The z-coordinate of the light's target point.
+	 * @param color The color of the light. Defaults to white.
+	 * @param intensity The intensity of the light. Defaults to 1.0.
+	 * @param radius The radius of the light's influence. Defaults to 1.0.
+	 * @param cutoff The cutoff angle for the spotlight cone in radians. Defaults to 0.7853982 (45 degrees).
+	 */
+	fun addSpotLight(
+		x: Float,
+		y: Float,
+		z: Float,
+		targetX: Float,
+		targetY: Float,
+		targetZ: Float,
+		color: Color = Color.WHITE,
+		intensity: Float = 1F,
+		radius: Float = 1F,
+		cutoff: Float = 0.7853982F, // 45 degrees in radians
+	) = addSpotLight(
+		x to y to z,
+		targetX to targetY to targetZ,
+		color,
+		intensity,
+		radius,
+		cutoff
+	)
+
+	/**
+	 * Adds a light to the shader.
+	 * @param position The position of the light in 3D space.
+	 * @param target The target point the light is pointing to.
+	 * @param color The color of the light. Defaults to white.
+	 * @param directional Whether the light is directional or point light.
+	 * If the light is directional, the position is treated as a direction vector.
+	 * If the light is a point, the light will attenuate with distance.
+	 */
+	override fun addLight(
+		position: Triple<Float, Float, Float>,
+		target: Triple<Float, Float, Float>,
+		color: Color,
+		directional: Boolean,
+	) {
+		if (directional)
+			addDirectionalLight(position, target, color)
+		else
+			addPointLight(position, color)
+	}
+}
+
+/**
+ * The shader used for rendering with raytracing technique.
+ *
+ * Raytracing is a rendering technique that simulates the way light interacts
+ * with surfaces by tracing the paths of individual rays of light as they
+ * bounce around a scene. This allows for highly realistic lighting effects,
+ * including reflections, refractions, and shadows, making it popular for
+ * photorealistic rendering in graphics applications.
+ */
+val RAYTRACING_SHADER: RaytracingShader
+	get() = RaytracingShader()
 
 /**
  * The [OUTLINE_SHADER] implmentation.
