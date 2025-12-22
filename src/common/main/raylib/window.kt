@@ -170,12 +170,12 @@ object Window {
 	 *
 	 * This is useful for testing or scenarios where you want to limit the number of iterations.
 	 * @param frames The number of frames to run the loop for
-	 * @param loop The game loop to call for the specified number of frames
+	 * @param loop The game loop to call for the specified number of frames. The current frame count is provided as an argument.
 	 */
-	fun lifecycleForFrames(frames: Int, loop: Window.() -> Unit) {
+	fun lifecycleForFrames(frames: Int, loop: Window.(Int) -> Unit) {
 		var count = 0
 		while (!shouldClose && ready && count < frames) {
-			loop()
+			loop(count)
 			count++
 		}
 	}
