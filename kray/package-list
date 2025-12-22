@@ -20,6 +20,7 @@ $dokka.location:kray.shaders//LIGHTING_SHADER_INSTANCED/#/PointingToDeclaration/
 $dokka.location:kray.shaders//OUTLINE_SHADER/#/PointingToDeclaration/kray/kray.shaders/-o-u-t-l-i-n-e_-s-h-a-d-e-r.html
 $dokka.location:kray.shaders//OVERDRAW_SHADER/#/PointingToDeclaration/kray/kray.shaders/-o-v-e-r-d-r-a-w_-s-h-a-d-e-r.html
 $dokka.location:kray.shaders//RAYMARCHING_SHADER/#/PointingToDeclaration/kray/kray.shaders/-r-a-y-m-a-r-c-h-i-n-g_-s-h-a-d-e-r.html
+$dokka.location:kray.shaders//RAYTRACING_SHADER/#/PointingToDeclaration/kray/kray.shaders/-r-a-y-t-r-a-c-i-n-g_-s-h-a-d-e-r.html
 $dokka.location:kray.shaders//SWIRL_SHADER/#/PointingToDeclaration/kray/kray.shaders/-s-w-i-r-l_-s-h-a-d-e-r.html
 $dokka.location:kray.shaders//WAVE_SHADER/#/PointingToDeclaration/kray/kray.shaders/-w-a-v-e_-s-h-a-d-e-r.html
 $dokka.location:kray.shaders/AsciiShader///PointingToDeclaration/kray/kray.shaders/-ascii-shader/index.html
@@ -96,10 +97,43 @@ $dokka.location:kray.shaders/OutlineShader/outlineSize/#/PointingToDeclaration/
 $dokka.location:kray.shaders/OutlineShader/size/#/PointingToDeclaration/kray/kray.shaders/-outline-shader/size.html
 $dokka.location:kray.shaders/OverdrawShader///PointingToDeclaration/kray/kray.shaders/-overdraw-shader/index.html
 $dokka.location:kray.shaders/RaymarchingShader///PointingToDeclaration/kray/kray.shaders/-raymarching-shader/index.html
-$dokka.location:kray.shaders/RaymarchingShader/frameTime/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/frame-time.html
-$dokka.location:kray.shaders/RaymarchingShader/resolution/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/resolution.html
+$dokka.location:kray.shaders/RaymarchingShader/ambientOcclusionEnabled/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/ambient-occlusion-enabled.html
+$dokka.location:kray.shaders/RaymarchingShader/ambientOcclusionStrength/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/ambient-occlusion-strength.html
+$dokka.location:kray.shaders/RaymarchingShader/diffuse/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/diffuse.html
+$dokka.location:kray.shaders/RaymarchingShader/fogColor/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/fog-color.html
+$dokka.location:kray.shaders/RaymarchingShader/fogDensity/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/fog-density.html
+$dokka.location:kray.shaders/RaymarchingShader/fogEnabled/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/fog-enabled.html
+$dokka.location:kray.shaders/RaymarchingShader/lightColor/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/light-color.html
+$dokka.location:kray.shaders/RaymarchingShader/lightDirection/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/light-direction.html
+$dokka.location:kray.shaders/RaymarchingShader/lightIntensity/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/light-intensity.html
+$dokka.location:kray.shaders/RaymarchingShader/shadowsEnabled/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/shadows-enabled.html
+$dokka.location:kray.shaders/RaymarchingShader/texture/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/texture.html
+$dokka.location:kray.shaders/RaymarchingShader/tintColor/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/tint-color.html
 $dokka.location:kray.shaders/RaymarchingShader/viewEye/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/view-eye.html
-$dokka.location:kray.shaders/RaymarchingShader/viewTarget/#/PointingToDeclaration/kray/kray.shaders/-raymarching-shader/view-target.html
+$dokka.location:kray.shaders/RaytracingShader.Companion///PointingToDeclaration/kray/kray.shaders/-raytracing-shader/-companion/index.html
+$dokka.location:kray.shaders/RaytracingShader.Companion/MAX_LIGHTS/#/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/-companion/-m-a-x_-l-i-g-h-t-s.html
+$dokka.location:kray.shaders/RaytracingShader///PointingToDeclaration/kray/kray.shaders/-raytracing-shader/index.html
+$dokka.location:kray.shaders/RaytracingShader/addDirectionalLight/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#raylib.Color#kotlin.Float/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/add-directional-light.html
+$dokka.location:kray.shaders/RaytracingShader/addDirectionalLight/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color#kotlin.Float/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/add-directional-light.html
+$dokka.location:kray.shaders/RaytracingShader/addLight/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#raylib.Color#kotlin.Boolean/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/add-light.html
+$dokka.location:kray.shaders/RaytracingShader/addPointLight/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#raylib.Color#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/add-point-light.html
+$dokka.location:kray.shaders/RaytracingShader/addPointLight/#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/add-point-light.html
+$dokka.location:kray.shaders/RaytracingShader/addSpotLight/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#raylib.Color#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/add-spot-light.html
+$dokka.location:kray.shaders/RaytracingShader/addSpotLight/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/add-spot-light.html
+$dokka.location:kray.shaders/RaytracingShader/albedoMapEnabled/#/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/albedo-map-enabled.html
+$dokka.location:kray.shaders/RaytracingShader/ambientOcclusionMapEnabled/#/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/ambient-occlusion-map-enabled.html
+$dokka.location:kray.shaders/RaytracingShader/diffuse/#/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/diffuse.html
+$dokka.location:kray.shaders/RaytracingShader/emissionMapEnabled/#/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/emission-map-enabled.html
+$dokka.location:kray.shaders/RaytracingShader/maxBounces/#/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/max-bounces.html
+$dokka.location:kray.shaders/RaytracingShader/metalMapEnabled/#/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/metal-map-enabled.html
+$dokka.location:kray.shaders/RaytracingShader/metalness/#/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/metalness.html
+$dokka.location:kray.shaders/RaytracingShader/normalMapEnabled/#/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/normal-map-enabled.html
+$dokka.location:kray.shaders/RaytracingShader/reflectionsEnabled/#/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/reflections-enabled.html
+$dokka.location:kray.shaders/RaytracingShader/reflectivity/#/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/reflectivity.html
+$dokka.location:kray.shaders/RaytracingShader/roughness/#/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/roughness.html
+$dokka.location:kray.shaders/RaytracingShader/roughnessMapEnabled/#/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/roughness-map-enabled.html
+$dokka.location:kray.shaders/RaytracingShader/shadowsEnabled/#/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/shadows-enabled.html
+$dokka.location:kray.shaders/RaytracingShader/viewPos/#/PointingToDeclaration/kray/kray.shaders/-raytracing-shader/view-pos.html
 $dokka.location:kray.shaders/SwirlShader///PointingToDeclaration/kray/kray.shaders/-swirl-shader/index.html
 $dokka.location:kray.shaders/SwirlShader/angle/#/PointingToDeclaration/kray/kray.shaders/-swirl-shader/angle.html
 $dokka.location:kray.shaders/SwirlShader/center/#/PointingToDeclaration/kray/kray.shaders/-swirl-shader/center.html
@@ -1172,6 +1206,8 @@ $dokka.location:raylib/Color///PointingToDeclaration/kray/raylib/-color/index.h
 $dokka.location:raylib/Color/Color/#<ERROR CLASS> ERROR CLASS: Symbol not found for CValue<ERROR CLASS: Symbol not found for raylib.internal.Color>/PointingToDeclaration/kray/raylib/-color/-color.html
 $dokka.location:raylib/Color/Color/#<ERROR CLASS> ERROR CLASS: Symbol not found for UByte#<ERROR CLASS> ERROR CLASS: Symbol not found for UByte#<ERROR CLASS> ERROR CLASS: Symbol not found for UByte#<ERROR CLASS> ERROR CLASS: Symbol not found for UByte/PointingToDeclaration/kray/raylib/-color/-color.html
 $dokka.location:raylib/Color/Color/#<ERROR CLASS> ERROR CLASS: Symbol not found for raylib.internal.Color/PointingToDeclaration/kray/raylib/-color/-color.html
+$dokka.location:raylib/Color/Color/#kotlin.Double#kotlin.Double#kotlin.Double#kotlin.Double/PointingToDeclaration/kray/raylib/-color/-color.html
+$dokka.location:raylib/Color/Color/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-color/-color.html
 $dokka.location:raylib/Color/Color/#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-color/-color.html
 $dokka.location:raylib/Color/Color/#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/raylib/-color/-color.html
 $dokka.location:raylib/Color/Color/#kotlin.Int/PointingToDeclaration/kray/raylib/-color/-color.html
@@ -1458,7 +1494,7 @@ $dokka.location:raylib/Keyboard/keyPressed/#/PointingToDeclaration/kray/raylib/
 $dokka.location:raylib/Keyboard/setExitKey/#raylib.Key/PointingToDeclaration/kray/raylib/-keyboard/set-exit-key.html
 $dokka.location:raylib/Material.Companion///PointingToDeclaration/kray/raylib/-material/-companion/index.html
 $dokka.location:raylib/Material.Companion/MAX_MATERIAL_MAPS/#/PointingToDeclaration/kray/raylib/-material/-companion/-m-a-x_-m-a-t-e-r-i-a-l_-m-a-p-s.html
-$dokka.location:raylib/Material.Companion/default/#/PointingToDeclaration/kray/raylib/-material/-companion/default.html
+$dokka.location:raylib/Material.Companion/default/#raylib.Shader?#kotlin.Function1[raylib.Material,kotlin.Unit]/PointingToDeclaration/kray/raylib/-material/-companion/default.html
 $dokka.location:raylib/Material.Companion/load/#kotlin.String/PointingToDeclaration/kray/raylib/-material/-companion/load.html
 $dokka.location:raylib/Material.Companion/load/#raylib.File/PointingToDeclaration/kray/raylib/-material/-companion/load.html
 $dokka.location:raylib/Material///PointingToDeclaration/kray/raylib/-material/index.html
@@ -1826,7 +1862,7 @@ $dokka.location:raylib/Window/hidden/#/PointingToDeclaration/kray/raylib/-windo
 $dokka.location:raylib/Window/isFlagEnabled/#raylib.Window.State/PointingToDeclaration/kray/raylib/-window/is-flag-enabled.html
 $dokka.location:raylib/Window/isHeadless/#/PointingToDeclaration/kray/raylib/-window/is-headless.html
 $dokka.location:raylib/Window/lifecycle/#kotlin.Function1[raylib.Window,kotlin.Unit]/PointingToDeclaration/kray/raylib/-window/lifecycle.html
-$dokka.location:raylib/Window/lifecycleForFrames/#kotlin.Int#kotlin.Function1[raylib.Window,kotlin.Unit]/PointingToDeclaration/kray/raylib/-window/lifecycle-for-frames.html
+$dokka.location:raylib/Window/lifecycleForFrames/#kotlin.Int#kotlin.Function2[raylib.Window,kotlin.Int,kotlin.Unit]/PointingToDeclaration/kray/raylib/-window/lifecycle-for-frames.html
 $dokka.location:raylib/Window/lifecycleForTime/#kotlin.Double#kotlin.Function1[raylib.Window,kotlin.Unit]/PointingToDeclaration/kray/raylib/-window/lifecycle-for-time.html
 $dokka.location:raylib/Window/maximize/#/PointingToDeclaration/kray/raylib/-window/maximize.html
 $dokka.location:raylib/Window/maximized/#/PointingToDeclaration/kray/raylib/-window/maximized.html
