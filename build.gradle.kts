@@ -59,7 +59,7 @@ tasks {
 
 	register("copyTestResources", Copy::class) {
 		dependsOn("copyRaylibResources")
-		from("src/common/test-resources", "src/common/generated-resources")
+		from("src/common/test-resources", "src/common/resources", "src/common/generated-resources")
 		into(layout.buildDirectory.file("bin/$testName/debugTest"))
 
 		duplicatesStrategy = DuplicatesStrategy.EXCLUDE
