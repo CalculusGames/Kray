@@ -1645,12 +1645,12 @@ class Material(internal val raw: CPointer<raylib.internal.Material>) {
 		 * Loads the default material.
 		 * @return The default material.
 		 */
-		fun default(): Material {
+		fun default(shader: Shader? = null, apply: Material.() -> Unit = {}): Material {
 			val default = LoadMaterialDefault()
 			val ptr = nativeHeap.alloc<raylib.internal.Material>()
 			default.useContents {
-				ptr.shader.id = shader.id
-				ptr.shader.locs = shader.locs
+				ptr.shader.id = this.shader.id
+				ptr.shader.locs = this.shader.locs
 				ptr.maps = maps
 				ptr.params[0] = params[0]
 				ptr.params[1] = params[1]
@@ -1658,7 +1658,10 @@ class Material(internal val raw: CPointer<raylib.internal.Material>) {
 				ptr.params[3] = params[3]
 			}
 
-			return Material(ptr.ptr)
+			val material = Material(ptr.ptr)
+			if (shader != null) material.shader = shader
+			material.apply()
+			return material
 		}
 
 		/**
