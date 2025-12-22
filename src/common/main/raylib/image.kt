@@ -94,6 +94,36 @@ data class Color(val r: UByte, val g: UByte, val b: UByte, val a: UByte = 255.to
     constructor(hue: Float, saturation: Float, value: Float) : this(raw = ColorFromHSV(hue, saturation, value).useContents { this })
 
 	/**
+	 * Creates a Color instance from float values for red, green, blue, and alpha components.
+	 * Each component should be in the range 0.0 to 1.0.
+	 * @param r The red component (0.0-1.0).
+	 * @param g The green component (0.0-1.0).
+	 * @param b The blue component (0.0-1.0).
+	 * @param a The alpha component (0.0-1.0).
+	 */
+	constructor(r: Float, g: Float, b: Float, a: Float = 1.0f) : this(
+		(r * 255).toInt().toUByte(),
+		(g * 255).toInt().toUByte(),
+		(b * 255).toInt().toUByte(),
+		(a * 255).toInt().toUByte()
+	)
+
+	/**
+	 * Creates a Color instance from double values for red, green, blue, and alpha components.
+	 * Each component should be in the range 0.0 to 1.0.
+	 * @param r The red component (0.0-1.0).
+	 * @param g The green component (0.0-1.0).
+	 * @param b The blue component (0.0-1.0).
+	 * @param a The alpha component (0.0-1.0).
+	 */
+	constructor(r: Double, g: Double, b: Double, a: Double = 1.0) : this(
+		(r * 255).toInt().toUByte(),
+		(g * 255).toInt().toUByte(),
+		(b * 255).toInt().toUByte(),
+		(a * 255).toInt().toUByte()
+	)
+
+	/**
 	 * The color as an RGBA long.
 	 */
 	val rgba: Long
