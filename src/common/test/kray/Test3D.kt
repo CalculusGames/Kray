@@ -57,6 +57,41 @@ class Test3D {
 	}
 
 	@Test
+	fun testModel() {
+		if (Window.isHeadless) return
+		assertFalse { Window.isHeadless }
+
+		Window.open(800, 600, "Test Mesh")
+
+		val camera = Camera3D(
+			20f to 30f to 20f,
+			0f to 0f to 0f,
+			0f to 1f to 0f,
+			45f,
+			CameraProjection3D.PERSPECTIVE
+		)
+
+		val material = Material.default()
+		material.setMapColor(MaterialMap.Texture.ALBEDO, Color.RED)
+
+		val model = Model.fromMesh(Mesh.cylinder(3F, 5F))
+		model.setMaterial(0, material)
+
+		Window.fps = 60
+		Window.lifecycleForFrames(60 * 5) {
+			camera.update(CameraMode3D.ORBITAL)
+			Canvas.draw {
+				setBackgroundColor(Color.GRAY)
+
+				camera3D(camera) {
+					drawModel(model, 0, 0, 0)
+					grid()
+				}
+			}
+		}
+	}
+
+	@Test
 	fun testRaymarching() {
 		if (Window.isHeadless) return
 		assertFalse { Window.isHeadless }

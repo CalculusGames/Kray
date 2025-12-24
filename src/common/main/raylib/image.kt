@@ -3982,6 +3982,11 @@ data class Color(val r: UByte, val g: UByte, val b: UByte, val a: UByte = 255.to
         val ZINNWALDITE_BROWN = Color(44, 22, 8)
 
 		//</editor-fold>
+
+		/**
+		 * Transparent color (0, 0, 0, 0)
+		 */
+		val TRANSPARENT = Color(0, 0, 0, 0)
     }
 
 	override fun hashCode(): Int {
