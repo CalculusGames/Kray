@@ -3,14 +3,12 @@
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBuildType
 import org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeHostTest
 import org.jetbrains.kotlin.gradle.tasks.CInteropProcess
-import org.jetbrains.kotlin.gradle.tasks.KotlinNativeCompile
 import org.jetbrains.kotlin.konan.target.Family
 
 plugins {
-    kotlin("multiplatform") version "2.2.21"
+    kotlin("multiplatform") version "2.3.0"
     id("org.jetbrains.dokka") version "2.1.0"
 
     `maven-publish`
