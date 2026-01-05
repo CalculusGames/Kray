@@ -2,23 +2,7 @@
 
 package kray
 
-import kotlinx.cinterop.CArrayPointer
-import kotlinx.cinterop.COpaquePointer
-import kotlinx.cinterop.CPointer
-import kotlinx.cinterop.CValue
-import kotlinx.cinterop.ExperimentalForeignApi
-import kotlinx.cinterop.IntVar
-import kotlinx.cinterop.IntVarOf
-import kotlinx.cinterop.NativePlacement
-import kotlinx.cinterop.UByteVar
-import kotlinx.cinterop.allocArray
-import kotlinx.cinterop.cValue
-import kotlinx.cinterop.get
-import kotlinx.cinterop.nativeHeap
-import kotlinx.cinterop.readBytes
-import kotlinx.cinterop.reinterpret
-import kotlinx.cinterop.set
-import kotlinx.cinterop.value
+import kotlinx.cinterop.*
 import raylib.internal.Vector2
 import raylib.internal.Vector3
 
@@ -184,3 +168,20 @@ fun Collection<Int>.toDynamicArray(): CPointer<IntVarOf<Int>> {
 	}
 }
 
+// raylib internals
+
+/**
+ * Creates a Rectangle C structure with the given parameters.
+ * @param x The x-coordinate of the rectangle.
+ * @param y The y-coordinate of the rectangle.
+ * @param width The width of the rectangle.
+ * @param height The height of the rectangle.
+ * @return A CValue representing the Rectangle.
+ */
+fun rectangle(x: Float, y: Float, width: Float, height: Float): CValue<raylib.internal.Rectangle> =
+	cValue<raylib.internal.Rectangle> {
+		this.x = x
+		this.y = y
+		this.width = width
+		this.height = height
+	}

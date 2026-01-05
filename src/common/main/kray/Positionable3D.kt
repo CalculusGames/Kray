@@ -3,22 +3,12 @@ package kray
 /**
  * Represents an object that has a position in 3D Space.
  */
-interface Positionable3D {
-
-	/**
-	 * The x-coordinate of the object.
-	 */
-	var x: Int
-
-	/**
-	 * The y-coordinate of the object.
-	 */
-	var y: Int
+interface Positionable3D : Positionable {
 
 	/**
 	 * The z-coordinate of the object.
 	 */
-	var z: Int
+	var z: Float
 
 	/**
 	 * Moves the object to the specified [newX], [newY], and [newZ] coordinates in place.
@@ -26,9 +16,9 @@ interface Positionable3D {
 	 * @param newY The new y-coordinate of the object.
 	 * @param newZ The new z-coordinate of the object.
 	 */
-	fun moveTo(newX: Int, newY: Int, newZ: Int) {
-		if (newX < 0 || newY < 0 || newZ < 0)
-			throw IllegalArgumentException("Coordinates ($newX, $newY, $newZ) must be non-negative integers.")
+	fun moveTo(newX: Float, newY: Float, newZ: Float) {
+		if (newX < 0F || newY < 0F || newZ < 0F)
+			throw IllegalArgumentException("Coordinates ($newX, $newY, $newZ) must be non-negative.")
 
 		x = newX
 		y = newY
@@ -41,7 +31,7 @@ interface Positionable3D {
 	 * @param deltaY The offset to move the object along the y-axis.
 	 * @param deltaZ The offset to move the object along the z-axis.
 	 */
-	fun moveBy(deltaX: Int, deltaY: Int, deltaZ: Int) {
+	fun moveBy(deltaX: Float, deltaY: Float, deltaZ: Float) {
 		moveTo(x + deltaX, y + deltaY, z + deltaZ)
 	}
 
