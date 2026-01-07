@@ -3,20 +3,30 @@ package kray
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
+import kray.physics.engineTick
 import kray.sprites.Sprite2D
 import kray.sprites.drawSprite
 import kray.sprites.drawnSprites
+import raylib.Camera2D
+import raylib.Camera3D
 import raylib.Window
 import raylib.Canvas
 import raylib.GamePad
 import raylib.Key
 import raylib.Keyboard
 import raylib.Mouse
+import raylib.end2D
+import raylib.end3D
+import raylib.start2D
+import raylib.start3D
 
 /**
- * The primary entrypoint of a Kray application
+ * The primary entrypoint of a Kray application.
+ * @param width The width of the window.
+ * @param height The height of the window.
+ * @param title The title of the window.
+ * @param entrypoint The entrypoint of the Kray application.
  */
 suspend fun Kray(
 	width: Int = 800,
@@ -25,6 +35,7 @@ suspend fun Kray(
 	entrypoint: suspend Kray.() -> Unit
 ) {
 	Window.open(width, height, title)
+	Window.fps = 60
 	entrypoint(Kray)
 }
 
@@ -39,27 +50,77 @@ object Kray {
 	val gamepad = GamePad
 
 	/**
-	 * The provided lifecycle loop for the application.
-	 */
-	var loop: (suspend CoroutineScope.() -> Unit)? = null
-		private set
-
-	/**
 	 * Whether the engine is currently stopped.
 	 */
 	var stopped = false
 		private set
 
 	/**
-	 * Sets the game loop.
+	 * Whether the physics engine is currently enabled.
 	 */
-	suspend fun loop(logic: suspend CoroutineScope.() -> Unit) {
-		if (this.loop != null) throw IllegalStateException("Already looping")
-		this.loop = logic
+	var engineEnabled = false
 
-		coroutineScope {
-			while (!Window.shouldClose && !stopped) {
-				logic()
+	/**
+	 * The number of frames that have been drawn.
+	 */
+	var frameCount = 0
+
+	/**
+	 * The target frames per second (FPS) of the window.
+	 */
+	var fps: Int
+		get() = window.fps
+		set(value) {
+			window.fps = value
+		}
+
+	/**
+	 * The current 2D camera.
+	 */
+	var camera2D: Camera2D? = null
+
+	/**
+	 * The current 3D camera.
+	 */
+	var camera3D: Camera3D? = null
+
+	/**
+	 * The provided lifecycle loop for the application.
+	 */
+	var loop: (suspend () -> Unit)? = null
+		private set
+
+	/**
+	 * Sets the game loop.
+	 * @param frames The number of frames to run the loop for. Default is -1 (infinite).
+	 * @param logic The logic to run each frame.
+	 */
+	suspend fun loop(frames: Int = -1, logic: suspend () -> Unit) {
+		if (this.loop != null) throw IllegalStateException("Already looping")
+
+		this.loop = logic
+		this.frameCount = 0
+
+		while (!window.shouldClose && !stopped) {
+			if (frameCount >= frames) break
+
+			// physics engine
+			if (engineEnabled)
+				engineTick()
+
+			logic()
+
+			// drawing
+			canvas.draw {
+				if (camera2D != null)
+					canvas.start2D(camera2D!!)
+				else if (camera3D != null)
+					canvas.start3D(camera3D!!)
+
+				// drawing loop
+				drawings.forEach { action ->
+					action(canvas)
+				}
 
 				// draw registered sprites
 				drawnSprites.forEach { sprite ->
@@ -67,8 +128,25 @@ object Kray {
 						canvas.drawSprite(sprite, sprite.x, sprite.y)
 					}
 				}
+
+				if (camera2D != null)
+					canvas.end2D()
+				else if (camera3D != null)
+					canvas.end3D()
 			}
+
+			frameCount++
 		}
+	}
+
+	internal val drawings: MutableList<Canvas.() -> Unit> = mutableListOf()
+
+	/**
+	 * Adds drawing logic inside the [loop].
+	 * @param logic The drawing logic.
+	 */
+	fun drawing(logic: Canvas.() -> Unit) {
+		drawings.add(logic)
 	}
 
 	/**

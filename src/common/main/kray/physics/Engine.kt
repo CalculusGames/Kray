@@ -8,6 +8,7 @@ import kray.Positionable3D
 import kray.sprites.Sprite2D
 import kray.sprites.Sprite3D
 import kray.sprites.registeredSprites
+import kotlin.math.abs
 import kotlin.math.sqrt
 
 private val massMultipliers = mutableMapOf<Positionable, Double>()
@@ -82,9 +83,9 @@ var Positionable.frictionCoefficient: Double
 /**
  * The default restitution coefficient used in physics calculations.
  *
- * Determines how bouncy objects are after collisions. The default value is 0.5.
+ * Determines how bouncy objects are after collisions. The default value is 0.1.
  */
-var defaultRestitutionCoefficient: Double = 0.5
+var defaultRestitutionCoefficient: Double = 0.1
 	set(value) {
 		if (value < 0.0)
 			throw IllegalArgumentException("Default restitution coefficient cannot be negative.")
@@ -130,6 +131,15 @@ var Positionable2D.ay: Double
 		acceleration2D[this] = Pair(current.first, value)
 	}
 
+/**
+ * Sets both the x and y components of the 2D acceleration of the [Positionable2D] object.
+ * @param ax The x-component of the acceleration.
+ * @param ay The y-component of the acceleration.
+ */
+fun Positionable2D.setAcceleration(ax: Double, ay: Double) {
+	acceleration2D[this] = Pair(ax, ay)
+}
+
 private val velocity2D = mutableMapOf<Positionable2D, Pair<Double, Double>>()
 
 /**
@@ -151,6 +161,15 @@ var Positionable2D.vy: Double
 		val current = velocity2D[this] ?: Pair(0.0, 0.0)
 		velocity2D[this] = Pair(current.first, value)
 	}
+
+/**
+ * Sets both the x and y components of the 2D velocity of the [Positionable2D] object.
+ * @param vx The x-component of the velocity.
+ * @param vy The y-component of the velocity.
+ */
+fun Positionable2D.setVelocity(vx: Double, vy: Double) {
+	velocity2D[this] = Pair(vx, vy)
+}
 
 private val acceleration3D = mutableMapOf<Positionable3D, Triple<Double, Double, Double>>()
 
@@ -183,6 +202,16 @@ var Positionable3D.az: Double
 		val current = acceleration3D[this] ?: Triple(0.0, 0.0, 0.0)
 		acceleration3D[this] = Triple(current.first, current.second, value)
 	}
+
+/**
+ * Sets the x, y, and z components of the 3D acceleration of the [Positionable3D] object.
+ * @param ax The x-component of the acceleration.
+ * @param ay The y-component of the acceleration.
+ * @param az The z-component of the acceleration.
+ */
+fun Positionable3D.setAcceleration(ax: Double, ay: Double, az: Double) {
+	acceleration3D[this] = Triple(ax, ay, az)
+}
 
 private val velocity3D = mutableMapOf<Positionable3D, Triple<Double, Double, Double>>()
 
@@ -217,40 +246,71 @@ var Positionable3D.vz: Double
 	}
 
 /**
+ * Sets the x, y, and z components of the 3D velocity of the [Positionable3D] object.
+ * @param vx The x-component of the velocity.
+ * @param vy The y-component of the velocity.
+ * @param vz The z-component of the velocity.
+ */
+fun Positionable3D.setVelocity(vx: Double, vy: Double, vz: Double) {
+	velocity3D[this] = Triple(vx, vy, vz)
+}
+
+/**
  * The y-coordinate representing the ground level in the physics simulation.
  * Objects should not fall below this y-coordinate.
  */
-var groundY: Float = 0F
+var groundY: Float = window.screenHeight.toFloat()
+
+/**
+ * The minimum x-coordinate boundary in the physics simulation.
+ */
+var minX: Float = 0F
 	set(value) {
-		if (value < 0F)
-			throw IllegalArgumentException("Ground Y cannot be negative.")
+		if (value >= maxX)
+			throw IllegalArgumentException("Min X must be less than maximum")
 
 		field = value
 	}
 
 /**
  * The maximum x-coordinate boundary in the physics simulation.
- * Unlike the ground, sprites will bounce off this boundary instead of stopping.
  */
 var maxX: Float = Float.MAX_VALUE
 	set(value) {
-		if (value <= 0F)
-			throw IllegalArgumentException("Max X must be positive.")
+		if (value <= minX)
+			throw IllegalArgumentException("Max X must be greater than minimum.")
 
 		field = value
 	}
 
 /**
- * The maximum y-coordinate boundary in the physics simulation.
- * Unlike the ground, sprites will bounce off this boundary instead of stopping.
+ * The minimum z-coordinate boundary in the physics simulation.
  */
-var maxZ: Float = Float.MAX_VALUE
+var minZ: Float = 0F
 	set(value) {
-		if (value <= 0F)
-			throw IllegalArgumentException("Max Z must be positive.")
+		if (value >= maxZ)
+			throw IllegalArgumentException("Max Z must be less than maximum.")
 
 		field = value
 	}
+
+/**
+ * The maximum z-coordinate boundary in the physics simulation.
+ */
+var maxZ: Float = Float.MAX_VALUE
+	set(value) {
+		if (value <= minZ)
+			throw IllegalArgumentException("Max Z must be greater than minimum.")
+
+		field = value
+	}
+
+/**
+ * The normal threshold for vector values.
+ *
+ * Vector values (velocity and acceleration) that fall below this constant will be set to 0.
+ */
+const val NORMAL_THRESHOLD = 0.05
 
 /**
  * Advances the physics engine by one tick, updating the positions and velocities of all non-static objects
@@ -268,18 +328,33 @@ fun engineTick(): Set<Positionable> {
 				val oldX = sprite.x
 				val oldY = sprite.y
 
-				// apply acceleration to velocity
-				sprite.vx += sprite.ax * window.frameTime
-				sprite.vy += sprite.ay * window.frameTime
+				// 1. apply gravity
+				sprite.ay -= gravity * window.frameTime
 
-				// apply gravity
-				sprite.vy += gravity * window.frameTime
+				// 2. apply friction if on ground
+				if (sprite.y >= groundY - sprite.height) {
+					val normalForce = sprite.mass * gravity
+					val frictionForce = sprite.frictionCoefficient * normalForce
+					val frictionAcceleration = frictionForce / sprite.mass
 
-				// apply velocity to position
+					if (sprite.vx > 0) {
+						sprite.vx -= frictionAcceleration
+						if (sprite.vx < 0) sprite.vx = 0.0
+					} else if (sprite.vx < 0) {
+						sprite.vx += frictionAcceleration
+						if (sprite.vx > 0) sprite.vx = 0.0
+					}
+				}
+
+				// 3. apply acceleration to velocity
+				sprite.vx += sprite.ax
+				sprite.vy += sprite.ay
+
+				// 4. apply velocity to position
 				sprite.x += (sprite.vx * window.frameTime).toFloat()
-				sprite.y += (sprite.vy * window.frameTime).toFloat()
+				sprite.y -= (sprite.vy * window.frameTime).toFloat() // y is inverted
 
-				// apply collisions with other sprites
+				// 5a. apply collisions with others
 				val collisions = sprite.collisions
 				for (other in collisions) {
 					// respond with impact physics
@@ -312,35 +387,34 @@ fun engineTick(): Set<Positionable> {
 					}
 				}
 
-				// apply collision with X boundary
-				if (sprite.x < 0F) {
-					sprite.x = 0F
+				// 5b. apply collision with X boundary
+				if (sprite.x < minX) {
+					sprite.x = minX
 					sprite.vx = -sprite.vx * sprite.restitutionCoefficient
 				} else if (sprite.x > maxX) {
 					sprite.x = maxX
 					sprite.vx = -sprite.vx * sprite.restitutionCoefficient
 				}
 
-				// apply friction if on ground
-				if (sprite.y <= groundY) {
-					val normalForce = sprite.mass * gravity
-					val frictionForce = sprite.frictionCoefficient * normalForce
-					val frictionAcceleration = frictionForce / sprite.mass
-
-					if (sprite.vx > 0) {
-						sprite.vx -= frictionAcceleration * window.frameTime
-						if (sprite.vx < 0) sprite.vx = 0.0
-					} else if (sprite.vx < 0) {
-						sprite.vx += frictionAcceleration * window.frameTime
-						if (sprite.vx > 0) sprite.vx = 0.0
-					}
+				// 6. ensure sprite does not fall below ground level
+				if (sprite.y + sprite.height > groundY) {
+					sprite.y = groundY - sprite.height
+					sprite.vy = -sprite.vy * sprite.restitutionCoefficient
+					sprite.ay = 0.0
 				}
 
-				// ensure sprite does not fall below ground level
-				if (sprite.y > groundY) {
-					sprite.y = groundY
-					sprite.vy = 0.0
-				}
+				// 7. normalize vector values
+				val avx = abs(sprite.vx)
+				if (avx < NORMAL_THRESHOLD) sprite.vx = 0.0
+
+				val avy = abs(sprite.vy)
+				if (avy < NORMAL_THRESHOLD) sprite.vy = 0.0
+
+				val aax = abs(sprite.ax)
+				if (aax < NORMAL_THRESHOLD) sprite.ax = 0.0
+
+				val aay = abs(sprite.ay)
+				if (aay < NORMAL_THRESHOLD) sprite.ay = 0.0
 
 				// finish by checking if position changed
 				if (sprite.x != oldX || sprite.y != oldY) {

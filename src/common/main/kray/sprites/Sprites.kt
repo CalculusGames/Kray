@@ -2,7 +2,6 @@ package kray.sprites
 
 import kray.Kray
 import raylib.Canvas
-import raylib.drawImage
 import raylib.drawModel
 import raylib.drawTexture
 import raylib.ensureDrawing
