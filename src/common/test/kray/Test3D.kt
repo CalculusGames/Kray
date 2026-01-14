@@ -1,5 +1,8 @@
+@file:OptIn(ExperimentalForeignApi::class)
+
 package kray
 
+import kotlinx.cinterop.ExperimentalForeignApi
 import kray.shaders.LIGHTING_SHADER
 import kray.shaders.RAYMARCHING_SHADER
 import kray.shaders.RAYTRACING_SHADER
@@ -54,6 +57,10 @@ class Test3D {
 				}
 			}
 		}
+
+		material.unload()
+		cube.unload()
+		cone.unload()
 	}
 
 	@Test
@@ -74,7 +81,8 @@ class Test3D {
 		val material = Material.default()
 		material.setMapColor(MaterialMap.Texture.ALBEDO, Color.RED)
 
-		val model = Model.fromMesh(Mesh.cylinder(3F, 5F), material)
+		val mesh = Mesh.cylinder(3F, 5F)
+		val model = Model.fromMesh(mesh, material)
 
 		Window.fps = 60
 		Window.lifecycleForFrames(60 * 5) {
@@ -88,6 +96,10 @@ class Test3D {
 				}
 			}
 		}
+
+		model.unload()
+		mesh.unload()
+		material.unload()
 	}
 
 	@Test
@@ -135,6 +147,11 @@ class Test3D {
 				}
 			}
 		}
+
+		material.unload()
+		cube.unload()
+		knot.unload()
+		cone.unload()
 	}
 
 	@Test
@@ -210,6 +227,12 @@ class Test3D {
 				}
 			}
 		}
+
+		sphere.unload()
+		cube.unload()
+		cone.unload()
+		prism.unload()
+		torus.unload()
 	}
 
 }
