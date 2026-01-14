@@ -1,6 +1,10 @@
+@file:OptIn(ExperimentalUuidApi::class)
+
 package kray.sprites
 
 import kray.Positionable
+import kotlin.uuid.ExperimentalUuidApi
+import kotlin.uuid.Uuid
 
 /**
  * Represents a sprite in the Kray game engine. Either 2D or 3D.
@@ -9,12 +13,20 @@ import kray.Positionable
 interface Sprite<T> : Positionable {
 
 	/**
+	 * The ID of the sprite.
+	 */
+	override val id: Uuid
+
+	override fun equals(other: Any?): Boolean
+	override fun hashCode(): Int
+
+	/**
 	 * Whether the sprite has been drawn to the canvas this frame.
 	 */
 	val isDrawn: Boolean
 
 	/**
-	 * Whether the sprite is affected by physics. False means it is not.
+	 * Whether the sprite is not affected by physics. True means it is not.
 	 */
 	var static: Boolean
 

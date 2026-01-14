@@ -1,9 +1,16 @@
 package kray
 
+import kray.physics.Hitbox2D
+
 /**
  * Represents an object that has a size in 2D space.
  */
 interface Sizeable2D {
+
+	/**
+	 * The scale of the object.
+	 */
+	var scale: Float
 
 	/**
 	 * The width of the object.
@@ -34,5 +41,10 @@ interface Sizeable2D {
 	 * @return This object after resizing.
 	 */
 	fun resize(newWidth: Int, newHeight: Int): Sizeable2D
+
+	/**
+	 * The hitbox of the object.
+	 */
+	var hitbox: Hitbox2D
 
 }

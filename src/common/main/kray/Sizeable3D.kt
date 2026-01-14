@@ -1,5 +1,7 @@
 package kray
 
+import kray.physics.Hitbox3D
+
 /**
  * Represent an object that has size in 3D space.
  */
@@ -31,4 +33,9 @@ interface Sizeable3D {
 	 */
 	val surfaceArea: Int
 		get() = 2 * (width * height + width * depth + height * depth)
+
+	/**
+	 * The hitbox of the object used for collision detection.
+	 */
+	val hitbox: Hitbox3D
 }

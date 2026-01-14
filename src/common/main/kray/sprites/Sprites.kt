@@ -13,10 +13,29 @@ import raylib.ensureDrawing
  * @param sprite The sprite to draw.
  * @param x The x-coordinate to draw the sprite at. Defaults to the sprite's current x position.
  * @param y The y-coordinate to draw the sprite at. Defaults to the sprite's current y position.
+ * @param rotation The rotation to draw the sprite with. Defaults to the sprite's current rotation.
+ * @param scale The scale to draw the sprite with. Defaults to the sprite's current scale
  */
-fun Canvas.drawSprite(sprite: Sprite2D, x: Float = sprite.x, y: Float = sprite.y) {
+fun Canvas.drawSprite(
+	sprite: Sprite2D,
+	x: Float = sprite.x,
+	y: Float = sprite.y,
+	rotation: Float = sprite.rotation,
+	scale: Float = sprite.scale
+) {
+	val cx = sprite.width / 2f
+	val cy = sprite.height / 2f
+
 	ensureDrawing()
-	drawTexture(sprite.raw, x.toInt(), y.toInt())
+	drawTexture(
+		sprite.raw,
+		x + cx,
+		y + cy,
+		rotation,
+		cx,
+		cy,
+		scale
+	)
 }
 
 /**
@@ -26,7 +45,12 @@ fun Canvas.drawSprite(sprite: Sprite2D, x: Float = sprite.x, y: Float = sprite.y
  * @param y The y-coordinate to draw the sprite at. Defaults to the sprite's current y position.
  * @param z The z-coordinate to draw the sprite at. Defaults to the sprite's current z position.
  */
-fun Canvas.drawSprite(sprite : Sprite3D, x: Float = sprite.x, y: Float = sprite.y, z: Float = sprite.z) {
+fun Canvas.drawSprite(
+	sprite: Sprite3D,
+	x: Float = sprite.x,
+	y: Float = sprite.y,
+	z: Float = sprite.z,
+) {
 	ensureDrawing()
 	drawModel(sprite.raw, x, y, z)
 }

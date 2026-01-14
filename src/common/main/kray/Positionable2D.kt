@@ -27,4 +27,45 @@ interface Positionable2D : Positionable {
 		moveTo(x + deltaX, y + deltaY)
 	}
 
+	/**
+	 * The rotation angle of the object in degrees.
+	 */
+	var rotation: Float
+
+	/**
+	 * Rotates the object by the specified [degrees] in place.
+	 * @param degrees The angle in degrees to rotate the object.
+	 */
+	fun spin(degrees: Float) {
+		rotation = (rotation + degrees) % 360F
+	}
+
+	/**
+	 * Returns whether the sprite is left of the given X boundary.
+	 * @param x The X value to check
+	 * @return true if left, false otherwise
+	 */
+	fun isLeft(x: Float): Boolean
+
+	/**
+	 * Returns whether the sprite is right of the given X boundary.
+	 * @param x The X value to check
+	 * @return true if right, false otherwise
+	 */
+	fun isRight(x: Float): Boolean
+
+	/**
+	 * Returns whether the sprite is above the given Y boundary.
+	 * @param y The Y value to check
+	 * @return true if above, false otherwise
+	 */
+	fun isAbove(y: Float): Boolean
+
+	/**
+	 * Returns whether the sprite is below the given Y boundary.
+	 * @param y The Y value to check
+	 * @return true if below, false otherwise
+	 */
+	fun isBelow(y: Float): Boolean
+
 }

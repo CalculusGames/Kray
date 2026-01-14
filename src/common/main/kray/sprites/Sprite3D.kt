@@ -1,13 +1,21 @@
+@file:OptIn(ExperimentalUuidApi::class)
+
 package kray.sprites
 
+import kray.physics.Hitbox3D
 import kray.Positionable3D
 import kray.Sizeable3D
+import raylib.Matrix4
 import raylib.Model
+import kotlin.uuid.ExperimentalUuidApi
+import kotlin.uuid.Uuid
 
 /**
  * Represents a sprite in the Kray game engine.
  */
 class Sprite3D(internal var raw: Model) : Sprite<Model>, Positionable3D, Sizeable3D {
+
+	override val id: Uuid = Uuid.random()
 
 	override var x: Float = 0F
 	override var y: Float = 0F
@@ -23,6 +31,14 @@ class Sprite3D(internal var raw: Model) : Sprite<Model>, Positionable3D, Sizeabl
 		internal set
 	override var static: Boolean = false
 	override var collideable: Boolean = true
+	override var transform: Matrix4
+		get() = raw.transform
+		set(value) {
+			raw.transform = value
+			hitbox = Hitbox3D.transformedRectangle(
+				0.0f, 0.0f, 0.0f, width.toFloat(), height.toFloat(), depth.toFloat(), value
+			)
+		}
 
 	/**
 	 * The z-index of the sprite. Higher values are drawn on top of lower values.
@@ -86,6 +102,24 @@ class Sprite3D(internal var raw: Model) : Sprite<Model>, Positionable3D, Sizeabl
 			currentCostumeIndex = index
 		}
 	}
+
+	override var hitbox: Hitbox3D = Hitbox3D.rectangle(0.0f, 0.0f, 0.0f, width.toFloat(), height.toFloat(), depth.toFloat())
+	override fun isLeftX(x: Float): Boolean = hitbox.isLeftX(x - this.x)
+	override fun isRightX(x: Float): Boolean = hitbox.isRightX(x - this.y)
+	override fun isAbove(y: Float): Boolean = hitbox.isAbove(y - this.z)
+	override fun isBelow(y: Float): Boolean = hitbox.isBelow(y - this.y)
+	override fun isLeftZ(z: Float): Boolean = hitbox.isLeftZ(z - this.z)
+	override fun isRightZ(z: Float): Boolean = hitbox.isRightZ(z - this.z)
+
+	override fun equals(other: Any?): Boolean {
+		if (other == null) return false
+		if (this === other) return true
+		if (other !is Sprite3D) return false
+
+		return other.id == id
+	}
+
+	override fun hashCode(): Int = id.hashCode()
 
 	companion object {
 		/**
