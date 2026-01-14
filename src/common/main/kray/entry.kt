@@ -6,6 +6,7 @@ import kotlinx.coroutines.IO
 import kotlinx.coroutines.withContext
 import kray.physics.engineTick
 import kray.sprites.Sprite2D
+import kray.sprites.Sprite3D
 import kray.sprites.drawSprite
 import kray.sprites.drawnSprites
 import raylib.Camera2D
@@ -118,9 +119,9 @@ object Kray {
 					canvas.start3D(camera3D!!)
 
 				// drawing loop
-				drawings.forEach { action ->
-					action(canvas)
-				}
+				drawings.filter { (i, _) -> i >= 0 }
+					.sortedBy { it.first }
+					.forEach { (_, action) -> action(canvas) }
 
 				// draw registered sprites
 				drawnSprites.forEach { sprite ->
@@ -129,24 +130,32 @@ object Kray {
 					}
 				}
 
+				// drawing loop (negative priority)
+				drawings.filter { (i, _) -> i < 0 }
+					.sortedBy { it.first }
+					.forEach { (_, action) -> action(canvas) }
+
 				if (camera2D != null)
 					canvas.end2D()
 				else if (camera3D != null)
 					canvas.end3D()
 			}
 
+			drawings.clear()
 			frameCount++
 		}
 	}
 
-	internal val drawings: MutableList<Canvas.() -> Unit> = mutableListOf()
+	internal val drawings: MutableList<Pair<Int, Canvas.() -> Unit>> = mutableListOf()
 
 	/**
 	 * Adds drawing logic inside the [loop].
+	 * @param priority The priority layer of the drawing. Can be used as a z-index to order drawings. Lower values are drawn first.
+	 * To draw on top of sprites, use a negative priority.
 	 * @param logic The drawing logic.
 	 */
-	fun drawing(logic: Canvas.() -> Unit) {
-		drawings.add(logic)
+	fun drawing(priority: Int = 1, logic: Canvas.() -> Unit) {
+		drawings.add(priority to logic)
 	}
 
 	/**
@@ -417,11 +426,11 @@ object Kray {
 	}
 
 	/**
-	 * A set of all 2D sprites that are currently colliding with this sprite.
+	 * A set of all 2D sprites that are currently inside its boundaries.
 	 */
-	val Sprite2D.collisions: Set<Sprite2D>
+	val Sprite2D.inBounds: Set<Sprite2D>
 		get() {
-			val collisions = mutableSetOf<Sprite2D>()
+			val bounds = mutableSetOf<Sprite2D>()
 			for (sprite in drawnSprites) {
 				if (sprite is Sprite2D && sprite != this) {
 					if (this.x < sprite.x + sprite.width &&
@@ -429,11 +438,34 @@ object Kray {
 						this.y < sprite.y + sprite.height &&
 						this.y + this.height > sprite.y
 					) {
-						collisions.add(sprite)
+						bounds.add(sprite)
 					}
 				}
 			}
 
-			return collisions
+			return bounds
+		}
+
+	/**
+	 * A set of all 3D sprites that are currently inside its boundaries.
+	 */
+	val Sprite3D.inBounds: Set<Sprite3D>
+		get() {
+			val bounds = mutableSetOf<Sprite3D>()
+			for (sprite in drawnSprites) {
+				if (sprite is Sprite3D && sprite != this) {
+					if (this.x < sprite.x + sprite.width &&
+						this.x + this.width > sprite.x &&
+						this.y < sprite.y + sprite.height &&
+						this.y + this.height > sprite.y &&
+						this.z < sprite.z + sprite.depth &&
+						this.z + this.depth > sprite.z
+					) {
+						bounds.add(sprite)
+					}
+				}
+			}
+
+			return bounds
 		}
 }
