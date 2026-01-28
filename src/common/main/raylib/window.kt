@@ -4,7 +4,9 @@ package raylib
 
 import kotlinx.cinterop.*
 import kray.Positionable2D
+import kray.Positionable3D
 import kray.sprites.Sprite2D
+import kray.sprites.Sprite3D
 import kray.to
 import kray.toVector2
 import kray.toVector3
@@ -16,6 +18,9 @@ import raylib.Window.lifecycle
 import raylib.Window.open
 import raylib.Window.shouldClose
 import raylib.internal.*
+import kotlin.math.cos
+import kotlin.math.sin
+import kotlin.math.sqrt
 
 /**
  * The window management object.
@@ -581,7 +586,7 @@ class Camera2D(internal val raw: raylib.internal.Camera2D) {
 	 * @param oy The Y coordinate of the offset
 	 * @param targetX The X coordinate of the camera's target
 	 * @param targetY The Y coordinate of the camera's target
-	 * @param rotation Camera rotation in radians
+	 * @param rotation Camera rotation in degrees
 	 * @param zoom Camera zoom scale
 	 */
 	constructor(
@@ -943,22 +948,39 @@ value class CameraMode3D private constructor(internal val value: CameraMode) {
 
 /**
  * Represents a 3D Camera representing what the user is seeing.
- * @property position The current position of the camera in 3D space.
- * @property target The coordinates of where the camera is looking.
- * @property rotation The rotational vector applied to the camera
- * @property fovy Camera FOV apperture in Y (degrees) in perspective, or near plane width in orthographic.
- * In perspective, when increased, it zooms out; when decreased, it zooms in.
- * In orthographic, when increased, it zooms in; when decreased, it zooms out.
- * @property projection The type of camera projection
  */
 @Suppress("DuplicatedCode")
-class Camera3D(
-	var position: Triple<Float, Float, Float>,
-	var target: Triple<Float, Float, Float>,
-	var rotation: Triple<Float, Float, Float> = 0f to 0f to 0f,
-	var fovy: Float = 0F,
-	var projection: CameraProjection3D = CameraProjection3D.PERSPECTIVE
-) {
+class Camera3D(internal val raw: raylib.internal.Camera3D) {
+
+	/**
+	 * Creates a new Camera3D.
+	 * @param position The current position of the camera in 3D space.
+	 * @param target The coordinates of where the camera is looking.
+	 * @param up The rotational (up) vector applied to the camera
+	 * @param fovy Camera FOV apperture in Y (degrees) in perspective, or near plane width in orthographic.
+	 * In perspective, when increased, it zooms out; when decreased, it zooms in.
+	 * In orthographic, when increased, it zooms in; when decreased, it zooms out.
+	 * @param projection The type of camera projection
+	 */
+	constructor(
+		position: Triple<Float, Float, Float>,
+		target: Triple<Float, Float, Float>,
+		up: Triple<Float, Float, Float> = 0f to 1f to 0f,
+		fovy: Float = 45F,
+		projection: CameraProjection3D = CameraProjection3D.PERSPECTIVE
+	) : this(nativeHeap.alloc<raylib.internal.Camera3D> {
+		this.position.x = position.first
+		this.position.y = position.second
+		this.position.z = position.third
+		this.target.x = target.first
+		this.target.y = target.second
+		this.target.z = target.third
+		this.up.x = up.first
+		this.up.y = up.second
+		this.up.z = up.third
+		this.fovy = fovy
+		this.projection = projection.value.toInt()
+	})
 
 	/**
 	 * Creates a new Camera3D.
@@ -968,213 +990,236 @@ class Camera3D(
 	 * @param targetX The X position of the camera's target
 	 * @param targetY The Y position of the camera's target
 	 * @param targetZ The Z position of the camera's target
-	 * @param rotX The X rotational value of the camera in degress
-	 * @param rotY The X rotational value of the camera in degrees
-	 * @param rotZ The X rotational value of the camera in degrees
+	 * @param upX The X component of the up vector
+	 * @param upY The Y component of the up vector
+	 * @param upZ The Z component of the up vector
 	 * @param fovy Camera FOV apperture in Y (degrees) in perspective, or near plane width in orthographic
 	 * @param projection The type of camera projection
 	 */
 	constructor(
 		x: Float = 0f, y: Float = 0f, z: Float = 0f,
 		targetX: Float = 0f, targetY: Float = 0f, targetZ: Float = 0f,
-		rotX: Float = 0f, rotY: Float = 0f, rotZ: Float = 0f,
-		fovy: Float = 0f, projection: CameraProjection3D = CameraProjection3D.PERSPECTIVE
+		upX: Float = 0f, upY: Float = 1f, upZ: Float = 0f,
+		fovy: Float = 45f, projection: CameraProjection3D = CameraProjection3D.PERSPECTIVE
 	) : this(
 		x to y to z,
 		targetX to targetY to targetZ,
-		rotX to rotY to rotZ,
+		upX to upY to upZ,
 		fovy, projection
 	)
 
 	/**
+	 * The coordinates of the camera's world position.
+	 */
+	var position: Triple<Float, Float, Float>
+		get() = x to y to z
+		set(value) {
+			x = value.first
+			y = value.second
+			z = value.third
+		}
+
+	/**
 	 * The X coordinate of the camera's position.
 	 */
-	var x: Float
-		get() = position.first
-		set(value) {
-			position = value to position.second to position.third
-		}
+	var x: Float by raw.position::x
 
 	/**
 	 * The Y coordinate of the camera's position.
 	 */
-	var y: Float
-		get() = position.second
-		set(value) {
-			position = position.first to value to position.third
-		}
+	var y: Float by raw.position::y
 
 	/**
 	 * The Z coordinate of the camera's position.
 	 */
-	var z: Float
-		get() = position.third
+	var z: Float by raw.position::z
+
+	/**
+	 * The coordinates of the camera's current target to look at.
+	 */
+	var target: Triple<Float, Float, Float>
+		get() = targetX to targetY to targetZ
 		set(value) {
-			position = position.first to position.second to value
+			targetX = value.first
+			targetY = value.second
+			targetZ = value.third
 		}
 
 	/**
 	 * The X coordinate of the camera's current target to look at.
 	 */
-	var targetX: Float
-		get() = target.first
-		set(value) {
-			target = value to target.second to target.third
-		}
+	var targetX: Float by raw.target::x
 
 	/**
 	 * The Y coordinate of the camera's current target to look at.
 	 */
-	var targetY: Float
-		get() = target.second
-		set(value) {
-			target = target.first to value to target.third
-		}
+	var targetY: Float by raw.target::y
 
 	/**
 	 * The Z coordinate of the camera's current target to look at.
 	 */
-	var targetZ: Float
-		get() = target.third
+	var targetZ: Float by raw.target::z
+
+	/**
+	 * The up vector of the camera.
+	 */
+	var up: Triple<Float, Float, Float>
+		get() = upX to upY to upZ
 		set(value) {
-			target = target.first to target.second to value
+			upX = value.first
+			upY = value.second
+			upZ = value.third
 		}
 
 	/**
-	 * The X rotational value of the camera.
+	 * The X value of the up vector.
 	 */
-	var rotX: Float
-		get() = rotation.first
-		set(value) {
-			rotation = value to rotation.second to rotation.third
-		}
+	var upX: Float by raw.up::x
 
 	/**
-	 * The Y rotational value of the camera.
+	 * The Y value of the up vector.
 	 */
-	var rotY: Float
-		get() = rotation.second
-		set(value) {
-			rotation = rotation.first to value to rotation.third
-		}
+	var upY: Float by raw.up::y
 
 	/**
-	 * The Z rotational value of the camera.
+	 * The Z value of the up vector.
 	 */
-	var rotZ: Float
-		get() = rotation.third
-		set(value) {
-			rotation = rotation.first to rotation.second to value
-		}
+	var upZ: Float by raw.up::z
 
-	internal fun raw(scope: NativePlacement): CPointer<raylib.internal.Camera3D>
-		= scope.alloc<raylib.internal.Camera3D> {
-			position.x = x
-			position.y = y
-			position.z = z
-			target.x = targetX
-			target.y = targetY
-			target.z = targetZ
-			up.x = rotX
-			up.y = rotY
-			up.z = rotZ
-			this.fovy = this@Camera3D.fovy
-			this.projection = this@Camera3D.projection.value.toInt()
-		}.ptr
+	/**
+	 * Camera FOV apperture in Y (degrees) in perspective, or near plane width in orthographic.
+	 */
+	var fovy: Float by raw::fovy
+
+	/**
+	 * The projection type of the camera.
+	 */
+	var projection: CameraProjection3D
+		get() = when (raw.projection) {
+			CAMERA_ORTHOGRAPHIC.toInt() -> CameraProjection3D.ORTHOGRAPHIC
+			else -> CameraProjection3D.PERSPECTIVE
+		}
+		set(value) {
+			raw.projection = value.value.toInt()
+		}
 
 	/**
 	 * The camera's transformation matrix.
 	 */
 	val matrix: Matrix4
-		get() = memScoped {
-			val ptr = raw(this)
-			val raw = GetCameraMatrix(ptr.pointed.readValue())
+		get() {
+			val raw = GetCameraMatrix(raw.readValue())
 			return raw.useContents { Matrix4(this) }
 		}
+
+	/**
+	 * Updates the camera to follow the sprite's center position directly.
+	 * @param sprite The sprite to follow
+	 */
+	fun followCenter(sprite: Sprite3D) {
+		target = Triple(
+			sprite.x + (sprite.width / 2F),
+			sprite.y + (sprite.height / 2F),
+			sprite.z + (sprite.depth / 2F)
+		)
+	}
+
+	/**
+	 * Updates the camera with a specific mode, automatically handling movement based on input.
+	 * @param mode The camera mode to use for updates
+	 * @param origin Optional origin point to follow/orbit around
+	 */
+	fun updateWith(mode: CameraMode3D, origin: Triple<Float, Float, Float>? = null) {
+		origin?.let { pos ->
+			val dx = x - targetX
+			val dy = y - targetY
+			val dz = z - targetZ
+			val distance = sqrt(dx * dx + dy * dy + dz * dz)
+
+			target = pos
+
+			val dirX = dx / distance
+			val dirY = dy / distance
+			val dirZ = dz / distance
+
+			position = Triple(
+				pos.first + dirX * distance,
+				pos.second + dirY * distance,
+				pos.third + dirZ * distance
+			)
+		}
+		UpdateCamera(raw.ptr, mode.value.toInt())
+	}
+
+	/**
+	 * Updates the camera with a specific mode, automatically handling movement based on input.
+	 * @param mode The camera mode to use for updates
+	 * @param origin Optional origin entity to follow/orbit around
+	 */
+	fun updateWith(mode: CameraMode3D, origin: Positionable3D? = null)
+		= updateWith(mode, origin?.position)
+
+	/**
+	 * Updates the camera with a specific mode, automatically handling movement based on input.
+	 * @param mode The camera mode to use for updates
+	 * @param origin Optional origin sprite to follow/orbit around
+	 */
+	fun updateWith(mode: CameraMode3D, origin: Sprite3D? = null) {
+		val ox = origin?.let { it.x + (it.width / 2F) } ?: 0F
+		val oy = origin?.let { it.y + (it.height / 2F) } ?: 0F
+		val oz = origin?.let { it.z + (it.depth / 2F) } ?: 0F
+
+		updateWith(mode, ox to oy to oz)
+	}
 
 	/**
 	 * Updates the camera's current mode.
 	 * @param mode The new camera mode to set
 	 */
-	fun update(mode: CameraMode3D): Unit = memScoped {
-		val cameraPtr = raw(this)
-		UpdateCamera(cameraPtr, mode.value.toInt())
-
-		// read back values
-		val camera = cameraPtr.pointed
-		x = camera.position.x
-		y = camera.position.y
-		z = camera.position.z
-		targetX = camera.target.x
-		targetY = camera.target.y
-		targetZ = camera.target.z
-		rotX = camera.up.x
-		rotY = camera.up.y
-		rotZ = camera.up.z
+	fun update(mode: CameraMode3D) {
+		UpdateCamera(raw.ptr, mode.value.toInt())
 	}
 
 	/**
-	 * Updates the camera's movement, rotation, and speed.
+	 * Updates the camera's movement, up, and speed.
 	 * @param dx The delta in X position.
 	 * @param dy The delta in Y position.
 	 * @param dz The delta in Z position.
-	 * @param drotX The delta in X rotation in degrees.
-	 * @param drotY The delta in Y rotation in degrees.
-	 * @param drotZ The delta in Z rotation in degrees.
+	 * @param drotX The delta in X up in degrees.
+	 * @param drotY The delta in Y up in degrees.
+	 * @param drotZ The delta in Z up in degrees.
 	 * @param zoom The new zoom value.
 	 */
 	fun update(
 		dx: Float = 0F, dy: Float = 0F, dz: Float = 0F,
 		drotX: Float = 0F, drotY: Float = 0F, drotZ: Float = 0F,
 		zoom: Float = 1F
-	): Unit = memScoped {
-		val cameraPtr = raw(this)
+	) {
 		UpdateCameraPro(
-			cameraPtr,
+			raw.ptr,
 			(dx to dy to dz).toVector3(),
 			(drotX to drotY to drotZ).toVector3(),
 			zoom
 		)
-		// read back modified values
-		x = cameraPtr.pointed.position.x
-		y = cameraPtr.pointed.position.y
-		z = cameraPtr.pointed.position.z
-		targetX = cameraPtr.pointed.target.x
-		targetY = cameraPtr.pointed.target.y
-		targetZ = cameraPtr.pointed.target.z
-		rotX = cameraPtr.pointed.up.x
-		rotY = cameraPtr.pointed.up.y
-		rotZ = cameraPtr.pointed.up.z
 	}
 
 	/**
-	 * Updates the camera's movement, rotation, and speed.
+	 * Updates the camera's movement, up, and speed.
 	 * @param delta The delta for the camera position.
-	 * @param deltaRot The delta for the camera rotation in degrees.
+	 * @param deltaRot The delta for the camera up in degrees.
 	 * @param zoom The new zoom value.
 	 */
 	fun update(
 		delta: Triple<Float, Float, Float> = 0F to 0F to 0F,
 		deltaRot: Triple<Float, Float, Float> = 0F to 0F to 0F,
 		zoom: Float = 1F
-	): Unit = memScoped {
-		val cameraPtr = raw(this)
+	) {
 		UpdateCameraPro(
-			cameraPtr,
+			raw.ptr,
 			delta.toVector3(),
 			deltaRot.toVector3(),
 			zoom
 		)
-		// read back modified values
-		x = cameraPtr.pointed.position.x
-		y = cameraPtr.pointed.position.y
-		z = cameraPtr.pointed.position.z
-		targetX = cameraPtr.pointed.target.x
-		targetY = cameraPtr.pointed.target.y
-		targetZ = cameraPtr.pointed.target.z
-		rotX = cameraPtr.pointed.up.x
-		rotY = cameraPtr.pointed.up.y
-		rotZ = cameraPtr.pointed.up.z
 	}
 
 	/**
@@ -1182,9 +1227,8 @@ class Camera3D(
 	 * @param position The world position as a triple of floats (x, y, z).
 	 * @return The corresponding screen position as a pair of floats (x, y).
 	 */
-	fun worldToScreen(position: Triple<Float, Float, Float>): Pair<Float, Float> = memScoped {
-		val ptr = raw(this)
-		val screenPos = GetWorldToScreen(position.toVector3(), ptr.pointed.readValue())
+	fun worldToScreen(position: Triple<Float, Float, Float>): Pair<Float, Float> {
+		val screenPos = GetWorldToScreen(position.toVector3(), raw.readValue())
 		return screenPos.useContents { x to y }
 	}
 
@@ -1209,15 +1253,168 @@ class Camera3D(
 	fun worldToScreen(x: Int, y: Int, z: Int): Pair<Float, Float> {
 		return worldToScreen(x.toFloat(), y.toFloat(), z.toFloat())
 	}
+
+	/**
+	 * Zooms the camera in by decreasing the FOV.
+	 * @param amount The amount to zoom in (default 5 degrees)
+	 */
+	fun zoomIn(amount: Float = 5f) {
+		fovy = (fovy - amount).coerceAtLeast(1f)
+	}
+
+	/**
+	 * Zooms the camera out by increasing the FOV.
+	 * @param amount The amount to zoom out (default 5 degrees)
+	 */
+	fun zoomOut(amount: Float = 5f) {
+		fovy = (fovy + amount).coerceAtMost(120f)
+	}
+
+	/**
+	 * Rotates the camera's pitch (looking up/down).
+	 * @param degrees The angle in degrees to rotate
+	 */
+	fun rotatePitch(degrees: Float) {
+		update(drotX = degrees * (PI / 180))
+	}
+
+	/**
+	 * Rotates the camera's yaw (looking left/right).
+	 * @param degrees The angle in degrees to rotate
+	 */
+	fun rotateYaw(degrees: Float) {
+		update(drotY = degrees * (PI / 180f))
+	}
+
+	/**
+	 * Rotates the camera's roll (tilting the view).
+	 * @param degrees The angle in degrees to rotate
+	 */
+	fun rotateRoll(degrees: Float) {
+		update(drotZ = degrees * (PI / 180f))
+	}
+
+	/**
+	 * Unloads this Camera3D from memory.
+	 */
+	fun unload() {
+		nativeHeap.free(raw)
+	}
+
+	companion object {
+
+		/**
+		 * Creates a Camera3D looking at a specific target position.
+		 * @param x The X coordinate of the target.
+		 * @param y The Y coordinate of the target.
+		 * @param z The Z coordinate of the target.
+		 * @param distance The distance from the target (default 10.0)
+		 * @param rotation The rotation angles (pitch, yaw, roll) in degrees (default looking from above)
+		 * @return A Camera3D instance.
+		 */
+		fun on(
+			x: Float,
+			y: Float,
+			z: Float,
+			distance: Float = 10f,
+			rotation: Triple<Float, Float, Float> = Triple(-45f, 0f, 0f)
+		): Camera3D {
+			val pitchRad = rotation.first * (PI / 180f)
+			val yawRad = rotation.second * (PI / 180f)
+			val rollRad = rotation.third * (PI / 180f)
+
+			val camX = x + distance * cos(pitchRad) * sin(yawRad)
+			val camY = y + distance * sin(pitchRad)
+			val camZ = z + distance * cos(pitchRad) * cos(yawRad)
+
+			val upX = -sin(rollRad)
+			val upY = cos(rollRad)
+			val upZ = 0f
+
+			return Camera3D(
+				position = Triple(camX, camY, camZ),
+				target = Triple(x, y, z),
+				up = Triple(upX, upY, upZ),
+				fovy = 45f,
+				projection = CameraProjection3D.PERSPECTIVE
+			)
+		}
+
+		/**
+		 * Creates a Camera3D looking at a specific target position.
+		 * @param x The X coordinate of the target.
+		 * @param y The Y coordinate of the target.
+		 * @param z The Z coordinate of the target.
+		 * @param distance The distance from the target (default 10.0)
+		 * @param rotation The rotation angles (pitch, yaw, roll) in degrees (default looking from above)
+		 * @return A Camera3D instance.
+		 */
+		fun on(
+			x: Int,
+			y: Int,
+			z: Int,
+			distance: Float = 10f,
+			rotation: Triple<Float, Float, Float> = Triple(-45f, 0f, 0f)
+		) = on(x.toFloat(), y.toFloat(), z.toFloat(), distance, rotation)
+
+		/**
+		 * Creates a Camera3D looking at a specific target.
+		 * @param target The target to look at.
+		 * @param distance The distance from the target (default 10.0)
+		 * @param rotation The rotation angles (pitch, yaw, roll) in degrees (default looking from above)
+		 * @return A Camera3D instance.
+		 */
+		fun on(
+			target: Positionable3D,
+			distance: Float = 10f,
+			rotation: Triple<Float, Float, Float> = Triple(-45f, 0f, 0f)
+		) = on(target.x, target.y, target.z, distance, rotation)
+
+		/**
+		 * Creates a Camera3D that follows the sprite's center directly.
+		 * @param sprite The sprite to follow
+		 * @param distance The distance from the sprite center (default 10.0)
+		 * @param rotation The rotation angles (pitch, yaw, roll) in degrees (default looking from above)
+		 * @return A Camera3D instance
+		 */
+		fun center(
+			sprite: Sprite3D,
+			distance: Float = 10f,
+			rotation: Triple<Float, Float, Float> = Triple(-45f, 0f, 0f)
+		): Camera3D {
+			val centerX = sprite.x + (sprite.width / 2F)
+			val centerY = sprite.y + (sprite.height / 2F)
+			val centerZ = sprite.z + (sprite.depth / 2F)
+
+			val pitchRad = rotation.first * (PI / 180f)
+			val yawRad = rotation.second * (PI / 180f)
+			val rollRad = rotation.third * (PI / 180f)
+
+			val camX = centerX + distance * cos(pitchRad) * sin(yawRad)
+			val camY = centerY + distance * sin(pitchRad)
+			val camZ = centerZ + distance * cos(pitchRad) * cos(yawRad)
+
+			val upX = -sin(rollRad)
+			val upY = cos(rollRad)
+			val upZ = 0f
+
+			return Camera3D(
+				position = Triple(camX, camY, camZ),
+				target = Triple(centerX, centerY, centerZ),
+				up = Triple(upX, upY, upZ),
+				fovy = 45f,
+				projection = CameraProjection3D.PERSPECTIVE
+			)
+		}
+	}
 }
 
 /**
  * Starts a 3D camera on the current window.
  * @param camera The camera to use
  */
-fun Canvas.start3D(camera: Camera3D) = memScoped {
-	val ptr = camera.raw(this)
-	BeginMode3D(ptr.pointed.readValue())
+fun Canvas.start3D(camera: Camera3D) {
+	BeginMode3D(camera.raw.readValue())
 }
 
 /**
