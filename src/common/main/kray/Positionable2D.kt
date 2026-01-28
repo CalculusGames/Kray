@@ -6,6 +6,12 @@ package kray
 interface Positionable2D : Positionable {
 
 	/**
+	 * The position of the object.
+	 */
+	val position: Pair<Float, Float>
+		get() = x to y
+
+	/**
 	 * Moves the object to the specified [newX] and [newY] coordinates in place.
 	 * @param newX The new x-coordinate of the object.
 	 * @param newY The new y-coordinate of the object.

@@ -13,6 +13,12 @@ interface Positionable3D : Positionable {
 	var z: Float
 
 	/**
+	 * The position of the object.
+	 */
+	val position: Triple<Float, Float, Float>
+		get() = x to y to z
+
+	/**
 	 * Moves the object to the specified [newX], [newY], and [newZ] coordinates in place.
 	 * @param newX The new x-coordinate of the object.
 	 * @param newY The new y-coordinate of the object.
