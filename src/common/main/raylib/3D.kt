@@ -11,6 +11,7 @@ import raylib.internal.*
 import kotlin.math.abs
 import kotlin.math.asin
 import kotlin.math.atan2
+import kotlin.math.cos
 import kotlin.math.sqrt
 
 /**
@@ -233,28 +234,32 @@ data class Matrix4(
 			// remove scale
 			// raylib uses YXZ order
 
-			val r00 = m0 / scaleX
-//			val r01 = m4 / scaleY (not used)
-//			val r02 = m8 / scaleZ (not used)
+			val sx = scaleX
+			val sy = scaleY
+			val sz = scaleZ
 
-			val r10 = m1 / scaleX
-			val r11 = m5 / scaleY
-			val r12 = m9 / scaleZ
+			val r00 = m0 / sx
+			val r01 = m4 / sy
+			val r02 = m8 / sz
 
-			val r20 = m2 / scaleX
-			val r21 = m6 / scaleY
-			val r22 = m10 / scaleZ
+//			val r10 = m1 / sx (not used)
+			val r11 = m5 / sy
+//			val r12 = m9 / sz (not used)
 
-			val yaw = asin(-r20)
-			val pitch: Float
+			val r20 = m2 / sx
+			val r21 = m6 / sy
+			val r22 = m10 / sz
+
+			val pitch = asin(-r21)
+			val yaw: Float
 			val roll: Float
-			if (abs(r20) < 0.99999f) {
-				pitch = atan2(r21, r22)
-				roll = atan2(r10, r00)
+
+			if (abs(cos(pitch)) > 0.0001f) {
+				yaw  = atan2(r20, r22)
+				roll = atan2(r01, r11)
 			} else {
-				// gimbal lock (not a unique solution)
-				pitch = 0F
-				roll = atan2(-r12, r11)
+				yaw  = atan2(-r02, r00)
+				roll = 0f
 			}
 
 			return Triple(pitch, yaw, roll)
@@ -468,7 +473,7 @@ data class BoundingBox3D(
 	 * Creates a [BoundingBox3D] from a raw raylib [BoundingBox3D].
 	 * @param raw The raw bounding box.
 	 */
-	constructor(raw: raylib.internal.BoundingBox) : this(
+	constructor(raw: BoundingBox) : this(
 		Triple(raw.min.x, raw.min.y, raw.min.z),
 		Triple(raw.max.x, raw.max.y, raw.max.z)
 	)
@@ -527,7 +532,7 @@ data class BoundingBox3D(
 	val depth: Float
 		get() = maxZ - minZ
 
-	internal fun raw(): CValue<raylib.internal.BoundingBox> = cValue<raylib.internal.BoundingBox> {
+	internal fun raw(): CValue<BoundingBox> = cValue<BoundingBox> {
 		min.x = this@BoundingBox3D.min.first
 		min.y = this@BoundingBox3D.min.second
 		min.z = this@BoundingBox3D.min.third
@@ -3203,6 +3208,18 @@ class Model(internal val raw: CPointer<raylib.internal.Model>) {
 
 			return model
 		}
+
+		/**
+		 * Creates a model from the specified mesh, then frees the mesh.
+		 * @param mesh The mesh to create the model from.
+		 * @param material The material to apply to the model. If null, the material is not set.
+		 * @return The created [Model].
+		 */
+		fun fromMeshFree(mesh: Mesh, material: Material? = null): Model {
+			val model = fromMesh(mesh, material)
+			mesh.unload()
+			return model
+		}
 	}
 
 }
@@ -4183,6 +4200,26 @@ fun Canvas.rect3(
 }
 
 /**
+ * Draws a rectangular plane in 3D space.
+ * @param x The X coordinate of the rectangle center.
+ * @param y The Y coordinate of the rectangle center.
+ * @param z The Z coordinate of the rectangle center.
+ * @param width The width of the rectangle.
+ * @param height The height of the rectangle.
+ * @param color The color of the rectangle.
+ */
+fun Canvas.rect3(
+	x: Int,
+	y: Int,
+	z: Int,
+	width: Int,
+	height: Int,
+	color: Color = Color.BLACK
+) {
+	rect3(x.toFloat(), y.toFloat(), z.toFloat(), width.toFloat(), height.toFloat(), color)
+}
+
+/**
  * Draws a ray in 3D space.
  * @param px The X coordinate of the ray origin.
  * @param py The Y coordinate of the ray origin.
@@ -4243,12 +4280,11 @@ fun Canvas.billboard(
 	z: Float,
 	scale: Float = 1F,
 	tint: Color = Color.WHITE
-) = memScoped {
+) {
 	ensureDrawing()
 
-	val ptr = camera.raw(this)
 	DrawBillboard(
-		ptr.pointed.readValue(),
+		camera.raw.readValue(),
 		texture.raw(),
 		(x to y to z).toVector3(),
 		scale,
