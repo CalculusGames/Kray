@@ -4,7 +4,7 @@
 
 ## Overview
 
-[![Kotlin](https://img.shields.io/badge/Kotlin-2.2.21-blue.svg?style=flat&logo=kotlin)](https://kotlinlang.org)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.3.10-blue.svg?style=flat&logo=kotlin)](https://kotlinlang.org)
 ![GitHub License](https://img.shields.io/github/license/CalculusGames/raylibkt)
 
 ![badge-mac](http://img.shields.io/badge/platform-macos-cccccc.svg?style=flat)
