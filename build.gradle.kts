@@ -8,7 +8,7 @@ import org.jetbrains.kotlin.gradle.tasks.CInteropProcess
 import org.jetbrains.kotlin.konan.target.Family
 
 plugins {
-    kotlin("multiplatform") version "2.3.0"
+    kotlin("multiplatform") version "2.3.10"
     id("org.jetbrains.dokka") version "2.1.0"
 
     `maven-publish`
@@ -147,7 +147,7 @@ kotlin {
 
 	sourceSets {
 		commonMain.dependencies {
-			implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
+			implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.10.0")
 			implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
 			implementation("xyz.calcugames:levelz-kt:0.3.5")
 		}
