@@ -23,6 +23,7 @@ description = "Kotlin/Native Game Engine powered by raylib and raygui"
 repositories {
     mavenCentral()
     mavenLocal()
+	maven("https://repo.calcugames.xyz/repository/maven-releases/")
 }
 
 java {
@@ -148,6 +149,7 @@ kotlin {
 		commonMain.dependencies {
 			implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
 			implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
+			implementation("xyz.calcugames:levelz-kt:0.3.5")
 		}
 
 		commonTest.dependencies {

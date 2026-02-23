@@ -128,7 +128,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ env.VERSION }}${{ github.event.inputs.suffix }}
-          name: raylibkt v${{ env.VERSION }}${{ github.event.inputs.suffix }}
+          name: Kray v${{ env.VERSION }}${{ github.event.inputs.suffix }}
           body: ${{ steps.changelog.outputs.changelog || github.event.inputs.changelog }}
           draft: false
           prerelease: ${{ github.ref_name != 'master' }}
