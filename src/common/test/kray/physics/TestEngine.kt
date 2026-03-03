@@ -10,6 +10,7 @@ import kray.sprites.addSprite
 import raylib.*
 import kotlin.math.abs
 import kotlin.test.Test
+import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 import kotlin.time.Duration.Companion.seconds
 
@@ -17,6 +18,9 @@ class TestEngine {
 
 	@Test
 	fun testEngine2D() = runTest(timeout = 90.seconds) {
+		if (Window.isHeadless) return@runTest
+		assertFalse { Window.isHeadless }
+
 		Kray {
 			engineEnabled = true
 
@@ -82,6 +86,9 @@ class TestEngine {
 
 	@Test
 	fun testEngine3D() = runTest(timeout = 90.seconds) {
+		if (Window.isHeadless) return@runTest
+		assertFalse { Window.isHeadless }
+
 		Kray {
 			engineEnabled = true
 			groundY = 0f
