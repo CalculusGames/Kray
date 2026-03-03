@@ -1,5 +1,122 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
+$dokka.location:kray.physics////PointingToDeclaration/kray/kray.physics/index.html
+$dokka.location:kray.physics//NORMAL_THRESHOLD/#/PointingToDeclaration/kray/kray.physics/-n-o-r-m-a-l_-t-h-r-e-s-h-o-l-d.html
+$dokka.location:kray.physics//ax/kray.Positionable2D#/PointingToDeclaration/kray/kray.physics/ax.html
+$dokka.location:kray.physics//ax/kray.Positionable3D#/PointingToDeclaration/kray/kray.physics/ax.html
+$dokka.location:kray.physics//ay/kray.Positionable2D#/PointingToDeclaration/kray/kray.physics/ay.html
+$dokka.location:kray.physics//ay/kray.Positionable3D#/PointingToDeclaration/kray/kray.physics/ay.html
+$dokka.location:kray.physics//az/kray.Positionable3D#/PointingToDeclaration/kray/kray.physics/az.html
+$dokka.location:kray.physics//cellSize/#/PointingToDeclaration/kray/kray.physics/cell-size.html
+$dokka.location:kray.physics//collisionPrecision/#/PointingToDeclaration/kray/kray.physics/collision-precision.html
+$dokka.location:kray.physics//collisions/kray.sprites.Sprite2D#/PointingToDeclaration/kray/kray.physics/collisions.html
+$dokka.location:kray.physics//collisions/kray.sprites.Sprite3D#/PointingToDeclaration/kray/kray.physics/collisions.html
+$dokka.location:kray.physics//defaultFrictionCoefficient/#/PointingToDeclaration/kray/kray.physics/default-friction-coefficient.html
+$dokka.location:kray.physics//defaultRestitutionCoefficient/#/PointingToDeclaration/kray/kray.physics/default-restitution-coefficient.html
+$dokka.location:kray.physics//engineTick/#/PointingToDeclaration/kray/kray.physics/engine-tick.html
+$dokka.location:kray.physics//frictionCoefficient/kray.Positionable#/PointingToDeclaration/kray/kray.physics/friction-coefficient.html
+$dokka.location:kray.physics//gravity/#/PointingToDeclaration/kray/kray.physics/gravity.html
+$dokka.location:kray.physics//groundY/#/PointingToDeclaration/kray/kray.physics/ground-y.html
+$dokka.location:kray.physics//lerpRotation/kray.sprites.Sprite3D#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.physics/lerp-rotation.html
+$dokka.location:kray.physics//lerpSpin/kray.sprites.Sprite2D#kotlin.Float/PointingToDeclaration/kray/kray.physics/lerp-spin.html
+$dokka.location:kray.physics//mass/kray.Positionable#/PointingToDeclaration/kray/kray.physics/mass.html
+$dokka.location:kray.physics//maxX/#/PointingToDeclaration/kray/kray.physics/max-x.html
+$dokka.location:kray.physics//maxZ/#/PointingToDeclaration/kray/kray.physics/max-z.html
+$dokka.location:kray.physics//minX/#/PointingToDeclaration/kray/kray.physics/min-x.html
+$dokka.location:kray.physics//minZ/#/PointingToDeclaration/kray/kray.physics/min-z.html
+$dokka.location:kray.physics//restitutionCoefficient/kray.Positionable#/PointingToDeclaration/kray/kray.physics/restitution-coefficient.html
+$dokka.location:kray.physics//setAcceleration/kray.Positionable2D#kotlin.Double#kotlin.Double/PointingToDeclaration/kray/kray.physics/set-acceleration.html
+$dokka.location:kray.physics//setAcceleration/kray.Positionable3D#kotlin.Double#kotlin.Double#kotlin.Double/PointingToDeclaration/kray/kray.physics/set-acceleration.html
+$dokka.location:kray.physics//setVelocity/kray.Positionable2D#kotlin.Double#kotlin.Double/PointingToDeclaration/kray/kray.physics/set-velocity.html
+$dokka.location:kray.physics//setVelocity/kray.Positionable3D#kotlin.Double#kotlin.Double#kotlin.Double/PointingToDeclaration/kray/kray.physics/set-velocity.html
+$dokka.location:kray.physics//spinDecayFactor/#/PointingToDeclaration/kray/kray.physics/spin-decay-factor.html
+$dokka.location:kray.physics//spinFactor/kray.Positionable#/PointingToDeclaration/kray/kray.physics/spin-factor.html
+$dokka.location:kray.physics//storedRotation/kray.sprites.Sprite3D#/PointingToDeclaration/kray/kray.physics/stored-rotation.html
+$dokka.location:kray.physics//targetRotation/kray.sprites.Sprite2D#/PointingToDeclaration/kray/kray.physics/target-rotation.html
+$dokka.location:kray.physics//targetRotation/kray.sprites.Sprite3D#/PointingToDeclaration/kray/kray.physics/target-rotation.html
+$dokka.location:kray.physics//terminalVelocity/#/PointingToDeclaration/kray/kray.physics/terminal-velocity.html
+$dokka.location:kray.physics//vx/kray.Positionable2D#/PointingToDeclaration/kray/kray.physics/vx.html
+$dokka.location:kray.physics//vx/kray.Positionable3D#/PointingToDeclaration/kray/kray.physics/vx.html
+$dokka.location:kray.physics//vy/kray.Positionable2D#/PointingToDeclaration/kray/kray.physics/vy.html
+$dokka.location:kray.physics//vy/kray.Positionable3D#/PointingToDeclaration/kray/kray.physics/vy.html
+$dokka.location:kray.physics//vz/kray.Positionable3D#/PointingToDeclaration/kray/kray.physics/vz.html
+$dokka.location:kray.physics/Hitbox///PointingToDeclaration/kray/kray.physics/-hitbox/index.html
+$dokka.location:kray.physics/Hitbox/id/#/PointingToDeclaration/kray/kray.physics/-hitbox/id.html
+$dokka.location:kray.physics/Hitbox2D.Companion///PointingToDeclaration/kray/kray.physics/-hitbox2-d/-companion/index.html
+$dokka.location:kray.physics/Hitbox2D.Companion/circular/#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox2-d/-companion/circular.html
+$dokka.location:kray.physics/Hitbox2D.Companion/empty/#/PointingToDeclaration/kray/kray.physics/-hitbox2-d/-companion/empty.html
+$dokka.location:kray.physics/Hitbox2D.Companion/full/#/PointingToDeclaration/kray/kray.physics/-hitbox2-d/-companion/full.html
+$dokka.location:kray.physics/Hitbox2D.Companion/rectangle/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox2-d/-companion/rectangle.html
+$dokka.location:kray.physics/Hitbox2D.Companion/rectangle/#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/kray.physics/-hitbox2-d/-companion/rectangle.html
+$dokka.location:kray.physics/Hitbox2D.Companion/rotatedRectangle/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox2-d/-companion/rotated-rectangle.html
+$dokka.location:kray.physics/Hitbox2D.Companion/triangular/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox2-d/-companion/triangular.html
+$dokka.location:kray.physics/Hitbox2D///PointingToDeclaration/kray/kray.physics/-hitbox2-d/index.html
+$dokka.location:kray.physics/Hitbox2D/Hitbox2D/#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Float, kotlin/Float>#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/kray.physics/-hitbox2-d/-hitbox2-d.html
+$dokka.location:kray.physics/Hitbox2D/Hitbox2D/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Function1[<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Float, kotlin/Float>,kotlin.Boolean]/PointingToDeclaration/kray/kray.physics/-hitbox2-d/-hitbox2-d.html
+$dokka.location:kray.physics/Hitbox2D/Hitbox2D/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox2-d/-hitbox2-d.html
+$dokka.location:kray.physics/Hitbox2D/add/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox2-d/add.html
+$dokka.location:kray.physics/Hitbox2D/add/#kray.physics.Hitbox2D/PointingToDeclaration/kray/kray.physics/-hitbox2-d/add.html
+$dokka.location:kray.physics/Hitbox2D/equals/#kotlin.Any?/PointingToDeclaration/kray/kray.physics/-hitbox2-d/equals.html
+$dokka.location:kray.physics/Hitbox2D/hashCode/#/PointingToDeclaration/kray/kray.physics/-hitbox2-d/hash-code.html
+$dokka.location:kray.physics/Hitbox2D/id/#/PointingToDeclaration/kray/kray.physics/-hitbox2-d/id.html
+$dokka.location:kray.physics/Hitbox2D/inside/#/PointingToDeclaration/kray/kray.physics/-hitbox2-d/inside.html
+$dokka.location:kray.physics/Hitbox2D/inside/#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Double, kotlin/Double>/PointingToDeclaration/kray/kray.physics/-hitbox2-d/inside.html
+$dokka.location:kray.physics/Hitbox2D/inside/#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Int, kotlin/Int>/PointingToDeclaration/kray/kray.physics/-hitbox2-d/inside.html
+$dokka.location:kray.physics/Hitbox2D/inside/#kotlin.Double#kotlin.Double/PointingToDeclaration/kray/kray.physics/-hitbox2-d/inside.html
+$dokka.location:kray.physics/Hitbox2D/inside/#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox2-d/inside.html
+$dokka.location:kray.physics/Hitbox2D/inside/#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/kray.physics/-hitbox2-d/inside.html
+$dokka.location:kray.physics/Hitbox2D/isAbove/#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox2-d/is-above.html
+$dokka.location:kray.physics/Hitbox2D/isBelow/#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox2-d/is-below.html
+$dokka.location:kray.physics/Hitbox2D/isLeft/#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox2-d/is-left.html
+$dokka.location:kray.physics/Hitbox2D/isRight/#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox2-d/is-right.html
+$dokka.location:kray.physics/Hitbox2D/maxX/#/PointingToDeclaration/kray/kray.physics/-hitbox2-d/max-x.html
+$dokka.location:kray.physics/Hitbox2D/maxY/#/PointingToDeclaration/kray/kray.physics/-hitbox2-d/max-y.html
+$dokka.location:kray.physics/Hitbox2D/minX/#/PointingToDeclaration/kray/kray.physics/-hitbox2-d/min-x.html
+$dokka.location:kray.physics/Hitbox2D/minY/#/PointingToDeclaration/kray/kray.physics/-hitbox2-d/min-y.html
+$dokka.location:kray.physics/Hitbox2D/plus/#kray.physics.Hitbox2D/PointingToDeclaration/kray/kray.physics/-hitbox2-d/plus.html
+$dokka.location:kray.physics/Hitbox2D/toString/#/PointingToDeclaration/kray/kray.physics/-hitbox2-d/to-string.html
+$dokka.location:kray.physics/Hitbox3D.Companion///PointingToDeclaration/kray/kray.physics/-hitbox3-d/-companion/index.html
+$dokka.location:kray.physics/Hitbox3D.Companion/cube/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox3-d/-companion/cube.html
+$dokka.location:kray.physics/Hitbox3D.Companion/cube/#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/kray.physics/-hitbox3-d/-companion/cube.html
+$dokka.location:kray.physics/Hitbox3D.Companion/empty/#/PointingToDeclaration/kray/kray.physics/-hitbox3-d/-companion/empty.html
+$dokka.location:kray.physics/Hitbox3D.Companion/full/#/PointingToDeclaration/kray/kray.physics/-hitbox3-d/-companion/full.html
+$dokka.location:kray.physics/Hitbox3D.Companion/rectangle/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox3-d/-companion/rectangle.html
+$dokka.location:kray.physics/Hitbox3D.Companion/rectangle/#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/kray.physics/-hitbox3-d/-companion/rectangle.html
+$dokka.location:kray.physics/Hitbox3D.Companion/rotatedCube/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox3-d/-companion/rotated-cube.html
+$dokka.location:kray.physics/Hitbox3D.Companion/rotatedCube/#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox3-d/-companion/rotated-cube.html
+$dokka.location:kray.physics/Hitbox3D.Companion/rotatedRectangle/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox3-d/-companion/rotated-rectangle.html
+$dokka.location:kray.physics/Hitbox3D.Companion/sphere/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox3-d/-companion/sphere.html
+$dokka.location:kray.physics/Hitbox3D.Companion/transformedRectangle/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Matrix4/PointingToDeclaration/kray/kray.physics/-hitbox3-d/-companion/transformed-rectangle.html
+$dokka.location:kray.physics/Hitbox3D///PointingToDeclaration/kray/kray.physics/-hitbox3-d/index.html
+$dokka.location:kray.physics/Hitbox3D/Hitbox3D/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/kray.physics/-hitbox3-d/-hitbox3-d.html
+$dokka.location:kray.physics/Hitbox3D/Hitbox3D/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Function1[<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>,kotlin.Boolean]/PointingToDeclaration/kray/kray.physics/-hitbox3-d/-hitbox3-d.html
+$dokka.location:kray.physics/Hitbox3D/Hitbox3D/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox3-d/-hitbox3-d.html
+$dokka.location:kray.physics/Hitbox3D/add/#kray.physics.Hitbox3D/PointingToDeclaration/kray/kray.physics/-hitbox3-d/add.html
+$dokka.location:kray.physics/Hitbox3D/addCube/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox3-d/add-cube.html
+$dokka.location:kray.physics/Hitbox3D/addRectangle/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox3-d/add-rectangle.html
+$dokka.location:kray.physics/Hitbox3D/equals/#kotlin.Any?/PointingToDeclaration/kray/kray.physics/-hitbox3-d/equals.html
+$dokka.location:kray.physics/Hitbox3D/hashCode/#/PointingToDeclaration/kray/kray.physics/-hitbox3-d/hash-code.html
+$dokka.location:kray.physics/Hitbox3D/id/#/PointingToDeclaration/kray/kray.physics/-hitbox3-d/id.html
+$dokka.location:kray.physics/Hitbox3D/inside/#/PointingToDeclaration/kray/kray.physics/-hitbox3-d/inside.html
+$dokka.location:kray.physics/Hitbox3D/inside/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Double, kotlin/Double, kotlin/Double>/PointingToDeclaration/kray/kray.physics/-hitbox3-d/inside.html
+$dokka.location:kray.physics/Hitbox3D/inside/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Int, kotlin/Int, kotlin/Int>/PointingToDeclaration/kray/kray.physics/-hitbox3-d/inside.html
+$dokka.location:kray.physics/Hitbox3D/inside/#kotlin.Double#kotlin.Double#kotlin.Double/PointingToDeclaration/kray/kray.physics/-hitbox3-d/inside.html
+$dokka.location:kray.physics/Hitbox3D/inside/#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox3-d/inside.html
+$dokka.location:kray.physics/Hitbox3D/inside/#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/kray.physics/-hitbox3-d/inside.html
+$dokka.location:kray.physics/Hitbox3D/isAbove/#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox3-d/is-above.html
+$dokka.location:kray.physics/Hitbox3D/isBelow/#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox3-d/is-below.html
+$dokka.location:kray.physics/Hitbox3D/isLeftX/#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox3-d/is-left-x.html
+$dokka.location:kray.physics/Hitbox3D/isLeftZ/#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox3-d/is-left-z.html
+$dokka.location:kray.physics/Hitbox3D/isRightX/#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox3-d/is-right-x.html
+$dokka.location:kray.physics/Hitbox3D/isRightZ/#kotlin.Float/PointingToDeclaration/kray/kray.physics/-hitbox3-d/is-right-z.html
+$dokka.location:kray.physics/Hitbox3D/maxX/#/PointingToDeclaration/kray/kray.physics/-hitbox3-d/max-x.html
+$dokka.location:kray.physics/Hitbox3D/maxY/#/PointingToDeclaration/kray/kray.physics/-hitbox3-d/max-y.html
+$dokka.location:kray.physics/Hitbox3D/maxZ/#/PointingToDeclaration/kray/kray.physics/-hitbox3-d/max-z.html
+$dokka.location:kray.physics/Hitbox3D/minX/#/PointingToDeclaration/kray/kray.physics/-hitbox3-d/min-x.html
+$dokka.location:kray.physics/Hitbox3D/minY/#/PointingToDeclaration/kray/kray.physics/-hitbox3-d/min-y.html
+$dokka.location:kray.physics/Hitbox3D/minZ/#/PointingToDeclaration/kray/kray.physics/-hitbox3-d/min-z.html
+$dokka.location:kray.physics/Hitbox3D/plus/#kray.physics.Hitbox3D/PointingToDeclaration/kray/kray.physics/-hitbox3-d/plus.html
+$dokka.location:kray.physics/Hitbox3D/toString/#/PointingToDeclaration/kray/kray.physics/-hitbox3-d/to-string.html
 $dokka.location:kray.shaders////PointingToDeclaration/kray/kray.shaders/index.html
 $dokka.location:kray.shaders//ASCII_SHADER/#/PointingToDeclaration/kray/kray.shaders/-a-s-c-i-i_-s-h-a-d-e-r.html
 $dokka.location:kray.shaders//BASE_SHADER/#/PointingToDeclaration/kray/kray.shaders/-b-a-s-e_-s-h-a-d-e-r.html
@@ -150,9 +267,9 @@ $dokka.location:kray.shaders/WaveShader/size/#/PointingToDeclaration/kray/kray.
 $dokka.location:kray.shaders/WaveShader/speedX/#/PointingToDeclaration/kray/kray.shaders/-wave-shader/speed-x.html
 $dokka.location:kray.shaders/WaveShader/speedY/#/PointingToDeclaration/kray/kray.shaders/-wave-shader/speed-y.html
 $dokka.location:kray.sprites////PointingToDeclaration/kray/kray.sprites/index.html
-$dokka.location:kray.sprites//addSprite/kray.Kray#kray.sprites.Sprite2D#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/kray.sprites/add-sprite.html
-$dokka.location:kray.sprites//drawSprite/raylib.Canvas#kray.sprites.Sprite2D#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/kray.sprites/draw-sprite.html
-$dokka.location:kray.sprites//drawSprite/raylib.Canvas#kray.sprites.Sprite3D#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/kray.sprites/draw-sprite.html
+$dokka.location:kray.sprites//addSprite/kray.Kray#kray.sprites.Sprite[*]/PointingToDeclaration/kray/kray.sprites/add-sprite.html
+$dokka.location:kray.sprites//drawSprite/raylib.Canvas#kray.sprites.Sprite2D#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.sprites/draw-sprite.html
+$dokka.location:kray.sprites//drawSprite/raylib.Canvas#kray.sprites.Sprite3D#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray.sprites/draw-sprite.html
 $dokka.location:kray.sprites//drawnSprites/kray.Kray#/PointingToDeclaration/kray/kray.sprites/drawn-sprites.html
 $dokka.location:kray.sprites//removeSprite/kray.Kray#kray.sprites.Sprite[*]/PointingToDeclaration/kray/kray.sprites/remove-sprite.html
 $dokka.location:kray.sprites/Sprite///PointingToDeclaration/kray/kray.sprites/-sprite/index.html
@@ -162,6 +279,9 @@ $dokka.location:kray.sprites/Sprite/collideable/#/PointingToDeclaration/kray/kr
 $dokka.location:kray.sprites/Sprite/costumes/#/PointingToDeclaration/kray/kray.sprites/-sprite/costumes.html
 $dokka.location:kray.sprites/Sprite/currentCostume/#/PointingToDeclaration/kray/kray.sprites/-sprite/current-costume.html
 $dokka.location:kray.sprites/Sprite/currentCostumeIndex/#/PointingToDeclaration/kray/kray.sprites/-sprite/current-costume-index.html
+$dokka.location:kray.sprites/Sprite/equals/#kotlin.Any?/PointingToDeclaration/kray/kray.sprites/-sprite/equals.html
+$dokka.location:kray.sprites/Sprite/hashCode/#/PointingToDeclaration/kray/kray.sprites/-sprite/hash-code.html
+$dokka.location:kray.sprites/Sprite/id/#/PointingToDeclaration/kray/kray.sprites/-sprite/id.html
 $dokka.location:kray.sprites/Sprite/isDrawn/#/PointingToDeclaration/kray/kray.sprites/-sprite/is-drawn.html
 $dokka.location:kray.sprites/Sprite/nextCostume/#/PointingToDeclaration/kray/kray.sprites/-sprite/next-costume.html
 $dokka.location:kray.sprites/Sprite/previousCostume/#/PointingToDeclaration/kray/kray.sprites/-sprite/previous-costume.html
@@ -174,21 +294,34 @@ $dokka.location:kray.sprites/Sprite/setCurrentCostume/#TypeParam(bounds=[kotlin.
 $dokka.location:kray.sprites/Sprite/static/#/PointingToDeclaration/kray/kray.sprites/-sprite/static.html
 $dokka.location:kray.sprites/Sprite/switchTo/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/kray/kray.sprites/-sprite/switch-to.html
 $dokka.location:kray.sprites/Sprite2D.Companion///PointingToDeclaration/kray/kray.sprites/-sprite2-d/-companion/index.html
-$dokka.location:kray.sprites/Sprite2D.Companion/from/#kotlin.Function0[raylib.Image]/PointingToDeclaration/kray/kray.sprites/-sprite2-d/-companion/from.html
+$dokka.location:kray.sprites/Sprite2D.Companion/from/#kotlin.Function0[raylib.Texture2D]/PointingToDeclaration/kray/kray.sprites/-sprite2-d/-companion/from.html
+$dokka.location:kray.sprites/Sprite2D.Companion/from/#raylib.Image/PointingToDeclaration/kray/kray.sprites/-sprite2-d/-companion/from.html
+$dokka.location:kray.sprites/Sprite2D.Companion/from/#raylib.Texture2D/PointingToDeclaration/kray/kray.sprites/-sprite2-d/-companion/from.html
 $dokka.location:kray.sprites/Sprite2D///PointingToDeclaration/kray/kray.sprites/-sprite2-d/index.html
-$dokka.location:kray.sprites/Sprite2D/Sprite2D/#raylib.Image/PointingToDeclaration/kray/kray.sprites/-sprite2-d/-sprite2-d.html
+$dokka.location:kray.sprites/Sprite2D/Sprite2D/#raylib.Texture2D/PointingToDeclaration/kray/kray.sprites/-sprite2-d/-sprite2-d.html
 $dokka.location:kray.sprites/Sprite2D/changeTo/#kotlin.Int/PointingToDeclaration/kray/kray.sprites/-sprite2-d/change-to.html
 $dokka.location:kray.sprites/Sprite2D/collideable/#/PointingToDeclaration/kray/kray.sprites/-sprite2-d/collideable.html
 $dokka.location:kray.sprites/Sprite2D/costumes/#/PointingToDeclaration/kray/kray.sprites/-sprite2-d/costumes.html
 $dokka.location:kray.sprites/Sprite2D/currentCostumeIndex/#/PointingToDeclaration/kray/kray.sprites/-sprite2-d/current-costume-index.html
+$dokka.location:kray.sprites/Sprite2D/equals/#kotlin.Any?/PointingToDeclaration/kray/kray.sprites/-sprite2-d/equals.html
+$dokka.location:kray.sprites/Sprite2D/hashCode/#/PointingToDeclaration/kray/kray.sprites/-sprite2-d/hash-code.html
 $dokka.location:kray.sprites/Sprite2D/height/#/PointingToDeclaration/kray/kray.sprites/-sprite2-d/height.html
+$dokka.location:kray.sprites/Sprite2D/hitbox/#/PointingToDeclaration/kray/kray.sprites/-sprite2-d/hitbox.html
+$dokka.location:kray.sprites/Sprite2D/id/#/PointingToDeclaration/kray/kray.sprites/-sprite2-d/id.html
+$dokka.location:kray.sprites/Sprite2D/isAbove/#kotlin.Float/PointingToDeclaration/kray/kray.sprites/-sprite2-d/is-above.html
+$dokka.location:kray.sprites/Sprite2D/isBelow/#kotlin.Float/PointingToDeclaration/kray/kray.sprites/-sprite2-d/is-below.html
 $dokka.location:kray.sprites/Sprite2D/isDrawn/#/PointingToDeclaration/kray/kray.sprites/-sprite2-d/is-drawn.html
+$dokka.location:kray.sprites/Sprite2D/isLeft/#kotlin.Float/PointingToDeclaration/kray/kray.sprites/-sprite2-d/is-left.html
+$dokka.location:kray.sprites/Sprite2D/isRight/#kotlin.Float/PointingToDeclaration/kray/kray.sprites/-sprite2-d/is-right.html
 $dokka.location:kray.sprites/Sprite2D/nextCostume/#/PointingToDeclaration/kray/kray.sprites/-sprite2-d/next-costume.html
 $dokka.location:kray.sprites/Sprite2D/previousCostume/#/PointingToDeclaration/kray/kray.sprites/-sprite2-d/previous-costume.html
 $dokka.location:kray.sprites/Sprite2D/resize/#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/kray.sprites/-sprite2-d/resize.html
-$dokka.location:kray.sprites/Sprite2D/setCurrentCostume/#raylib.Image/PointingToDeclaration/kray/kray.sprites/-sprite2-d/set-current-costume.html
+$dokka.location:kray.sprites/Sprite2D/rotation/#/PointingToDeclaration/kray/kray.sprites/-sprite2-d/rotation.html
+$dokka.location:kray.sprites/Sprite2D/scale/#/PointingToDeclaration/kray/kray.sprites/-sprite2-d/scale.html
+$dokka.location:kray.sprites/Sprite2D/setCurrentCostume/#raylib.Texture2D/PointingToDeclaration/kray/kray.sprites/-sprite2-d/set-current-costume.html
+$dokka.location:kray.sprites/Sprite2D/spin/#kotlin.Float/PointingToDeclaration/kray/kray.sprites/-sprite2-d/spin.html
 $dokka.location:kray.sprites/Sprite2D/static/#/PointingToDeclaration/kray/kray.sprites/-sprite2-d/static.html
-$dokka.location:kray.sprites/Sprite2D/switchTo/#raylib.Image/PointingToDeclaration/kray/kray.sprites/-sprite2-d/switch-to.html
+$dokka.location:kray.sprites/Sprite2D/switchTo/#raylib.Texture2D/PointingToDeclaration/kray/kray.sprites/-sprite2-d/switch-to.html
 $dokka.location:kray.sprites/Sprite2D/width/#/PointingToDeclaration/kray/kray.sprites/-sprite2-d/width.html
 $dokka.location:kray.sprites/Sprite2D/x/#/PointingToDeclaration/kray/kray.sprites/-sprite2-d/x.html
 $dokka.location:kray.sprites/Sprite2D/y/#/PointingToDeclaration/kray/kray.sprites/-sprite2-d/y.html
@@ -202,13 +335,24 @@ $dokka.location:kray.sprites/Sprite3D/collideable/#/PointingToDeclaration/kray/
 $dokka.location:kray.sprites/Sprite3D/costumes/#/PointingToDeclaration/kray/kray.sprites/-sprite3-d/costumes.html
 $dokka.location:kray.sprites/Sprite3D/currentCostumeIndex/#/PointingToDeclaration/kray/kray.sprites/-sprite3-d/current-costume-index.html
 $dokka.location:kray.sprites/Sprite3D/depth/#/PointingToDeclaration/kray/kray.sprites/-sprite3-d/depth.html
+$dokka.location:kray.sprites/Sprite3D/equals/#kotlin.Any?/PointingToDeclaration/kray/kray.sprites/-sprite3-d/equals.html
+$dokka.location:kray.sprites/Sprite3D/hashCode/#/PointingToDeclaration/kray/kray.sprites/-sprite3-d/hash-code.html
 $dokka.location:kray.sprites/Sprite3D/height/#/PointingToDeclaration/kray/kray.sprites/-sprite3-d/height.html
+$dokka.location:kray.sprites/Sprite3D/hitbox/#/PointingToDeclaration/kray/kray.sprites/-sprite3-d/hitbox.html
+$dokka.location:kray.sprites/Sprite3D/id/#/PointingToDeclaration/kray/kray.sprites/-sprite3-d/id.html
+$dokka.location:kray.sprites/Sprite3D/isAbove/#kotlin.Float/PointingToDeclaration/kray/kray.sprites/-sprite3-d/is-above.html
+$dokka.location:kray.sprites/Sprite3D/isBelow/#kotlin.Float/PointingToDeclaration/kray/kray.sprites/-sprite3-d/is-below.html
 $dokka.location:kray.sprites/Sprite3D/isDrawn/#/PointingToDeclaration/kray/kray.sprites/-sprite3-d/is-drawn.html
+$dokka.location:kray.sprites/Sprite3D/isLeftX/#kotlin.Float/PointingToDeclaration/kray/kray.sprites/-sprite3-d/is-left-x.html
+$dokka.location:kray.sprites/Sprite3D/isLeftZ/#kotlin.Float/PointingToDeclaration/kray/kray.sprites/-sprite3-d/is-left-z.html
+$dokka.location:kray.sprites/Sprite3D/isRightX/#kotlin.Float/PointingToDeclaration/kray/kray.sprites/-sprite3-d/is-right-x.html
+$dokka.location:kray.sprites/Sprite3D/isRightZ/#kotlin.Float/PointingToDeclaration/kray/kray.sprites/-sprite3-d/is-right-z.html
 $dokka.location:kray.sprites/Sprite3D/nextCostume/#/PointingToDeclaration/kray/kray.sprites/-sprite3-d/next-costume.html
 $dokka.location:kray.sprites/Sprite3D/previousCostume/#/PointingToDeclaration/kray/kray.sprites/-sprite3-d/previous-costume.html
 $dokka.location:kray.sprites/Sprite3D/setCurrentCostume/#raylib.Model/PointingToDeclaration/kray/kray.sprites/-sprite3-d/set-current-costume.html
 $dokka.location:kray.sprites/Sprite3D/static/#/PointingToDeclaration/kray/kray.sprites/-sprite3-d/static.html
 $dokka.location:kray.sprites/Sprite3D/switchTo/#raylib.Model/PointingToDeclaration/kray/kray.sprites/-sprite3-d/switch-to.html
+$dokka.location:kray.sprites/Sprite3D/transform/#/PointingToDeclaration/kray/kray.sprites/-sprite3-d/transform.html
 $dokka.location:kray.sprites/Sprite3D/width/#/PointingToDeclaration/kray/kray.sprites/-sprite3-d/width.html
 $dokka.location:kray.sprites/Sprite3D/x/#/PointingToDeclaration/kray/kray.sprites/-sprite3-d/x.html
 $dokka.location:kray.sprites/Sprite3D/y/#/PointingToDeclaration/kray/kray.sprites/-sprite3-d/y.html
@@ -218,6 +362,10 @@ $dokka.location:kray////PointingToDeclaration/kray/kray/index.html
 $dokka.location:kray//Kray/#kotlin.Int#kotlin.Int#kotlin.String#kotlin.coroutines.SuspendFunction1[kray.Kray,kotlin.Unit]/PointingToDeclaration/kray/kray/-kray.html
 $dokka.location:kray//allocArrayOf/<ERROR CLASS> ERROR CLASS: Symbol not found for NativePlacement#<ERROR CLASS> ERROR CLASS: Symbol not found for UInt/PointingToDeclaration/kray/kray/alloc-array-of.html
 $dokka.location:kray//allocArrayOf/<ERROR CLASS> ERROR CLASS: Symbol not found for NativePlacement#kotlin.Int/PointingToDeclaration/kray/kray/alloc-array-of.html
+$dokka.location:kray//formatAs/kotlin.Double#kotlin.String/PointingToDeclaration/kray/kray/format-as.html
+$dokka.location:kray//formatAs/kotlin.Float#kotlin.String/PointingToDeclaration/kray/kray/format-as.html
+$dokka.location:kray//formatAs/kotlin.Int#kotlin.String/PointingToDeclaration/kray/kray/format-as.html
+$dokka.location:kray//rectangle/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray/rectangle.html
 $dokka.location:kray//to/<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<A, B>#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/kray/kray/to.html
 $dokka.location:kray//to/<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<A, B, C>#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/kray/kray/to.html
 $dokka.location:kray//toDynamicArray/kotlin.collections.Collection[kotlin.Int]#/PointingToDeclaration/kray/kray/to-dynamic-array.html
@@ -229,23 +377,79 @@ $dokka.location:kray//toVector2/<ERROR CLASS> ERROR CLASS: Symbol not found for 
 $dokka.location:kray//toVector3/<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#/PointingToDeclaration/kray/kray/to-vector3.html
 $dokka.location:kray//toVector3/<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Int, kotlin/Int, kotlin/Int>#/PointingToDeclaration/kray/kray/to-vector3.html
 $dokka.location:kray/Kray///PointingToDeclaration/kray/kray/-kray/index.html
+$dokka.location:kray/Kray/alignCenter/TypeParam(bounds=[kray.Positionable2D, kray.Sizeable2D])#/PointingToDeclaration/kray/kray/-kray/align-center.html
+$dokka.location:kray/Kray/alignCenter/TypeParam(bounds=[kray.Positionable2D, kray.Sizeable2D])#TypeParam(bounds=[kray.Positionable2D, kray.Sizeable2D])/PointingToDeclaration/kray/kray/-kray/align-center.html
+$dokka.location:kray/Kray/alignHorizontalCenter/TypeParam(bounds=[kray.Positionable2D, kray.Sizeable2D])#/PointingToDeclaration/kray/kray/-kray/align-horizontal-center.html
+$dokka.location:kray/Kray/alignHorizontalCenter/TypeParam(bounds=[kray.Positionable2D, kray.Sizeable2D])#TypeParam(bounds=[kray.Positionable2D, kray.Sizeable2D])/PointingToDeclaration/kray/kray/-kray/align-horizontal-center.html
+$dokka.location:kray/Kray/alignHorizontalLeft/kray.Positionable2D#kotlin.Float/PointingToDeclaration/kray/kray/-kray/align-horizontal-left.html
+$dokka.location:kray/Kray/alignHorizontalLeft/kray.Positionable2D#kray.Positionable2D#kotlin.Float/PointingToDeclaration/kray/kray/-kray/align-horizontal-left.html
+$dokka.location:kray/Kray/alignHorizontalRight/kray.Positionable2D#kotlin.Float/PointingToDeclaration/kray/kray/-kray/align-horizontal-right.html
+$dokka.location:kray/Kray/alignHorizontalRight/kray.Positionable2D#kray.Positionable2D#kotlin.Float/PointingToDeclaration/kray/kray/-kray/align-horizontal-right.html
+$dokka.location:kray/Kray/alignVerticalBottom/kray.Positionable2D#kotlin.Float/PointingToDeclaration/kray/kray/-kray/align-vertical-bottom.html
+$dokka.location:kray/Kray/alignVerticalBottom/kray.Positionable2D#kray.Positionable2D#kotlin.Float/PointingToDeclaration/kray/kray/-kray/align-vertical-bottom.html
+$dokka.location:kray/Kray/alignVerticalCenter/TypeParam(bounds=[kray.Positionable2D, kray.Sizeable2D])#/PointingToDeclaration/kray/kray/-kray/align-vertical-center.html
+$dokka.location:kray/Kray/alignVerticalCenter/TypeParam(bounds=[kray.Positionable2D, kray.Sizeable2D])#TypeParam(bounds=[kray.Positionable2D, kray.Sizeable2D])/PointingToDeclaration/kray/kray/-kray/align-vertical-center.html
+$dokka.location:kray/Kray/alignVerticalTop/kray.Positionable2D#kotlin.Float/PointingToDeclaration/kray/kray/-kray/align-vertical-top.html
+$dokka.location:kray/Kray/alignVerticalTop/kray.Positionable2D#kray.Positionable2D#kotlin.Float/PointingToDeclaration/kray/kray/-kray/align-vertical-top.html
+$dokka.location:kray/Kray/camera2D/#/PointingToDeclaration/kray/kray/-kray/camera2-d.html
+$dokka.location:kray/Kray/camera3D/#/PointingToDeclaration/kray/kray/-kray/camera3-d.html
 $dokka.location:kray/Kray/canvas/#/PointingToDeclaration/kray/kray/-kray/canvas.html
+$dokka.location:kray/Kray/drawing/#kotlin.Int#kotlin.Boolean#kotlin.Function1[raylib.Canvas,kotlin.Unit]/PointingToDeclaration/kray/kray/-kray/drawing.html
+$dokka.location:kray/Kray/engineEnabled/#/PointingToDeclaration/kray/kray/-kray/engine-enabled.html
+$dokka.location:kray/Kray/fps/#/PointingToDeclaration/kray/kray/-kray/fps.html
+$dokka.location:kray/Kray/frameCount/#/PointingToDeclaration/kray/kray/-kray/frame-count.html
+$dokka.location:kray/Kray/gamepad/#/PointingToDeclaration/kray/kray/-kray/gamepad.html
+$dokka.location:kray/Kray/inBounds/kray.sprites.Sprite2D#/PointingToDeclaration/kray/kray/-kray/in-bounds.html
+$dokka.location:kray/Kray/inBounds/kray.sprites.Sprite3D#/PointingToDeclaration/kray/kray/-kray/in-bounds.html
 $dokka.location:kray/Kray/io/#kotlin.coroutines.SuspendFunction1[<ERROR CLASS> ERROR CLASS: Symbol not found for CoroutineScope,kotlin.Unit]/PointingToDeclaration/kray/kray/-kray/io.html
+$dokka.location:kray/Kray/isClicked/kray.sprites.Sprite2D#/PointingToDeclaration/kray/kray/-kray/is-clicked.html
+$dokka.location:kray/Kray/isDown/kray.sprites.Sprite2D#/PointingToDeclaration/kray/kray/-kray/is-down.html
+$dokka.location:kray/Kray/isLeftDown/kray.sprites.Sprite2D#/PointingToDeclaration/kray/kray/-kray/is-left-down.html
+$dokka.location:kray/Kray/isMiddleDown/kray.sprites.Sprite2D#/PointingToDeclaration/kray/kray/-kray/is-middle-down.html
+$dokka.location:kray/Kray/isMouseOver/kray.sprites.Sprite2D#/PointingToDeclaration/kray/kray/-kray/is-mouse-over.html
+$dokka.location:kray/Kray/isRightDown/kray.sprites.Sprite2D#/PointingToDeclaration/kray/kray/-kray/is-right-down.html
+$dokka.location:kray/Kray/keyboard/#/PointingToDeclaration/kray/kray/-kray/keyboard.html
 $dokka.location:kray/Kray/loop/#/PointingToDeclaration/kray/kray/-kray/loop.html
-$dokka.location:kray/Kray/loop/#kotlin.coroutines.SuspendFunction1[<ERROR CLASS> ERROR CLASS: Symbol not found for CoroutineScope,kotlin.Unit]/PointingToDeclaration/kray/kray/-kray/loop.html
+$dokka.location:kray/Kray/loop/#kotlin.Int#kotlin.coroutines.SuspendFunction0[kotlin.Unit]/PointingToDeclaration/kray/kray/-kray/loop.html
+$dokka.location:kray/Kray/mouse/#/PointingToDeclaration/kray/kray/-kray/mouse.html
+$dokka.location:kray/Kray/moveDownKey/kray.sprites.Sprite2D#raylib.Key#kotlin.Double/PointingToDeclaration/kray/kray/-kray/move-down-key.html
+$dokka.location:kray/Kray/moveLeftKey/kray.sprites.Sprite2D#raylib.Key#kotlin.Double/PointingToDeclaration/kray/kray/-kray/move-left-key.html
+$dokka.location:kray/Kray/moveRightKey/kray.sprites.Sprite2D#raylib.Key#kotlin.Double/PointingToDeclaration/kray/kray/-kray/move-right-key.html
+$dokka.location:kray/Kray/moveUpKey/kray.sprites.Sprite2D#raylib.Key#kotlin.Double/PointingToDeclaration/kray/kray/-kray/move-up-key.html
+$dokka.location:kray/Kray/onClick/kray.sprites.Sprite2D#kotlin.coroutines.SuspendFunction1[kray.Kray,kotlin.Unit]/PointingToDeclaration/kray/kray/-kray/on-click.html
+$dokka.location:kray/Kray/onDown/kray.sprites.Sprite2D#kotlin.coroutines.SuspendFunction1[kray.Kray,kotlin.Unit]/PointingToDeclaration/kray/kray/-kray/on-down.html
 $dokka.location:kray/Kray/stopLoop/#/PointingToDeclaration/kray/kray/-kray/stop-loop.html
 $dokka.location:kray/Kray/stopped/#/PointingToDeclaration/kray/kray/-kray/stopped.html
 $dokka.location:kray/Kray/window/#/PointingToDeclaration/kray/kray/-kray/window.html
+$dokka.location:kray/Positionable///PointingToDeclaration/kray/kray/-positionable/index.html
+$dokka.location:kray/Positionable/id/#/PointingToDeclaration/kray/kray/-positionable/id.html
+$dokka.location:kray/Positionable/x/#/PointingToDeclaration/kray/kray/-positionable/x.html
+$dokka.location:kray/Positionable/y/#/PointingToDeclaration/kray/kray/-positionable/y.html
 $dokka.location:kray/Positionable2D///PointingToDeclaration/kray/kray/-positionable2-d/index.html
-$dokka.location:kray/Positionable2D/moveBy/#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/kray/-positionable2-d/move-by.html
-$dokka.location:kray/Positionable2D/moveTo/#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/kray/-positionable2-d/move-to.html
-$dokka.location:kray/Positionable2D/x/#/PointingToDeclaration/kray/kray/-positionable2-d/x.html
-$dokka.location:kray/Positionable2D/y/#/PointingToDeclaration/kray/kray/-positionable2-d/y.html
+$dokka.location:kray/Positionable2D/isAbove/#kotlin.Float/PointingToDeclaration/kray/kray/-positionable2-d/is-above.html
+$dokka.location:kray/Positionable2D/isBelow/#kotlin.Float/PointingToDeclaration/kray/kray/-positionable2-d/is-below.html
+$dokka.location:kray/Positionable2D/isLeft/#kotlin.Float/PointingToDeclaration/kray/kray/-positionable2-d/is-left.html
+$dokka.location:kray/Positionable2D/isRight/#kotlin.Float/PointingToDeclaration/kray/kray/-positionable2-d/is-right.html
+$dokka.location:kray/Positionable2D/moveBy/#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray/-positionable2-d/move-by.html
+$dokka.location:kray/Positionable2D/moveTo/#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray/-positionable2-d/move-to.html
+$dokka.location:kray/Positionable2D/position/#/PointingToDeclaration/kray/kray/-positionable2-d/position.html
+$dokka.location:kray/Positionable2D/rotation/#/PointingToDeclaration/kray/kray/-positionable2-d/rotation.html
+$dokka.location:kray/Positionable2D/spin/#kotlin.Float/PointingToDeclaration/kray/kray/-positionable2-d/spin.html
 $dokka.location:kray/Positionable3D///PointingToDeclaration/kray/kray/-positionable3-d/index.html
-$dokka.location:kray/Positionable3D/moveBy/#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/kray/-positionable3-d/move-by.html
-$dokka.location:kray/Positionable3D/moveTo/#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/kray/-positionable3-d/move-to.html
-$dokka.location:kray/Positionable3D/x/#/PointingToDeclaration/kray/kray/-positionable3-d/x.html
-$dokka.location:kray/Positionable3D/y/#/PointingToDeclaration/kray/kray/-positionable3-d/y.html
+$dokka.location:kray/Positionable3D/isAbove/#kotlin.Float/PointingToDeclaration/kray/kray/-positionable3-d/is-above.html
+$dokka.location:kray/Positionable3D/isBelow/#kotlin.Float/PointingToDeclaration/kray/kray/-positionable3-d/is-below.html
+$dokka.location:kray/Positionable3D/isLeftX/#kotlin.Float/PointingToDeclaration/kray/kray/-positionable3-d/is-left-x.html
+$dokka.location:kray/Positionable3D/isLeftZ/#kotlin.Float/PointingToDeclaration/kray/kray/-positionable3-d/is-left-z.html
+$dokka.location:kray/Positionable3D/isRightX/#kotlin.Float/PointingToDeclaration/kray/kray/-positionable3-d/is-right-x.html
+$dokka.location:kray/Positionable3D/isRightZ/#kotlin.Float/PointingToDeclaration/kray/kray/-positionable3-d/is-right-z.html
+$dokka.location:kray/Positionable3D/moveBy/#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray/-positionable3-d/move-by.html
+$dokka.location:kray/Positionable3D/moveTo/#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray/-positionable3-d/move-to.html
+$dokka.location:kray/Positionable3D/position/#/PointingToDeclaration/kray/kray/-positionable3-d/position.html
+$dokka.location:kray/Positionable3D/rotate/#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray/-positionable3-d/rotate.html
+$dokka.location:kray/Positionable3D/scale/#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray/-positionable3-d/scale.html
+$dokka.location:kray/Positionable3D/scale/#kotlin.Float/PointingToDeclaration/kray/kray/-positionable3-d/scale.html
+$dokka.location:kray/Positionable3D/transform/#/PointingToDeclaration/kray/kray/-positionable3-d/transform.html
+$dokka.location:kray/Positionable3D/translate/#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/kray/-positionable3-d/translate.html
 $dokka.location:kray/Positionable3D/z/#/PointingToDeclaration/kray/kray/-positionable3-d/z.html
 $dokka.location:kray/Quadruple///PointingToDeclaration/kray/kray/-quadruple/index.html
 $dokka.location:kray/Quadruple/Quadruple/#TypeParam(bounds=[kotlin.Any?])#TypeParam(bounds=[kotlin.Any?])#TypeParam(bounds=[kotlin.Any?])#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/kray/kray/-quadruple/-quadruple.html
@@ -257,28 +461,32 @@ $dokka.location:kray/Quadruple/toString/#/PointingToDeclaration/kray/kray/-quad
 $dokka.location:kray/Sizeable2D///PointingToDeclaration/kray/kray/-sizeable2-d/index.html
 $dokka.location:kray/Sizeable2D/area/#/PointingToDeclaration/kray/kray/-sizeable2-d/area.html
 $dokka.location:kray/Sizeable2D/height/#/PointingToDeclaration/kray/kray/-sizeable2-d/height.html
+$dokka.location:kray/Sizeable2D/hitbox/#/PointingToDeclaration/kray/kray/-sizeable2-d/hitbox.html
 $dokka.location:kray/Sizeable2D/perimeter/#/PointingToDeclaration/kray/kray/-sizeable2-d/perimeter.html
 $dokka.location:kray/Sizeable2D/resize/#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/kray/-sizeable2-d/resize.html
+$dokka.location:kray/Sizeable2D/scale/#/PointingToDeclaration/kray/kray/-sizeable2-d/scale.html
 $dokka.location:kray/Sizeable2D/width/#/PointingToDeclaration/kray/kray/-sizeable2-d/width.html
 $dokka.location:kray/Sizeable3D///PointingToDeclaration/kray/kray/-sizeable3-d/index.html
 $dokka.location:kray/Sizeable3D/depth/#/PointingToDeclaration/kray/kray/-sizeable3-d/depth.html
 $dokka.location:kray/Sizeable3D/height/#/PointingToDeclaration/kray/kray/-sizeable3-d/height.html
+$dokka.location:kray/Sizeable3D/hitbox/#/PointingToDeclaration/kray/kray/-sizeable3-d/hitbox.html
 $dokka.location:kray/Sizeable3D/surfaceArea/#/PointingToDeclaration/kray/kray/-sizeable3-d/surface-area.html
 $dokka.location:kray/Sizeable3D/volume/#/PointingToDeclaration/kray/kray/-sizeable3-d/volume.html
 $dokka.location:kray/Sizeable3D/width/#/PointingToDeclaration/kray/kray/-sizeable3-d/width.html
 $dokka.location:raylib////PointingToDeclaration/kray/raylib/index.html
 $dokka.location:raylib//appDir/#/PointingToDeclaration/kray/raylib/app-dir.html
+$dokka.location:raylib//arc/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/arc.html
 $dokka.location:raylib//arc/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/arc.html
 $dokka.location:raylib//basisSpline/raylib.Canvas#raylib.Color#kotlin.Float#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Int, kotlin/Int>/PointingToDeclaration/kray/raylib/basis-spline.html
 $dokka.location:raylib//basisSpline/raylib.Canvas#raylib.Color#kotlin.Float#kotlin.collections.List[<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Int, kotlin/Int>]/PointingToDeclaration/kray/raylib/basis-spline.html
-$dokka.location:raylib//billboard/raylib.Canvas#raylib.Camera3D#raylib.Texture2D#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/billboard.html
+$dokka.location:raylib//billboard/raylib.Canvas#raylib.Camera3D#raylib.Texture2D#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/billboard.html
 $dokka.location:raylib//camera2D/raylib.Canvas#raylib.Camera2D#kotlin.Function1[raylib.Canvas,kotlin.Unit]/PointingToDeclaration/kray/raylib/camera2-d.html
 $dokka.location:raylib//camera3D/raylib.Canvas#raylib.Camera3D#kotlin.Function1[raylib.Canvas,kotlin.Unit]/PointingToDeclaration/kray/raylib/camera3-d.html
-$dokka.location:raylib//capsule/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/capsule.html
+$dokka.location:raylib//capsule/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/capsule.html
 $dokka.location:raylib//catmullRomSpline/raylib.Canvas#raylib.Color#kotlin.Float#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Int, kotlin/Int>/PointingToDeclaration/kray/raylib/catmull-rom-spline.html
 $dokka.location:raylib//catmullRomSpline/raylib.Canvas#raylib.Color#kotlin.Float#kotlin.collections.List[<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Int, kotlin/Int>]/PointingToDeclaration/kray/raylib/catmull-rom-spline.html
 $dokka.location:raylib//circle/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/circle.html
-$dokka.location:raylib//circle3/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/circle3.html
+$dokka.location:raylib//circle3/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/circle3.html
 $dokka.location:raylib//compress/<ERROR CLASS> ERROR CLASS: Symbol not found for UByteArray#/PointingToDeclaration/kray/raylib/compress.html
 $dokka.location:raylib//compress/kotlin.ByteArray#/PointingToDeclaration/kray/raylib/compress.html
 $dokka.location:raylib//crc32/<ERROR CLASS> ERROR CLASS: Symbol not found for UByteArray#/PointingToDeclaration/kray/raylib/crc32.html
@@ -286,15 +494,16 @@ $dokka.location:raylib//crc32/kotlin.ByteArray#/PointingToDeclaration/kray/rayl
 $dokka.location:raylib//cubicBezierSpline/raylib.Canvas#raylib.Color#kotlin.Float#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Int, kotlin/Int>/PointingToDeclaration/kray/raylib/cubic-bezier-spline.html
 $dokka.location:raylib//cubicBezierSpline/raylib.Canvas#raylib.Color#kotlin.Float#kotlin.collections.List[<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Int, kotlin/Int>]/PointingToDeclaration/kray/raylib/cubic-bezier-spline.html
 $dokka.location:raylib//cwd/#/PointingToDeclaration/kray/raylib/cwd.html
-$dokka.location:raylib//cylinder/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/cylinder.html
-$dokka.location:raylib//cylinder/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/cylinder.html
-$dokka.location:raylib//cylinder/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/cylinder.html
-$dokka.location:raylib//cylinder/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/cylinder.html
+$dokka.location:raylib//cylinder/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/cylinder.html
+$dokka.location:raylib//cylinder/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/cylinder.html
+$dokka.location:raylib//cylinder/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/cylinder.html
+$dokka.location:raylib//cylinder/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/cylinder.html
 $dokka.location:raylib//decompress/<ERROR CLASS> ERROR CLASS: Symbol not found for UByteArray#/PointingToDeclaration/kray/raylib/decompress.html
 $dokka.location:raylib//decompress/kotlin.ByteArray#/PointingToDeclaration/kray/raylib/decompress.html
+$dokka.location:raylib//draw/raylib.Canvas#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/draw.html
 $dokka.location:raylib//draw/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/draw.html
 $dokka.location:raylib//draw/raylib.Canvas#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/draw.html
-$dokka.location:raylib//drawBoundingBox/raylib.Canvas#raylib.BoundingBox#raylib.Color/PointingToDeclaration/kray/raylib/draw-bounding-box.html
+$dokka.location:raylib//drawBoundingBox/raylib.Canvas#raylib.BoundingBox3D#raylib.Color/PointingToDeclaration/kray/raylib/draw-bounding-box.html
 $dokka.location:raylib//drawImage/raylib.Canvas#raylib.Image#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/draw-image.html
 $dokka.location:raylib//drawMesh/raylib.Canvas#raylib.Mesh#raylib.Material#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#kotlin.Float#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/draw-mesh.html
 $dokka.location:raylib//drawMesh/raylib.Canvas#raylib.Mesh#raylib.Material#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/draw-mesh.html
@@ -302,46 +511,65 @@ $dokka.location:raylib//drawMesh/raylib.Canvas#raylib.Mesh#raylib.Material#kotli
 $dokka.location:raylib//drawMesh/raylib.Canvas#raylib.Mesh#raylib.Material#kotlin.collections.List[raylib.Matrix4]/PointingToDeclaration/kray/raylib/draw-mesh.html
 $dokka.location:raylib//drawMesh/raylib.Canvas#raylib.Mesh#raylib.Material#raylib.Matrix4/PointingToDeclaration/kray/raylib/draw-mesh.html
 $dokka.location:raylib//drawMesh/raylib.Canvas#raylib.Mesh#raylib.Material/PointingToDeclaration/kray/raylib/draw-mesh.html
+$dokka.location:raylib//drawModel/raylib.Canvas#raylib.Model#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/draw-model.html
 $dokka.location:raylib//drawModel/raylib.Canvas#raylib.Model#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Int, kotlin/Int, kotlin/Int>#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#kotlin.Float#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#raylib.Color/PointingToDeclaration/kray/raylib/draw-model.html
 $dokka.location:raylib//drawModel/raylib.Canvas#raylib.Model#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Int, kotlin/Int, kotlin/Int>#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/draw-model.html
-$dokka.location:raylib//drawModel/raylib.Canvas#raylib.Model#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Int, kotlin/Int, kotlin/Int>#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/draw-model.html
-$dokka.location:raylib//drawModel/raylib.Canvas#raylib.Model#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/draw-model.html
+$dokka.location:raylib//drawModel/raylib.Canvas#raylib.Model#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/draw-model.html
+$dokka.location:raylib//drawModel/raylib.Canvas#raylib.Model#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/draw-model.html
 $dokka.location:raylib//drawModel/raylib.Canvas#raylib.Model#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/draw-model.html
 $dokka.location:raylib//drawModel/raylib.Canvas#raylib.Model#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/draw-model.html
 $dokka.location:raylib//drawModelWires/raylib.Canvas#raylib.Model#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Int, kotlin/Int, kotlin/Int>#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/draw-model-wires.html
 $dokka.location:raylib//drawModelWires/raylib.Canvas#raylib.Model#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Int, kotlin/Int, kotlin/Int>#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/draw-model-wires.html
 $dokka.location:raylib//drawModelWires/raylib.Canvas#raylib.Model#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/draw-model-wires.html
 $dokka.location:raylib//drawModelWires/raylib.Canvas#raylib.Model#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/draw-model-wires.html
+$dokka.location:raylib//drawText/raylib.Canvas#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Float, kotlin/Float>#kotlin.String#raylib.Color#kotlin.Int#raylib.Font#kotlin.Float#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Float, kotlin/Float>#kotlin.Float/PointingToDeclaration/kray/raylib/draw-text.html
+$dokka.location:raylib//drawText/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.String#raylib.Color#kotlin.Int#raylib.Font#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/draw-text.html
 $dokka.location:raylib//drawText/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.String#raylib.Color#kotlin.Int#raylib.Font#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/draw-text.html
+$dokka.location:raylib//drawTexture/raylib.Canvas#raylib.Texture2D#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/draw-texture.html
+$dokka.location:raylib//drawTexture/raylib.Canvas#raylib.Texture2D#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/draw-texture.html
+$dokka.location:raylib//drawTexture/raylib.Canvas#raylib.Texture2D#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/draw-texture.html
+$dokka.location:raylib//drawTexture/raylib.Canvas#raylib.Texture2D#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/draw-texture.html
+$dokka.location:raylib//drawTexture/raylib.Canvas#raylib.Texture2D#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Int#kotlin.Int#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/draw-texture.html
 $dokka.location:raylib//drawTexture/raylib.Canvas#raylib.Texture2D#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/draw-texture.html
 $dokka.location:raylib//ellipse/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/ellipse.html
 $dokka.location:raylib//end2D/raylib.Canvas#/PointingToDeclaration/kray/raylib/end2-d.html
 $dokka.location:raylib//end3D/raylib.Canvas#/PointingToDeclaration/kray/raylib/end3-d.html
 $dokka.location:raylib//endTextureMode/raylib.Window#/PointingToDeclaration/kray/raylib/end-texture-mode.html
+$dokka.location:raylib//fillArc/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/fill-arc.html
 $dokka.location:raylib//fillArc/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/fill-arc.html
-$dokka.location:raylib//fillCapsule/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/fill-capsule.html
+$dokka.location:raylib//fillCapsule/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/fill-capsule.html
 $dokka.location:raylib//fillCircle/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/fill-circle.html
 $dokka.location:raylib//fillCircleGradient/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Float#raylib.Color#raylib.Color/PointingToDeclaration/kray/raylib/fill-circle-gradient.html
-$dokka.location:raylib//fillCylinder/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/fill-cylinder.html
-$dokka.location:raylib//fillCylinder/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/fill-cylinder.html
-$dokka.location:raylib//fillCylinder/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/fill-cylinder.html
-$dokka.location:raylib//fillCylinder/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/fill-cylinder.html
+$dokka.location:raylib//fillCylinder/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/fill-cylinder.html
+$dokka.location:raylib//fillCylinder/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/fill-cylinder.html
+$dokka.location:raylib//fillCylinder/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/fill-cylinder.html
+$dokka.location:raylib//fillCylinder/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/fill-cylinder.html
 $dokka.location:raylib//fillEllipse/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/fill-ellipse.html
+$dokka.location:raylib//fillPolygon/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Int#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/fill-polygon.html
 $dokka.location:raylib//fillPolygon/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/fill-polygon.html
+$dokka.location:raylib//fillRect/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/fill-rect.html
+$dokka.location:raylib//fillRect/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/fill-rect.html
 $dokka.location:raylib//fillRect/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/fill-rect.html
 $dokka.location:raylib//fillRect/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/fill-rect.html
+$dokka.location:raylib//fillRectGradient/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color#raylib.Color#raylib.Color#raylib.Color/PointingToDeclaration/kray/raylib/fill-rect-gradient.html
 $dokka.location:raylib//fillRectGradient/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#raylib.Color#raylib.Color#kotlin.Boolean/PointingToDeclaration/kray/raylib/fill-rect-gradient.html
 $dokka.location:raylib//fillRectGradient/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#raylib.Color#raylib.Color#raylib.Color#raylib.Color/PointingToDeclaration/kray/raylib/fill-rect-gradient.html
-$dokka.location:raylib//fillRectPrism/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/fill-rect-prism.html
+$dokka.location:raylib//fillRectPrism/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/fill-rect-prism.html
+$dokka.location:raylib//fillRing/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/fill-ring.html
 $dokka.location:raylib//fillRing/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/fill-ring.html
+$dokka.location:raylib//fillRoundRect/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/fill-round-rect.html
 $dokka.location:raylib//fillRoundRect/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/fill-round-rect.html
-$dokka.location:raylib//fillSphere/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/fill-sphere.html
-$dokka.location:raylib//fillSphere/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/fill-sphere.html
+$dokka.location:raylib//fillSphere/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/fill-sphere.html
+$dokka.location:raylib//fillSphere/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/fill-sphere.html
 $dokka.location:raylib//fillTriangle/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/fill-triangle.html
 $dokka.location:raylib//fromBase64/kotlin.String#/PointingToDeclaration/kray/raylib/from-base64.html
 $dokka.location:raylib//fromBase64U/kotlin.String#/PointingToDeclaration/kray/raylib/from-base64-u.html
 $dokka.location:raylib//grid/raylib.Canvas#kotlin.Int#kotlin.Float/PointingToDeclaration/kray/raylib/grid.html
 $dokka.location:raylib//inAppDir/kotlin.String#/PointingToDeclaration/kray/raylib/in-app-dir.html
+$dokka.location:raylib//line/raylib.Canvas#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Float, kotlin/Float>#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Float, kotlin/Float>#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/line.html
+$dokka.location:raylib//line/raylib.Canvas#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Float, kotlin/Float>#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Float, kotlin/Float>#raylib.Color/PointingToDeclaration/kray/raylib/line.html
+$dokka.location:raylib//line/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/line.html
+$dokka.location:raylib//line/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/line.html
 $dokka.location:raylib//line/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/line.html
 $dokka.location:raylib//line/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/line.html
 $dokka.location:raylib//line3/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/line3.html
@@ -352,28 +580,33 @@ $dokka.location:raylib//linearSpline/raylib.Canvas#raylib.Color#kotlin.Float#<ER
 $dokka.location:raylib//linearSpline/raylib.Canvas#raylib.Color#kotlin.Float#kotlin.collections.List[<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Int, kotlin/Int>]/PointingToDeclaration/kray/raylib/linear-spline.html
 $dokka.location:raylib//load/raylib.Image.Companion#raylib.Texture2D/PointingToDeclaration/kray/raylib/load.html
 $dokka.location:raylib//load/raylib.Texture2D.Companion#raylib.Image/PointingToDeclaration/kray/raylib/load.html
+$dokka.location:raylib//loadFree/raylib.Texture2D.Companion#raylib.Image/PointingToDeclaration/kray/raylib/load-free.html
 $dokka.location:raylib//md5/<ERROR CLASS> ERROR CLASS: Symbol not found for UByteArray#/PointingToDeclaration/kray/raylib/md5.html
 $dokka.location:raylib//md5/kotlin.ByteArray#/PointingToDeclaration/kray/raylib/md5.html
 $dokka.location:raylib//openURL/#kotlin.String/PointingToDeclaration/kray/raylib/open-u-r-l.html
-$dokka.location:raylib//polygon/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/polygon.html
+$dokka.location:raylib//polygon/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/polygon.html
+$dokka.location:raylib//polygon/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Int#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/polygon.html
 $dokka.location:raylib//polygon/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/polygon.html
 $dokka.location:raylib//quadraticBezierSpline/raylib.Canvas#raylib.Color#kotlin.Float#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Int, kotlin/Int>/PointingToDeclaration/kray/raylib/quadratic-bezier-spline.html
 $dokka.location:raylib//quadraticBezierSpline/raylib.Canvas#raylib.Color#kotlin.Float#kotlin.collections.List[<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Int, kotlin/Int>]/PointingToDeclaration/kray/raylib/quadratic-bezier-spline.html
-$dokka.location:raylib//ray/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/ray.html
-$dokka.location:raylib//rect/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/rect.html
+$dokka.location:raylib//ray/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/ray.html
+$dokka.location:raylib//rect/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/rect.html
+$dokka.location:raylib//rect/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/rect.html
 $dokka.location:raylib//rect/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/rect.html
-$dokka.location:raylib//rect3/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/rect3.html
-$dokka.location:raylib//rectPrism/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/rect-prism.html
+$dokka.location:raylib//rect3/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/rect3.html
+$dokka.location:raylib//rect3/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/rect3.html
+$dokka.location:raylib//rectPrism/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/rect-prism.html
+$dokka.location:raylib//ring/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/ring.html
 $dokka.location:raylib//ring/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/ring.html
-$dokka.location:raylib//roundRect/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/round-rect.html
-$dokka.location:raylib//roundRect/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/round-rect.html
+$dokka.location:raylib//roundRect/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/round-rect.html
+$dokka.location:raylib//roundRect/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/round-rect.html
 $dokka.location:raylib//screenshot/#kotlin.String/PointingToDeclaration/kray/raylib/screenshot.html
 $dokka.location:raylib//setLineSpacing/raylib.Canvas#kotlin.Int/PointingToDeclaration/kray/raylib/set-line-spacing.html
 $dokka.location:raylib//sha1/<ERROR CLASS> ERROR CLASS: Symbol not found for UByteArray#/PointingToDeclaration/kray/raylib/sha1.html
 $dokka.location:raylib//sha1/kotlin.ByteArray#/PointingToDeclaration/kray/raylib/sha1.html
 $dokka.location:raylib//shader/raylib.Canvas#raylib.Shader#kotlin.Function1[raylib.Canvas,kotlin.Unit]/PointingToDeclaration/kray/raylib/shader.html
-$dokka.location:raylib//sphere/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/sphere.html
-$dokka.location:raylib//sphere/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/sphere.html
+$dokka.location:raylib//sphere/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/sphere.html
+$dokka.location:raylib//sphere/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/sphere.html
 $dokka.location:raylib//start2D/raylib.Canvas#raylib.Camera2D/PointingToDeclaration/kray/raylib/start2-d.html
 $dokka.location:raylib//start3D/raylib.Canvas#raylib.Camera3D/PointingToDeclaration/kray/raylib/start3-d.html
 $dokka.location:raylib//startShader/raylib.Canvas#raylib.Shader/PointingToDeclaration/kray/raylib/start-shader.html
@@ -384,60 +617,101 @@ $dokka.location:raylib//toBase64/<ERROR CLASS> ERROR CLASS: Symbol not found for
 $dokka.location:raylib//toBase64/kotlin.ByteArray#/PointingToDeclaration/kray/raylib/to-base64.html
 $dokka.location:raylib//toFile/kotlin.String#/PointingToDeclaration/kray/raylib/to-file.html
 $dokka.location:raylib//triangle/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/triangle.html
-$dokka.location:raylib//triangle3/raylib.Canvas#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/triangle3.html
+$dokka.location:raylib//triangle3/raylib.Canvas#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/triangle3.html
 $dokka.location:raylib//triangleFan/raylib.Canvas#raylib.Color#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Int, kotlin/Int>/PointingToDeclaration/kray/raylib/triangle-fan.html
 $dokka.location:raylib//triangleFan/raylib.Canvas#raylib.Color#kotlin.collections.List[<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Int, kotlin/Int>]/PointingToDeclaration/kray/raylib/triangle-fan.html
 $dokka.location:raylib//triangleStrip/raylib.Canvas#raylib.Color#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Int, kotlin/Int>/PointingToDeclaration/kray/raylib/triangle-strip.html
 $dokka.location:raylib//triangleStrip/raylib.Canvas#raylib.Color#kotlin.collections.List[<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Int, kotlin/Int>]/PointingToDeclaration/kray/raylib/triangle-strip.html
-$dokka.location:raylib//triangleStrip3/raylib.Canvas#raylib.Color#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Int, kotlin/Int, kotlin/Int>/PointingToDeclaration/kray/raylib/triangle-strip3.html
-$dokka.location:raylib//triangleStrip3/raylib.Canvas#raylib.Color#kotlin.collections.List[<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Int, kotlin/Int, kotlin/Int>]/PointingToDeclaration/kray/raylib/triangle-strip3.html
+$dokka.location:raylib//triangleStrip3/raylib.Canvas#raylib.Color#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/triangle-strip3.html
+$dokka.location:raylib//triangleStrip3/raylib.Canvas#raylib.Color#kotlin.collections.List[<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>]/PointingToDeclaration/kray/raylib/triangle-strip3.html
 $dokka.location:raylib//writeTo/raylib.Image#raylib.File/PointingToDeclaration/kray/raylib/write-to.html
-$dokka.location:raylib/BoundingBox///PointingToDeclaration/kray/raylib/-bounding-box/index.html
-$dokka.location:raylib/BoundingBox/BoundingBox/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/-bounding-box/-bounding-box.html
-$dokka.location:raylib/BoundingBox/BoundingBox/#<ERROR CLASS> ERROR CLASS: Symbol not found for raylib.internal.BoundingBox/PointingToDeclaration/kray/raylib/-bounding-box/-bounding-box.html
-$dokka.location:raylib/BoundingBox/BoundingBox/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-bounding-box/-bounding-box.html
-$dokka.location:raylib/BoundingBox/depth/#/PointingToDeclaration/kray/raylib/-bounding-box/depth.html
-$dokka.location:raylib/BoundingBox/height/#/PointingToDeclaration/kray/raylib/-bounding-box/height.html
-$dokka.location:raylib/BoundingBox/max/#/PointingToDeclaration/kray/raylib/-bounding-box/max.html
-$dokka.location:raylib/BoundingBox/maxX/#/PointingToDeclaration/kray/raylib/-bounding-box/max-x.html
-$dokka.location:raylib/BoundingBox/maxY/#/PointingToDeclaration/kray/raylib/-bounding-box/max-y.html
-$dokka.location:raylib/BoundingBox/maxZ/#/PointingToDeclaration/kray/raylib/-bounding-box/max-z.html
-$dokka.location:raylib/BoundingBox/min/#/PointingToDeclaration/kray/raylib/-bounding-box/min.html
-$dokka.location:raylib/BoundingBox/minX/#/PointingToDeclaration/kray/raylib/-bounding-box/min-x.html
-$dokka.location:raylib/BoundingBox/minY/#/PointingToDeclaration/kray/raylib/-bounding-box/min-y.html
-$dokka.location:raylib/BoundingBox/minZ/#/PointingToDeclaration/kray/raylib/-bounding-box/min-z.html
-$dokka.location:raylib/BoundingBox/width/#/PointingToDeclaration/kray/raylib/-bounding-box/width.html
+$dokka.location:raylib/BoundingBox3D///PointingToDeclaration/kray/raylib/-bounding-box3-d/index.html
+$dokka.location:raylib/BoundingBox3D/BoundingBox3D/#<ERROR CLASS> ERROR CLASS: Symbol not found for BoundingBox/PointingToDeclaration/kray/raylib/-bounding-box3-d/-bounding-box3-d.html
+$dokka.location:raylib/BoundingBox3D/BoundingBox3D/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/-bounding-box3-d/-bounding-box3-d.html
+$dokka.location:raylib/BoundingBox3D/BoundingBox3D/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-bounding-box3-d/-bounding-box3-d.html
+$dokka.location:raylib/BoundingBox3D/depth/#/PointingToDeclaration/kray/raylib/-bounding-box3-d/depth.html
+$dokka.location:raylib/BoundingBox3D/height/#/PointingToDeclaration/kray/raylib/-bounding-box3-d/height.html
+$dokka.location:raylib/BoundingBox3D/max/#/PointingToDeclaration/kray/raylib/-bounding-box3-d/max.html
+$dokka.location:raylib/BoundingBox3D/maxX/#/PointingToDeclaration/kray/raylib/-bounding-box3-d/max-x.html
+$dokka.location:raylib/BoundingBox3D/maxY/#/PointingToDeclaration/kray/raylib/-bounding-box3-d/max-y.html
+$dokka.location:raylib/BoundingBox3D/maxZ/#/PointingToDeclaration/kray/raylib/-bounding-box3-d/max-z.html
+$dokka.location:raylib/BoundingBox3D/min/#/PointingToDeclaration/kray/raylib/-bounding-box3-d/min.html
+$dokka.location:raylib/BoundingBox3D/minX/#/PointingToDeclaration/kray/raylib/-bounding-box3-d/min-x.html
+$dokka.location:raylib/BoundingBox3D/minY/#/PointingToDeclaration/kray/raylib/-bounding-box3-d/min-y.html
+$dokka.location:raylib/BoundingBox3D/minZ/#/PointingToDeclaration/kray/raylib/-bounding-box3-d/min-z.html
+$dokka.location:raylib/BoundingBox3D/width/#/PointingToDeclaration/kray/raylib/-bounding-box3-d/width.html
+$dokka.location:raylib/Camera2D.Companion///PointingToDeclaration/kray/raylib/-camera2-d/-companion/index.html
+$dokka.location:raylib/Camera2D.Companion/center/#kray.sprites.Sprite2D/PointingToDeclaration/kray/raylib/-camera2-d/-companion/center.html
+$dokka.location:raylib/Camera2D.Companion/on/#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-camera2-d/-companion/on.html
+$dokka.location:raylib/Camera2D.Companion/on/#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/raylib/-camera2-d/-companion/on.html
+$dokka.location:raylib/Camera2D.Companion/on/#kray.Positionable2D/PointingToDeclaration/kray/raylib/-camera2-d/-companion/on.html
 $dokka.location:raylib/Camera2D///PointingToDeclaration/kray/raylib/-camera2-d/index.html
 $dokka.location:raylib/Camera2D/Camera2D/#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Float, kotlin/Float>#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Float, kotlin/Float>#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-camera2-d/-camera2-d.html
+$dokka.location:raylib/Camera2D/Camera2D/#<ERROR CLASS> ERROR CLASS: Symbol not found for raylib.internal.Camera2D/PointingToDeclaration/kray/raylib/-camera2-d/-camera2-d.html
 $dokka.location:raylib/Camera2D/Camera2D/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-camera2-d/-camera2-d.html
-$dokka.location:raylib/Camera2D/delta/#/PointingToDeclaration/kray/raylib/-camera2-d/delta.html
-$dokka.location:raylib/Camera2D/dx/#/PointingToDeclaration/kray/raylib/-camera2-d/dx.html
-$dokka.location:raylib/Camera2D/dy/#/PointingToDeclaration/kray/raylib/-camera2-d/dy.html
+$dokka.location:raylib/Camera2D/bottomLeft/#/PointingToDeclaration/kray/raylib/-camera2-d/bottom-left.html
+$dokka.location:raylib/Camera2D/bottomRight/#/PointingToDeclaration/kray/raylib/-camera2-d/bottom-right.html
+$dokka.location:raylib/Camera2D/followCenter/#kray.sprites.Sprite2D/PointingToDeclaration/kray/raylib/-camera2-d/follow-center.html
+$dokka.location:raylib/Camera2D/followPlayerBoundsPush/#kray.sprites.Sprite2D#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-camera2-d/follow-player-bounds-push.html
+$dokka.location:raylib/Camera2D/matrix/#/PointingToDeclaration/kray/raylib/-camera2-d/matrix.html
+$dokka.location:raylib/Camera2D/offset/#/PointingToDeclaration/kray/raylib/-camera2-d/offset.html
+$dokka.location:raylib/Camera2D/offsetX/#/PointingToDeclaration/kray/raylib/-camera2-d/offset-x.html
+$dokka.location:raylib/Camera2D/offsetY/#/PointingToDeclaration/kray/raylib/-camera2-d/offset-y.html
 $dokka.location:raylib/Camera2D/rotation/#/PointingToDeclaration/kray/raylib/-camera2-d/rotation.html
+$dokka.location:raylib/Camera2D/screenToWorld/#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/-camera2-d/screen-to-world.html
+$dokka.location:raylib/Camera2D/screenToWorld/#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-camera2-d/screen-to-world.html
+$dokka.location:raylib/Camera2D/screenToWorld/#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/raylib/-camera2-d/screen-to-world.html
 $dokka.location:raylib/Camera2D/target/#/PointingToDeclaration/kray/raylib/-camera2-d/target.html
 $dokka.location:raylib/Camera2D/targetX/#/PointingToDeclaration/kray/raylib/-camera2-d/target-x.html
 $dokka.location:raylib/Camera2D/targetY/#/PointingToDeclaration/kray/raylib/-camera2-d/target-y.html
+$dokka.location:raylib/Camera2D/toString/#/PointingToDeclaration/kray/raylib/-camera2-d/to-string.html
+$dokka.location:raylib/Camera2D/topLeft/#/PointingToDeclaration/kray/raylib/-camera2-d/top-left.html
+$dokka.location:raylib/Camera2D/topRight/#/PointingToDeclaration/kray/raylib/-camera2-d/top-right.html
+$dokka.location:raylib/Camera2D/unload/#/PointingToDeclaration/kray/raylib/-camera2-d/unload.html
+$dokka.location:raylib/Camera2D/worldToScreen/#<ERROR CLASS> ERROR CLASS: Symbol not found for Pair<kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/-camera2-d/world-to-screen.html
+$dokka.location:raylib/Camera2D/worldToScreen/#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-camera2-d/world-to-screen.html
+$dokka.location:raylib/Camera2D/worldToScreen/#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/raylib/-camera2-d/world-to-screen.html
 $dokka.location:raylib/Camera2D/zoom/#/PointingToDeclaration/kray/raylib/-camera2-d/zoom.html
+$dokka.location:raylib/Camera3D.Companion///PointingToDeclaration/kray/raylib/-camera3-d/-companion/index.html
+$dokka.location:raylib/Camera3D.Companion/center/#kray.sprites.Sprite3D#kotlin.Float#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/-camera3-d/-companion/center.html
+$dokka.location:raylib/Camera3D.Companion/on/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/-camera3-d/-companion/on.html
+$dokka.location:raylib/Camera3D.Companion/on/#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Float#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/-camera3-d/-companion/on.html
+$dokka.location:raylib/Camera3D.Companion/on/#kray.Positionable3D#kotlin.Float#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/-camera3-d/-companion/on.html
 $dokka.location:raylib/Camera3D///PointingToDeclaration/kray/raylib/-camera3-d/index.html
 $dokka.location:raylib/Camera3D/Camera3D/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#kotlin.Float#raylib.CameraProjection3D/PointingToDeclaration/kray/raylib/-camera3-d/-camera3-d.html
+$dokka.location:raylib/Camera3D/Camera3D/#<ERROR CLASS> ERROR CLASS: Symbol not found for raylib.internal.Camera3D/PointingToDeclaration/kray/raylib/-camera3-d/-camera3-d.html
 $dokka.location:raylib/Camera3D/Camera3D/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#raylib.CameraProjection3D/PointingToDeclaration/kray/raylib/-camera3-d/-camera3-d.html
+$dokka.location:raylib/Camera3D/followCenter/#kray.sprites.Sprite3D/PointingToDeclaration/kray/raylib/-camera3-d/follow-center.html
 $dokka.location:raylib/Camera3D/fovy/#/PointingToDeclaration/kray/raylib/-camera3-d/fovy.html
+$dokka.location:raylib/Camera3D/matrix/#/PointingToDeclaration/kray/raylib/-camera3-d/matrix.html
 $dokka.location:raylib/Camera3D/position/#/PointingToDeclaration/kray/raylib/-camera3-d/position.html
 $dokka.location:raylib/Camera3D/projection/#/PointingToDeclaration/kray/raylib/-camera3-d/projection.html
-$dokka.location:raylib/Camera3D/rotX/#/PointingToDeclaration/kray/raylib/-camera3-d/rot-x.html
-$dokka.location:raylib/Camera3D/rotY/#/PointingToDeclaration/kray/raylib/-camera3-d/rot-y.html
-$dokka.location:raylib/Camera3D/rotZ/#/PointingToDeclaration/kray/raylib/-camera3-d/rot-z.html
-$dokka.location:raylib/Camera3D/rotation/#/PointingToDeclaration/kray/raylib/-camera3-d/rotation.html
+$dokka.location:raylib/Camera3D/rotatePitch/#kotlin.Float/PointingToDeclaration/kray/raylib/-camera3-d/rotate-pitch.html
+$dokka.location:raylib/Camera3D/rotateRoll/#kotlin.Float/PointingToDeclaration/kray/raylib/-camera3-d/rotate-roll.html
+$dokka.location:raylib/Camera3D/rotateYaw/#kotlin.Float/PointingToDeclaration/kray/raylib/-camera3-d/rotate-yaw.html
 $dokka.location:raylib/Camera3D/target/#/PointingToDeclaration/kray/raylib/-camera3-d/target.html
 $dokka.location:raylib/Camera3D/targetX/#/PointingToDeclaration/kray/raylib/-camera3-d/target-x.html
 $dokka.location:raylib/Camera3D/targetY/#/PointingToDeclaration/kray/raylib/-camera3-d/target-y.html
 $dokka.location:raylib/Camera3D/targetZ/#/PointingToDeclaration/kray/raylib/-camera3-d/target-z.html
+$dokka.location:raylib/Camera3D/unload/#/PointingToDeclaration/kray/raylib/-camera3-d/unload.html
+$dokka.location:raylib/Camera3D/up/#/PointingToDeclaration/kray/raylib/-camera3-d/up.html
+$dokka.location:raylib/Camera3D/upX/#/PointingToDeclaration/kray/raylib/-camera3-d/up-x.html
+$dokka.location:raylib/Camera3D/upY/#/PointingToDeclaration/kray/raylib/-camera3-d/up-y.html
+$dokka.location:raylib/Camera3D/upZ/#/PointingToDeclaration/kray/raylib/-camera3-d/up-z.html
 $dokka.location:raylib/Camera3D/update/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#kotlin.Float/PointingToDeclaration/kray/raylib/-camera3-d/update.html
 $dokka.location:raylib/Camera3D/update/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-camera3-d/update.html
 $dokka.location:raylib/Camera3D/update/#raylib.CameraMode3D/PointingToDeclaration/kray/raylib/-camera3-d/update.html
+$dokka.location:raylib/Camera3D/updateWith/#raylib.CameraMode3D#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>??/PointingToDeclaration/kray/raylib/-camera3-d/update-with.html
+$dokka.location:raylib/Camera3D/updateWith/#raylib.CameraMode3D#kray.Positionable3D?/PointingToDeclaration/kray/raylib/-camera3-d/update-with.html
+$dokka.location:raylib/Camera3D/updateWith/#raylib.CameraMode3D#kray.sprites.Sprite3D?/PointingToDeclaration/kray/raylib/-camera3-d/update-with.html
+$dokka.location:raylib/Camera3D/worldToScreen/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/-camera3-d/world-to-screen.html
+$dokka.location:raylib/Camera3D/worldToScreen/#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-camera3-d/world-to-screen.html
+$dokka.location:raylib/Camera3D/worldToScreen/#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/raylib/-camera3-d/world-to-screen.html
 $dokka.location:raylib/Camera3D/x/#/PointingToDeclaration/kray/raylib/-camera3-d/x.html
 $dokka.location:raylib/Camera3D/y/#/PointingToDeclaration/kray/raylib/-camera3-d/y.html
 $dokka.location:raylib/Camera3D/z/#/PointingToDeclaration/kray/raylib/-camera3-d/z.html
+$dokka.location:raylib/Camera3D/zoomIn/#kotlin.Float/PointingToDeclaration/kray/raylib/-camera3-d/zoom-in.html
+$dokka.location:raylib/Camera3D/zoomOut/#kotlin.Float/PointingToDeclaration/kray/raylib/-camera3-d/zoom-out.html
 $dokka.location:raylib/CameraMode3D.Companion///PointingToDeclaration/kray/raylib/-camera-mode3-d/-companion/index.html
 $dokka.location:raylib/CameraMode3D.Companion/CUSTOM/#/PointingToDeclaration/kray/raylib/-camera-mode3-d/-companion/-c-u-s-t-o-m.html
 $dokka.location:raylib/CameraMode3D.Companion/FIRST_PERSON/#/PointingToDeclaration/kray/raylib/-camera-mode3-d/-companion/-f-i-r-s-t_-p-e-r-s-o-n.html
@@ -1262,11 +1536,13 @@ $dokka.location:raylib/Font.Companion/fromImage/#raylib.Image#raylib.Color#kotli
 $dokka.location:raylib/Font.Companion/load/#kotlin.String/PointingToDeclaration/kray/raylib/-font/-companion/load.html
 $dokka.location:raylib/Font.Companion/load/#raylib.File/PointingToDeclaration/kray/raylib/-font/-companion/load.html
 $dokka.location:raylib/Font///PointingToDeclaration/kray/raylib/-font/index.html
-$dokka.location:raylib/Font/Font/#<ERROR CLASS> ERROR CLASS: Symbol not found for CValue<ERROR CLASS: Symbol not found for raylib.internal.Font>/PointingToDeclaration/kray/raylib/-font/-font.html
+$dokka.location:raylib/Font/Font/#<ERROR CLASS> ERROR CLASS: Symbol not found for raylib.internal.Font/PointingToDeclaration/kray/raylib/-font/-font.html
 $dokka.location:raylib/Font/baseSize/#/PointingToDeclaration/kray/raylib/-font/base-size.html
 $dokka.location:raylib/Font/glyphCount/#/PointingToDeclaration/kray/raylib/-font/glyph-count.html
+$dokka.location:raylib/Font/glyphPadding/#/PointingToDeclaration/kray/raylib/-font/glyph-padding.html
 $dokka.location:raylib/Font/isValid/#/PointingToDeclaration/kray/raylib/-font/is-valid.html
 $dokka.location:raylib/Font/texture/#/PointingToDeclaration/kray/raylib/-font/texture.html
+$dokka.location:raylib/Font/toString/#/PointingToDeclaration/kray/raylib/-font/to-string.html
 $dokka.location:raylib/Font/unload/#/PointingToDeclaration/kray/raylib/-font/unload.html
 $dokka.location:raylib/GamePad.Axis.Companion///PointingToDeclaration/kray/raylib/-game-pad/-axis/-companion/index.html
 $dokka.location:raylib/GamePad.Axis.Companion/LEFT_X/#/PointingToDeclaration/kray/raylib/-game-pad/-axis/-companion/-l-e-f-t_-x.html
@@ -1319,6 +1595,7 @@ $dokka.location:raylib/Image.Companion/load/#kotlin.String/PointingToDeclaration
 $dokka.location:raylib/Image.Companion/load/#raylib.File/PointingToDeclaration/kray/raylib/-image/-companion/load.html
 $dokka.location:raylib/Image.Companion/screenshot/#/PointingToDeclaration/kray/raylib/-image/-companion/screenshot.html
 $dokka.location:raylib/Image///PointingToDeclaration/kray/raylib/-image/index.html
+$dokka.location:raylib/Image/Image/#<ERROR CLASS> ERROR CLASS: Symbol not found for CValue<ERROR CLASS: Symbol not found for raylib.internal.Image>/PointingToDeclaration/kray/raylib/-image/-image.html
 $dokka.location:raylib/Image/alphaClear/#raylib.Color#kotlin.Float/PointingToDeclaration/kray/raylib/-image/alpha-clear.html
 $dokka.location:raylib/Image/alphaMask/#raylib.Image/PointingToDeclaration/kray/raylib/-image/alpha-mask.html
 $dokka.location:raylib/Image/blur/#kotlin.Int/PointingToDeclaration/kray/raylib/-image/blur.html
@@ -1327,12 +1604,12 @@ $dokka.location:raylib/Image/bytes/#/PointingToDeclaration/kray/raylib/-image/b
 $dokka.location:raylib/Image/circle/#kotlin.Int#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/-image/circle.html
 $dokka.location:raylib/Image/contrast/#kotlin.Float/PointingToDeclaration/kray/raylib/-image/contrast.html
 $dokka.location:raylib/Image/convertTo/#raylib.PictureFormat/PointingToDeclaration/kray/raylib/-image/convert-to.html
-$dokka.location:raylib/Image/crop/#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/raylib/-image/crop.html
+$dokka.location:raylib/Image/crop/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-image/crop.html
 $dokka.location:raylib/Image/dither/#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/raylib/-image/dither.html
 $dokka.location:raylib/Image/dither/#kotlin.Int/PointingToDeclaration/kray/raylib/-image/dither.html
 $dokka.location:raylib/Image/draw/#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/-image/draw.html
-$dokka.location:raylib/Image/draw/#raylib.Image#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/-image/draw.html
-$dokka.location:raylib/Image/draw/#raylib.Image#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/-image/draw.html
+$dokka.location:raylib/Image/draw/#raylib.Image#kotlin.Float#kotlin.Float#kotlin.Int#kotlin.Int#kotlin.Float#kotlin.Float#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/-image/draw.html
+$dokka.location:raylib/Image/draw/#raylib.Image#kotlin.Float#kotlin.Float#raylib.Color/PointingToDeclaration/kray/raylib/-image/draw.html
 $dokka.location:raylib/Image/drawText/#kotlin.Int#kotlin.Int#kotlin.String#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/-image/draw-text.html
 $dokka.location:raylib/Image/equals/#kotlin.Any?/PointingToDeclaration/kray/raylib/-image/equals.html
 $dokka.location:raylib/Image/fillCircle/#kotlin.Int#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/-image/fill-circle.html
@@ -1351,6 +1628,7 @@ $dokka.location:raylib/Image/isValid/#/PointingToDeclaration/kray/raylib/-image
 $dokka.location:raylib/Image/line/#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/-image/line.html
 $dokka.location:raylib/Image/line/#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/-image/line.html
 $dokka.location:raylib/Image/premultiplyAlpha/#raylib.Image/PointingToDeclaration/kray/raylib/-image/premultiply-alpha.html
+$dokka.location:raylib/Image/rect/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/-image/rect.html
 $dokka.location:raylib/Image/rect/#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#raylib.Color/PointingToDeclaration/kray/raylib/-image/rect.html
 $dokka.location:raylib/Image/replace/#raylib.Color#raylib.Color/PointingToDeclaration/kray/raylib/-image/replace.html
 $dokka.location:raylib/Image/resize/#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/raylib/-image/resize.html
@@ -1507,6 +1785,7 @@ $dokka.location:raylib/Material/setMapColor/#raylib.MaterialMap.Texture#raylib.C
 $dokka.location:raylib/Material/setTextureMap/#kotlin.Int#raylib.Texture2D/PointingToDeclaration/kray/raylib/-material/set-texture-map.html
 $dokka.location:raylib/Material/setTextureMap/#raylib.MaterialMap.Texture#raylib.Texture2D/PointingToDeclaration/kray/raylib/-material/set-texture-map.html
 $dokka.location:raylib/Material/shader/#/PointingToDeclaration/kray/raylib/-material/shader.html
+$dokka.location:raylib/Material/unload/#/PointingToDeclaration/kray/raylib/-material/unload.html
 $dokka.location:raylib/MaterialMap.Texture.Companion///PointingToDeclaration/kray/raylib/-material-map/-texture/-companion/index.html
 $dokka.location:raylib/MaterialMap.Texture.Companion/ALBEDO/#/PointingToDeclaration/kray/raylib/-material-map/-texture/-companion/-a-l-b-e-d-o.html
 $dokka.location:raylib/MaterialMap.Texture.Companion/AO/#/PointingToDeclaration/kray/raylib/-material-map/-texture/-companion/-a-o.html
@@ -1530,16 +1809,19 @@ $dokka.location:raylib/Matrix4.Companion///PointingToDeclaration/kray/raylib/-m
 $dokka.location:raylib/Matrix4.Companion/IDENTITY/#/PointingToDeclaration/kray/raylib/-matrix4/-companion/-i-d-e-n-t-i-t-y.html
 $dokka.location:raylib/Matrix4.Companion/fromFloatArray/#kotlin.FloatArray/PointingToDeclaration/kray/raylib/-matrix4/-companion/from-float-array.html
 $dokka.location:raylib/Matrix4.Companion/getRotationMatrix/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#kotlin.Float/PointingToDeclaration/kray/raylib/-matrix4/-companion/get-rotation-matrix.html
+$dokka.location:raylib/Matrix4.Companion/getRotationMatrix/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/-matrix4/-companion/get-rotation-matrix.html
 $dokka.location:raylib/Matrix4.Companion/getScaleMatrix/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/-matrix4/-companion/get-scale-matrix.html
 $dokka.location:raylib/Matrix4.Companion/getTransformationMatrix/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#kotlin.Float#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/-matrix4/-companion/get-transformation-matrix.html
 $dokka.location:raylib/Matrix4.Companion/getTranslationMatrix/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/-matrix4/-companion/get-translation-matrix.html
 $dokka.location:raylib/Matrix4.Companion/rotate/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-matrix4/-companion/rotate.html
+$dokka.location:raylib/Matrix4.Companion/rotate/#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-matrix4/-companion/rotate.html
 $dokka.location:raylib/Matrix4.Companion/scale/#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-matrix4/-companion/scale.html
 $dokka.location:raylib/Matrix4.Companion/scale/#kotlin.Float/PointingToDeclaration/kray/raylib/-matrix4/-companion/scale.html
 $dokka.location:raylib/Matrix4.Companion/translate/#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-matrix4/-companion/translate.html
 $dokka.location:raylib/Matrix4///PointingToDeclaration/kray/raylib/-matrix4/index.html
 $dokka.location:raylib/Matrix4/Matrix4/#<ERROR CLASS> ERROR CLASS: Symbol not found for Matrix/PointingToDeclaration/kray/raylib/-matrix4/-matrix4.html
 $dokka.location:raylib/Matrix4/Matrix4/#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-matrix4/-matrix4.html
+$dokka.location:raylib/Matrix4/inverted/#/PointingToDeclaration/kray/raylib/-matrix4/inverted.html
 $dokka.location:raylib/Matrix4/m0/#/PointingToDeclaration/kray/raylib/-matrix4/m0.html
 $dokka.location:raylib/Matrix4/m1/#/PointingToDeclaration/kray/raylib/-matrix4/m1.html
 $dokka.location:raylib/Matrix4/m10/#/PointingToDeclaration/kray/raylib/-matrix4/m10.html
@@ -1556,8 +1838,28 @@ $dokka.location:raylib/Matrix4/m6/#/PointingToDeclaration/kray/raylib/-matrix4/
 $dokka.location:raylib/Matrix4/m7/#/PointingToDeclaration/kray/raylib/-matrix4/m7.html
 $dokka.location:raylib/Matrix4/m8/#/PointingToDeclaration/kray/raylib/-matrix4/m8.html
 $dokka.location:raylib/Matrix4/m9/#/PointingToDeclaration/kray/raylib/-matrix4/m9.html
+$dokka.location:raylib/Matrix4/multiply/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/-matrix4/multiply.html
+$dokka.location:raylib/Matrix4/multiply/#kray.Quadruple[kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float]/PointingToDeclaration/kray/raylib/-matrix4/multiply.html
 $dokka.location:raylib/Matrix4/multiply/#raylib.Matrix4/PointingToDeclaration/kray/raylib/-matrix4/multiply.html
+$dokka.location:raylib/Matrix4/pitch/#/PointingToDeclaration/kray/raylib/-matrix4/pitch.html
+$dokka.location:raylib/Matrix4/roll/#/PointingToDeclaration/kray/raylib/-matrix4/roll.html
+$dokka.location:raylib/Matrix4/rotate/#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-matrix4/rotate.html
+$dokka.location:raylib/Matrix4/rotation/#/PointingToDeclaration/kray/raylib/-matrix4/rotation.html
+$dokka.location:raylib/Matrix4/scale/#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-matrix4/scale.html
+$dokka.location:raylib/Matrix4/scale/#kotlin.Float/PointingToDeclaration/kray/raylib/-matrix4/scale.html
+$dokka.location:raylib/Matrix4/scaleX/#/PointingToDeclaration/kray/raylib/-matrix4/scale-x.html
+$dokka.location:raylib/Matrix4/scaleY/#/PointingToDeclaration/kray/raylib/-matrix4/scale-y.html
+$dokka.location:raylib/Matrix4/scaleZ/#/PointingToDeclaration/kray/raylib/-matrix4/scale-z.html
+$dokka.location:raylib/Matrix4/times/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/-matrix4/times.html
+$dokka.location:raylib/Matrix4/times/#kray.Quadruple[kotlin.Float,kotlin.Float,kotlin.Float,kotlin.Float]/PointingToDeclaration/kray/raylib/-matrix4/times.html
+$dokka.location:raylib/Matrix4/times/#raylib.Matrix4/PointingToDeclaration/kray/raylib/-matrix4/times.html
 $dokka.location:raylib/Matrix4/toFloatArray/#/PointingToDeclaration/kray/raylib/-matrix4/to-float-array.html
+$dokka.location:raylib/Matrix4/translate/#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-matrix4/translate.html
+$dokka.location:raylib/Matrix4/transpose/#/PointingToDeclaration/kray/raylib/-matrix4/transpose.html
+$dokka.location:raylib/Matrix4/x/#/PointingToDeclaration/kray/raylib/-matrix4/x.html
+$dokka.location:raylib/Matrix4/y/#/PointingToDeclaration/kray/raylib/-matrix4/y.html
+$dokka.location:raylib/Matrix4/yaw/#/PointingToDeclaration/kray/raylib/-matrix4/yaw.html
+$dokka.location:raylib/Matrix4/z/#/PointingToDeclaration/kray/raylib/-matrix4/z.html
 $dokka.location:raylib/Mesh.Companion///PointingToDeclaration/kray/raylib/-mesh/-companion/index.html
 $dokka.location:raylib/Mesh.Companion/add/#raylib.Mesh#raylib.Mesh/PointingToDeclaration/kray/raylib/-mesh/-companion/add.html
 $dokka.location:raylib/Mesh.Companion/cone/#kotlin.Float#kotlin.Float#kotlin.Int/PointingToDeclaration/kray/raylib/-mesh/-companion/cone.html
@@ -1593,7 +1895,7 @@ $dokka.location:raylib/Mesh.Vertex/x/#/PointingToDeclaration/kray/raylib/-mesh/
 $dokka.location:raylib/Mesh.Vertex/y/#/PointingToDeclaration/kray/raylib/-mesh/-vertex/y.html
 $dokka.location:raylib/Mesh.Vertex/z/#/PointingToDeclaration/kray/raylib/-mesh/-vertex/z.html
 $dokka.location:raylib/Mesh///PointingToDeclaration/kray/raylib/-mesh/index.html
-$dokka.location:raylib/Mesh/Mesh/#<ERROR CLASS> ERROR CLASS: Symbol not found for CValue<ERROR CLASS: Symbol not found for raylib.internal.Mesh>/PointingToDeclaration/kray/raylib/-mesh/-mesh.html
+$dokka.location:raylib/Mesh/Mesh/#<ERROR CLASS> ERROR CLASS: Symbol not found for CPointer<ERROR CLASS: Symbol not found for raylib.internal.Mesh>/PointingToDeclaration/kray/raylib/-mesh/-mesh.html
 $dokka.location:raylib/Mesh/addVertex/#raylib.Mesh.Vertex/PointingToDeclaration/kray/raylib/-mesh/add-vertex.html
 $dokka.location:raylib/Mesh/animatedNormals/#/PointingToDeclaration/kray/raylib/-mesh/animated-normals.html
 $dokka.location:raylib/Mesh/animatedVertices/#/PointingToDeclaration/kray/raylib/-mesh/animated-vertices.html
@@ -1616,15 +1918,17 @@ $dokka.location:raylib/Mesh/tangents/#/PointingToDeclaration/kray/raylib/-mesh/
 $dokka.location:raylib/Mesh/transform/#raylib.Matrix4/PointingToDeclaration/kray/raylib/-mesh/transform.html
 $dokka.location:raylib/Mesh/transformations/#/PointingToDeclaration/kray/raylib/-mesh/transformations.html
 $dokka.location:raylib/Mesh/triangleCount/#/PointingToDeclaration/kray/raylib/-mesh/triangle-count.html
+$dokka.location:raylib/Mesh/unload/#/PointingToDeclaration/kray/raylib/-mesh/unload.html
 $dokka.location:raylib/Mesh/upload/#kotlin.Boolean/PointingToDeclaration/kray/raylib/-mesh/upload.html
 $dokka.location:raylib/Mesh/vertexCount/#/PointingToDeclaration/kray/raylib/-mesh/vertex-count.html
 $dokka.location:raylib/Mesh/vertices/#/PointingToDeclaration/kray/raylib/-mesh/vertices.html
 $dokka.location:raylib/Model.Companion///PointingToDeclaration/kray/raylib/-model/-companion/index.html
 $dokka.location:raylib/Model.Companion/fromMesh/#raylib.Mesh#raylib.Material?/PointingToDeclaration/kray/raylib/-model/-companion/from-mesh.html
+$dokka.location:raylib/Model.Companion/fromMeshFree/#raylib.Mesh#raylib.Material?/PointingToDeclaration/kray/raylib/-model/-companion/from-mesh-free.html
 $dokka.location:raylib/Model.Companion/load/#kotlin.String/PointingToDeclaration/kray/raylib/-model/-companion/load.html
 $dokka.location:raylib/Model.Companion/load/#raylib.File/PointingToDeclaration/kray/raylib/-model/-companion/load.html
 $dokka.location:raylib/Model///PointingToDeclaration/kray/raylib/-model/index.html
-$dokka.location:raylib/Model/Model/#<ERROR CLASS> ERROR CLASS: Symbol not found for CValue<ERROR CLASS: Symbol not found for raylib.internal.Model>/PointingToDeclaration/kray/raylib/-model/-model.html
+$dokka.location:raylib/Model/Model/#<ERROR CLASS> ERROR CLASS: Symbol not found for CPointer<ERROR CLASS: Symbol not found for raylib.internal.Model>/PointingToDeclaration/kray/raylib/-model/-model.html
 $dokka.location:raylib/Model/addMaterial/#raylib.Material/PointingToDeclaration/kray/raylib/-model/add-material.html
 $dokka.location:raylib/Model/addPart/#raylib.Mesh#raylib.Material/PointingToDeclaration/kray/raylib/-model/add-part.html
 $dokka.location:raylib/Model/boundingBox/#/PointingToDeclaration/kray/raylib/-model/bounding-box.html
@@ -1636,12 +1940,17 @@ $dokka.location:raylib/Model/meshes/#/PointingToDeclaration/kray/raylib/-model/
 $dokka.location:raylib/Model/parts/#/PointingToDeclaration/kray/raylib/-model/parts.html
 $dokka.location:raylib/Model/removeMaterial/#kotlin.Int/PointingToDeclaration/kray/raylib/-model/remove-material.html
 $dokka.location:raylib/Model/removePart/#kotlin.Int/PointingToDeclaration/kray/raylib/-model/remove-part.html
+$dokka.location:raylib/Model/rotate/#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-model/rotate.html
+$dokka.location:raylib/Model/scale/#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-model/scale.html
+$dokka.location:raylib/Model/scale/#kotlin.Float/PointingToDeclaration/kray/raylib/-model/scale.html
 $dokka.location:raylib/Model/setMaterial/#kotlin.Int#raylib.Material/PointingToDeclaration/kray/raylib/-model/set-material.html
 $dokka.location:raylib/Model/setMeshMaterial/#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/raylib/-model/set-mesh-material.html
 $dokka.location:raylib/Model/setMeshMaterial/#kotlin.Int#raylib.Material/PointingToDeclaration/kray/raylib/-model/set-mesh-material.html
 $dokka.location:raylib/Model/setMeshMaterial/#raylib.Mesh#raylib.Material/PointingToDeclaration/kray/raylib/-model/set-mesh-material.html
 $dokka.location:raylib/Model/setPart/#kotlin.Int#raylib.Mesh#raylib.Material/PointingToDeclaration/kray/raylib/-model/set-part.html
 $dokka.location:raylib/Model/transform/#/PointingToDeclaration/kray/raylib/-model/transform.html
+$dokka.location:raylib/Model/translate/#kotlin.Float#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-model/translate.html
+$dokka.location:raylib/Model/unload/#/PointingToDeclaration/kray/raylib/-model/unload.html
 $dokka.location:raylib/Mouse.Button.Companion///PointingToDeclaration/kray/raylib/-mouse/-button/-companion/index.html
 $dokka.location:raylib/Mouse.Button.Companion/BACK/#/PointingToDeclaration/kray/raylib/-mouse/-button/-companion/-b-a-c-k.html
 $dokka.location:raylib/Mouse.Button.Companion/EXTRA/#/PointingToDeclaration/kray/raylib/-mouse/-button/-companion/-e-x-t-r-a.html
@@ -1702,6 +2011,7 @@ $dokka.location:raylib/PictureFormat.Companion/UNCOMPRESSED_R5G5B5A1/#/PointingT
 $dokka.location:raylib/PictureFormat.Companion/UNCOMPRESSED_R5G6B5/#/PointingToDeclaration/kray/raylib/-picture-format/-companion/-u-n-c-o-m-p-r-e-s-s-e-d_-r5-g6-b5.html
 $dokka.location:raylib/PictureFormat.Companion/UNCOMPRESSED_R8G8B8/#/PointingToDeclaration/kray/raylib/-picture-format/-companion/-u-n-c-o-m-p-r-e-s-s-e-d_-r8-g8-b8.html
 $dokka.location:raylib/PictureFormat.Companion/UNCOMPRESSED_R8G8B8A8/#/PointingToDeclaration/kray/raylib/-picture-format/-companion/-u-n-c-o-m-p-r-e-s-s-e-d_-r8-g8-b8-a8.html
+$dokka.location:raylib/PictureFormat.Companion/allFormats/#/PointingToDeclaration/kray/raylib/-picture-format/-companion/all-formats.html
 $dokka.location:raylib/PictureFormat///PointingToDeclaration/kray/raylib/-picture-format/index.html
 $dokka.location:raylib/PictureFormat/bpp/#/PointingToDeclaration/kray/raylib/-picture-format/bpp.html
 $dokka.location:raylib/RenderTexture2D///PointingToDeclaration/kray/raylib/-render-texture2-d/index.html
@@ -1819,10 +2129,11 @@ $dokka.location:raylib/Texture2D.Companion///PointingToDeclaration/kray/raylib/
 $dokka.location:raylib/Texture2D.Companion/load/#kotlin.String/PointingToDeclaration/kray/raylib/-texture2-d/-companion/load.html
 $dokka.location:raylib/Texture2D.Companion/load/#raylib.File/PointingToDeclaration/kray/raylib/-texture2-d/-companion/load.html
 $dokka.location:raylib/Texture2D///PointingToDeclaration/kray/raylib/-texture2-d/index.html
-$dokka.location:raylib/Texture2D/Texture2D/#<ERROR CLASS> ERROR CLASS: Symbol not found for CValue<ERROR CLASS: Symbol not found for raylib.internal.Texture2D>/PointingToDeclaration/kray/raylib/-texture2-d/-texture2-d.html
 $dokka.location:raylib/Texture2D/Texture2D/#<ERROR CLASS> ERROR CLASS: Symbol not found for raylib.internal.Texture2D/PointingToDeclaration/kray/raylib/-texture2-d/-texture2-d.html
 $dokka.location:raylib/Texture2D/Texture2D/#<ERROR CLASS> {raylib/Sampler2D=} ERROR CLASS: Symbol not found for UInt#kotlin.Int#kotlin.Int#kotlin.Int#raylib.PictureFormat/PointingToDeclaration/kray/raylib/-texture2-d/-texture2-d.html
+$dokka.location:raylib/Texture2D/equals/#kotlin.Any?/PointingToDeclaration/kray/raylib/-texture2-d/equals.html
 $dokka.location:raylib/Texture2D/format/#/PointingToDeclaration/kray/raylib/-texture2-d/format.html
+$dokka.location:raylib/Texture2D/hashCode/#/PointingToDeclaration/kray/raylib/-texture2-d/hash-code.html
 $dokka.location:raylib/Texture2D/height/#/PointingToDeclaration/kray/raylib/-texture2-d/height.html
 $dokka.location:raylib/Texture2D/id/#/PointingToDeclaration/kray/raylib/-texture2-d/id.html
 $dokka.location:raylib/Texture2D/mipmaps/#/PointingToDeclaration/kray/raylib/-texture2-d/mipmaps.html
@@ -1897,6 +2208,7 @@ $dokka.location:raylib/Window/windowScaleDPIY/#/PointingToDeclaration/kray/rayl
 $dokka.location:raylib/Window/windowX/#/PointingToDeclaration/kray/raylib/-window/window-x.html
 $dokka.location:raylib/Window/windowY/#/PointingToDeclaration/kray/raylib/-window/window-y.html
 kray
+kray.physics
 kray.shaders
 kray.sprites
 raylib
