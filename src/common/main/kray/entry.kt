@@ -101,66 +101,72 @@ object Kray {
 
 		this.loop = logic
 		this.frameCount = 0
+		this.stopped = false
 
-		while (!window.shouldClose && !stopped) {
-			if (frameCount >= frames) break
+		try {
+			while (!window.shouldClose && !stopped) {
+				if (frameCount >= frames) break
 
-			// physics engine
-			if (engineEnabled)
-				engineTick()
+				// physics engine
+				if (engineEnabled)
+					engineTick()
 
-			logic()
+				logic()
 
-			// drawing
-			canvas.draw {
-				// drawing loop (out camera, positive priority)
-				drawings.filter { (_, inCamera) -> !inCamera }
-					.filter { (p) -> p > 0 }
-					.sortedBy { it.priority }
-					.forEach { (_, _, action) -> action(canvas) }
+				// drawing
+				canvas.draw {
+					// drawing loop (out camera, positive priority)
+					drawings.filter { (_, inCamera) -> !inCamera }
+						.filter { (p) -> p > 0 }
+						.sortedBy { it.priority }
+						.forEach { (_, _, action) -> action(canvas) }
 
-				if (camera2D != null)
-					canvas.start2D(camera2D!!)
-				else if (camera3D != null)
-					canvas.start3D(camera3D!!)
+					if (camera2D != null)
+						canvas.start2D(camera2D!!)
+					else if (camera3D != null)
+						canvas.start3D(camera3D!!)
 
-				// drawing loop (in camera, positive priority)
-				drawings.filter { (_, inCamera) -> inCamera }
-					.filter { (p) -> p > 0 }
-					.sortedBy { it.priority }
-					.forEach { (_, _, action) -> action(canvas) }
+					// drawing loop (in camera, positive priority)
+					drawings.filter { (_, inCamera) -> inCamera }
+						.filter { (p) -> p > 0 }
+						.sortedBy { it.priority }
+						.forEach { (_, _, action) -> action(canvas) }
 
-				// draw registered sprites
-				drawnSprites.forEach { sprite ->
-					if (sprite is Sprite2D && sprite.isDrawn) {
-						canvas.drawSprite(sprite)
+					// draw registered sprites
+					drawnSprites.forEach { sprite ->
+						if (sprite is Sprite2D && sprite.isDrawn) {
+							canvas.drawSprite(sprite)
+						}
+
+						if (sprite is Sprite3D && sprite.isDrawn) {
+							canvas.drawSprite(sprite)
+						}
 					}
 
-					if (sprite is Sprite3D && sprite.isDrawn) {
-						canvas.drawSprite(sprite)
-					}
+					// drawing loop (in camera, negative priority)
+					drawings.filter { (_, inCamera) -> inCamera }
+						.filter { (p) -> p < 0 }
+						.sortedBy { it.priority }
+						.forEach { (_, _, action) -> action(canvas) }
+
+					if (camera2D != null)
+						canvas.end2D()
+					else if (camera3D != null)
+						canvas.end3D()
+
+					// drawing loop (out camera, negative priority)
+					drawings.filter { (_, inCamera) -> !inCamera }
+						.filter { (p) -> p < 0 }
+						.sortedBy { it.priority }
+						.forEach { (_, _, action) -> action(canvas) }
 				}
 
-				// drawing loop (in camera, negative priority)
-				drawings.filter { (_, inCamera) -> inCamera }
-					.filter { (p) -> p < 0 }
-					.sortedBy { it.priority }
-					.forEach { (_, _, action) -> action(canvas) }
-
-				if (camera2D != null)
-					canvas.end2D()
-				else if (camera3D != null)
-					canvas.end3D()
-
-				// drawing loop (out camera, negative priority)
-				drawings.filter { (_, inCamera) -> !inCamera }
-					.filter { (p) -> p < 0 }
-					.sortedBy { it.priority }
-					.forEach { (_, _, action) -> action(canvas) }
+				drawings.clear()
+				frameCount++
 			}
-
-			drawings.clear()
-			frameCount++
+		} finally {
+			this.loop = null
+			this.stopped = false
 		}
 	}
 
