@@ -625,6 +625,35 @@ $dokka.location:raylib//triangleStrip/raylib.Canvas#raylib.Color#kotlin.collecti
 $dokka.location:raylib//triangleStrip3/raylib.Canvas#raylib.Color#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/triangle-strip3.html
 $dokka.location:raylib//triangleStrip3/raylib.Canvas#raylib.Color#kotlin.collections.List[<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>]/PointingToDeclaration/kray/raylib/triangle-strip3.html
 $dokka.location:raylib//writeTo/raylib.Image#raylib.File/PointingToDeclaration/kray/raylib/write-to.html
+$dokka.location:raylib/Audio///PointingToDeclaration/kray/raylib/-audio/index.html
+$dokka.location:raylib/Audio/masterVolume/#/PointingToDeclaration/kray/raylib/-audio/master-volume.html
+$dokka.location:raylib/Audio/pause/#raylib.Playable/PointingToDeclaration/kray/raylib/-audio/pause.html
+$dokka.location:raylib/Audio/play/#raylib.Playable/PointingToDeclaration/kray/raylib/-audio/play.html
+$dokka.location:raylib/Audio/ready/#/PointingToDeclaration/kray/raylib/-audio/ready.html
+$dokka.location:raylib/Audio/resume/#raylib.Playable/PointingToDeclaration/kray/raylib/-audio/resume.html
+$dokka.location:raylib/Audio/start/#/PointingToDeclaration/kray/raylib/-audio/start.html
+$dokka.location:raylib/Audio/stop/#/PointingToDeclaration/kray/raylib/-audio/stop.html
+$dokka.location:raylib/Audio/stop/#raylib.Playable/PointingToDeclaration/kray/raylib/-audio/stop.html
+$dokka.location:raylib/AudioStream.Companion///PointingToDeclaration/kray/raylib/-audio-stream/-companion/index.html
+$dokka.location:raylib/AudioStream.Companion/attachMixedProcessor/#kotlin.Function1[<ERROR CLASS> ERROR CLASS: Symbol not found for UByteArray,kotlin.Unit]/PointingToDeclaration/kray/raylib/-audio-stream/-companion/attach-mixed-processor.html
+$dokka.location:raylib/AudioStream.Companion/create/#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/raylib/-audio-stream/-companion/create.html
+$dokka.location:raylib/AudioStream.Companion/detachMixedProcessor/#/PointingToDeclaration/kray/raylib/-audio-stream/-companion/detach-mixed-processor.html
+$dokka.location:raylib/AudioStream.Companion/setDefaultBufferSize/#kotlin.Int/PointingToDeclaration/kray/raylib/-audio-stream/-companion/set-default-buffer-size.html
+$dokka.location:raylib/AudioStream///PointingToDeclaration/kray/raylib/-audio-stream/index.html
+$dokka.location:raylib/AudioStream/AudioStream/#<ERROR CLASS> ERROR CLASS: Symbol not found for CPointer<ERROR CLASS: Symbol not found for raylib.internal.AudioStream>/PointingToDeclaration/kray/raylib/-audio-stream/-audio-stream.html
+$dokka.location:raylib/AudioStream/attachProcessor/#kotlin.Function1[<ERROR CLASS> ERROR CLASS: Symbol not found for UByteArray,kotlin.Unit]/PointingToDeclaration/kray/raylib/-audio-stream/attach-processor.html
+$dokka.location:raylib/AudioStream/detachProcessor/#/PointingToDeclaration/kray/raylib/-audio-stream/detach-processor.html
+$dokka.location:raylib/AudioStream/pause/#/PointingToDeclaration/kray/raylib/-audio-stream/pause.html
+$dokka.location:raylib/AudioStream/play/#/PointingToDeclaration/kray/raylib/-audio-stream/play.html
+$dokka.location:raylib/AudioStream/playing/#/PointingToDeclaration/kray/raylib/-audio-stream/playing.html
+$dokka.location:raylib/AudioStream/resume/#/PointingToDeclaration/kray/raylib/-audio-stream/resume.html
+$dokka.location:raylib/AudioStream/setCallback/#kotlin.Function1[<ERROR CLASS> ERROR CLASS: Symbol not found for UByteArray,kotlin.Unit]/PointingToDeclaration/kray/raylib/-audio-stream/set-callback.html
+$dokka.location:raylib/AudioStream/setPan/#kotlin.Float/PointingToDeclaration/kray/raylib/-audio-stream/set-pan.html
+$dokka.location:raylib/AudioStream/setPitch/#kotlin.Float/PointingToDeclaration/kray/raylib/-audio-stream/set-pitch.html
+$dokka.location:raylib/AudioStream/setVolume/#kotlin.Float/PointingToDeclaration/kray/raylib/-audio-stream/set-volume.html
+$dokka.location:raylib/AudioStream/stop/#/PointingToDeclaration/kray/raylib/-audio-stream/stop.html
+$dokka.location:raylib/AudioStream/unload/#/PointingToDeclaration/kray/raylib/-audio-stream/unload.html
+$dokka.location:raylib/AudioStream/valid/#/PointingToDeclaration/kray/raylib/-audio-stream/valid.html
 $dokka.location:raylib/BoundingBox3D///PointingToDeclaration/kray/raylib/-bounding-box3-d/index.html
 $dokka.location:raylib/BoundingBox3D/BoundingBox3D/#<ERROR CLASS> ERROR CLASS: Symbol not found for BoundingBox/PointingToDeclaration/kray/raylib/-bounding-box3-d/-bounding-box3-d.html
 $dokka.location:raylib/BoundingBox3D/BoundingBox3D/#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>#<ERROR CLASS> ERROR CLASS: Symbol not found for Triple<kotlin/Float, kotlin/Float, kotlin/Float>/PointingToDeclaration/kray/raylib/-bounding-box3-d/-bounding-box3-d.html
@@ -1989,6 +2018,24 @@ $dokka.location:raylib/Mouse/setCursor/#raylib.Mouse.Cursor/PointingToDeclaratio
 $dokka.location:raylib/Mouse/setScale/#kotlin.Float#kotlin.Float/PointingToDeclaration/kray/raylib/-mouse/set-scale.html
 $dokka.location:raylib/Mouse/wheelX/#/PointingToDeclaration/kray/raylib/-mouse/wheel-x.html
 $dokka.location:raylib/Mouse/wheelY/#/PointingToDeclaration/kray/raylib/-mouse/wheel-y.html
+$dokka.location:raylib/MusicStream.Companion///PointingToDeclaration/kray/raylib/-music-stream/-companion/index.html
+$dokka.location:raylib/MusicStream.Companion/load/#kotlin.String/PointingToDeclaration/kray/raylib/-music-stream/-companion/load.html
+$dokka.location:raylib/MusicStream.Companion/loadFromMemory/#kotlin.String#<ERROR CLASS> ERROR CLASS: Symbol not found for UByteArray/PointingToDeclaration/kray/raylib/-music-stream/-companion/load-from-memory.html
+$dokka.location:raylib/MusicStream///PointingToDeclaration/kray/raylib/-music-stream/index.html
+$dokka.location:raylib/MusicStream/MusicStream/#<ERROR CLASS> ERROR CLASS: Symbol not found for CPointer<ERROR CLASS: Symbol not found for Music>/PointingToDeclaration/kray/raylib/-music-stream/-music-stream.html
+$dokka.location:raylib/MusicStream/length/#/PointingToDeclaration/kray/raylib/-music-stream/length.html
+$dokka.location:raylib/MusicStream/pause/#/PointingToDeclaration/kray/raylib/-music-stream/pause.html
+$dokka.location:raylib/MusicStream/play/#/PointingToDeclaration/kray/raylib/-music-stream/play.html
+$dokka.location:raylib/MusicStream/playing/#/PointingToDeclaration/kray/raylib/-music-stream/playing.html
+$dokka.location:raylib/MusicStream/resume/#/PointingToDeclaration/kray/raylib/-music-stream/resume.html
+$dokka.location:raylib/MusicStream/seek/#kotlin.Float/PointingToDeclaration/kray/raylib/-music-stream/seek.html
+$dokka.location:raylib/MusicStream/setPan/#kotlin.Float/PointingToDeclaration/kray/raylib/-music-stream/set-pan.html
+$dokka.location:raylib/MusicStream/setPitch/#kotlin.Float/PointingToDeclaration/kray/raylib/-music-stream/set-pitch.html
+$dokka.location:raylib/MusicStream/setVolume/#kotlin.Float/PointingToDeclaration/kray/raylib/-music-stream/set-volume.html
+$dokka.location:raylib/MusicStream/stop/#/PointingToDeclaration/kray/raylib/-music-stream/stop.html
+$dokka.location:raylib/MusicStream/timePlayed/#/PointingToDeclaration/kray/raylib/-music-stream/time-played.html
+$dokka.location:raylib/MusicStream/unload/#/PointingToDeclaration/kray/raylib/-music-stream/unload.html
+$dokka.location:raylib/MusicStream/valid/#/PointingToDeclaration/kray/raylib/-music-stream/valid.html
 $dokka.location:raylib/PictureFormat.Companion///PointingToDeclaration/kray/raylib/-picture-format/-companion/index.html
 $dokka.location:raylib/PictureFormat.Companion/COMPRESSED_ASTC_4X4_RGBA/#/PointingToDeclaration/kray/raylib/-picture-format/-companion/-c-o-m-p-r-e-s-s-e-d_-a-s-t-c_4-x4_-r-g-b-a.html
 $dokka.location:raylib/PictureFormat.Companion/COMPRESSED_ASTC_8X8_RGBA/#/PointingToDeclaration/kray/raylib/-picture-format/-companion/-c-o-m-p-r-e-s-s-e-d_-a-s-t-c_8-x8_-r-g-b-a.html
@@ -2014,6 +2061,16 @@ $dokka.location:raylib/PictureFormat.Companion/UNCOMPRESSED_R8G8B8A8/#/PointingT
 $dokka.location:raylib/PictureFormat.Companion/allFormats/#/PointingToDeclaration/kray/raylib/-picture-format/-companion/all-formats.html
 $dokka.location:raylib/PictureFormat///PointingToDeclaration/kray/raylib/-picture-format/index.html
 $dokka.location:raylib/PictureFormat/bpp/#/PointingToDeclaration/kray/raylib/-picture-format/bpp.html
+$dokka.location:raylib/Playable///PointingToDeclaration/kray/raylib/-playable/index.html
+$dokka.location:raylib/Playable/pause/#/PointingToDeclaration/kray/raylib/-playable/pause.html
+$dokka.location:raylib/Playable/play/#/PointingToDeclaration/kray/raylib/-playable/play.html
+$dokka.location:raylib/Playable/playing/#/PointingToDeclaration/kray/raylib/-playable/playing.html
+$dokka.location:raylib/Playable/resume/#/PointingToDeclaration/kray/raylib/-playable/resume.html
+$dokka.location:raylib/Playable/setPan/#kotlin.Float/PointingToDeclaration/kray/raylib/-playable/set-pan.html
+$dokka.location:raylib/Playable/setPitch/#kotlin.Float/PointingToDeclaration/kray/raylib/-playable/set-pitch.html
+$dokka.location:raylib/Playable/setVolume/#kotlin.Float/PointingToDeclaration/kray/raylib/-playable/set-volume.html
+$dokka.location:raylib/Playable/stop/#/PointingToDeclaration/kray/raylib/-playable/stop.html
+$dokka.location:raylib/Playable/valid/#/PointingToDeclaration/kray/raylib/-playable/valid.html
 $dokka.location:raylib/RenderTexture2D///PointingToDeclaration/kray/raylib/-render-texture2-d/index.html
 $dokka.location:raylib/RenderTexture2D/RenderTexture2D/#<ERROR CLASS> ERROR CLASS: Symbol not found for UInt#raylib.Texture2D#raylib.Texture2D/PointingToDeclaration/kray/raylib/-render-texture2-d/-render-texture2-d.html
 $dokka.location:raylib/RenderTexture2D/depth/#/PointingToDeclaration/kray/raylib/-render-texture2-d/depth.html
@@ -2125,6 +2182,21 @@ $dokka.location:raylib/Shader/setValue/#kotlin.String#raylib.Color/PointingToDec
 $dokka.location:raylib/Shader/setValue/#kotlin.String#raylib.Matrix4/PointingToDeclaration/kray/raylib/-shader/set-value.html
 $dokka.location:raylib/Shader/setValue/#kotlin.String#raylib.Texture2D/PointingToDeclaration/kray/raylib/-shader/set-value.html
 $dokka.location:raylib/Shader/unload/#/PointingToDeclaration/kray/raylib/-shader/unload.html
+$dokka.location:raylib/Sound.Companion///PointingToDeclaration/kray/raylib/-sound/-companion/index.html
+$dokka.location:raylib/Sound.Companion/load/#kotlin.String/PointingToDeclaration/kray/raylib/-sound/-companion/load.html
+$dokka.location:raylib/Sound.Companion/loadFromWave/#raylib.Wave/PointingToDeclaration/kray/raylib/-sound/-companion/load-from-wave.html
+$dokka.location:raylib/Sound///PointingToDeclaration/kray/raylib/-sound/index.html
+$dokka.location:raylib/Sound/Sound/#<ERROR CLASS> ERROR CLASS: Symbol not found for CPointer<ERROR CLASS: Symbol not found for raylib.internal.Sound>/PointingToDeclaration/kray/raylib/-sound/-sound.html
+$dokka.location:raylib/Sound/pause/#/PointingToDeclaration/kray/raylib/-sound/pause.html
+$dokka.location:raylib/Sound/play/#/PointingToDeclaration/kray/raylib/-sound/play.html
+$dokka.location:raylib/Sound/playing/#/PointingToDeclaration/kray/raylib/-sound/playing.html
+$dokka.location:raylib/Sound/resume/#/PointingToDeclaration/kray/raylib/-sound/resume.html
+$dokka.location:raylib/Sound/setPan/#kotlin.Float/PointingToDeclaration/kray/raylib/-sound/set-pan.html
+$dokka.location:raylib/Sound/setPitch/#kotlin.Float/PointingToDeclaration/kray/raylib/-sound/set-pitch.html
+$dokka.location:raylib/Sound/setVolume/#kotlin.Float/PointingToDeclaration/kray/raylib/-sound/set-volume.html
+$dokka.location:raylib/Sound/stop/#/PointingToDeclaration/kray/raylib/-sound/stop.html
+$dokka.location:raylib/Sound/unload/#/PointingToDeclaration/kray/raylib/-sound/unload.html
+$dokka.location:raylib/Sound/valid/#/PointingToDeclaration/kray/raylib/-sound/valid.html
 $dokka.location:raylib/Texture2D.Companion///PointingToDeclaration/kray/raylib/-texture2-d/-companion/index.html
 $dokka.location:raylib/Texture2D.Companion/load/#kotlin.String/PointingToDeclaration/kray/raylib/-texture2-d/-companion/load.html
 $dokka.location:raylib/Texture2D.Companion/load/#raylib.File/PointingToDeclaration/kray/raylib/-texture2-d/-companion/load.html
@@ -2138,6 +2210,20 @@ $dokka.location:raylib/Texture2D/height/#/PointingToDeclaration/kray/raylib/-te
 $dokka.location:raylib/Texture2D/id/#/PointingToDeclaration/kray/raylib/-texture2-d/id.html
 $dokka.location:raylib/Texture2D/mipmaps/#/PointingToDeclaration/kray/raylib/-texture2-d/mipmaps.html
 $dokka.location:raylib/Texture2D/width/#/PointingToDeclaration/kray/raylib/-texture2-d/width.html
+$dokka.location:raylib/Wave.Companion///PointingToDeclaration/kray/raylib/-wave/-companion/index.html
+$dokka.location:raylib/Wave.Companion/load/#kotlin.String/PointingToDeclaration/kray/raylib/-wave/-companion/load.html
+$dokka.location:raylib/Wave.Companion/loadFromMemory/#kotlin.String#<ERROR CLASS> ERROR CLASS: Symbol not found for UByteArray/PointingToDeclaration/kray/raylib/-wave/-companion/load-from-memory.html
+$dokka.location:raylib/Wave///PointingToDeclaration/kray/raylib/-wave/index.html
+$dokka.location:raylib/Wave/Wave/#<ERROR CLASS> ERROR CLASS: Symbol not found for CPointer<ERROR CLASS: Symbol not found for raylib.internal.Wave>/PointingToDeclaration/kray/raylib/-wave/-wave.html
+$dokka.location:raylib/Wave/channels/#/PointingToDeclaration/kray/raylib/-wave/channels.html
+$dokka.location:raylib/Wave/crop/#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/raylib/-wave/crop.html
+$dokka.location:raylib/Wave/data/#/PointingToDeclaration/kray/raylib/-wave/data.html
+$dokka.location:raylib/Wave/format/#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/kray/raylib/-wave/format.html
+$dokka.location:raylib/Wave/frameCount/#/PointingToDeclaration/kray/raylib/-wave/frame-count.html
+$dokka.location:raylib/Wave/loadSamples/#/PointingToDeclaration/kray/raylib/-wave/load-samples.html
+$dokka.location:raylib/Wave/sampleRate/#/PointingToDeclaration/kray/raylib/-wave/sample-rate.html
+$dokka.location:raylib/Wave/sampleSize/#/PointingToDeclaration/kray/raylib/-wave/sample-size.html
+$dokka.location:raylib/Wave/unload/#/PointingToDeclaration/kray/raylib/-wave/unload.html
 $dokka.location:raylib/Window.State.Companion///PointingToDeclaration/kray/raylib/-window/-state/-companion/index.html
 $dokka.location:raylib/Window.State.Companion/BORDERLESS_WINDOWED_MODE/#/PointingToDeclaration/kray/raylib/-window/-state/-companion/-b-o-r-d-e-r-l-e-s-s_-w-i-n-d-o-w-e-d_-m-o-d-e.html
 $dokka.location:raylib/Window.State.Companion/FULLSCREEN_MODE/#/PointingToDeclaration/kray/raylib/-window/-state/-companion/-f-u-l-l-s-c-r-e-e-n_-m-o-d-e.html
