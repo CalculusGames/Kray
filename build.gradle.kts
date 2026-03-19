@@ -8,7 +8,7 @@ import org.jetbrains.kotlin.gradle.tasks.CInteropProcess
 import org.jetbrains.kotlin.konan.target.Family
 
 plugins {
-    kotlin("multiplatform") version "2.3.10"
+    kotlin("multiplatform") version "2.3.20"
     id("org.jetbrains.dokka") version "2.1.0"
 
     `maven-publish`
